@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Quote Generator – GetSoloTools</title>
+<meta name="description" content="Create professional project quotes and estimates for free. Download as PDF instantly. No sign-up required.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1a1a;
+    --ink-2: #555;
+    --ink-3: #999;
+    --paper: #fafaf8;
+    --white: #ffffff;
+    --accent: #2d5be3;
+    --accent-light: #eef1fd;
+    --border: #e8e6e0;
+    --border-dark: #c8c4bc;
+    --success: #1a8a4a;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
+  }
+
+  body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; font-size: 15px; line-height: 1.6; }
+
+  header { background: var(--white); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; position: sticky; top: 0; z-index: 100; }
+  .logo { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--ink); text-decoration: none; letter-spacing: -0.02em; }
+  .logo span { color: var(--accent); }
+  nav a { color: var(--ink-2); text-decoration: none; font-size: 14px; font-weight: 500; margin-left: 1.5rem; transition: color 0.15s; }
+  nav a:hover, nav a.active { color: var(--accent); }
+
+  .hero { text-align: center; padding: 3.5rem 1rem 2.5rem; max-width: 640px; margin: 0 auto; }
+  .hero-badge { display: inline-block; background: var(--accent-light); color: var(--accent); font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem; }
+  .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
+  .hero p { color: var(--ink-2); font-size: 1rem; max-width: 480px; margin: 0 auto 1.5rem; }
+  .hero-features { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; font-size: 13px; color: var(--ink-3); }
+  .hero-features span::before { content: '✓ '; color: var(--success); font-weight: 600; }
+
+  .main-wrap { max-width: 860px; margin: 0 auto; padding: 0 1rem 4rem; }
+  .card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow); overflow: hidden; }
+  .toolbar { background: var(--ink); padding: 0.75rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .toolbar-label { color: rgba(255,255,255,0.5); font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+  .toolbar-actions { display: flex; gap: 0.5rem; }
+
+  .btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; font-family: 'DM Sans', sans-serif; transition: all 0.15s; }
+  .btn-ghost { background: rgba(255,255,255,0.1); color: #fff; }
+  .btn-ghost:hover { background: rgba(255,255,255,0.18); }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: #2248c4; transform: translateY(-1px); }
+  .btn-success { background: var(--success); color: #fff; }
+  .btn-success:hover { background: #156b3a; }
+  .btn-lg { padding: 12px 24px; font-size: 15px; border-radius: 10px; }
+
+  .body { padding: 2rem; }
+  .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+  @media (max-width: 600px) { .row-2 { grid-template-columns: 1fr; } }
+  .field-group { display: flex; flex-direction: column; gap: 0.75rem; }
+  .section-title { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+  label { font-size: 12px; font-weight: 500; color: var(--ink-2); display: block; margin-bottom: 4px; }
+  input[type="text"], input[type="email"], input[type="date"], input[type="number"], textarea, select { width: 100%; padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 14px; font-family: 'DM Sans', sans-serif; color: var(--ink); background: var(--white); transition: border-color 0.15s, box-shadow 0.15s; outline: none; }
+  input:focus, textarea:focus, select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(45,91,227,0.1); }
+  textarea { resize: vertical; min-height: 70px; }
+
+  .quote-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 2rem; padding: 1.25rem; background: var(--paper); border-radius: 10px; border: 1px solid var(--border); }
+
+  .items-section { margin-bottom: 1.5rem; }
+  .items-header { display: grid; grid-template-columns: 1fr 80px 110px 110px 36px; gap: 8px; padding: 8px 12px; background: var(--paper); border-radius: 8px 8px 0 0; border: 1px solid var(--border); border-bottom: none; }
+  .items-header span { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-3); }
+  .item-row { display: grid; grid-template-columns: 1fr 80px 110px 110px 36px; gap: 8px; padding: 8px; border: 1px solid var(--border); border-top: none; align-items: center; background: var(--white); }
+  .item-row:last-child { border-radius: 0 0 8px 8px; }
+  .item-row:hover { background: #fafaf8; }
+  .item-amount { font-size: 14px; font-weight: 500; color: var(--ink); text-align: right; padding: 8px 12px; background: var(--paper); border-radius: 6px; border: 1px solid var(--border); min-height: 36px; display: flex; align-items: center; justify-content: flex-end; }
+  .btn-remove { width: 28px; height: 28px; border: none; background: none; color: var(--ink-3); cursor: pointer; border-radius: 6px; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
+  .btn-remove:hover { background: #ffeaea; color: #c0392b; }
+  .btn-add-item { margin-top: 0.5rem; background: none; border: 1.5px dashed var(--border-dark); color: var(--ink-2); font-size: 13px; font-weight: 500; padding: 8px 16px; border-radius: 8px; cursor: pointer; width: 100%; font-family: 'DM Sans', sans-serif; transition: all 0.15s; }
+  .btn-add-item:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+
+  .totals-wrap { display: flex; justify-content: flex-end; margin-bottom: 1.5rem; }
+  .totals-box { min-width: 280px; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .totals-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; font-size: 14px; border-bottom: 1px solid var(--border); }
+  .totals-row:last-child { border-bottom: none; }
+  .totals-row label { font-size: 14px; margin: 0; color: var(--ink-2); font-weight: 400; }
+  .totals-row.total-final { background: var(--ink); color: white; }
+  .totals-row.total-final label { color: rgba(255,255,255,0.7); font-weight: 600; }
+  .totals-row.total-final .total-amount { font-size: 18px; font-weight: 700; color: white; }
+  .tax-input-wrap { display: flex; align-items: center; gap: 6px; }
+  .tax-input-wrap input { width: 60px; padding: 4px 8px; font-size: 13px; text-align: center; }
+
+  .notes-section { margin-bottom: 1rem; }
+  .bottom-actions { display: flex; gap: 1rem; justify-content: flex-end; padding-top: 1.5rem; border-top: 1px solid var(--border); flex-wrap: wrap; }
+
+  .info-section { margin-top: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+  .info-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; }
+  .info-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.05rem; margin-bottom: 0.5rem; }
+  .info-card p { font-size: 13px; color: var(--ink-2); line-height: 1.6; }
+
+  footer { border-top: 1px solid var(--border); text-align: center; padding: 2rem; font-size: 13px; color: var(--ink-3); margin-top: 2rem; }
+  footer a { color: var(--ink-2); text-decoration: none; margin: 0 0.4rem; }
+  footer a:hover { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="/" class="logo">Get<span>Solo</span>Tools</a>
+  <nav>
+    <a href="/">Invoice</a>
+    <a href="/receipt.html">Receipt</a>
+    <a href="/quote.html" class="active">Quote</a>
+    <a href="/hourly-rate.html">Hourly Rate</a>
+    <a href="/about.html">About</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="hero-badge">100% Free — No Sign-up</div>
+  <h1>Send Professional Quotes in Minutes</h1>
+  <p>Create polished project estimates and proposals. Download as PDF and send to clients before the work begins.</p>
+  <div class="hero-features">
+    <span>PDF Download</span>
+    <span>Validity Date</span>
+    <span>Tax Included</span>
+    <span>Free Forever</span>
+  </div>
+</div>
+
+<div class="main-wrap">
+  <div class="card">
+    <div class="toolbar">
+      <span class="toolbar-label">Quote Editor</span>
+      <div class="toolbar-actions">
+        <button class="btn btn-ghost" onclick="clearForm()">Clear</button>
+        <button class="btn btn-primary" onclick="generatePDF()">⬇ Download PDF</button>
+      </div>
+    </div>
+
+    <div class="body">
+      <div class="row-2">
+        <div class="field-group">
+          <div class="section-title">Your Business</div>
+          <div><label>Business / Your Name *</label><input type="text" id="fromName" placeholder="Acme Studio"></div>
+          <div><label>Address</label><textarea id="fromAddress" placeholder="123 Main St&#10;New York, NY 10001"></textarea></div>
+          <div><label>Email</label><input type="email" id="fromEmail" placeholder="hello@yourbusiness.com"></div>
+          <div><label>Phone</label><input type="text" id="fromPhone" placeholder="+1 (555) 000-0000"></div>
+        </div>
+        <div class="field-group">
+          <div class="section-title">Quote For</div>
+          <div><label>Client Name *</label><input type="text" id="toName" placeholder="Client Company Ltd"></div>
+          <div><label>Address</label><textarea id="toAddress" placeholder="456 Client Ave&#10;Los Angeles, CA 90001"></textarea></div>
+          <div><label>Email</label><input type="email" id="toEmail" placeholder="client@example.com"></div>
+          <div><label>Phone</label><input type="text" id="toPhone" placeholder="+1 (555) 111-2222"></div>
+        </div>
+      </div>
+
+      <div class="quote-meta">
+        <div><label>Quote Number</label><input type="text" id="quoteNumber" value="QUO-001"></div>
+        <div><label>Issue Date</label><input type="date" id="issueDate"></div>
+        <div><label>Valid Until</label><input type="date" id="validUntil"></div>
+        <div>
+          <label>Currency</label>
+          <select id="currency">
+            <option value="USD">USD ($)</option>
+            <option value="EUR">EUR (€)</option>
+            <option value="GBP">GBP (£)</option>
+            <option value="CAD">CAD (C$)</option>
+            <option value="AUD">AUD (A$)</option>
+            <option value="JPY">JPY (¥)</option>
+            <option value="KRW">KRW (₩)</option>
+            <option value="SGD">SGD (S$)</option>
+            <option value="INR">INR (₹)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="items-section">
+        <div class="section-title" style="margin-bottom:0.75rem">Services / Deliverables</div>
+        <div class="items-header">
+          <span>Description</span><span>Qty</span><span>Unit Price</span><span style="text-align:right">Amount</span><span></span>
+        </div>
+        <div id="itemsContainer"></div>
+        <button class="btn-add-item" onclick="addItem()">+ Add Line Item</button>
+      </div>
+
+      <div class="totals-wrap">
+        <div class="totals-box">
+          <div class="totals-row"><label>Subtotal</label><span id="subtotalDisplay">$0.00</span></div>
+          <div class="totals-row">
+            <label>Tax (%)</label>
+            <div class="tax-input-wrap">
+              <input type="number" id="taxRate" value="0" min="0" max="100" step="0.5" onchange="recalc()" oninput="recalc()">
+              <span style="font-size:13px;color:var(--ink-2)">%</span>
+            </div>
+          </div>
+          <div class="totals-row"><label>Tax Amount</label><span id="taxDisplay">$0.00</span></div>
+          <div class="totals-row total-final"><label>Quote Total</label><span class="total-amount" id="totalDisplay">$0.00</span></div>
+        </div>
+      </div>
+
+      <div class="notes-section">
+        <label>Terms & Notes</label>
+        <textarea id="notes" placeholder="This quote is valid for 30 days. 50% deposit required to begin work. Final payment due upon delivery."></textarea>
+      </div>
+
+      <div class="bottom-actions">
+        <button class="btn btn-ghost btn-lg" style="background:var(--paper);color:var(--ink);border:1px solid var(--border)" onclick="clearForm()">Clear Form</button>
+        <button class="btn btn-success btn-lg" onclick="generatePDF()">⬇ Download PDF Quote</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-section">
+    <div class="info-card">
+      <h3>What is a quote?</h3>
+      <p>A quote (or estimate) is a document you send to a potential client before work begins, outlining the scope and cost of a project. It sets clear expectations for both sides.</p>
+    </div>
+    <div class="info-card">
+      <h3>Quote vs Invoice</h3>
+      <p>A quote comes before the work, proposing a price. An invoice comes after, requesting payment. A client approves a quote, then you deliver the work and send an invoice.</p>
+    </div>
+    <div class="info-card">
+      <h3>Tips for winning quotes</h3>
+      <p>Be specific about deliverables. Include a validity date to create urgency. Break down line items clearly so clients see the value they're getting.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 <a href="/">GetSoloTools</a> &nbsp;·&nbsp;
+    <a href="/about.html">About</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/contact.html">Contact</a>
+  </p>
+</footer>
+
+<script>
+const CURRENCIES = { USD:'$', EUR:'€', GBP:'£', CAD:'C$', AUD:'A$', JPY:'¥', KRW:'₩', SGD:'S$', INR:'₹' };
+let itemCount = 0;
+
+function getSymbol() { return CURRENCIES[document.getElementById('currency').value] || '$'; }
+function fmt(n) { return getSymbol() + parseFloat(n || 0).toFixed(2); }
+
+function addItem(desc='', qty=1, price='') {
+  itemCount++;
+  const id = itemCount;
+  const container = document.getElementById('itemsContainer');
+  const row = document.createElement('div');
+  row.className = 'item-row'; row.id = 'item-' + id;
+  row.innerHTML = `
+    <input type="text" placeholder="e.g. Website design" value="${desc}" oninput="recalc()">
+    <input type="number" value="${qty}" min="0" step="1" oninput="recalc()" style="text-align:center">
+    <input type="number" value="${price}" min="0" step="0.01" placeholder="0.00" oninput="recalc()">
+    <div class="item-amount" id="amt-${id}">—</div>
+    <button class="btn-remove" onclick="removeItem(${id})">×</button>
+  `;
+  container.appendChild(row); recalc();
+}
+
+function removeItem(id) { const el = document.getElementById('item-' + id); if (el) el.remove(); recalc(); }
+
+function recalc() {
+  let subtotal = 0;
+  document.querySelectorAll('.item-row').forEach(row => {
+    const inputs = row.querySelectorAll('input[type="number"]');
+    const qty = parseFloat(inputs[0]?.value) || 0;
+    const price = parseFloat(inputs[1]?.value) || 0;
+    const amt = qty * price; subtotal += amt;
+    const amtEl = row.querySelector('.item-amount');
+    if (amtEl) amtEl.textContent = fmt(amt);
+  });
+  const taxRate = parseFloat(document.getElementById('taxRate').value) || 0;
+  const tax = subtotal * (taxRate / 100);
+  document.getElementById('subtotalDisplay').textContent = fmt(subtotal);
+  document.getElementById('taxDisplay').textContent = fmt(tax);
+  document.getElementById('totalDisplay').textContent = fmt(subtotal + tax);
+}
+
+function clearForm() {
+  if (!confirm('Clear all fields?')) return;
+  ['fromName','fromAddress','fromEmail','fromPhone','toName','toAddress','toEmail','toPhone','notes'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('quoteNumber').value = 'QUO-001';
+  document.getElementById('taxRate').value = '0';
+  document.getElementById('itemsContainer').innerHTML = '';
+  itemCount = 0; recalc();
+}
+
+async function generatePDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ unit: 'mm', format: 'a4' });
+  const sym = getSymbol(); const W = 210; const margin = 18;
+
+  const fromName = document.getElementById('fromName').value || 'Your Business';
+  const fromAddress = document.getElementById('fromAddress').value;
+  const fromEmail = document.getElementById('fromEmail').value;
+  const fromPhone = document.getElementById('fromPhone').value;
+  const toName = document.getElementById('toName').value || 'Client';
+  const toAddress = document.getElementById('toAddress').value;
+  const toEmail = document.getElementById('toEmail').value;
+  const toPhone = document.getElementById('toPhone').value;
+  const quoteNum = document.getElementById('quoteNumber').value || 'QUO-001';
+  const issueDate = document.getElementById('issueDate').value;
+  const validUntil = document.getElementById('validUntil').value;
+  const notes = document.getElementById('notes').value;
+  const taxRate = parseFloat(document.getElementById('taxRate').value) || 0;
+
+  let y = margin;
+
+  doc.setFillColor(45, 91, 227);
+  doc.rect(0, 0, W, 40, 'F');
+
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(22);
+  doc.setTextColor(255, 255, 255);
+  doc.text('QUOTE', W - margin, 18, { align: 'right' });
+  doc.setFontSize(10);
+  doc.setFont('helvetica', 'normal');
+  doc.setTextColor(180, 200, 255);
+  doc.text(`#${quoteNum}`, W - margin, 26, { align: 'right' });
+
+  y = 52;
+
+  // FROM
+  doc.setTextColor(150,150,150); doc.setFontSize(8); doc.setFont('helvetica','bold');
+  doc.text('FROM', margin, y); y += 5;
+  doc.setFont('helvetica','bold'); doc.setFontSize(12); doc.setTextColor(26,26,26);
+  doc.text(fromName, margin, y); y += 5;
+  doc.setFont('helvetica','normal'); doc.setFontSize(9); doc.setTextColor(80,80,80);
+  if (fromAddress) fromAddress.split('\n').forEach(l => { doc.text(l, margin, y); y += 4.5; });
+  if (fromEmail) { doc.text(fromEmail, margin, y); y += 4.5; }
+  if (fromPhone) { doc.text(fromPhone, margin, y); y += 4.5; }
+
+  let y2 = 52; const rightX = W/2 + 5;
+  doc.setTextColor(150,150,150); doc.setFontSize(8); doc.setFont('helvetica','bold');
+  doc.text('QUOTE FOR', rightX, y2); y2 += 5;
+  doc.setFont('helvetica','bold'); doc.setFontSize(12); doc.setTextColor(26,26,26);
+  doc.text(toName, rightX, y2); y2 += 5;
+  doc.setFont('helvetica','normal'); doc.setFontSize(9); doc.setTextColor(80,80,80);
+  if (toAddress) toAddress.split('\n').forEach(l => { doc.text(l, rightX, y2); y2 += 4.5; });
+  if (toEmail) { doc.text(toEmail, rightX, y2); y2 += 4.5; }
+  if (toPhone) { doc.text(toPhone, rightX, y2); y2 += 4.5; }
+
+  y = Math.max(y, y2) + 8;
+
+  doc.setFillColor(248,248,246); doc.roundedRect(margin, y, W-margin*2, 18, 2, 2, 'F');
+  const metas = [['Issue Date', issueDate || '—'], ['Valid Until', validUntil || '—'], ['Currency', document.getElementById('currency').value]];
+  const colW = (W-margin*2)/metas.length;
+  metas.forEach(([label, val], i) => {
+    const x = margin + i*colW + colW/2;
+    doc.setFont('helvetica','bold'); doc.setFontSize(7); doc.setTextColor(150,150,150);
+    doc.text(label.toUpperCase(), x, y+6, {align:'center'});
+    doc.setFont('helvetica','bold'); doc.setFontSize(10); doc.setTextColor(26,26,26);
+    doc.text(val, x, y+13, {align:'center'});
+  });
+  y += 26;
+
+  doc.setFillColor(45,91,227); doc.rect(margin, y, W-margin*2, 8, 'F');
+  doc.setFont('helvetica','bold'); doc.setFontSize(8); doc.setTextColor(200,220,255);
+  const cols = [margin+2, 120, 148, W-margin-2];
+  doc.text('DESCRIPTION', cols[0], y+5.5);
+  doc.text('QTY', cols[1], y+5.5, {align:'center'});
+  doc.text('UNIT PRICE', cols[2], y+5.5, {align:'right'});
+  doc.text('AMOUNT', cols[3], y+5.5, {align:'right'});
+  y += 8;
+
+  let subtotal = 0;
+  document.querySelectorAll('.item-row').forEach((row, i) => {
+    const inputs = row.querySelectorAll('input');
+    const desc = inputs[0]?.value || '';
+    const qty = parseFloat(inputs[1]?.value) || 0;
+    const price = parseFloat(inputs[2]?.value) || 0;
+    const amt = qty * price; subtotal += amt;
+    if (i%2===0) { doc.setFillColor(250,250,248); doc.rect(margin, y, W-margin*2, 8, 'F'); }
+    doc.setFont('helvetica','normal'); doc.setFontSize(9); doc.setTextColor(30,30,30);
+    doc.text(desc||'—', cols[0], y+5.5);
+    doc.text(qty.toString(), cols[1], y+5.5, {align:'center'});
+    doc.text(`${sym}${price.toFixed(2)}`, cols[2], y+5.5, {align:'right'});
+    doc.text(`${sym}${amt.toFixed(2)}`, cols[3], y+5.5, {align:'right'});
+    y += 8;
+  });
+
+  y += 6;
+  const taxAmt = subtotal * (taxRate/100);
+  const total = subtotal + taxAmt;
+  const totalsX = W-margin-70; const totalsRight = W-margin;
+
+  function totalsLine(label, value, bold=false) {
+    if (bold) { doc.setFillColor(45,91,227); doc.rect(totalsX-4, y-4, 74, 11, 'F'); doc.setTextColor(255,255,255); }
+    else { doc.setTextColor(80,80,80); }
+    doc.setFont('helvetica', bold?'bold':'normal'); doc.setFontSize(bold?11:9);
+    doc.text(label, totalsX, y+3); doc.text(value, totalsRight, y+3, {align:'right'});
+    y += bold ? 11 : 8;
+  }
+
+  totalsLine('Subtotal', `${sym}${subtotal.toFixed(2)}`);
+  if (taxRate > 0) totalsLine(`Tax (${taxRate}%)`, `${sym}${taxAmt.toFixed(2)}`);
+  totalsLine('QUOTE TOTAL', `${sym}${total.toFixed(2)}`, true);
+
+  if (notes) {
+    y += 10;
+    doc.setFillColor(248,248,246); doc.roundedRect(margin, y, W-margin*2, 4, 1, 1, 'F');
+    doc.setFont('helvetica','bold'); doc.setFontSize(8); doc.setTextColor(100,100,100);
+    doc.text('TERMS & NOTES', margin+3, y+3); y += 8;
+    doc.setFont('helvetica','normal'); doc.setFontSize(9); doc.setTextColor(60,60,60);
+    const lines = doc.splitTextToSize(notes, W-margin*2-6);
+    lines.forEach(line => { doc.text(line, margin+3, y); y += 5; });
+  }
+
+  doc.setFontSize(8); doc.setTextColor(180,180,180);
+  doc.text('Generated with GetSoloTools.com — Free tools for freelancers', W/2, 290, {align:'center'});
+  doc.save(`${quoteNum||'quote'}.pdf`);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const today = new Date();
+  const valid = new Date(); valid.setDate(valid.getDate() + 30);
+  document.getElementById('issueDate').value = today.toISOString().split('T')[0];
+  document.getElementById('validUntil').value = valid.toISOString().split('T')[0];
+  addItem('', 1, ''); addItem('', 1, '');
+  document.getElementById('currency').addEventListener('change', recalc);
+});
+</script>
+</body>
+</html>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Invoice Generator – GetSoloTools</title>
-<meta name="description" content="Create professional invoices online for free. Fill in your details and download a PDF invoice instantly. No sign-up required. Free forever.">/
+<title>Free Receipt Generator – GetSoloTools</title>
+<meta name="description" content="Create professional receipts online for free. Fill in payment details and download a PDF receipt instantly. No sign-up required.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -23,7 +23,6 @@
     --border-dark: #c8c4bc;
     --success: #1a8a4a;
     --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
-    --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
   }
 
   body {
@@ -35,7 +34,6 @@
     line-height: 1.6;
   }
 
-  /* HEADER */
   header {
     background: var(--white);
     border-bottom: 1px solid var(--border);
@@ -56,7 +54,6 @@
     text-decoration: none;
     letter-spacing: -0.02em;
   }
-
   .logo span { color: var(--accent); }
 
   nav a {
@@ -68,8 +65,8 @@
     transition: color 0.15s;
   }
   nav a:hover { color: var(--accent); }
+  nav a.active { color: var(--accent); }
 
-  /* HERO */
   .hero {
     text-align: center;
     padding: 3.5rem 1rem 2.5rem;
@@ -96,15 +93,9 @@
     line-height: 1.15;
     letter-spacing: -0.03em;
     margin-bottom: 0.75rem;
-    color: var(--ink);
   }
 
-  .hero p {
-    color: var(--ink-2);
-    font-size: 1rem;
-    max-width: 480px;
-    margin: 0 auto 1.5rem;
-  }
+  .hero p { color: var(--ink-2); font-size: 1rem; max-width: 480px; margin: 0 auto 1.5rem; }
 
   .hero-features {
     display: flex;
@@ -114,22 +105,11 @@
     font-size: 13px;
     color: var(--ink-3);
   }
+  .hero-features span::before { content: '✓ '; color: var(--success); font-weight: 600; }
 
-  .hero-features span::before {
-    content: '✓ ';
-    color: var(--success);
-    font-weight: 600;
-  }
+  .main-wrap { max-width: 860px; margin: 0 auto; padding: 0 1rem 4rem; }
 
-  /* MAIN LAYOUT */
-  .main-wrap {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 1rem 4rem;
-  }
-
-  /* INVOICE CARD */
-  .invoice-card {
+  .card {
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: 16px;
@@ -137,7 +117,7 @@
     overflow: hidden;
   }
 
-  .invoice-toolbar {
+  .toolbar {
     background: var(--ink);
     padding: 0.75rem 1.5rem;
     display: flex;
@@ -155,10 +135,7 @@
     text-transform: uppercase;
   }
 
-  .toolbar-actions {
-    display: flex;
-    gap: 0.5rem;
-  }
+  .toolbar-actions { display: flex; gap: 0.5rem; }
 
   .btn {
     display: inline-flex;
@@ -174,47 +151,25 @@
     transition: all 0.15s;
     text-decoration: none;
   }
-
-  .btn-ghost {
-    background: rgba(255,255,255,0.1);
-    color: #fff;
-  }
+  .btn-ghost { background: rgba(255,255,255,0.1); color: #fff; }
   .btn-ghost:hover { background: rgba(255,255,255,0.18); }
-
-  .btn-primary {
-    background: var(--accent);
-    color: #fff;
-  }
+  .btn-primary { background: var(--accent); color: #fff; }
   .btn-primary:hover { background: #2248c4; transform: translateY(-1px); }
-
-  .btn-success {
-    background: var(--success);
-    color: #fff;
-  }
+  .btn-success { background: var(--success); color: #fff; }
   .btn-success:hover { background: #156b3a; }
+  .btn-lg { padding: 12px 24px; font-size: 15px; border-radius: 10px; }
 
-  /* INVOICE BODY */
-  .invoice-body {
-    padding: 2rem;
-  }
+  .body { padding: 2rem; }
 
-  /* TWO-COL */
   .row-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
     margin-bottom: 1.5rem;
   }
+  @media (max-width: 600px) { .row-2 { grid-template-columns: 1fr; } }
 
-  @media (max-width: 600px) {
-    .row-2 { grid-template-columns: 1fr; }
-  }
-
-  .field-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
+  .field-group { display: flex; flex-direction: column; gap: 0.75rem; }
 
   .section-title {
     font-size: 11px;
@@ -235,12 +190,8 @@
     margin-bottom: 4px;
   }
 
-  input[type="text"],
-  input[type="email"],
-  input[type="date"],
-  input[type="number"],
-  textarea,
-  select {
+  input[type="text"], input[type="email"], input[type="date"],
+  input[type="number"], textarea, select {
     width: 100%;
     padding: 8px 12px;
     border: 1px solid var(--border);
@@ -252,16 +203,13 @@
     transition: border-color 0.15s, box-shadow 0.15s;
     outline: none;
   }
-
   input:focus, textarea:focus, select:focus {
     border-color: var(--accent);
     box-shadow: 0 0 0 3px rgba(45,91,227,0.1);
   }
-
   textarea { resize: vertical; min-height: 70px; }
 
-  /* INVOICE META */
-  .invoice-meta {
+  .receipt-meta {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 1rem;
@@ -272,12 +220,12 @@
     border: 1px solid var(--border);
   }
 
-  /* ITEMS TABLE */
+  /* ITEMS */
   .items-section { margin-bottom: 1.5rem; }
 
   .items-header {
     display: grid;
-    grid-template-columns: 1fr 80px 100px 100px 36px;
+    grid-template-columns: 1fr 80px 110px 110px 36px;
     gap: 8px;
     padding: 8px 12px;
     background: var(--paper);
@@ -285,7 +233,6 @@
     border: 1px solid var(--border);
     border-bottom: none;
   }
-
   .items-header span {
     font-size: 11px;
     font-weight: 600;
@@ -296,18 +243,16 @@
 
   .item-row {
     display: grid;
-    grid-template-columns: 1fr 80px 100px 100px 36px;
+    grid-template-columns: 1fr 80px 110px 110px 36px;
     gap: 8px;
     padding: 8px;
     border: 1px solid var(--border);
     border-top: none;
     align-items: center;
     background: var(--white);
-    transition: background 0.1s;
   }
-
-  .item-row:hover { background: #fafaf8; }
   .item-row:last-child { border-radius: 0 0 8px 8px; }
+  .item-row:hover { background: #fafaf8; }
 
   .item-amount {
     font-size: 14px;
@@ -325,19 +270,12 @@
   }
 
   .btn-remove {
-    width: 28px;
-    height: 28px;
-    border: none;
-    background: none;
-    color: var(--ink-3);
-    cursor: pointer;
-    border-radius: 6px;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 28px; height: 28px;
+    border: none; background: none;
+    color: var(--ink-3); cursor: pointer;
+    border-radius: 6px; font-size: 16px;
+    display: flex; align-items: center; justify-content: center;
     transition: all 0.15s;
-    line-height: 1;
   }
   .btn-remove:hover { background: #ffeaea; color: #c0392b; }
 
@@ -357,12 +295,7 @@
   }
   .btn-add-item:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
 
-  /* TOTALS */
-  .totals-wrap {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 1.5rem;
-  }
+  .totals-wrap { display: flex; justify-content: flex-end; margin-bottom: 1.5rem; }
 
   .totals-box {
     min-width: 280px;
@@ -379,49 +312,17 @@
     font-size: 14px;
     border-bottom: 1px solid var(--border);
   }
-
   .totals-row:last-child { border-bottom: none; }
+  .totals-row label { font-size: 14px; margin: 0; color: var(--ink-2); font-weight: 400; }
+  .totals-row.total-final { background: var(--ink); color: white; }
+  .totals-row.total-final label { color: rgba(255,255,255,0.7); font-weight: 600; }
+  .totals-row.total-final .total-amount { font-size: 18px; font-weight: 700; color: white; }
 
-  .totals-row label {
-    font-size: 14px;
-    margin: 0;
-    color: var(--ink-2);
-    font-weight: 400;
-  }
+  .tax-input-wrap { display: flex; align-items: center; gap: 6px; }
+  .tax-input-wrap input { width: 60px; padding: 4px 8px; font-size: 13px; text-align: center; }
 
-  .totals-row.total-final {
-    background: var(--ink);
-    color: white;
-  }
-
-  .totals-row.total-final label {
-    color: rgba(255,255,255,0.7);
-    font-weight: 600;
-  }
-
-  .totals-row.total-final .total-amount {
-    font-size: 18px;
-    font-weight: 700;
-    color: white;
-  }
-
-  .tax-input-wrap {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .tax-input-wrap input {
-    width: 60px;
-    padding: 4px 8px;
-    font-size: 13px;
-    text-align: center;
-  }
-
-  /* NOTES */
   .notes-section { margin-bottom: 1rem; }
 
-  /* BOTTOM ACTIONS */
   .bottom-actions {
     display: flex;
     gap: 1rem;
@@ -431,77 +332,59 @@
     flex-wrap: wrap;
   }
 
-  .btn-lg {
-    padding: 12px 24px;
-    font-size: 15px;
-    border-radius: 10px;
+  /* PAYMENT METHOD BADGE */
+  .payment-badge {
+    display: inline-flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
+  .payment-opt {
+    padding: 5px 12px;
+    border: 1.5px solid var(--border);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+    background: var(--white);
+    color: var(--ink-2);
+  }
+  .payment-opt.selected {
+    border-color: var(--accent);
+    background: var(--accent-light);
+    color: var(--accent);
   }
 
-  /* INFO SECTION */
   .info-section {
     margin-top: 3rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1.5rem;
   }
-
   .info-card {
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 1.25rem;
   }
-
   .info-card h3 {
     font-family: 'DM Serif Display', serif;
     font-size: 1.05rem;
     margin-bottom: 0.5rem;
-    color: var(--ink);
   }
+  .info-card p { font-size: 13px; color: var(--ink-2); line-height: 1.6; }
 
-  .info-card p {
-    font-size: 13px;
-    color: var(--ink-2);
-    line-height: 1.6;
-  }
-
-  /* CURRENCY SELECT */
-  .currency-wrap {
-    display: flex;
-    gap: 8px;
-    align-items: flex-start;
-  }
-
-  .currency-wrap select {
-    width: 90px;
-    flex-shrink: 0;
-  }
-
-  /* LOGO UPLOAD */
-  .logo-upload-area {
-    border: 1.5px dashed var(--border-dark);
-    border-radius: 8px;
-    padding: 12px;
+  footer {
+    border-top: 1px solid var(--border);
     text-align: center;
-    cursor: pointer;
-    transition: all 0.15s;
-    position: relative;
-    min-height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 2rem;
+    font-size: 13px;
+    color: var(--ink-3);
+    margin-top: 2rem;
   }
-  .logo-upload-area:hover { border-color: var(--accent); background: var(--accent-light); }
-  .logo-upload-area input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
-  .logo-upload-area img { max-height: 50px; max-width: 150px; object-fit: contain; }
-  .logo-upload-text { font-size: 12px; color: var(--ink-3); }
-
-  @media (max-width: 500px) {
-    .items-header, .item-row {
-      grid-template-columns: 1fr 60px 80px 80px 28px;
-    }
-    .invoice-body { padding: 1.25rem; }
-  }
+  footer a { color: var(--ink-2); text-decoration: none; margin: 0 0.4rem; }
+  footer a:hover { color: var(--accent); }
 </style>
 </head>
 <body>
@@ -509,7 +392,8 @@
 <header>
   <a href="/" class="logo">Get<span>Solo</span>Tools</a>
   <nav>
-    <a href="/receipt.html">Receipt</a>
+    <a href="/">Invoice</a>
+    <a href="/receipt.html" class="active">Receipt</a>
     <a href="/quote.html">Quote</a>
     <a href="/hourly-rate.html">Hourly Rate</a>
     <a href="/about.html">About</a>
@@ -518,43 +402,35 @@
 
 <div class="hero">
   <div class="hero-badge">100% Free — No Sign-up</div>
-  <h1>Create Professional Invoices in Seconds</h1>
-  <p>Fill in your details, add line items, and download a PDF invoice instantly. No account needed.</p>
+  <h1>Create a Receipt in Seconds</h1>
+  <p>Issue professional payment receipts instantly. Fill in the details and download a PDF. No account needed.</p>
   <div class="hero-features">
     <span>PDF Download</span>
-    <span>Custom Logo</span>
-    <span>Tax Calculation</span>
+    <span>Payment Method</span>
+    <span>Tax Included</span>
     <span>Free Forever</span>
   </div>
 </div>
 
 <div class="main-wrap">
-  <div class="invoice-card">
-    <div class="invoice-toolbar">
-      <span class="toolbar-label">Invoice Editor</span>
+  <div class="card">
+    <div class="toolbar">
+      <span class="toolbar-label">Receipt Editor</span>
       <div class="toolbar-actions">
         <button class="btn btn-ghost" onclick="clearForm()">Clear</button>
         <button class="btn btn-primary" onclick="generatePDF()">⬇ Download PDF</button>
       </div>
     </div>
 
-    <div class="invoice-body">
+    <div class="body">
 
-      <!-- FROM / TO -->
       <div class="row-2">
+        <!-- FROM -->
         <div class="field-group">
           <div class="section-title">Your Business</div>
           <div>
-            <label>Logo (optional)</label>
-            <div class="logo-upload-area" id="logoArea">
-              <input type="file" accept="image/*" id="logoInput" onchange="handleLogo(this)">
-              <span class="logo-upload-text" id="logoText">Click to upload logo</span>
-              <img id="logoPreview" style="display:none">
-            </div>
-          </div>
-          <div>
             <label>Business / Your Name *</label>
-            <input type="text" id="fromName" placeholder="Acme Studio" value="">
+            <input type="text" id="fromName" placeholder="Acme Studio">
           </div>
           <div>
             <label>Address</label>
@@ -570,8 +446,9 @@
           </div>
         </div>
 
+        <!-- TO -->
         <div class="field-group">
-          <div class="section-title">Bill To</div>
+          <div class="section-title">Received From</div>
           <div>
             <label>Client Name *</label>
             <input type="text" id="toName" placeholder="Client Company Ltd">
@@ -591,19 +468,15 @@
         </div>
       </div>
 
-      <!-- INVOICE META -->
-      <div class="invoice-meta">
+      <!-- META -->
+      <div class="receipt-meta">
         <div>
-          <label>Invoice Number</label>
-          <input type="text" id="invoiceNumber" value="INV-001">
+          <label>Receipt Number</label>
+          <input type="text" id="receiptNumber" value="REC-001">
         </div>
         <div>
-          <label>Issue Date</label>
-          <input type="date" id="issueDate">
-        </div>
-        <div>
-          <label>Due Date</label>
-          <input type="date" id="dueDate">
+          <label>Date of Payment</label>
+          <input type="date" id="payDate">
         </div>
         <div>
           <label>Currency</label>
@@ -619,11 +492,21 @@
             <option value="INR">INR (₹)</option>
           </select>
         </div>
+        <div>
+          <label>Payment Method</label>
+          <div class="payment-badge">
+            <span class="payment-opt selected" onclick="selectPayment(this)">Cash</span>
+            <span class="payment-opt" onclick="selectPayment(this)">Card</span>
+            <span class="payment-opt" onclick="selectPayment(this)">Bank Transfer</span>
+            <span class="payment-opt" onclick="selectPayment(this)">PayPal</span>
+            <span class="payment-opt" onclick="selectPayment(this)">Check</span>
+          </div>
+        </div>
       </div>
 
       <!-- LINE ITEMS -->
       <div class="items-section">
-        <div class="section-title" style="margin-bottom:0.75rem">Line Items</div>
+        <div class="section-title" style="margin-bottom:0.75rem">Items / Services Paid For</div>
         <div class="items-header">
           <span>Description</span>
           <span>Qty</span>
@@ -643,13 +526,6 @@
             <span id="subtotalDisplay">$0.00</span>
           </div>
           <div class="totals-row">
-            <label>Discount (%)</label>
-            <div class="tax-input-wrap">
-              <input type="number" id="discount" value="0" min="0" max="100" step="1" onchange="recalc()" oninput="recalc()">
-              <span style="font-size:13px;color:var(--ink-2)">%</span>
-            </div>
-          </div>
-          <div class="totals-row">
             <label>Tax (%)</label>
             <div class="tax-input-wrap">
               <input type="number" id="taxRate" value="0" min="0" max="100" step="0.5" onchange="recalc()" oninput="recalc()">
@@ -661,7 +537,7 @@
             <span id="taxDisplay">$0.00</span>
           </div>
           <div class="totals-row total-final">
-            <label>Total Due</label>
+            <label>Amount Paid</label>
             <span class="total-amount" id="totalDisplay">$0.00</span>
           </div>
         </div>
@@ -669,46 +545,40 @@
 
       <!-- NOTES -->
       <div class="notes-section">
-        <label>Notes / Payment Instructions</label>
-        <textarea id="notes" placeholder="Payment due within 30 days. Bank transfer to: Account 0000-0000. Thank you for your business!"></textarea>
+        <label>Notes / Thank You Message</label>
+        <textarea id="notes" placeholder="Thank you for your payment! Please keep this receipt for your records."></textarea>
       </div>
 
-      <!-- BOTTOM ACTIONS -->
       <div class="bottom-actions">
         <button class="btn btn-ghost btn-lg" style="background:var(--paper);color:var(--ink);border:1px solid var(--border)" onclick="clearForm()">Clear Form</button>
-        <button class="btn btn-success btn-lg" onclick="generatePDF()">⬇ Download PDF Invoice</button>
+        <button class="btn btn-success btn-lg" onclick="generatePDF()">⬇ Download PDF Receipt</button>
       </div>
 
     </div>
   </div>
 
-  <!-- INFO CARDS -->
-  <div class="info-section" id="how-it-works">
+  <div class="info-section">
     <div class="info-card">
-      <h3>How to create an invoice</h3>
-      <p>Fill in your business details, add your client's information, list your services or products, and click Download PDF. Your invoice is ready in under 2 minutes.</p>
+      <h3>What is a receipt?</h3>
+      <p>A receipt is a document issued after payment confirming that money has been received. It protects both the buyer and seller and is essential for bookkeeping.</p>
     </div>
     <div class="info-card">
-      <h3>What should an invoice include?</h3>
-      <p>A proper invoice needs: your business name and contact, client details, a unique invoice number, issue and due dates, itemized services, and the total amount due.</p>
+      <h3>Receipt vs Invoice</h3>
+      <p>An invoice requests payment before it's made. A receipt confirms payment after it's received. Use both for a complete paper trail with your clients.</p>
     </div>
     <div class="info-card">
-      <h3>Is this tool really free?</h3>
-      <p>Yes, completely free with no sign-up required. You can create unlimited invoices and download them as PDFs at no cost, forever.</p>
-    </div>
-    <div class="info-card">
-      <h3>Invoice vs Receipt</h3>
-      <p>An invoice is sent before payment to request money owed. A receipt is issued after payment as proof of purchase. Both serve different purposes in your business records.</p>
+      <h3>When should I issue a receipt?</h3>
+      <p>Issue a receipt immediately after receiving payment — whether cash, card, or bank transfer. Clients often need receipts for expense reports and tax purposes.</p>
     </div>
   </div>
 
 </div>
 
-<footer style="border-top:1px solid var(--border);text-align:center;padding:2rem;font-size:13px;color:var(--ink-3);margin-top:2rem;">
-  <p>© 2025 <a href="/" style="color:var(--ink-2);text-decoration:none;font-weight:500;">GetSoloTools</a> &nbsp;·&nbsp;
-    <a href="/about.html" style="color:var(--ink-3);text-decoration:none;margin:0 0.4rem;">About</a>
-    <a href="/privacy.html" style="color:var(--ink-3);text-decoration:none;margin:0 0.4rem;">Privacy</a>
-    <a href="/contact.html" style="color:var(--ink-3);text-decoration:none;margin:0 0.4rem;">Contact</a>
+<footer>
+  <p>© 2025 <a href="/">GetSoloTools</a> &nbsp;·&nbsp;
+    <a href="/about.html">About</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/contact.html">Contact</a>
   </p>
 </footer>
 
@@ -718,16 +588,21 @@ const CURRENCIES = {
   AUD: 'A$', JPY: '¥', KRW: '₩', SGD: 'S$', INR: '₹'
 };
 
-let logoDataUrl = null;
 let itemCount = 0;
+let selectedPayment = 'Cash';
+
+function selectPayment(el) {
+  document.querySelectorAll('.payment-opt').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedPayment = el.textContent;
+}
 
 function getSymbol() {
   return CURRENCIES[document.getElementById('currency').value] || '$';
 }
 
 function fmt(n) {
-  const sym = getSymbol();
-  return sym + parseFloat(n || 0).toFixed(2);
+  return getSymbol() + parseFloat(n || 0).toFixed(2);
 }
 
 function addItem(desc='', qty=1, price='') {
@@ -738,7 +613,7 @@ function addItem(desc='', qty=1, price='') {
   row.className = 'item-row';
   row.id = 'item-' + id;
   row.innerHTML = `
-    <input type="text" placeholder="Web design services" value="${desc}" oninput="recalc()">
+    <input type="text" placeholder="Service or product" value="${desc}" oninput="recalc()">
     <input type="number" value="${qty}" min="0" step="1" oninput="recalc()" style="text-align:center">
     <input type="number" value="${price}" min="0" step="0.01" placeholder="0.00" oninput="recalc()">
     <div class="item-amount" id="amt-${id}">—</div>
@@ -765,45 +640,22 @@ function recalc() {
     const amtEl = row.querySelector('.item-amount');
     if (amtEl) amtEl.textContent = fmt(amt);
   });
-
-  const discount = parseFloat(document.getElementById('discount').value) || 0;
-  const discounted = subtotal * (1 - discount / 100);
   const taxRate = parseFloat(document.getElementById('taxRate').value) || 0;
-  const tax = discounted * (taxRate / 100);
-  const total = discounted + tax;
-
+  const tax = subtotal * (taxRate / 100);
+  const total = subtotal + tax;
   document.getElementById('subtotalDisplay').textContent = fmt(subtotal);
   document.getElementById('taxDisplay').textContent = fmt(tax);
   document.getElementById('totalDisplay').textContent = fmt(total);
 }
 
-function handleLogo(input) {
-  const file = input.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = e => {
-    logoDataUrl = e.target.result;
-    document.getElementById('logoText').style.display = 'none';
-    const img = document.getElementById('logoPreview');
-    img.src = logoDataUrl;
-    img.style.display = 'block';
-  };
-  reader.readAsDataURL(file);
-}
-
 function clearForm() {
   if (!confirm('Clear all fields?')) return;
-  ['fromName','fromAddress','fromEmail','fromPhone',
-   'toName','toAddress','toEmail','toPhone','notes'].forEach(id => {
+  ['fromName','fromAddress','fromEmail','fromPhone','toName','toAddress','toEmail','toPhone','notes'].forEach(id => {
     document.getElementById(id).value = '';
   });
-  document.getElementById('invoiceNumber').value = 'INV-001';
+  document.getElementById('receiptNumber').value = 'REC-001';
   document.getElementById('taxRate').value = '0';
-  document.getElementById('discount').value = '0';
   document.getElementById('itemsContainer').innerHTML = '';
-  logoDataUrl = null;
-  document.getElementById('logoText').style.display = '';
-  document.getElementById('logoPreview').style.display = 'none';
   itemCount = 0;
   recalc();
 }
@@ -811,9 +663,9 @@ function clearForm() {
 async function generatePDF() {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF({ unit: 'mm', format: 'a4' });
-
   const sym = getSymbol();
-  const currency = document.getElementById('currency').value;
+  const W = 210, margin = 18;
+
   const fromName = document.getElementById('fromName').value || 'Your Business';
   const fromAddress = document.getElementById('fromAddress').value;
   const fromEmail = document.getElementById('fromEmail').value;
@@ -822,35 +674,35 @@ async function generatePDF() {
   const toAddress = document.getElementById('toAddress').value;
   const toEmail = document.getElementById('toEmail').value;
   const toPhone = document.getElementById('toPhone').value;
-  const invoiceNum = document.getElementById('invoiceNumber').value || 'INV-001';
-  const issueDate = document.getElementById('issueDate').value;
-  const dueDate = document.getElementById('dueDate').value;
+  const receiptNum = document.getElementById('receiptNumber').value || 'REC-001';
+  const payDate = document.getElementById('payDate').value;
   const notes = document.getElementById('notes').value;
   const taxRate = parseFloat(document.getElementById('taxRate').value) || 0;
-  const discount = parseFloat(document.getElementById('discount').value) || 0;
 
-  const W = 210, margin = 18;
   let y = margin;
 
-  // Background header bar
+  // Header bar
   doc.setFillColor(26, 26, 26);
   doc.rect(0, 0, W, 40, 'F');
 
-  // Logo
-  if (logoDataUrl) {
-    try { doc.addImage(logoDataUrl, 'JPEG', margin, 8, 30, 18); } catch(e) {}
-  }
-
-  // INVOICE title
+  // RECEIPT title
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(22);
   doc.setTextColor(255, 255, 255);
-  doc.text('INVOICE', W - margin, 18, { align: 'right' });
+  doc.text('RECEIPT', W - margin, 18, { align: 'right' });
 
   doc.setFontSize(10);
   doc.setFont('helvetica', 'normal');
   doc.setTextColor(180, 180, 180);
-  doc.text(`#${invoiceNum}`, W - margin, 26, { align: 'right' });
+  doc.text(`#${receiptNum}`, W - margin, 26, { align: 'right' });
+
+  // PAID stamp
+  doc.setFillColor(26, 138, 74);
+  doc.roundedRect(margin, 10, 28, 12, 2, 2, 'F');
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(11);
+  doc.setTextColor(255, 255, 255);
+  doc.text('PAID', margin + 14, 18.5, { align: 'center' });
 
   y = 52;
 
@@ -868,19 +720,17 @@ async function generatePDF() {
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(9);
   doc.setTextColor(80, 80, 80);
-  if (fromAddress) {
-    fromAddress.split('\n').forEach(line => { doc.text(line, margin, y); y += 4.5; });
-  }
+  if (fromAddress) { fromAddress.split('\n').forEach(l => { doc.text(l, margin, y); y += 4.5; }); }
   if (fromEmail) { doc.text(fromEmail, margin, y); y += 4.5; }
   if (fromPhone) { doc.text(fromPhone, margin, y); y += 4.5; }
 
-  // TO (right side)
+  // TO
   let y2 = 52;
   const rightX = W / 2 + 5;
   doc.setTextColor(150, 150, 150);
   doc.setFontSize(8);
   doc.setFont('helvetica', 'bold');
-  doc.text('BILL TO', rightX, y2);
+  doc.text('RECEIVED FROM', rightX, y2);
   y2 += 5;
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(12);
@@ -890,9 +740,7 @@ async function generatePDF() {
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(9);
   doc.setTextColor(80, 80, 80);
-  if (toAddress) {
-    toAddress.split('\n').forEach(line => { doc.text(line, rightX, y2); y2 += 4.5; });
-  }
+  if (toAddress) { toAddress.split('\n').forEach(l => { doc.text(l, rightX, y2); y2 += 4.5; }); }
   if (toEmail) { doc.text(toEmail, rightX, y2); y2 += 4.5; }
   if (toPhone) { doc.text(toPhone, rightX, y2); y2 += 4.5; }
 
@@ -902,9 +750,9 @@ async function generatePDF() {
   doc.setFillColor(248, 248, 246);
   doc.roundedRect(margin, y, W - margin * 2, 18, 2, 2, 'F');
   const metas = [
-    ['Issue Date', issueDate || '—'],
-    ['Due Date', dueDate || '—'],
-    ['Currency', currency],
+    ['Date of Payment', payDate || '—'],
+    ['Payment Method', selectedPayment],
+    ['Currency', document.getElementById('currency').value],
   ];
   const colW = (W - margin * 2) / metas.length;
   metas.forEach(([label, val], i) => {
@@ -935,19 +783,14 @@ async function generatePDF() {
 
   // ITEMS
   let subtotal = 0;
-  const rows = document.querySelectorAll('.item-row');
-  rows.forEach((row, i) => {
+  document.querySelectorAll('.item-row').forEach((row, i) => {
     const inputs = row.querySelectorAll('input');
     const desc = inputs[0]?.value || '';
     const qty = parseFloat(inputs[1]?.value) || 0;
     const price = parseFloat(inputs[2]?.value) || 0;
     const amt = qty * price;
     subtotal += amt;
-
-    if (i % 2 === 0) {
-      doc.setFillColor(250, 250, 248);
-      doc.rect(margin, y, W - margin * 2, 8, 'F');
-    }
+    if (i % 2 === 0) { doc.setFillColor(250, 250, 248); doc.rect(margin, y, W - margin * 2, 8, 'F'); }
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(9);
     doc.setTextColor(30, 30, 30);
@@ -960,17 +803,14 @@ async function generatePDF() {
 
   // TOTALS
   y += 6;
-  const discountAmt = subtotal * (discount / 100);
-  const discounted = subtotal - discountAmt;
-  const taxAmt = discounted * (taxRate / 100);
-  const total = discounted + taxAmt;
-
+  const taxAmt = subtotal * (taxRate / 100);
+  const total = subtotal + taxAmt;
   const totalsX = W - margin - 70;
   const totalsRight = W - margin;
 
   function totalsLine(label, value, bold = false) {
     if (bold) {
-      doc.setFillColor(26, 26, 26);
+      doc.setFillColor(26, 138, 74);
       doc.rect(totalsX - 4, y - 4, 70 + 4, 11, 'F');
       doc.setTextColor(255, 255, 255);
     } else {
@@ -984,9 +824,8 @@ async function generatePDF() {
   }
 
   totalsLine('Subtotal', `${sym}${subtotal.toFixed(2)}`);
-  if (discount > 0) totalsLine(`Discount (${discount}%)`, `-${sym}${discountAmt.toFixed(2)}`);
   if (taxRate > 0) totalsLine(`Tax (${taxRate}%)`, `${sym}${taxAmt.toFixed(2)}`);
-  totalsLine('TOTAL DUE', `${sym}${total.toFixed(2)}`, true);
+  totalsLine('AMOUNT PAID', `${sym}${total.toFixed(2)}`, true);
 
   // NOTES
   if (notes) {
@@ -996,7 +835,7 @@ async function generatePDF() {
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(8);
     doc.setTextColor(100, 100, 100);
-    doc.text('NOTES & PAYMENT INSTRUCTIONS', margin + 3, y + 3);
+    doc.text('NOTES', margin + 3, y + 3);
     y += 8;
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(9);
@@ -1005,28 +844,20 @@ async function generatePDF() {
     lines.forEach(line => { doc.text(line, margin + 3, y); y += 5; });
   }
 
-  // FOOTER
   doc.setFontSize(8);
   doc.setTextColor(180, 180, 180);
   doc.text('Generated with GetSoloTools.com — Free tools for freelancers', W / 2, 290, { align: 'center' });
 
-  doc.save(`${invoiceNum || 'invoice'}.pdf`);
+  doc.save(`${receiptNum || 'receipt'}.pdf`);
 }
 
-// Init
 document.addEventListener('DOMContentLoaded', () => {
   const today = new Date();
-  const due = new Date();
-  due.setDate(due.getDate() + 30);
-  document.getElementById('issueDate').value = today.toISOString().split('T')[0];
-  document.getElementById('dueDate').value = due.toISOString().split('T')[0];
-
+  document.getElementById('payDate').value = today.toISOString().split('T')[0];
   addItem('', 1, '');
   addItem('', 1, '');
-
   document.getElementById('currency').addEventListener('change', recalc);
 });
 </script>
-
 </body>
 </html>

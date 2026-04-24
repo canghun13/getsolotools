@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Freelance Hourly Rate Calculator – GetSoloTools</title>
+<meta name="description" content="Calculate the right hourly rate for your freelance work. Factor in expenses, taxes, vacation days, and profit margin. Free, no sign-up.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1a1a;
+    --ink-2: #555;
+    --ink-3: #999;
+    --paper: #fafaf8;
+    --white: #ffffff;
+    --accent: #2d5be3;
+    --accent-light: #eef1fd;
+    --border: #e8e6e0;
+    --success: #1a8a4a;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
+  }
+
+  body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; font-size: 15px; line-height: 1.6; }
+
+  header { background: var(--white); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; position: sticky; top: 0; z-index: 100; }
+  .logo { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--ink); text-decoration: none; letter-spacing: -0.02em; }
+  .logo span { color: var(--accent); }
+  nav a { color: var(--ink-2); text-decoration: none; font-size: 14px; font-weight: 500; margin-left: 1.5rem; transition: color 0.15s; }
+  nav a:hover, nav a.active { color: var(--accent); }
+
+  .hero { text-align: center; padding: 3.5rem 1rem 2.5rem; max-width: 640px; margin: 0 auto; }
+  .hero-badge { display: inline-block; background: var(--accent-light); color: var(--accent); font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem; }
+  .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
+  .hero p { color: var(--ink-2); font-size: 1rem; max-width: 480px; margin: 0 auto; }
+
+  .main-wrap { max-width: 860px; margin: 0 auto; padding: 0 1rem 4rem; }
+
+  .calculator-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 1.5rem;
+    align-items: start;
+    margin-top: 2rem;
+  }
+  @media (max-width: 700px) { .calculator-grid { grid-template-columns: 1fr; } }
+
+  .card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow); overflow: hidden; }
+
+  .card-header {
+    background: var(--ink);
+    padding: 0.85rem 1.5rem;
+    color: rgba(255,255,255,0.5);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .card-body { padding: 1.5rem; }
+
+  .field-group { margin-bottom: 1.4rem; }
+  .field-group:last-child { margin-bottom: 0; }
+
+  .section-divider {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+    margin: 1.5rem 0 1rem;
+  }
+  .section-divider:first-child { margin-top: 0; }
+
+  label { font-size: 12px; font-weight: 500; color: var(--ink-2); display: block; margin-bottom: 4px; }
+
+  .input-wrap { position: relative; }
+  .input-prefix, .input-suffix {
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    font-size: 14px;
+    color: var(--ink-3);
+    pointer-events: none;
+  }
+  .input-prefix { left: 10px; }
+  .input-suffix { right: 10px; }
+
+  input[type="number"], select {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    background: var(--white);
+    transition: border-color 0.15s, box-shadow 0.15s;
+    outline: none;
+  }
+  .has-prefix input { padding-left: 26px; }
+  .has-suffix input { padding-right: 26px; }
+  input:focus, select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(45,91,227,0.1); }
+
+  .hint { font-size: 11px; color: var(--ink-3); margin-top: 3px; }
+
+  /* RESULT PANEL */
+  .result-panel { position: sticky; top: 80px; }
+
+  .result-card {
+    background: var(--ink);
+    border-radius: 16px;
+    padding: 1.75rem;
+    color: white;
+  }
+
+  .result-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 0.35rem; }
+
+  .result-rate {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3.5rem;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: white;
+    margin-bottom: 0.25rem;
+  }
+
+  .result-unit { font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 1.5rem; }
+
+  .result-breakdown { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.25rem; display: flex; flex-direction: column; gap: 0.75rem; }
+
+  .breakdown-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
+  .breakdown-row .blabel { color: rgba(255,255,255,0.55); }
+  .breakdown-row .bval { color: white; font-weight: 600; }
+
+  .rate-options { margin-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.25rem; display: flex; flex-direction: column; gap: 0.5rem; }
+  .rate-row { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.75rem; border-radius: 8px; background: rgba(255,255,255,0.06); font-size: 13px; }
+  .rate-row .rlabel { color: rgba(255,255,255,0.6); }
+  .rate-row .rval { color: white; font-weight: 600; }
+
+  .cta-note { margin-top: 1.25rem; font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.5; }
+  .cta-note a { color: rgba(255,255,255,0.7); }
+
+  /* INFO */
+  .info-section { margin-top: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+  .info-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; }
+  .info-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.05rem; margin-bottom: 0.5rem; }
+  .info-card p { font-size: 13px; color: var(--ink-2); line-height: 1.6; }
+
+  footer { border-top: 1px solid var(--border); text-align: center; padding: 2rem; font-size: 13px; color: var(--ink-3); margin-top: 2rem; }
+  footer a { color: var(--ink-2); text-decoration: none; margin: 0 0.4rem; }
+  footer a:hover { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="/" class="logo">Get<span>Solo</span>Tools</a>
+  <nav>
+    <a href="/">Invoice</a>
+    <a href="/receipt.html">Receipt</a>
+    <a href="/quote.html">Quote</a>
+    <a href="/hourly-rate.html" class="active">Hourly Rate</a>
+    <a href="/about.html">About</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="hero-badge">Free Calculator</div>
+  <h1>What Should You Charge Per Hour?</h1>
+  <p>Enter your income goals and expenses. We'll calculate the minimum hourly rate you need to charge — and what you should actually charge.</p>
+</div>
+
+<div class="main-wrap">
+  <div class="calculator-grid">
+
+    <!-- INPUT PANEL -->
+    <div class="card">
+      <div class="card-header">Your Details</div>
+      <div class="card-body">
+
+        <div class="section-divider">Income Goal</div>
+
+        <div class="field-group">
+          <label>Desired Annual Income (after tax)</label>
+          <div class="input-wrap has-prefix">
+            <span class="input-prefix">$</span>
+            <input type="number" id="desiredIncome" value="60000" min="0" step="1000" oninput="calc()">
+          </div>
+          <div class="hint">How much you want to take home per year</div>
+        </div>
+
+        <div class="field-group">
+          <label>Annual Business Expenses</label>
+          <div class="input-wrap has-prefix">
+            <span class="input-prefix">$</span>
+            <input type="number" id="expenses" value="5000" min="0" step="500" oninput="calc()">
+          </div>
+          <div class="hint">Software, equipment, office, insurance, etc.</div>
+        </div>
+
+        <div class="field-group">
+          <label>Tax Rate (%)</label>
+          <div class="input-wrap has-suffix">
+            <input type="number" id="taxRate" value="25" min="0" max="60" step="1" oninput="calc()">
+            <span class="input-suffix">%</span>
+          </div>
+          <div class="hint">Estimate your self-employment tax rate</div>
+        </div>
+
+        <div class="section-divider">Working Hours</div>
+
+        <div class="field-group">
+          <label>Working Weeks per Year</label>
+          <div class="input-wrap">
+            <input type="number" id="workWeeks" value="48" min="1" max="52" step="1" oninput="calc()">
+          </div>
+          <div class="hint">52 weeks minus vacation & holidays (e.g. 48)</div>
+        </div>
+
+        <div class="field-group">
+          <label>Billable Hours per Week</label>
+          <div class="input-wrap">
+            <input type="number" id="billableHours" value="30" min="1" max="80" step="1" oninput="calc()">
+          </div>
+          <div class="hint">Actual client hours — not total work time</div>
+        </div>
+
+        <div class="section-divider">Profit & Buffer</div>
+
+        <div class="field-group">
+          <label>Profit Margin / Buffer (%)</label>
+          <div class="input-wrap has-suffix">
+            <input type="number" id="profitMargin" value="20" min="0" max="100" step="5" oninput="calc()">
+            <span class="input-suffix">%</span>
+          </div>
+          <div class="hint">Add a buffer for slow months and growth</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RESULT PANEL -->
+    <div class="result-panel">
+      <div class="result-card">
+        <div class="result-label">Recommended Hourly Rate</div>
+        <div class="result-rate" id="displayRate">$0</div>
+        <div class="result-unit">per hour</div>
+
+        <div class="result-breakdown">
+          <div class="breakdown-row">
+            <span class="blabel">Minimum rate (break-even)</span>
+            <span class="bval" id="minRate">$0/hr</span>
+          </div>
+          <div class="breakdown-row">
+            <span class="blabel">Annual billable hours</span>
+            <span class="bval" id="billableTotal">0 hrs</span>
+          </div>
+          <div class="breakdown-row">
+            <span class="blabel">Revenue needed (gross)</span>
+            <span class="bval" id="grossNeeded">$0</span>
+          </div>
+        </div>
+
+        <div class="rate-options">
+          <div class="rate-row">
+            <span class="rlabel">Daily rate (8hrs)</span>
+            <span class="rval" id="dailyRate">$0</span>
+          </div>
+          <div class="rate-row">
+            <span class="rlabel">Weekly rate (billable hrs)</span>
+            <span class="rval" id="weeklyRate">$0</span>
+          </div>
+          <div class="rate-row">
+            <span class="rlabel">Monthly rate (avg)</span>
+            <span class="rval" id="monthlyRate">$0</span>
+          </div>
+          <div class="rate-row">
+            <span class="rlabel">Project day (10hrs)</span>
+            <span class="rval" id="projectDay">$0</span>
+          </div>
+        </div>
+
+        <div class="cta-note">
+          Ready to invoice? <a href="/">Create a free invoice →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="info-section">
+    <div class="info-card">
+      <h3>Why billable hours matter</h3>
+      <p>You work 40 hours a week, but you can't bill for all of it. Admin, marketing, and meetings eat up time. Most freelancers bill 60–75% of their working hours.</p>
+    </div>
+    <div class="info-card">
+      <h3>Don't forget taxes</h3>
+      <p>As a self-employed person, you pay both employee and employer portions of social security and Medicare. Budget 25–35% for taxes depending on your location and income.</p>
+    </div>
+    <div class="info-card">
+      <h3>Always add a buffer</h3>
+      <p>Clients cancel, projects slow down, and you'll take sick days. A 15–25% profit margin gives you breathing room and funds your business growth.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 <a href="/">GetSoloTools</a> &nbsp;·&nbsp;
+    <a href="/about.html">About</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/contact.html">Contact</a>
+  </p>
+</footer>
+
+<script>
+function fmt(n) {
+  return '$' + Math.round(n).toLocaleString();
+}
+
+function calc() {
+  const desiredIncome = parseFloat(document.getElementById('desiredIncome').value) || 0;
+  const expenses = parseFloat(document.getElementById('expenses').value) || 0;
+  const taxRate = parseFloat(document.getElementById('taxRate').value) || 0;
+  const workWeeks = parseFloat(document.getElementById('workWeeks').value) || 1;
+  const billableHoursPerWeek = parseFloat(document.getElementById('billableHours').value) || 1;
+  const profitMargin = parseFloat(document.getElementById('profitMargin').value) || 0;
+
+  // Gross revenue needed to achieve desired take-home after tax and expenses
+  const netNeeded = desiredIncome + expenses;
+  const grossNeeded = netNeeded / (1 - taxRate / 100);
+
+  // Total billable hours per year
+  const annualBillableHours = workWeeks * billableHoursPerWeek;
+
+  // Minimum rate
+  const minHourly = grossNeeded / annualBillableHours;
+
+  // Recommended rate with profit buffer
+  const recommendedHourly = minHourly * (1 + profitMargin / 100);
+
+  // Update UI
+  document.getElementById('displayRate').textContent = fmt(recommendedHourly) + '/hr';
+  document.getElementById('minRate').textContent = fmt(minHourly) + '/hr';
+  document.getElementById('billableTotal').textContent = Math.round(annualBillableHours).toLocaleString() + ' hrs';
+  document.getElementById('grossNeeded').textContent = fmt(grossNeeded);
+  document.getElementById('dailyRate').textContent = fmt(recommendedHourly * 8);
+  document.getElementById('weeklyRate').textContent = fmt(recommendedHourly * billableHoursPerWeek);
+  document.getElementById('monthlyRate').textContent = fmt(recommendedHourly * annualBillableHours / 12);
+  document.getElementById('projectDay').textContent = fmt(recommendedHourly * 10);
+}
+
+document.addEventListener('DOMContentLoaded', calc);
+</script>
+</body>
+</html>
