@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About – GetSoloTools</title>
+  <meta name="description" content="GetSoloTools is a free toolkit built for freelancers, consultants, and independent workers. No sign-up, no fluff — just tools that work." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f9f7f4;
+      --ink: #1a1814;
+      --muted: #6b6860;
+      --accent: #d4622a;
+      --accent-light: #fdf0ea;
+      --border: #e2ded8;
+      --card: #ffffff;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--card);
+    }
+    .logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.35rem;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .logo span { color: var(--accent); }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.75rem;
+    }
+    nav ul a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    nav ul a:hover, nav ul a.active { color: var(--accent); }
+
+    /* HERO */
+    .hero {
+      max-width: 720px;
+      margin: 5rem auto 0;
+      padding: 0 2rem;
+      text-align: center;
+    }
+    .tag {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+    }
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* DIVIDER */
+    .divider {
+      width: 3rem;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 999px;
+      margin: 3rem auto;
+    }
+
+    /* CONTENT */
+    .content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 2rem 6rem;
+    }
+    .section {
+      margin-bottom: 3.5rem;
+    }
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.55rem;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    p, li {
+      font-size: 1rem;
+      color: #3a3832;
+      line-height: 1.75;
+    }
+    ul.list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    ul.list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+    }
+    ul.list li::before {
+      content: '→';
+      color: var(--accent);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 0.05em;
+    }
+
+    /* VALUES */
+    .values {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+    .value-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+    .value-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.65rem;
+    }
+    .value-card h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+    .value-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* CTA */
+    .cta-box {
+      background: var(--ink);
+      color: #f9f7f4;
+      border-radius: 16px;
+      padding: 2.5rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .cta-box h2 { color: #f9f7f4; margin-bottom: 0.75rem; }
+    .cta-box p { color: #b0aba3; margin-bottom: 1.5rem; }
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      padding: 0.8rem 1.75rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.88; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--muted); text-decoration: none; margin: 0 0.5rem; }
+    footer a:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="/">Get<span>Solo</span>Tools</a>
+  <ul>
+    <li><a href="/">Tools</a></li>
+    <li><a href="/about.html" class="active">About</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <span class="tag">Our Story</span>
+  <h1>Built for the solo worker, by someone who gets it.</h1>
+  <p>GetSoloTools is a free collection of practical tools for freelancers, consultants, and independent professionals who need to get things done — without subscriptions or bloat.</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="content">
+
+  <div class="section">
+    <h2>Why GetSoloTools exists</h2>
+    <p>Running solo means wearing every hat — designer, accountant, marketer, and project manager — all at once. Most tools are built for teams, which means they're over-engineered, expensive, or require a login just to generate an invoice.</p>
+    <br/>
+    <p>GetSoloTools is different. Every tool here is free, runs in your browser, and does exactly what it says on the tin. No accounts. No upsells. No data collection. Just tools that actually help.</p>
+  </div>
+
+  <div class="section">
+    <h2>What you'll find here</h2>
+    <ul class="list">
+      <li>An <strong>Invoice Generator</strong> that lets you create, preview, and download professional PDFs in under two minutes.</li>
+      <li>A <strong>Receipt Generator</strong> for quick proof-of-payment documents your clients actually trust.</li>
+      <li>A <strong>Quote Generator</strong> to send polished project estimates before the work even begins.</li>
+      <li>An <strong>Hourly Rate Calculator</strong> to figure out what you should actually be charging.</li>
+      <li>More tools added regularly — all free, all instant.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Our principles</h2>
+    <div class="values">
+      <div class="value-card">
+        <div class="value-icon">⚡</div>
+        <h3>Instant</h3>
+        <p>No loading screens. No sign-up walls. Open a tool and it works.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🔒</div>
+        <h3>Private</h3>
+        <p>Everything runs in your browser. We don't store or see your data.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">💸</div>
+        <h3>Free</h3>
+        <p>All tools are free. No premium tiers, no credit cards required.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🎯</div>
+        <h3>Focused</h3>
+        <p>Each tool does one thing well. No feature bloat, just the essentials.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-box">
+    <h2>Ready to simplify your workflow?</h2>
+    <p>Pick a tool and get started — no sign-up needed.</p>
+    <a href="/" class="btn">Browse All Tools →</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2025 GetSoloTools &nbsp;·&nbsp;
+    <a href="/about.html">About</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/contact.html">Contact</a>
+  </p>
+</footer>
+
+</body>
+</html>

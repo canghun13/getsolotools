@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact – GetSoloTools</title>
+  <meta name="description" content="Get in touch with GetSoloTools. Have a question, tool request, or feedback? We'd love to hear from you." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f9f7f4;
+      --ink: #1a1814;
+      --muted: #6b6860;
+      --accent: #d4622a;
+      --accent-light: #fdf0ea;
+      --border: #e2ded8;
+      --card: #ffffff;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--card);
+    }
+    .logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.35rem;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .logo span { color: var(--accent); }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.75rem;
+    }
+    nav ul a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    nav ul a:hover, nav ul a.active { color: var(--accent); }
+
+    .hero {
+      max-width: 720px;
+      margin: 5rem auto 0;
+      padding: 0 2rem;
+      text-align: center;
+    }
+    .tag {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      margin-bottom: 1.25rem;
+    }
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5vw, 2.9rem);
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .divider {
+      width: 3rem;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 999px;
+      margin: 3rem auto;
+    }
+
+    .content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 2rem 6rem;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 3rem;
+    }
+
+    /* LEFT PANEL */
+    .left-panel { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .info-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+    }
+    .info-card h3 {
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+    .info-card p, .info-card a {
+      font-size: 0.95rem;
+      color: var(--ink);
+      line-height: 1.6;
+      text-decoration: none;
+    }
+    .info-card a { color: var(--accent); font-weight: 600; }
+    .info-card a:hover { text-decoration: underline; }
+
+    .topics { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.25rem; }
+    .topic {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      color: var(--ink);
+    }
+    .topic::before { content: '→'; color: var(--accent); font-weight: 700; }
+
+    /* FORM */
+    .form-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.25rem;
+    }
+    .form-card h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.35rem;
+      margin-bottom: 1.75rem;
+      letter-spacing: -0.02em;
+    }
+    .field {
+      margin-bottom: 1.25rem;
+    }
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: var(--ink);
+    }
+    input, select, textarea {
+      width: 100%;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      color: var(--ink);
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 0.7rem 0.9rem;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--accent);
+    }
+    textarea { resize: vertical; min-height: 130px; }
+
+    .btn {
+      width: 100%;
+      background: var(--accent);
+      color: white;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      padding: 0.9rem;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      margin-top: 0.5rem;
+    }
+    .btn:hover { opacity: 0.88; }
+
+    /* success state */
+    .success-msg {
+      display: none;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    .success-msg .check {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .success-msg h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+    .success-msg p { color: var(--muted); font-size: 0.95rem; }
+
+    @media (max-width: 640px) {
+      .content { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--muted); text-decoration: none; margin: 0 0.5rem; }
+    footer a:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="/">Get<span>Solo</span>Tools</a>
+  <ul>
+    <li><a href="/">Tools</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/contact.html" class="active">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <span class="tag">Get in Touch</span>
+  <h1>We'd love to hear from you.</h1>
+  <p>Have a question, a tool request, or just want to say hi? Send us a message and we'll get back to you.</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="content">
+
+  <div class="left-panel">
+    <div class="info-card">
+      <h3>Email</h3>
+      <a href="mailto:hello@getsolotools.com">hello@getsolotools.com</a>
+      <p style="margin-top:0.4rem; font-size:0.85rem; color:var(--muted);">We aim to reply within 1–2 business days.</p>
+    </div>
+
+    <div class="info-card">
+      <h3>Good topics to write about</h3>
+      <div class="topics">
+        <span class="topic">Tool requests or ideas</span>
+        <span class="topic">Bug reports</span>
+        <span class="topic">Partnership or sponsorship</span>
+        <span class="topic">General feedback</span>
+        <span class="topic">Press or media inquiries</span>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <h3>Response time</h3>
+      <p>We're a small team. Expect a reply within <strong>1–2 business days</strong>. We read every message.</p>
+    </div>
+  </div>
+
+  <div class="form-card">
+    <h2>Send a message</h2>
+
+    <div id="formWrap">
+      <div class="field">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" placeholder="Jane Smith" />
+      </div>
+      <div class="field">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="jane@example.com" />
+      </div>
+      <div class="field">
+        <label for="subject">Topic</label>
+        <select id="subject">
+          <option value="" disabled selected>Select a topic…</option>
+          <option>Tool request / idea</option>
+          <option>Bug report</option>
+          <option>Partnership or sponsorship</option>
+          <option>General feedback</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" placeholder="Tell us what's on your mind…"></textarea>
+      </div>
+      <button class="btn" onclick="handleSubmit()">Send Message →</button>
+    </div>
+
+    <div class="success-msg" id="successMsg">
+      <div class="check">✅</div>
+      <h3>Message received!</h3>
+      <p>Thanks for reaching out. We'll get back to you within 1–2 business days.</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2025 GetSoloTools &nbsp;·&nbsp;
+    <a href="/about.html">About</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/contact.html">Contact</a>
+  </p>
+</footer>
+
+<script>
+  function handleSubmit() {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value.trim();
+
+    if (!name || !email || !subject || !message) {
+      alert('Please fill in all fields before sending.');
+      return;
+    }
+    if (!email.includes('@')) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    // Replace this with your form backend (Formspree, Netlify Forms, etc.)
+    // For now, show a success state.
+    document.getElementById('formWrap').style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>

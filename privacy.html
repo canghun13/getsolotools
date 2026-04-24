@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy – GetSoloTools</title>
+  <meta name="description" content="GetSoloTools privacy policy. We don't collect personal data. All tools run in your browser." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f9f7f4;
+      --ink: #1a1814;
+      --muted: #6b6860;
+      --accent: #d4622a;
+      --accent-light: #fdf0ea;
+      --border: #e2ded8;
+      --card: #ffffff;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--card);
+    }
+    .logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.35rem;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .logo span { color: var(--accent); }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.75rem;
+    }
+    nav ul a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    nav ul a:hover, nav ul a.active { color: var(--accent); }
+
+    .hero {
+      max-width: 720px;
+      margin: 5rem auto 0;
+      padding: 0 2rem;
+    }
+    .tag {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      margin-bottom: 1.25rem;
+    }
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.9rem, 4vw, 2.6rem);
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+    }
+    .updated {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .divider {
+      width: 3rem;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 999px;
+      margin: 2.5rem 0 3rem;
+    }
+
+    .content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 2rem 6rem;
+    }
+
+    /* Summary cards */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-bottom: 3.5rem;
+      padding: 1.75rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+    .summary-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+    }
+    .summary-icon {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 6px;
+      background: var(--accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      margin-top: 0.1em;
+    }
+    .summary-item strong { font-size: 0.88rem; display: block; margin-bottom: 0.15rem; }
+    .summary-item span { font-size: 0.8rem; color: var(--muted); line-height: 1.4; }
+
+    .section { margin-bottom: 3rem; }
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      margin-bottom: 0.9rem;
+      letter-spacing: -0.02em;
+    }
+    p { font-size: 0.97rem; color: #3a3832; line-height: 1.8; margin-bottom: 0.9rem; }
+    p:last-child { margin-bottom: 0; }
+    ul.list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      margin-top: 0.5rem;
+    }
+    ul.list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      font-size: 0.97rem;
+      color: #3a3832;
+      line-height: 1.7;
+    }
+    ul.list li::before {
+      content: '→';
+      color: var(--accent);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .highlight-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .highlight-box p { color: var(--ink); font-weight: 500; margin: 0; }
+
+    .contact-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-top: 1rem;
+    }
+    .contact-card a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .contact-card a:hover { text-decoration: underline; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--muted); text-decoration: none; margin: 0 0.5rem; }
+    footer a:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="/">Get<span>Solo</span>Tools</a>
+  <ul>
+    <li><a href="/">Tools</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <span class="tag">Legal</span>
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: June 1, 2025</p>
+
+  <div class="divider"></div>
+
+  <div class="summary-grid">
+    <div class="summary-item">
+      <div class="summary-icon">🚫</div>
+      <div>
+        <strong>No personal data collected</strong>
+        <span>We don't store names, emails, or documents</span>
+      </div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-icon">🌐</div>
+      <div>
+        <strong>Browser-only processing</strong>
+        <span>All tools run locally in your browser</span>
+      </div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-icon">🍪</div>
+      <div>
+        <strong>No tracking cookies</strong>
+        <span>We use basic analytics only</span>
+      </div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-icon">💰</div>
+      <div>
+        <strong>No data sold</strong>
+        <span>We never sell or share your information</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="section">
+    <h2>1. Overview</h2>
+    <p>GetSoloTools ("we", "us", or "our") operates the website at <strong>getsolotools.com</strong>. This privacy policy explains what information we collect, how we use it, and what rights you have regarding your data.</p>
+    <div class="highlight-box">
+      <p>📋 The short version: Our tools run entirely in your browser. We don't see, receive, or store any data you enter into our tools — ever.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. Information We Do Not Collect</h2>
+    <p>When you use any tool on GetSoloTools (Invoice Generator, Receipt Generator, etc.), all processing happens locally in your web browser. We do not collect:</p>
+    <ul class="list">
+      <li>Names, business names, or addresses you enter into tools</li>
+      <li>Invoice amounts, line items, or financial information</li>
+      <li>Any generated PDFs or documents</li>
+      <li>Email addresses (unless you contact us directly)</li>
+      <li>Account information (we have no accounts)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>3. Information We May Collect</h2>
+    <p>We collect only basic, anonymous usage data to understand how our site performs:</p>
+    <ul class="list">
+      <li><strong>Analytics data</strong> — page views, general location (country/region), browser type, and device type via Google Analytics. This data is aggregated and anonymous.</li>
+      <li><strong>Log data</strong> — standard server logs (IP address, browser type, referring page) that are retained briefly and not linked to any individual.</li>
+      <li><strong>Cookies</strong> — Google Analytics may set cookies to distinguish unique visits. You can disable these via your browser settings or a cookie opt-out tool.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>4. Google AdSense</h2>
+    <p>We may display advertisements served by Google AdSense. Google may use cookies to serve ads based on your prior visits to our site or other sites. You can opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener" style="color:var(--accent);">Google's Ad Settings</a>.</p>
+  </div>
+
+  <div class="section">
+    <h2>5. Third-Party Links</h2>
+    <p>Our site may contain links to third-party services (such as FreshBooks or QuickBooks). We are not responsible for the privacy practices of those sites and encourage you to review their privacy policies before use.</p>
+  </div>
+
+  <div class="section">
+    <h2>6. Children's Privacy</h2>
+    <p>GetSoloTools is not directed at children under the age of 13. We do not knowingly collect personal information from children.</p>
+  </div>
+
+  <div class="section">
+    <h2>7. Changes to This Policy</h2>
+    <p>We may update this privacy policy from time to time. Changes will be posted on this page with an updated date. Continued use of GetSoloTools after changes constitutes your acceptance of the updated policy.</p>
+  </div>
+
+  <div class="section">
+    <h2>8. Contact Us</h2>
+    <p>If you have any questions about this privacy policy, please reach out:</p>
+    <div class="contact-card">
+      <p><strong>GetSoloTools</strong><br/>
+      Email: <a href="mailto:hello@getsolotools.com">hello@getsolotools.com</a><br/>
+      Website: <a href="https://getsolotools.com">getsolotools.com</a></p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2025 GetSoloTools &nbsp;·&nbsp;
+    <a href="/about.html">About</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/contact.html">Contact</a>
+  </p>
+</footer>
+
+</body>
+</html>
