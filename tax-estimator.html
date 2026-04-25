@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Freelance Tax Estimator – GetSoloTools</title>
+<meta name="description" content="Estimate your self-employment taxes as a freelancer. Calculate federal income tax, self-employment tax, and quarterly payments. Free, no sign-up.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1a1a;
+    --ink-2: #555;
+    --ink-3: #999;
+    --paper: #fafaf8;
+    --white: #ffffff;
+    --accent: #2d5be3;
+    --accent-light: #eef1fd;
+    --border: #e8e6e0;
+    --success: #1a8a4a;
+    --warning: #b45309;
+    --warning-light: #fef3c7;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
+  }
+
+  body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; font-size: 15px; line-height: 1.6; }
+
+  header { background: var(--white); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; position: sticky; top: 0; z-index: 100; }
+  .logo { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--ink); text-decoration: none; letter-spacing: -0.02em; }
+  .logo span { color: var(--accent); }
+  nav a { color: var(--ink-2); text-decoration: none; font-size: 14px; font-weight: 500; margin-left: 1.5rem; transition: color 0.15s; }
+  nav a:hover, nav a.active { color: var(--accent); }
+
+  .hero { text-align: center; padding: 3.5rem 1rem 2.5rem; max-width: 640px; margin: 0 auto; }
+  .hero-badge { display: inline-block; background: var(--accent-light); color: var(--accent); font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem; }
+  .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
+  .hero p { color: var(--ink-2); font-size: 1rem; max-width: 480px; margin: 0 auto; }
+
+  .main-wrap { max-width: 860px; margin: 0 auto; padding: 0 1rem 4rem; }
+
+  .calculator-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 1.5rem;
+    align-items: start;
+    margin-top: 2rem;
+  }
+  @media (max-width: 700px) { .calculator-grid { grid-template-columns: 1fr; } }
+
+  .card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow); overflow: hidden; }
+
+  .card-header {
+    background: var(--ink);
+    padding: 0.85rem 1.5rem;
+    color: rgba(255,255,255,0.5);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .card-body { padding: 1.5rem; }
+
+  .field-group { margin-bottom: 1.4rem; }
+  .field-group:last-child { margin-bottom: 0; }
+
+  .section-divider {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+    margin: 1.5rem 0 1rem;
+  }
+  .section-divider:first-child { margin-top: 0; }
+
+  label { font-size: 12px; font-weight: 500; color: var(--ink-2); display: block; margin-bottom: 4px; }
+
+  .input-wrap { position: relative; }
+  .input-prefix, .input-suffix {
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    font-size: 14px;
+    color: var(--ink-3);
+    pointer-events: none;
+  }
+  .input-prefix { left: 10px; }
+  .input-suffix { right: 10px; }
+
+  input[type="number"], select {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    background: var(--white);
+    transition: border-color 0.15s, box-shadow 0.15s;
+    outline: none;
+    appearance: none;
+  }
+  .has-prefix input { padding-left: 26px; }
+  .has-suffix input { padding-right: 26px; }
+  input:focus, select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(45,91,227,0.1); }
+
+  .hint { font-size: 11px; color: var(--ink-3); margin-top: 3px; }
+
+  /* Filing status tabs */
+  .tab-group { display: flex; gap: 6px; }
+  .tab-btn {
+    flex: 1;
+    padding: 8px 6px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--ink-2);
+    cursor: pointer;
+    transition: all 0.15s;
+    text-align: center;
+  }
+  .tab-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .tab-btn.active { background: var(--accent); border-color: var(--accent); color: white; }
+
+  /* RESULT PANEL */
+  .result-panel { position: sticky; top: 80px; display: flex; flex-direction: column; gap: 1rem; }
+
+  .result-card {
+    background: var(--ink);
+    border-radius: 16px;
+    padding: 1.75rem;
+    color: white;
+  }
+
+  .result-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 0.35rem; }
+
+  .result-rate {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3.2rem;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: white;
+    margin-bottom: 0.25rem;
+  }
+
+  .result-unit { font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 1.5rem; }
+
+  .result-breakdown { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.25rem; display: flex; flex-direction: column; gap: 0.75rem; }
+
+  .breakdown-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
+  .breakdown-row .blabel { color: rgba(255,255,255,0.55); }
+  .breakdown-row .bval { color: white; font-weight: 600; }
+
+  .quarterly-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .quarterly-header {
+    background: var(--accent-light);
+    padding: 0.85rem 1.5rem;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .quarterly-body { padding: 1.25rem 1.5rem; display: flex; flex-direction: column; gap: 0.6rem; }
+  .q-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; padding: 0.45rem 0.75rem; border-radius: 8px; background: var(--paper); }
+  .q-row .qlabel { color: var(--ink-2); }
+  .q-row .qval { font-weight: 600; color: var(--ink); }
+  .q-row .qdate { font-size: 11px; color: var(--ink-3); margin-top: 1px; }
+
+  .cta-note { margin-top: 1.25rem; font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.5; }
+  .cta-note a { color: rgba(255,255,255,0.7); }
+
+  /* INFO */
+  .info-section { margin-top: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+  .info-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; }
+  .info-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.05rem; margin-bottom: 0.5rem; }
+  .info-card p { font-size: 13px; color: var(--ink-2); line-height: 1.6; }
+
+  footer { border-top: 1px solid var(--border); text-align: center; padding: 2rem; font-size: 13px; color: var(--ink-3); margin-top: 2rem; }
+  footer a { color: var(--ink-2); text-decoration: none; margin: 0 0.4rem; }
+  footer a:hover { color: var(--accent); }
+
+  .disclaimer { margin-top: 1rem; font-size: 11px; color: var(--ink-3); text-align: center; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="/" class="logo">Get<span>Solo</span>Tools</a>
+  <nav>
+    <a href="/">Invoice</a>
+    <a href="/receipt.html">Receipt</a>
+    <a href="/quote.html">Quote</a>
+    <a href="/hourly-rate.html">Hourly Rate</a>
+    <a href="/tax-estimator.html" class="active">Tax</a>
+    <a href="/about.html">About</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="hero-badge">Free Estimator</div>
+  <h1>How Much Tax Will You Owe?</h1>
+  <p>Enter your freelance income and deductions. We'll estimate your self-employment tax, federal income tax, and quarterly payments.</p>
+</div>
+
+<div class="main-wrap">
+  <div class="calculator-grid">
+
+    <!-- INPUT PANEL -->
+    <div class="card">
+      <div class="card-header">Your Details</div>
+      <div class="card-body">
+
+        <div class="section-divider">Income</div>
+
+        <div class="field-group">
+          <label>Gross Freelance Income</label>
+          <div class="input-wrap has-prefix">
+            <span class="input-prefix">$</span>
+            <input type="number" id="grossIncome" value="80000" min="0" step="1000" oninput="calc()">
+          </div>
+          <div class="hint">Total income before any deductions</div>
+        </div>
+
+        <div class="field-group">
+          <label>Business Expenses (Deductible)</label>
+          <div class="input-wrap has-prefix">
+            <span class="input-prefix">$</span>
+            <input type="number" id="bizExpenses" value="8000" min="0" step="500" oninput="calc()">
+          </div>
+          <div class="hint">Software, equipment, home office, travel, etc.</div>
+        </div>
+
+        <div class="section-divider">Filing Status</div>
+
+        <div class="field-group">
+          <label>Filing Status</label>
+          <div class="tab-group">
+            <button class="tab-btn active" onclick="setFiling('single', this)">Single</button>
+            <button class="tab-btn" onclick="setFiling('mfj', this)">Married</button>
+            <button class="tab-btn" onclick="setFiling('hoh', this)">Head of<br>Household</button>
+          </div>
+        </div>
+
+        <div class="section-divider">Additional Deductions</div>
+
+        <div class="field-group">
+          <label>Other Deductions (IRA, HSA, etc.)</label>
+          <div class="input-wrap has-prefix">
+            <span class="input-prefix">$</span>
+            <input type="number" id="otherDeductions" value="0" min="0" step="500" oninput="calc()">
+          </div>
+          <div class="hint">Retirement contributions, health insurance premiums, etc.</div>
+        </div>
+
+        <div class="field-group">
+          <label>State Income Tax Rate (%)</label>
+          <div class="input-wrap has-suffix">
+            <input type="number" id="stateRate" value="5" min="0" max="15" step="0.5" oninput="calc()">
+            <span class="input-suffix">%</span>
+          </div>
+          <div class="hint">0% for TX, FL, WA, NV, WY, SD, AK, NH, TN</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RESULT PANEL -->
+    <div class="result-panel">
+      <div class="result-card">
+        <div class="result-label">Estimated Total Tax</div>
+        <div class="result-rate" id="totalTax">$0</div>
+        <div class="result-unit">per year</div>
+
+        <div class="result-breakdown">
+          <div class="breakdown-row">
+            <span class="blabel">Self-employment tax (15.3%)</span>
+            <span class="bval" id="seTax">$0</span>
+          </div>
+          <div class="breakdown-row">
+            <span class="blabel">Federal income tax</span>
+            <span class="bval" id="federalTax">$0</span>
+          </div>
+          <div class="breakdown-row">
+            <span class="blabel">State income tax</span>
+            <span class="bval" id="stateTax">$0</span>
+          </div>
+          <div class="breakdown-row">
+            <span class="blabel">Effective tax rate</span>
+            <span class="bval" id="effectiveRate">0%</span>
+          </div>
+          <div class="breakdown-row">
+            <span class="blabel">Take-home income</span>
+            <span class="bval" id="takeHome">$0</span>
+          </div>
+        </div>
+
+        <div class="cta-note">
+          Ready to invoice? <a href="/">Create a free invoice →</a>
+        </div>
+      </div>
+
+      <div class="quarterly-card">
+        <div class="quarterly-header">Quarterly Payments (2025)</div>
+        <div class="quarterly-body">
+          <div class="q-row">
+            <div>
+              <div class="qlabel">Q1 Payment</div>
+              <div class="qdate">Due Apr 15</div>
+            </div>
+            <div class="qval" id="q1">$0</div>
+          </div>
+          <div class="q-row">
+            <div>
+              <div class="qlabel">Q2 Payment</div>
+              <div class="qdate">Due Jun 16</div>
+            </div>
+            <div class="qval" id="q2">$0</div>
+          </div>
+          <div class="q-row">
+            <div>
+              <div class="qlabel">Q3 Payment</div>
+              <div class="qdate">Due Sep 15</div>
+            </div>
+            <div class="qval" id="q3">$0</div>
+          </div>
+          <div class="q-row">
+            <div>
+              <div class="qlabel">Q4 Payment</div>
+              <div class="qdate">Due Jan 15, 2026</div>
+            </div>
+            <div class="qval" id="q4">$0</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="disclaimer">⚠️ This is an estimate for planning purposes only. Tax laws change frequently. Consult a tax professional for accurate advice.</p>
+
+  <div class="info-section">
+    <div class="info-card">
+      <h3>Self-employment tax</h3>
+      <p>As a freelancer, you pay both the employee (7.65%) and employer (7.65%) portions of Social Security and Medicare — totaling 15.3% on net self-employment income.</p>
+    </div>
+    <div class="info-card">
+      <h3>The SE tax deduction</h3>
+      <p>You can deduct half of your self-employment tax from your gross income before calculating federal income tax. This calculator applies that deduction automatically.</p>
+    </div>
+    <div class="info-card">
+      <h3>Quarterly payments</h3>
+      <p>If you expect to owe $1,000 or more, the IRS requires quarterly estimated payments. Missing them can trigger penalties — even if you pay in full at tax time.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 <a href="/">GetSoloTools</a> &nbsp;·&nbsp;
+    <a href="/about.html">About</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/contact.html">Contact</a>
+  </p>
+</footer>
+
+<script>
+let filingStatus = 'single';
+
+// 2024 Federal tax brackets
+const brackets = {
+  single: [
+    { limit: 11600,  rate: 0.10 },
+    { limit: 47150,  rate: 0.12 },
+    { limit: 100525, rate: 0.22 },
+    { limit: 191950, rate: 0.24 },
+    { limit: 243725, rate: 0.32 },
+    { limit: 609350, rate: 0.35 },
+    { limit: Infinity, rate: 0.37 }
+  ],
+  mfj: [
+    { limit: 23200,  rate: 0.10 },
+    { limit: 94300,  rate: 0.12 },
+    { limit: 201050, rate: 0.22 },
+    { limit: 383900, rate: 0.24 },
+    { limit: 487450, rate: 0.32 },
+    { limit: 731200, rate: 0.35 },
+    { limit: Infinity, rate: 0.37 }
+  ],
+  hoh: [
+    { limit: 16550,  rate: 0.10 },
+    { limit: 63100,  rate: 0.12 },
+    { limit: 100500, rate: 0.22 },
+    { limit: 191950, rate: 0.24 },
+    { limit: 243700, rate: 0.32 },
+    { limit: 609350, rate: 0.35 },
+    { limit: Infinity, rate: 0.37 }
+  ]
+};
+
+const standardDeduction = { single: 14600, mfj: 29200, hoh: 21900 };
+
+function setFiling(status, btn) {
+  filingStatus = status;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  calc();
+}
+
+function calcFederalTax(taxableIncome, status) {
+  const b = brackets[status];
+  let tax = 0;
+  let prev = 0;
+  for (const bracket of b) {
+    if (taxableIncome <= prev) break;
+    const chunk = Math.min(taxableIncome, bracket.limit) - prev;
+    tax += chunk * bracket.rate;
+    prev = bracket.limit;
+  }
+  return tax;
+}
+
+function fmt(n) {
+  return '$' + Math.round(n).toLocaleString();
+}
+
+function calc() {
+  const gross = parseFloat(document.getElementById('grossIncome').value) || 0;
+  const bizExp = parseFloat(document.getElementById('bizExpenses').value) || 0;
+  const otherDed = parseFloat(document.getElementById('otherDeductions').value) || 0;
+  const stateRate = parseFloat(document.getElementById('stateRate').value) || 0;
+
+  // Net self-employment income
+  const netSE = Math.max(0, gross - bizExp);
+
+  // SE tax (on 92.35% of net SE income)
+  const seTaxBase = netSE * 0.9235;
+  const seTax = seTaxBase * 0.153;
+
+  // SE tax deduction (half of SE tax)
+  const seDeduction = seTax / 2;
+
+  // Adjusted gross income
+  const agi = Math.max(0, netSE - seDeduction - otherDed);
+
+  // Federal taxable income (after standard deduction)
+  const stdDed = standardDeduction[filingStatus];
+  const federalTaxable = Math.max(0, agi - stdDed);
+
+  // Federal income tax
+  const federalTax = calcFederalTax(federalTaxable, filingStatus);
+
+  // State income tax (on AGI)
+  const stateTax = agi * (stateRate / 100);
+
+  // Totals
+  const totalTax = seTax + federalTax + stateTax;
+  const takeHome = gross - bizExp - totalTax;
+  const effectiveRate = gross > 0 ? (totalTax / gross * 100) : 0;
+
+  // Quarterly (divide evenly)
+  const quarterly = totalTax / 4;
+
+  // Update UI
+  document.getElementById('totalTax').textContent = fmt(totalTax);
+  document.getElementById('seTax').textContent = fmt(seTax);
+  document.getElementById('federalTax').textContent = fmt(federalTax);
+  document.getElementById('stateTax').textContent = fmt(stateTax);
+  document.getElementById('effectiveRate').textContent = effectiveRate.toFixed(1) + '%';
+  document.getElementById('takeHome').textContent = fmt(takeHome);
+  document.getElementById('q1').textContent = fmt(quarterly);
+  document.getElementById('q2').textContent = fmt(quarterly);
+  document.getElementById('q3').textContent = fmt(quarterly);
+  document.getElementById('q4').textContent = fmt(quarterly);
+}
+
+document.addEventListener('DOMContentLoaded', calc);
+</script>
+</body>
+</html>
