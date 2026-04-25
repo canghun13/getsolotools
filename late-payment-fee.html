@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Late Payment Fee Calculator – GetSoloTools</title>
+<meta name="description" content="Calculate late payment fees and interest on overdue invoices. Know exactly what you're owed. Free, no sign-up required.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #1a1a1a; --ink-2: #555; --ink-3: #999;
+    --paper: #fafaf8; --white: #ffffff;
+    --accent: #2d5be3; --accent-light: #eef1fd;
+    --border: #e8e6e0;
+    --danger: #dc2626; --danger-light: #fef2f2;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
+  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; font-size: 15px; line-height: 1.6; }
+  header { background: var(--white); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; position: sticky; top: 0; z-index: 100; }
+  .logo { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--ink); text-decoration: none; letter-spacing: -0.02em; }
+  .logo span { color: var(--accent); }
+  nav a { color: var(--ink-2); text-decoration: none; font-size: 14px; font-weight: 500; margin-left: 1.5rem; transition: color 0.15s; }
+  nav a:hover, nav a.active { color: var(--accent); }
+  .hero { text-align: center; padding: 3.5rem 1rem 2.5rem; max-width: 640px; margin: 0 auto; }
+  .hero-badge { display: inline-block; background: var(--danger-light); color: var(--danger); font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem; }
+  .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
+  .hero p { color: var(--ink-2); font-size: 1rem; max-width: 480px; margin: 0 auto; }
+  .main-wrap { max-width: 860px; margin: 0 auto; padding: 0 1rem 4rem; }
+  .calculator-grid { display: grid; grid-template-columns: 1fr 320px; gap: 1.5rem; align-items: start; margin-top: 2rem; }
+  @media (max-width: 700px) { .calculator-grid { grid-template-columns: 1fr; } }
+  .card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow); overflow: hidden; }
+  .card-header { background: var(--ink); padding: 0.85rem 1.5rem; color: rgba(255,255,255,0.5); font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+  .card-body { padding: 1.5rem; }
+  .field-group { margin-bottom: 1.4rem; }
+  .field-group:last-child { margin-bottom: 0; }
+  .section-divider { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); margin: 1.5rem 0 1rem; }
+  .section-divider:first-child { margin-top: 0; }
+  label { font-size: 12px; font-weight: 500; color: var(--ink-2); display: block; margin-bottom: 4px; }
+  .input-wrap { position: relative; }
+  .input-prefix, .input-suffix { position: absolute; top: 50%; transform: translateY(-50%); font-size: 14px; color: var(--ink-3); pointer-events: none; }
+  .input-prefix { left: 10px; }
+  .input-suffix { right: 10px; }
+  input[type="number"], input[type="date"], select { width: 100%; padding: 9px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 14px; font-family: 'DM Sans', sans-serif; color: var(--ink); background: var(--white); transition: border-color 0.15s, box-shadow 0.15s; outline: none; appearance: none; }
+  .has-prefix input { padding-left: 26px; }
+  .has-suffix input { padding-right: 26px; }
+  input:focus, select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(45,91,227,0.1); }
+  .hint { font-size: 11px; color: var(--ink-3); margin-top: 3px; }
+  .result-panel { position: sticky; top: 80px; display: flex; flex-direction: column; gap: 1rem; }
+  .result-card { background: var(--ink); border-radius: 16px; padding: 1.75rem; color: white; }
+  .result-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 0.35rem; }
+  .result-rate { font-family: 'DM Serif Display', serif; font-size: 3.2rem; line-height: 1; letter-spacing: -0.03em; color: white; margin-bottom: 0.25rem; }
+  .result-unit { font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 1.5rem; }
+  .result-breakdown { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.25rem; display: flex; flex-direction: column; gap: 0.75rem; }
+  .breakdown-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
+  .breakdown-row .blabel { color: rgba(255,255,255,0.55); }
+  .breakdown-row .bval { color: white; font-weight: 600; }
+  .total-due-card { background: var(--danger); border-radius: 16px; padding: 1.5rem 1.75rem; color: white; }
+  .total-due-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 0.35rem; }
+  .total-due-amount { font-family: 'DM Serif Display', serif; font-size: 2.4rem; line-height: 1; letter-spacing: -0.03em; }
+  .total-due-sub { font-size: 12px; color: rgba(255,255,255,0.7); margin-top: 0.4rem; }
+  .cta-note { margin-top: 1.25rem; font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.5; }
+  .cta-note a { color: rgba(255,255,255,0.7); }
+  .info-section { margin-top: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+  .info-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; }
+  .info-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.05rem; margin-bottom: 0.5rem; }
+  .info-card p { font-size: 13px; color: var(--ink-2); line-height: 1.6; }
+  footer { border-top: 1px solid var(--border); text-align: center; padding: 2rem; font-size: 13px; color: var(--ink-3); margin-top: 2rem; }
+  footer a { color: var(--ink-2); text-decoration: none; margin: 0 0.4rem; }
+  footer a:hover { color: var(--accent); }
+</style>
+</head>
+<body>
+<header>
+  <a href="/" class="logo">Get<span>Solo</span>Tools</a>
+  <nav>
+    <a href="/">Invoice</a>
+    <a href="/receipt.html">Receipt</a>
+    <a href="/quote.html">Quote</a>
+    <a href="/hourly-rate.html">Hourly Rate</a>
+    <a href="/tax-estimator.html">Tax</a>
+    <a href="/late-payment-fee.html" class="active">Late Fee</a>
+    <a href="/about.html">About</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="hero-badge">Overdue Invoice</div>
+  <h1>Calculate Your Late Payment Fee</h1>
+  <p>Enter your invoice details and due date. We'll calculate exactly how much interest and fees your client owes you.</p>
+</div>
+
+<div class="main-wrap">
+  <div class="calculator-grid">
+    <div class="card">
+      <div class="card-header">Invoice Details</div>
+      <div class="card-body">
+
+        <div class="section-divider">Invoice</div>
+
+        <div class="field-group">
+          <label>Invoice Amount</label>
+          <div class="input-wrap has-prefix">
+            <span class="input-prefix">$</span>
+            <input type="number" id="invoiceAmount" value="5000" min="0" step="100" oninput="calc()">
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>Invoice Due Date</label>
+          <div class="input-wrap">
+            <input type="date" id="dueDate" oninput="calc()">
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>Today's Date</label>
+          <div class="input-wrap">
+            <input type="date" id="todayDate" oninput="calc()">
+          </div>
+          <div class="hint">Auto-filled with today — adjust if needed</div>
+        </div>
+
+        <div class="section-divider">Fee Structure</div>
+
+        <div class="field-group">
+          <label>Fee Type</label>
+          <select id="feeType" onchange="toggleFeeInputs(); calc();">
+            <option value="percent">Interest rate (% per year)</option>
+            <option value="flat">Flat fee per month</option>
+            <option value="both">Both (interest + flat fee)</option>
+          </select>
+        </div>
+
+        <div class="field-group" id="interestGroup">
+          <label>Annual Interest Rate (%)</label>
+          <div class="input-wrap has-suffix">
+            <input type="number" id="interestRate" value="18" min="0" max="100" step="0.5" oninput="calc()">
+            <span class="input-suffix">%</span>
+          </div>
+          <div class="hint">Common rates: 1.5%/mo (18%/yr) or 2%/mo (24%/yr)</div>
+        </div>
+
+        <div class="field-group" id="flatGroup" style="display:none;">
+          <label>Flat Fee per Month</label>
+          <div class="input-wrap has-prefix">
+            <span class="input-prefix">$</span>
+            <input type="number" id="flatFee" value="50" min="0" step="10" oninput="calc()">
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>Grace Period (days)</label>
+          <div class="input-wrap">
+            <input type="number" id="gracePeriod" value="0" min="0" max="30" step="1" oninput="calc()">
+          </div>
+          <div class="hint">Days after due date before fees start accruing</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="result-panel">
+      <div class="result-card">
+        <div class="result-label">Late Fee Owed</div>
+        <div class="result-rate" id="lateFee">$0</div>
+        <div class="result-unit">in fees &amp; interest</div>
+        <div class="result-breakdown">
+          <div class="breakdown-row">
+            <span class="blabel">Days overdue</span>
+            <span class="bval" id="daysOverdue">0 days</span>
+          </div>
+          <div class="breakdown-row">
+            <span class="blabel">Interest accrued</span>
+            <span class="bval" id="interestAmt">$0</span>
+          </div>
+          <div class="breakdown-row">
+            <span class="blabel">Flat fees</span>
+            <span class="bval" id="flatAmt">$0</span>
+          </div>
+          <div class="breakdown-row">
+            <span class="blabel">Daily rate</span>
+            <span class="bval" id="dailyRate">$0/day</span>
+          </div>
+        </div>
+        <div class="cta-note">
+          Send a new invoice? <a href="/">Create one free →</a>
+        </div>
+      </div>
+
+      <div class="total-due-card">
+        <div class="total-due-label">Total Amount Now Due</div>
+        <div class="total-due-amount" id="totalDue">$0</div>
+        <div class="total-due-sub">Original invoice + all fees</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-section">
+    <div class="info-card">
+      <h3>Put it in your contract</h3>
+      <p>Late fees are only enforceable if stated in your contract or invoice terms. Add a clause like "1.5% monthly interest on overdue balances" before you start work.</p>
+    </div>
+    <div class="info-card">
+      <h3>Common late fee rates</h3>
+      <p>Most freelancers charge 1.5% per month (18% annually). Some use a flat fee of $25–$50/month. Both are standard and legally defensible in most jurisdictions.</p>
+    </div>
+    <div class="info-card">
+      <h3>When to escalate</h3>
+      <p>If an invoice is 60+ days overdue, consider sending a formal demand letter, using a collections service, or filing in small claims court for amounts under $10,000.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 <a href="/">GetSoloTools</a> &nbsp;·&nbsp;
+    <a href="/about.html">About</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/contact.html">Contact</a>
+  </p>
+</footer>
+
+<script>
+function toggleFeeInputs() {
+  const type = document.getElementById('feeType').value;
+  document.getElementById('interestGroup').style.display = (type === 'flat') ? 'none' : '';
+  document.getElementById('flatGroup').style.display = (type === 'percent') ? 'none' : '';
+}
+
+function fmt(n) { return '$' + Math.abs(Math.round(n)).toLocaleString(); }
+
+function calc() {
+  const amount = parseFloat(document.getElementById('invoiceAmount').value) || 0;
+  const dueDate = new Date(document.getElementById('dueDate').value);
+  const todayDate = new Date(document.getElementById('todayDate').value);
+  const feeType = document.getElementById('feeType').value;
+  const annualRate = parseFloat(document.getElementById('interestRate').value) || 0;
+  const flatFee = parseFloat(document.getElementById('flatFee').value) || 0;
+  const gracePeriod = parseFloat(document.getElementById('gracePeriod').value) || 0;
+
+  if (!dueDate || !todayDate || isNaN(dueDate) || isNaN(todayDate)) return;
+
+  const msPerDay = 1000 * 60 * 60 * 24;
+  const rawDays = Math.floor((todayDate - dueDate) / msPerDay);
+  const billableDays = Math.max(0, rawDays - gracePeriod);
+
+  // Interest
+  let interestAmt = 0;
+  if (feeType !== 'flat') {
+    const dailyRate = annualRate / 100 / 365;
+    interestAmt = amount * dailyRate * billableDays;
+  }
+
+  // Flat fee (per month started)
+  let flatAmt = 0;
+  if (feeType !== 'percent') {
+    const monthsOverdue = Math.ceil(billableDays / 30);
+    flatAmt = flatFee * Math.max(0, monthsOverdue);
+  }
+
+  const totalFee = interestAmt + flatAmt;
+  const totalDue = amount + totalFee;
+  const dailyAccrual = feeType !== 'flat' ? amount * (annualRate / 100 / 365) : flatFee / 30;
+
+  document.getElementById('lateFee').textContent = fmt(totalFee);
+  document.getElementById('daysOverdue').textContent = Math.max(0, rawDays) + ' days';
+  document.getElementById('interestAmt').textContent = fmt(interestAmt);
+  document.getElementById('flatAmt').textContent = fmt(flatAmt);
+  document.getElementById('dailyRate').textContent = '$' + dailyAccrual.toFixed(2) + '/day';
+  document.getElementById('totalDue').textContent = fmt(totalDue);
+}
+
+// Set default dates
+window.addEventListener('DOMContentLoaded', () => {
+  const today = new Date();
+  const due = new Date(today);
+  due.setDate(due.getDate() - 30);
+  document.getElementById('todayDate').value = today.toISOString().split('T')[0];
+  document.getElementById('dueDate').value = due.toISOString().split('T')[0];
+  calc();
+});
+</script>
+</body>
+</html>
