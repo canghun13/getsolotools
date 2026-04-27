@@ -10,12 +10,16 @@
     { label: 'Budget', href: '/budget-planner.html' },
   ];
 
+  var currentPath = window.location.pathname;
+
   var dropdownItems = tools.map(function(t) {
-    return '<a href="' + t.href + '">' + t.label + '</a>';
+    var isActive = (t.href === '/' ? currentPath === '/' : currentPath === t.href);
+    return '<a href="' + t.href + '"' + (isActive ? ' class="active"' : '') + '>' + t.label + '</a>';
   }).join('\n');
 
   var mobileItems = tools.map(function(t) {
-    return '<a href="' + t.href + '">' + t.label + '</a>';
+    var isActive = (t.href === '/' ? currentPath === '/' : currentPath === t.href);
+    return '<a href="' + t.href + '"' + (isActive ? ' class="active"' : '') + '>' + t.label + '</a>';
   }).join('\n');
 
   var navHTML = `
@@ -109,6 +113,7 @@
     transition: background 0.1s, color 0.1s;
   }
   .nav-dropdown a:hover { background: #fafaf8; color: #2d5be3; }
+  .nav-dropdown a.active { color: #2d5be3; font-weight: 700; background: #f0f4ff; }
   .nav-blog-link {
     color: #1a9e6e;
     font-weight: 600;
@@ -165,6 +170,7 @@
       border-bottom: 1px solid #e8e6e0;
     }
     #mainNav a:last-child { border-bottom: none; }
+    #mainNav a.active { color: #2d5be3; font-weight: 700; }
     #mainNav .nav-blog-link { margin-left: 0; }
   }
 </style>`;
