@@ -30,99 +30,6 @@
       flex-direction: column;
     }
 
-    /* NAV */
-    nav {
-      border-bottom: 1px solid var(--border);
-      background: var(--paper);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .nav-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 24px;
-      height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav-logo {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.1rem;
-      color: var(--ink);
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 0.875rem;
-      color: var(--ink);
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .nav-links a:hover { color: var(--accent); }
-
-    .nav-links .nav-blog {
-      color: var(--blog);
-      font-weight: 600;
-    }
-
-    .nav-links .nav-blog:hover { color: var(--blog); opacity: 0.8; }
-
-    /* HAMBURGER */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 4px;
-    }
-
-    .hamburger span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: var(--ink);
-      transition: all 0.2s;
-    }
-
-    .mobile-menu {
-      display: none;
-      flex-direction: column;
-      background: var(--paper);
-      border-top: 1px solid var(--border);
-      padding: 16px 24px;
-      gap: 16px;
-    }
-
-    .mobile-menu.open { display: flex; }
-
-    .mobile-menu a {
-      font-size: 0.95rem;
-      color: var(--ink);
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .mobile-menu a:hover { color: var(--accent); }
-
-    .mobile-menu .nav-blog {
-      color: var(--blog);
-      font-weight: 600;
-    }
-
     /* HERO */
     .blog-hero {
       max-width: 1100px;
@@ -232,46 +139,12 @@
       font-size: 0.78rem;
       color: #aaa;
     }
-
-    @media (max-width: 680px) {
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
       .blog-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-
-<nav>
-  <div class="nav-inner">
-    <a href="/index.html" class="nav-logo">GetSoloTools</a>
-    <ul class="nav-links">
-      <li><a href="/index.html">Invoice</a></li>
-      <li><a href="/receipt.html">Receipt</a></li>
-      <li><a href="/quote.html">Quote</a></li>
-      <li><a href="/hourly-rate.html">Hourly Rate</a></li>
-      <li><a href="/tax-estimator.html">Tax</a></li>
-      <li><a href="/late-payment-fee.html">Late Fee</a></li>
-      <li><a href="/project-profit.html">Profit</a></li>
-      <li><a href="/budget-planner.html">Budget</a></li>
-      <li><a href="/blog/index.html" class="nav-blog">Blog</a></li>
-    </ul>
-    <button class="hamburger" onclick="toggleNav()" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="/index.html">Invoice</a>
-    <a href="/receipt.html">Receipt</a>
-    <a href="/quote.html">Quote</a>
-    <a href="/hourly-rate.html">Hourly Rate</a>
-    <a href="/tax-estimator.html">Tax</a>
-    <a href="/late-payment-fee.html">Late Fee</a>
-    <a href="/project-profit.html">Profit</a>
-    <a href="/budget-planner.html">Budget</a>
-    <a href="/blog/index.html" class="nav-blog">Blog</a>
-  </div>
-</nav>
+  <script src="/nav.js"></script>
 
 <div class="blog-hero">
   <h1>Freelance Tips &amp; Guides</h1>
