@@ -195,18 +195,101 @@
     }
     footer a { color: var(--muted); text-decoration: none; margin: 0 0.5rem; }
     footer a:hover { color: var(--accent); }
+  /* HEADER */
+  header {
+    background: #ffffff;
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+  .logo span { color: var(--accent); }
+
+  nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 1rem;
+    transition: color 0.15s;
+  }
+  nav a:hover, nav a.active { color: var(--accent); }
+
+  /* HAMBURGER */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    nav {
+      display: none;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      flex-direction: column;
+      gap: 0;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+    nav.open { display: flex; }
+    nav a {
+      margin-left: 0;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 15px;
+    }
+    nav a:last-child { border-bottom: none; }
+  }
   </style>
 </head>
 <body>
 
-<nav>
-  <a class="logo" href="/">Get<span>Solo</span>Tools</a>
-  <ul>
-    <li><a href="/">Tools</a></li>
-    <li><a href="/about.html">About</a></li>
-    <li><a href="/contact.html">Contact</a></li>
-  </ul>
-</nav>
+<header>
+  <a href="/" class="logo">Get<span>Solo</span>Tools</a>
+  <nav id="mainNav">
+    <a href="/">Tools</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/privacy.html" class="active">Privacy</a>
+  </nav>
+  <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
 
 <div class="hero">
   <span class="tag">Legal</span>
@@ -319,5 +402,14 @@
   </p>
 </footer>
 
+
+<script>
+function toggleNav() {
+  const nav = document.getElementById('mainNav');
+  const btn = document.getElementById('hamburger');
+  nav.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+</script>
 </body>
 </html>
