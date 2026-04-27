@@ -409,31 +409,10 @@
   gtag('js', new Date());
   gtag('config', 'G-728DGKLSE6');
 </script>
-<script>
-function toggleNav() {
-  const nav = document.getElementById('mainNav');
-  const btn = document.getElementById('hamburger');
-  nav.classList.toggle('open');
-  btn.classList.toggle('open');
-}
-</script>
 </head>
 <body>
 
-<header>
-  <a href="/" class="logo">Get<span>Solo</span>Tools</a>
-    <nav id="mainNav">
-    <a href="/">Invoice</a>
-    <a href="/receipt.html" class="active">Receipt</a>
-    <a href="/quote.html">Quote</a>
-    <a href="/hourly-rate.html">Hourly Rate</a>
-    <a href="/tax-estimator.html">Tax</a>
-    <a href="/late-payment-fee.html">Late Fee</a>
-    <a href="/project-profit.html">Profit</a>
-    <a href="/budget-planner.html">Budget</a>
-  </nav>
-  <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
-</header>
+<script src="/nav.js"></script>
 
 <div class="hero">
   <div class="hero-badge">100% Free — No Sign-up</div>
