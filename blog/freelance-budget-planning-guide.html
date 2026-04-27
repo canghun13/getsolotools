@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Budget as a Freelancer When Your Income Is Unpredictable – GetSoloTools</title>
+  <meta name="description" content="Irregular income doesn't have to mean financial stress. A simple budgeting system can give you stability no matter what month it is." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #1a1a1a; --accent: #2d5be3; --blog: #1a9e6e; --paper: #fafaf8; --muted: #6b6b6b; --border: #e5e5e2; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; display: flex; flex-direction: column; }
+    nav { border-bottom: 1px solid var(--border); background: var(--paper); position: sticky; top: 0; z-index: 100; }
+    .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--ink); text-decoration: none; }
+    .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+    .nav-links a { font-size: 0.875rem; color: var(--ink); text-decoration: none; font-weight: 500; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links .nav-blog { color: var(--blog); font-weight: 600; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--ink); }
+    .mobile-menu { display: none; flex-direction: column; background: var(--paper); border-top: 1px solid var(--border); padding: 16px 24px; gap: 16px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 0.95rem; color: var(--ink); text-decoration: none; font-weight: 500; }
+    .mobile-menu .nav-blog { color: var(--blog); font-weight: 600; }
+    .article-wrap { max-width: 720px; margin: 0 auto; padding: 56px 24px 80px; flex: 1; }
+    .article-tag { font-size: 0.75rem; font-weight: 600; color: var(--blog); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; display: block; }
+    .article-wrap h1 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem, 4vw, 2.4rem); line-height: 1.2; margin-bottom: 16px; }
+    .article-meta { font-size: 0.82rem; color: #aaa; margin-bottom: 40px; }
+    .article-body { font-size: 1rem; line-height: 1.8; color: var(--ink); }
+    .article-body h2 { font-family: 'DM Serif Display', serif; font-size: 1.4rem; margin: 40px 0 12px; }
+    .article-body p { margin-bottom: 20px; }
+    .article-body ul { margin: 0 0 20px 20px; }
+    .article-body ul li { margin-bottom: 8px; line-height: 1.7; }
+    .article-body strong { font-weight: 600; }
+    .split-box { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 24px 28px; margin: 32px 0; }
+    .split-box strong { display: block; margin-bottom: 16px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+    .split-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.95rem; }
+    .split-row:last-child { border-bottom: none; font-weight: 600; }
+    .cta-box { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 24px 28px; margin: 40px 0; }
+    .cta-box p { margin: 0 0 14px; font-size: 0.95rem; }
+    .cta-btn { display: inline-block; background: var(--accent); color: #fff; font-size: 0.875rem; font-weight: 600; padding: 10px 20px; border-radius: 6px; text-decoration: none; }
+    .cta-btn:hover { opacity: 0.88; }
+    .back-link { display: inline-block; margin-bottom: 32px; font-size: 0.85rem; color: var(--muted); text-decoration: none; }
+    .back-link:hover { color: var(--ink); }
+    footer { border-top: 1px solid var(--border); padding: 24px; text-align: center; margin-top: auto; }
+    .footer-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 10px; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.825rem; color: var(--muted); text-decoration: none; }
+    .footer-links a:hover { color: var(--ink); }
+    .footer-links .footer-blog { color: var(--blog); font-weight: 600; }
+    .footer-copy { font-size: 0.78rem; color: #aaa; }
+    @media (max-width: 680px) { .nav-links { display: none; } .hamburger { display: flex; } }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/index.html" class="nav-logo">GetSoloTools</a>
+    <ul class="nav-links">
+      <li><a href="/index.html">Invoice</a></li>
+      <li><a href="/receipt.html">Receipt</a></li>
+      <li><a href="/quote.html">Quote</a></li>
+      <li><a href="/hourly-rate.html">Hourly Rate</a></li>
+      <li><a href="/tax-estimator.html">Tax</a></li>
+      <li><a href="/late-payment-fee.html">Late Fee</a></li>
+      <li><a href="/project-profit.html">Profit</a></li>
+      <li><a href="/budget-planner.html">Budget</a></li>
+      <li><a href="/blog/index.html" class="nav-blog">Blog</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleNav()" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/index.html">Invoice</a>
+    <a href="/receipt.html">Receipt</a>
+    <a href="/quote.html">Quote</a>
+    <a href="/hourly-rate.html">Hourly Rate</a>
+    <a href="/tax-estimator.html">Tax</a>
+    <a href="/late-payment-fee.html">Late Fee</a>
+    <a href="/project-profit.html">Profit</a>
+    <a href="/budget-planner.html">Budget</a>
+    <a href="/blog/index.html" class="nav-blog">Blog</a>
+  </div>
+</nav>
+
+<div class="article-wrap">
+  <a href="/blog/index.html" class="back-link">← Back to Blog</a>
+  <span class="article-tag">Finance</span>
+  <h1>How to Budget as a Freelancer When Your Income Is Unpredictable</h1>
+  <p class="article-meta">Apr 28, 2026 · 6 min read</p>
+
+  <div class="article-body">
+    <p>The hardest part of freelance finances isn't making money — it's managing it when it comes in waves. A great month followed by a slow one can feel destabilizing, even if your annual income is solid.</p>
+    <p>The fix isn't earning more consistently (though that helps). It's building a system that smooths out the highs and lows.</p>
+
+    <h2>Know Your Baseline Number</h2>
+    <p>Before anything else, figure out your minimum monthly number — the amount you need to cover all essential expenses: rent, utilities, food, subscriptions, insurance, loan payments. This is your floor.</p>
+    <p>Every month you earn above that number, the surplus goes to work. Every month below it, you draw from reserves. The key is building those reserves before you need them.</p>
+
+    <h2>The Four-Account System</h2>
+    <p>One checking account is the wrong setup for a freelancer. Instead, use separate accounts for different purposes:</p>
+    <ul>
+      <li><strong>Operating account</strong> — all client payments land here first.</li>
+      <li><strong>Tax account</strong> — transfer 25–30% of every payment immediately. Don't touch it until you owe taxes.</li>
+      <li><strong>Emergency fund</strong> — 3–6 months of your baseline number. This is what you draw from in slow months.</li>
+      <li><strong>Personal account</strong> — your actual "pay yourself" account. Transfer a fixed monthly salary from your operating account.</li>
+    </ul>
+    <p>Paying yourself a fixed monthly salary — even if your income varies — is the single biggest thing that makes freelance finances feel stable.</p>
+
+    <h2>What to Do With a Great Month</h2>
+
+    <div class="split-box">
+      <strong>Example: $8,000 month, $4,500 baseline salary</strong>
+      <div class="split-row"><span>Taxes (28%)</span><span>$2,240</span></div>
+      <div class="split-row"><span>Your salary</span><span>$4,500</span></div>
+      <div class="split-row"><span>Surplus to emergency fund / savings</span><span>$1,260</span></div>
+    </div>
+
+    <p>Don't lifestyle-inflate during good months. The surplus from great months is what funds your slow ones.</p>
+
+    <h2>What to Do With a Slow Month</h2>
+    <p>If your operating account doesn't cover your salary, draw the difference from your emergency fund. Don't skip paying yourself — that leads to financial anxiety and erratic spending. The emergency fund exists exactly for this.</p>
+    <p>Once you're back to a stronger month, rebuild the emergency fund before increasing personal spending.</p>
+
+    <h2>Track Your Average, Not Your Current</h2>
+    <p>Freelancers often feel poor in slow months and rich in good ones — but neither is accurate. Track your trailing 3-month or 6-month average income instead. That's your real income. Base your financial decisions on that number, not on what hit your account this week.</p>
+
+    <h2>Review Monthly, Adjust Quarterly</h2>
+    <p>Spend 15 minutes at the end of each month reviewing what came in, what went out, and where you stand on your emergency fund. Every quarter, reassess whether your salary needs adjusting based on how your income has changed.</p>
+
+    <div class="cta-box">
+      <p>Use our free Freelance Budget Planner to map out your monthly income, expenses, and savings targets in one place.</p>
+      <a href="/budget-planner.html" class="cta-btn">Try the Budget Planner →</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="/about.html">About</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/blog/index.html" class="footer-blog">Blog</a>
+  </div>
+  <p class="footer-copy">© 2026 GetSoloTools. Free tools for freelancers.</p>
+</footer>
+<script>function toggleNav(){document.getElementById('mobileMenu').classList.toggle('open');}</script>
+</body>
+</html>
