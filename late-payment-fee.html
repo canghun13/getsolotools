@@ -21,8 +21,6 @@
   header { background: var(--white); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; position: sticky; top: 0; z-index: 100; }
   .logo { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--ink); text-decoration: none; letter-spacing: -0.02em; }
   .logo span { color: var(--accent); }
-  nav a { color: var(--ink-2); text-decoration: none; font-size: 14px; font-weight: 500; margin-left: 1.5rem; transition: color 0.15s; }
-  nav a:hover, nav a.active { color: var(--accent); }
   .hero { text-align: center; padding: 3.5rem 1rem 2.5rem; max-width: 640px; margin: 0 auto; }
   .hero-badge { display: inline-block; background: var(--danger-light); color: var(--danger); font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem; }
   .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
@@ -93,29 +91,7 @@
   .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   @media (max-width: 768px) {
     .hamburger { display: flex; }
-    nav {
-      display: none;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      right: 0;
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      padding: 1rem 2rem;
-      flex-direction: column;
-      gap: 0;
-      box-shadow: var(--shadow);
-    }
-    nav.open { display: flex; }
-    nav a {
-      margin-left: 0;
-      padding: 0.65rem 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 15px;
-    }
-    nav a:last-child { border-bottom: none; }
     .nav-right { display: none !important; }
-    nav a:last-child { border-bottom: none; }
     .nav-blog-mobile { color: #1a9e6e !important; font-weight: 600 !important; }
   }
 
