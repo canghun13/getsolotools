@@ -13,12 +13,12 @@
   var currentPath = window.location.pathname;
 
   var dropdownItems = tools.map(function(t) {
-    var isActive = (t.href === '/' ? currentPath === '/' : currentPath === t.href);
+    var isActive = (t.href === '/' ? (currentPath === '/' || currentPath === '/index.html') : currentPath === t.href);
     return '<a href="' + t.href + '"' + (isActive ? ' class="active"' : '') + '>' + t.label + '</a>';
   }).join('\n');
 
   var mobileItems = tools.map(function(t) {
-    var isActive = (t.href === '/' ? currentPath === '/' : currentPath === t.href);
+    var isActive = (t.href === '/' ? (currentPath === '/' || currentPath === '/index.html') : currentPath === t.href);
     return '<a href="' + t.href + '"' + (isActive ? ' class="active"' : '') + '>' + t.label + '</a>';
   }).join('\n');
 
