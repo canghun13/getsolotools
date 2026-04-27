@@ -171,7 +171,7 @@
     }
     #mainNav a:last-child { border-bottom: none; }
     #mainNav a.active { color: #2d5be3; font-weight: 700; }
-    #mainNav .nav-blog-link { margin-left: 0; }
+    #mainNav .nav-blog-link { margin-left: 0; color: #1a9e6e; font-weight: 600; }
   }
 </style>`;
 
