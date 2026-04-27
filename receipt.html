@@ -7,14 +7,7 @@
 <meta name="description" content="Create professional receipts online for free. Fill in payment details and download a PDF receipt instantly. No sign-up required.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js">
-function toggleNav() {
-  const nav = document.getElementById('mainNav');
-  const btn = document.getElementById('hamburger');
-  nav.classList.toggle('open');
-  btn.classList.toggle('open');
-}
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -447,21 +440,29 @@ function toggleNav() {
   gtag('js', new Date());
   gtag('config', 'G-728DGKLSE6');
 </script>
+<script>
+function toggleNav() {
+  const nav = document.getElementById('mainNav');
+  const btn = document.getElementById('hamburger');
+  nav.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+</script>
 </head>
 <body>
 
 <header>
   <a href="/" class="logo">Get<span>Solo</span>Tools</a>
-  <nav id="mainNav">
-   <a href="/">Invoice</a>
-   <a href="/receipt.html">Receipt</a>
-   <a href="/quote.html">Quote</a>
-   <a href="/hourly-rate.html">Hourly Rate</a>
-   <a href="/tax-estimator.html">Tax</a>
-   <a href="/late-payment-fee.html">Late Fee</a>
-   <a href="/project-profit.html">Profit</a>
-   <a href="/budget-planner.html">Budget</a>
- </nav>
+    <nav id="mainNav">
+    <a href="/">Invoice</a>
+    <a href="/receipt.html" class="active">Receipt</a>
+    <a href="/quote.html">Quote</a>
+    <a href="/hourly-rate.html">Hourly Rate</a>
+    <a href="/tax-estimator.html">Tax</a>
+    <a href="/late-payment-fee.html">Late Fee</a>
+    <a href="/project-profit.html">Profit</a>
+    <a href="/budget-planner.html">Budget</a>
+  </nav>
   <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
 </header>
 
@@ -642,7 +643,6 @@ function toggleNav() {
 
 <footer>
   <p>© 2025 <a href="/">GetSoloTools</a> &nbsp;·&nbsp;
-    <a href="/about.html">About</a>
     <a href="/privacy.html">Privacy</a>
     <a href="/contact.html">Contact</a>
   </p>
