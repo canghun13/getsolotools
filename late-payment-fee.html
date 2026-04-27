@@ -93,7 +93,6 @@
   .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   @media (max-width: 768px) {
     .hamburger { display: flex; }
-    header > div { display: none; }
     nav {
       display: none;
       position: absolute;
@@ -115,48 +114,19 @@
       font-size: 15px;
     }
     nav a:last-child { border-bottom: none; }
-
-    .nav-tools-btn {
-      margin-left: 0;
-      padding: 0.65rem 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 15px;
-      width: 100%;
-      justify-content: space-between;
-    }
-    .nav-dropdown {
-      position: static;
-      box-shadow: none;
-      border: none;
-      border-radius: 0;
-      padding: 0 0 0 12px;
-      background: transparent;
-    }
-    .nav-tools.open .nav-dropdown { display: block; }
-    .nav-dropdown a {
-      padding: 0.5rem 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 14px;
-    }
-    .nav-blog-link {
-      margin-left: 0;
-      padding: 0.65rem 0;
-      font-size: 15px;
-      display: block;
-    }
+    .nav-right { display: none !important; }
+    nav a:last-child { border-bottom: none; }
+    .nav-blog-mobile { color: #1a9e6e !important; font-weight: 600 !important; }
   }
 
-  /* NAV DROPDOWN */
-  .nav-tools {
-    position: relative;
-  }
+  /* DROPDOWN */
+  #mainNav { display: none; }
+  .nav-right { display: flex; align-items: center; }
+  .nav-tools { position: relative; }
   .nav-tools-btn {
     color: var(--ink-2);
-    text-decoration: none;
     font-size: 14px;
     font-weight: 500;
-    margin-left: 1.5rem;
-    transition: color 0.15s;
     background: none;
     border: none;
     cursor: pointer;
@@ -165,6 +135,7 @@
     display: flex;
     align-items: center;
     gap: 4px;
+    transition: color 0.15s;
   }
   .nav-tools-btn:hover { color: var(--accent); }
   .nav-tools-btn svg { width: 10px; height: 10px; transition: transform 0.15s; }
@@ -190,18 +161,17 @@
     text-decoration: none;
     font-size: 14px;
     font-weight: 500;
-    margin-left: 0;
     transition: background 0.1s, color 0.1s;
   }
   .nav-dropdown a:hover { background: var(--paper); color: var(--accent); }
   .nav-dropdown a.active { color: var(--accent); font-weight: 600; }
   .nav-blog-link {
-    color: #1a9e6e !important;
-    font-weight: 600 !important;
+    color: #1a9e6e;
+    font-weight: 600;
     text-decoration: none;
     font-size: 14px;
     margin-left: 1.5rem;
-    transition: color 0.15s;
+    transition: opacity 0.15s;
   }
   .nav-blog-link:hover { opacity: 0.8; }
 </style>
@@ -217,13 +187,13 @@
 <body>
 <header>
   <a href="/" class="logo">Get<span>Solo</span>Tools</a>
-  <div style="display:flex;align-items:center;">
-  <div class="nav-tools" id="navTools">
-    <button class="nav-tools-btn" onclick="toggleTools()" aria-label="Tools menu">
-      Tools
-      <svg viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </button>
-    <div class="nav-dropdown">
+  <div class="nav-right">
+    <div class="nav-tools" id="navTools">
+      <button class="nav-tools-btn" onclick="toggleTools()" aria-label="Tools menu">
+        Tools
+        <svg viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="nav-dropdown">
       <a href="/">Invoice</a>
       <a href="/receipt.html">Receipt</a>
       <a href="/quote.html">Quote</a>
@@ -232,22 +202,13 @@
       <a href="/late-payment-fee.html" class="active">Late Fee</a>
       <a href="/project-profit.html">Profit</a>
       <a href="/budget-planner.html">Budget</a>
+      </div>
     </div>
-  </div>
-  <a href="/blog/index.html" class="nav-blog-link">Blog</a>
-  </div>
-    <nav id="mainNav">
-    <a href="/">Invoice</a>
-    <a href="/receipt.html">Receipt</a>
-    <a href="/quote.html">Quote</a>
-    <a href="/hourly-rate.html">Hourly Rate</a>
-    <a href="/tax-estimator.html">Tax</a>
-    <a href="/late-payment-fee.html" class="active">Late Fee</a>
-    <a href="/project-profit.html">Profit</a>
-    <a href="/budget-planner.html">Budget</a>
     <a href="/blog/index.html" class="nav-blog-link">Blog</a>
-  </nav>
-  <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </header>
 
 <div class="hero">
@@ -450,18 +411,16 @@ window.addEventListener('DOMContentLoaded', () => {
 
 function toggleNav() {
     const nav = document.getElementById('mainNav');
+    const btn = document.getElementById('hamburger');
     nav.classList.toggle('open');
+    btn.classList.toggle('open');
   }
-  function toggleTools(e) {
-    const tools = document.getElementById('navTools');
-    tools.classList.toggle('open');
+  function toggleTools() {
+    document.getElementById('navTools').classList.toggle('open');
   }
-  // Close dropdown on outside click
   document.addEventListener('click', function(e) {
     const tools = document.getElementById('navTools');
-    if (tools && !tools.contains(e.target)) {
-      tools.classList.remove('open');
-    }
+    if (tools && !tools.contains(e.target)) tools.classList.remove('open');
   });
 </script>
 </body>
