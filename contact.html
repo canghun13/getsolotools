@@ -95,7 +95,9 @@
       margin: 0 auto;
       padding: 0 2rem 6rem;
       display: grid;
-      grid-template-columns: 1fr 1.5fr;
+      grid-template-columns: 1fr;
+      max-width: 480px;
+      margin: 0 auto;
       gap: 3rem;
     }
 
@@ -135,78 +137,7 @@
     }
     .topic::before { content: '→'; color: var(--accent); font-weight: 700; }
 
-    /* FORM */
-    .form-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 2.25rem;
-    }
-    .form-card h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.35rem;
-      margin-bottom: 1.75rem;
-      letter-spacing: -0.02em;
-    }
-    .field {
-      margin-bottom: 1.25rem;
-    }
-    label {
-      display: block;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 0.4rem;
-      color: var(--ink);
-    }
-    input, select, textarea {
-      width: 100%;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.95rem;
-      color: var(--ink);
-      background: var(--bg);
-      border: 1.5px solid var(--border);
-      border-radius: 8px;
-      padding: 0.7rem 0.9rem;
-      transition: border-color 0.2s;
-      outline: none;
-    }
-    input:focus, select:focus, textarea:focus {
-      border-color: var(--accent);
-    }
-    textarea { resize: vertical; min-height: 130px; }
 
-    .btn {
-      width: 100%;
-      background: var(--accent);
-      color: white;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1rem;
-      font-weight: 600;
-      border: none;
-      border-radius: 8px;
-      padding: 0.9rem;
-      cursor: pointer;
-      transition: opacity 0.2s;
-      margin-top: 0.5rem;
-    }
-    .btn:hover { opacity: 0.88; }
-
-    /* success state */
-    .success-msg {
-      display: none;
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-    .success-msg .check {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    .success-msg h3 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.4rem;
-      margin-bottom: 0.5rem;
-    }
-    .success-msg p { color: var(--muted); font-size: 0.95rem; }
 
     @media (max-width: 640px) {
       .content { grid-template-columns: 1fr; gap: 2rem; }
@@ -351,47 +282,10 @@
     </div>
   </div>
 
-  <div class="form-card">
-    <h2>Send a message</h2>
-
-    <div id="formWrap">
-      <div class="field">
-        <label for="name">Your Name</label>
-        <input type="text" id="name" placeholder="Jane Smith" />
-      </div>
-      <div class="field">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" placeholder="jane@example.com" />
-      </div>
-      <div class="field">
-        <label for="subject">Topic</label>
-        <select id="subject">
-          <option value="" disabled selected>Select a topic…</option>
-          <option>Tool request / idea</option>
-          <option>Bug report</option>
-          <option>Partnership or sponsorship</option>
-          <option>General feedback</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="message">Message</label>
-        <textarea id="message" placeholder="Tell us what's on your mind…"></textarea>
-      </div>
-      <button class="btn" onclick="handleSubmit()">Send Message →</button>
-    </div>
-
-    <div class="success-msg" id="successMsg">
-      <div class="check">✅</div>
-      <h3>Message received!</h3>
-      <p>Thanks for reaching out. We'll get back to you within 1–2 business days.</p>
-    </div>
-  </div>
-
 </div>
 
 <footer>
-  <p>© 2025 GetSoloTools &nbsp;·&nbsp;
+  <p>© 2026 GetSoloTools &nbsp;·&nbsp;
     <a href="/about.html">About</a>
     <a href="/contact.html">Contact</a>
     <a href="/privacy.html">Privacy</a>
@@ -407,28 +301,5 @@ function toggleNav() {
   btn.classList.toggle('open');
 }
 </script>
-<script>
-  function handleSubmit() {
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const subject = document.getElementById('subject').value;
-    const message = document.getElementById('message').value.trim();
-
-    if (!name || !email || !subject || !message) {
-      alert('Please fill in all fields before sending.');
-      return;
-    }
-    if (!email.includes('@')) {
-      alert('Please enter a valid email address.');
-      return;
-    }
-
-    // Replace this with your form backend (Formspree, Netlify Forms, etc.)
-    // For now, show a success state.
-    document.getElementById('formWrap').style.display = 'none';
-    document.getElementById('successMsg').style.display = 'block';
-  }
-</script>
-
 </body>
 </html>
