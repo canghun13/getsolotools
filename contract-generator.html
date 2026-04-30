@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Freelance Contract Generator – GetSoloTools</title>
+<meta name="description" content="Create a professional freelance contract for free. Fill in your details and download a clean PDF contract instantly. No sign-up required.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-728DGKLSE6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-728DGKLSE6');
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1a1a;
+    --ink-2: #555;
+    --ink-3: #999;
+    --paper: #fafaf8;
+    --white: #ffffff;
+    --accent: #2d5be3;
+    --accent-light: #eef1fd;
+    --border: #e8e6e0;
+    --success: #1a8a4a;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
+  }
+
+  body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; font-size: 15px; line-height: 1.6; }
+
+  .hero { text-align: center; padding: 3.5rem 1rem 2.5rem; max-width: 640px; margin: 0 auto; }
+  .hero-badge { display: inline-block; background: var(--accent-light); color: var(--accent); font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem; }
+  .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
+  .hero p { color: var(--ink-2); font-size: 1rem; max-width: 480px; margin: 0 auto 1.5rem; }
+  .hero-features { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; font-size: 13px; color: var(--ink-3); }
+  .hero-features span::before { content: '✓ '; color: var(--success); font-weight: 600; }
+
+  .main-wrap { max-width: 860px; margin: 0 auto; padding: 0 1rem 4rem; }
+
+  .contract-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow); overflow: hidden; }
+
+  .contract-toolbar { background: var(--ink); padding: 0.75rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .toolbar-label { color: rgba(255,255,255,0.5); font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+  .toolbar-actions { display: flex; gap: 0.5rem; }
+
+  .btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; font-family: 'DM Sans', sans-serif; transition: all 0.15s; text-decoration: none; }
+  .btn-ghost { background: rgba(255,255,255,0.1); color: #fff; }
+  .btn-ghost:hover { background: rgba(255,255,255,0.18); }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: #2248c4; }
+  .btn-success { background: var(--success); color: #fff; }
+  .btn-success:hover { background: #156b3a; }
+  .btn-lg { padding: 11px 22px; font-size: 14px; }
+
+  .contract-body { padding: 2rem; }
+
+  .section-title { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+
+  .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+  @media (max-width: 600px) { .row-2 { grid-template-columns: 1fr; } }
+
+  .field-group { display: flex; flex-direction: column; gap: 0.75rem; }
+
+  .field { display: flex; flex-direction: column; gap: 4px; }
+
+  label { font-size: 12px; font-weight: 500; color: var(--ink-2); }
+
+  input[type="text"], input[type="date"], input[type="number"], textarea, select {
+    width: 100%; padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 14px; font-family: 'DM Sans', sans-serif; color: var(--ink); background: var(--white); transition: border-color 0.15s; outline: none;
+  }
+  input:focus, textarea:focus, select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(45,91,227,0.1); }
+  textarea { resize: vertical; min-height: 80px; }
+
+  .divider { border: none; border-top: 1px solid var(--border); margin: 1.75rem 0; }
+
+  .scope-row { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 8px; }
+  .scope-row textarea { min-height: 48px; flex: 1; }
+  .btn-remove { background: none; border: none; color: var(--ink-3); font-size: 18px; cursor: pointer; padding: 6px 10px; border-radius: 6px; line-height: 1; transition: background 0.15s; }
+  .btn-remove:hover { background: #fee; color: #c00; }
+  .add-btn { background: none; border: 1px dashed var(--border); color: var(--ink-2); font-size: 13px; font-weight: 500; cursor: pointer; padding: 8px 16px; border-radius: 8px; width: 100%; font-family: 'DM Sans', sans-serif; transition: all 0.15s; margin-top: 4px; }
+  .add-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  .checkbox-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .checkbox-row input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--accent); cursor: pointer; }
+  .checkbox-row label { font-size: 14px; color: var(--ink); cursor: pointer; margin: 0; }
+
+  .bottom-actions { display: flex; justify-content: flex-end; gap: 0.75rem; padding-top: 1.5rem; border-top: 1px solid var(--border); margin-top: 1.5rem; flex-wrap: wrap; }
+
+  .info-section { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; margin-top: 2rem; }
+  .info-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+  .info-card h3 { font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+  .info-card p { font-size: 13px; color: var(--ink-2); line-height: 1.6; }
+
+  footer { border-top: 1px solid var(--border); text-align: center; padding: 2rem; font-size: 13px; color: var(--ink-3); margin-top: 2rem; }
+  footer a { color: var(--ink-2); text-decoration: none; margin: 0 0.4rem; }
+  footer a:hover { color: var(--accent); }
+</style>
+</head>
+<body>
+<script src="/nav.js"></script>
+
+<div class="hero">
+  <span class="hero-badge">Free Tool</span>
+  <h1>Freelance Contract Generator</h1>
+  <p>Create a professional contract in minutes. Fill in your details and download a clean PDF — no sign-up required.</p>
+  <div class="hero-features">
+    <span>Free forever</span>
+    <span>No sign-up</span>
+    <span>Instant PDF</span>
+  </div>
+</div>
+
+<div class="main-wrap">
+  <div class="contract-card">
+    <div class="contract-toolbar">
+      <span class="toolbar-label">Contract Generator</span>
+      <div class="toolbar-actions">
+        <button class="btn btn-ghost" onclick="clearForm()">Clear</button>
+        <button class="btn btn-success" onclick="generatePDF()">⬇ Download PDF</button>
+      </div>
+    </div>
+
+    <div class="contract-body">
+
+      <!-- PARTIES -->
+      <div class="section-title">Parties</div>
+      <div class="row-2">
+        <div class="field-group">
+          <div style="font-size:12px;font-weight:600;color:var(--ink-3);margin-bottom:4px;">FREELANCER</div>
+          <div class="field"><label>Full Name / Business Name</label><input type="text" id="freelancerName" placeholder="Jane Smith" /></div>
+          <div class="field"><label>Address</label><textarea id="freelancerAddress" placeholder="123 Main St, City, State, ZIP" style="min-height:56px;"></textarea></div>
+          <div class="field"><label>Email</label><input type="text" id="freelancerEmail" placeholder="jane@example.com" /></div>
+        </div>
+        <div class="field-group">
+          <div style="font-size:12px;font-weight:600;color:var(--ink-3);margin-bottom:4px;">CLIENT</div>
+          <div class="field"><label>Full Name / Business Name</label><input type="text" id="clientName" placeholder="Acme Corp" /></div>
+          <div class="field"><label>Address</label><textarea id="clientAddress" placeholder="456 Client Ave, City, State, ZIP" style="min-height:56px;"></textarea></div>
+          <div class="field"><label>Email</label><input type="text" id="clientEmail" placeholder="client@acme.com" /></div>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- PROJECT -->
+      <div class="section-title">Project Details</div>
+      <div class="row-2">
+        <div class="field"><label>Project Name</label><input type="text" id="projectName" placeholder="Website Redesign" /></div>
+        <div class="field"><label>Start Date</label><input type="date" id="startDate" /></div>
+        <div class="field"><label>End Date / Deadline</label><input type="date" id="endDate" /></div>
+        <div class="field"><label>Total Project Fee ($)</label><input type="number" id="projectFee" placeholder="3000" min="0" step="0.01" /></div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- SCOPE -->
+      <div class="section-title">Scope of Work</div>
+      <p style="font-size:13px;color:var(--ink-3);margin-bottom:12px;">List each deliverable clearly. The more specific, the better.</p>
+      <div id="scopeContainer"></div>
+      <button class="add-btn" onclick="addScope()">+ Add Deliverable</button>
+
+      <hr class="divider" />
+
+      <!-- PAYMENT -->
+      <div class="section-title">Payment Terms</div>
+      <div class="row-2">
+        <div class="field">
+          <label>Payment Structure</label>
+          <select id="paymentStructure">
+            <option value="50/50">50% upfront, 50% on delivery</option>
+            <option value="50/25/25">50% upfront, 25% midpoint, 25% on delivery</option>
+            <option value="100upfront">100% upfront</option>
+            <option value="100delivery">100% on delivery</option>
+            <option value="monthly">Monthly retainer</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Payment Due (days after invoice)</label>
+          <select id="paymentDue">
+            <option value="7">Due within 7 days</option>
+            <option value="14">Due within 14 days</option>
+            <option value="30">Net 30</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Late Fee (%/month after due date)</label>
+          <input type="number" id="lateFee" placeholder="1.5" min="0" step="0.1" value="1.5" />
+        </div>
+        <div class="field">
+          <label>Accepted Payment Methods</label>
+          <input type="text" id="paymentMethod" placeholder="Bank transfer, PayPal, Wise" />
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- REVISIONS & TERMS -->
+      <div class="section-title">Revisions & Terms</div>
+      <div class="row-2">
+        <div class="field">
+          <label>Revision Rounds Included</label>
+          <select id="revisions">
+            <option value="1">1 round of revisions</option>
+            <option value="2" selected>2 rounds of revisions</option>
+            <option value="3">3 rounds of revisions</option>
+            <option value="unlimited">Unlimited revisions</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Kill Fee (% of remaining balance)</label>
+          <select id="killFee">
+            <option value="0">No kill fee</option>
+            <option value="25" selected>25% kill fee</option>
+            <option value="50">50% kill fee</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="margin-top:1rem;">
+        <p style="font-size:12px;font-weight:600;color:var(--ink-3);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.06em;">Include Clauses</p>
+        <div class="checkbox-row"><input type="checkbox" id="clauseIP" checked /><label for="clauseIP">IP transfers to client upon full payment</label></div>
+        <div class="checkbox-row"><input type="checkbox" id="clausePortfolio" checked /><label for="clausePortfolio">Freelancer may display work in portfolio</label></div>
+        <div class="checkbox-row"><input type="checkbox" id="clauseConfidential" /><label for="clauseConfidential">Confidentiality / NDA clause</label></div>
+        <div class="checkbox-row"><input type="checkbox" id="clauseGoverning" checked /><label for="clauseGoverning">Governing law clause</label></div>
+      </div>
+
+      <div style="margin-top:1.25rem;" class="field">
+        <label>Governing State / Country (if applicable)</label>
+        <input type="text" id="governingLaw" placeholder="California, USA" />
+      </div>
+
+      <hr class="divider" />
+
+      <!-- NOTES -->
+      <div class="section-title">Additional Notes</div>
+      <textarea id="notes" placeholder="Any additional terms, payment instructions, or special conditions…"></textarea>
+
+      <div class="bottom-actions">
+        <button class="btn btn-ghost btn-lg" style="background:var(--paper);color:var(--ink);border:1px solid var(--border)" onclick="clearForm()">Clear Form</button>
+        <button class="btn btn-success btn-lg" onclick="generatePDF()">⬇ Download PDF Contract</button>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="info-section">
+    <div class="info-card">
+      <h3>Why use a contract?</h3>
+      <p>A contract protects both parties by setting clear expectations upfront — scope, payment, deadlines, and what happens if things go wrong.</p>
+    </div>
+    <div class="info-card">
+      <h3>Is this legally binding?</h3>
+      <p>A signed contract is legally binding in most jurisdictions. For complex projects, consult a lawyer. For standard freelance work, this covers the essentials.</p>
+    </div>
+    <div class="info-card">
+      <h3>How to get it signed</h3>
+      <p>Download the PDF and send it via DocuSign, HelloSign, or PandaDoc for e-signatures. Always get it signed before starting work.</p>
+    </div>
+    <div class="info-card">
+      <h3>What's a kill fee?</h3>
+      <p>A kill fee is charged when a client cancels mid-project. It compensates you for time spent and opportunity cost. 25–50% of remaining value is standard.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 <a href="/">GetSoloTools</a> &nbsp;·&nbsp;
+    <a href="/about.html">About</a>
+    <a href="/blog/index.html" style="color:#1a9e6e;font-weight:600;">Blog</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/contact.html">Contact</a>
+  </p>
+</footer>
+
+<script>
+let scopeCount = 0;
+
+function addScope(val = '') {
+  scopeCount++;
+  const id = scopeCount;
+  const container = document.getElementById('scopeContainer');
+  const row = document.createElement('div');
+  row.className = 'scope-row';
+  row.id = 'scope-' + id;
+  row.innerHTML = `<textarea placeholder="e.g. Design and develop 5-page responsive website including Home, About, Services, Blog, Contact">${val}</textarea><button class="btn-remove" onclick="removeScope(${id})" title="Remove">×</button>`;
+  container.appendChild(row);
+}
+
+function removeScope(id) {
+  const el = document.getElementById('scope-' + id);
+  if (el) el.remove();
+}
+
+function clearForm() {
+  if (!confirm('Clear all fields?')) return;
+  ['freelancerName','freelancerAddress','freelancerEmail','clientName','clientAddress','clientEmail',
+   'projectName','projectFee','notes','governingLaw','paymentMethod','lateFee'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+  document.getElementById('lateFee').value = '1.5';
+  document.getElementById('scopeContainer').innerHTML = '';
+  scopeCount = 0;
+  addScope();
+  addScope();
+  ['clauseIP','clausePortfolio','clauseGoverning'].forEach(id => {
+    document.getElementById(id).checked = true;
+  });
+  document.getElementById('clauseConfidential').checked = false;
+}
+
+function generatePDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ unit: 'mm', format: 'a4' });
+
+  const W = 210, M = 18;
+  let y = M;
+
+  const freelancerName = document.getElementById('freelancerName').value || 'Freelancer';
+  const freelancerAddress = document.getElementById('freelancerAddress').value;
+  const freelancerEmail = document.getElementById('freelancerEmail').value;
+  const clientName = document.getElementById('clientName').value || 'Client';
+  const clientAddress = document.getElementById('clientAddress').value;
+  const clientEmail = document.getElementById('clientEmail').value;
+  const projectName = document.getElementById('projectName').value || 'Project';
+  const startDate = document.getElementById('startDate').value;
+  const endDate = document.getElementById('endDate').value;
+  const projectFee = document.getElementById('projectFee').value;
+  const paymentStructure = document.getElementById('paymentStructure').value;
+  const paymentDue = document.getElementById('paymentDue').value;
+  const lateFee = document.getElementById('lateFee').value;
+  const paymentMethod = document.getElementById('paymentMethod').value;
+  const revisions = document.getElementById('revisions').value;
+  const killFee = document.getElementById('killFee').value;
+  const clauseIP = document.getElementById('clauseIP').checked;
+  const clausePortfolio = document.getElementById('clausePortfolio').checked;
+  const clauseConfidential = document.getElementById('clauseConfidential').checked;
+  const clauseGoverning = document.getElementById('clauseGoverning').checked;
+  const governingLaw = document.getElementById('governingLaw').value;
+  const notes = document.getElementById('notes').value;
+
+  const scopes = [];
+  document.querySelectorAll('#scopeContainer textarea').forEach(t => {
+    if (t.value.trim()) scopes.push(t.value.trim());
+  });
+
+  const today = new Date().toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
+
+  // ── Header bar
+  doc.setFillColor(26, 26, 26);
+  doc.rect(0, 0, W, 36, 'F');
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(18);
+  doc.setTextColor(255, 255, 255);
+  doc.text('FREELANCE CONTRACT', M, 16);
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(9);
+  doc.setTextColor(180, 180, 180);
+  doc.text(`${projectName}  ·  ${today}`, M, 26);
+
+  y = 48;
+
+  // ── Parties
+  function sectionHeader(title) {
+    doc.setFillColor(245, 245, 243);
+    doc.rect(M, y - 4, W - M * 2, 9, 'F');
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(8);
+    doc.setTextColor(120, 120, 120);
+    doc.text(title.toUpperCase(), M + 3, y + 2);
+    y += 10;
+  }
+
+  function bodyText(text, indent = 0) {
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(9.5);
+    doc.setTextColor(40, 40, 40);
+    const lines = doc.splitTextToSize(text, W - M * 2 - indent);
+    lines.forEach(line => {
+      if (y > 270) { doc.addPage(); y = M; }
+      doc.text(line, M + indent, y);
+      y += 5.5;
+    });
+    y += 2;
+  }
+
+  function labelValue(label, value) {
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(8.5);
+    doc.setTextColor(100, 100, 100);
+    doc.text(label + ':', M, y);
+    doc.setFont('helvetica', 'normal');
+    doc.setTextColor(30, 30, 30);
+    doc.text(value || '—', M + 42, y);
+    y += 6;
+  }
+
+  sectionHeader('Parties');
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(9.5);
+  doc.setTextColor(26, 26, 26);
+  doc.text('Freelancer:', M, y); doc.text('Client:', W / 2 + 2, y);
+  y += 6;
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(9);
+  doc.setTextColor(50, 50, 50);
+  const fLines = [freelancerName, freelancerAddress, freelancerEmail].filter(Boolean);
+  const cLines = [clientName, clientAddress, clientEmail].filter(Boolean);
+  const maxLines = Math.max(fLines.length, cLines.length);
+  for (let i = 0; i < maxLines; i++) {
+    if (fLines[i]) doc.text(fLines[i], M, y);
+    if (cLines[i]) doc.text(cLines[i], W / 2 + 2, y);
+    y += 5.5;
+  }
+  y += 4;
+
+  sectionHeader('Project Details');
+  labelValue('Project Name', projectName);
+  labelValue('Start Date', startDate);
+  labelValue('End Date', endDate);
+  labelValue('Total Fee', projectFee ? `$${parseFloat(projectFee).toFixed(2)}` : '—');
+  y += 2;
+
+  if (scopes.length > 0) {
+    sectionHeader('Scope of Work');
+    scopes.forEach((s, i) => {
+      bodyText(`${i + 1}. ${s}`, 2);
+    });
+  }
+
+  sectionHeader('Payment Terms');
+  const paymentMap = {
+    '50/50': '50% due before work begins, 50% due upon final delivery.',
+    '50/25/25': '50% due before work begins, 25% due at project midpoint, 25% due upon final delivery.',
+    '100upfront': '100% of project fee due before work begins.',
+    '100delivery': '100% of project fee due upon final delivery.',
+    'monthly': 'Monthly retainer — invoiced at the start of each month.'
+  };
+  bodyText(paymentMap[paymentStructure] || '');
+  bodyText(`Invoices are due within ${paymentDue} days of issue.`);
+  if (lateFee) bodyText(`Invoices unpaid after the due date incur a ${lateFee}% monthly late fee.`);
+  if (paymentMethod) bodyText(`Accepted payment methods: ${paymentMethod}.`);
+  y += 2;
+
+  sectionHeader('Revisions & Cancellation');
+  const revMap = {
+    '1': 'This agreement includes 1 round of revisions.',
+    '2': 'This agreement includes 2 rounds of revisions.',
+    '3': 'This agreement includes 3 rounds of revisions.',
+    'unlimited': 'This agreement includes unlimited revisions within the agreed scope.'
+  };
+  bodyText(revMap[revisions] || '');
+  bodyText('Additional revision rounds beyond those included will be billed at the freelancer\'s standard hourly rate.');
+  if (killFee !== '0') {
+    bodyText(`If the client cancels the project after work has commenced, all completed work will be billed in full. A cancellation fee of ${killFee}% of the remaining project balance will also apply.`);
+  }
+  y += 2;
+
+  sectionHeader('Additional Terms');
+  if (clauseIP) bodyText('Intellectual Property: All intellectual property rights transfer to the client upon receipt of final payment in full.');
+  if (clausePortfolio) bodyText('Portfolio: The freelancer reserves the right to display completed work in their portfolio and promotional materials unless otherwise agreed in writing.');
+  if (clauseConfidential) bodyText('Confidentiality: Both parties agree to keep all project information, business processes, and materials confidential and not to disclose them to third parties without prior written consent.');
+  if (clauseGoverning && governingLaw) bodyText(`Governing Law: This agreement shall be governed by the laws of ${governingLaw}.`);
+  if (notes) {
+    y += 2;
+    bodyText('Additional Notes:');
+    bodyText(notes, 4);
+  }
+  y += 4;
+
+  // ── Signatures
+  if (y > 240) { doc.addPage(); y = M; }
+  sectionHeader('Signatures');
+  bodyText('By signing below, both parties agree to the terms outlined in this contract.');
+  y += 6;
+
+  const sigY = y;
+  doc.setDrawColor(180, 180, 180);
+  doc.line(M, sigY + 14, M + 70, sigY + 14);
+  doc.line(W / 2 + 2, sigY + 14, W / 2 + 72, sigY + 14);
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(8.5);
+  doc.setTextColor(120, 120, 120);
+  doc.text('Freelancer Signature', M, sigY + 20);
+  doc.text('Client Signature', W / 2 + 2, sigY + 20);
+  doc.line(M, sigY + 30, M + 70, sigY + 30);
+  doc.line(W / 2 + 2, sigY + 30, W / 2 + 72, sigY + 30);
+  doc.text('Date', M, sigY + 36);
+  doc.text('Date', W / 2 + 2, sigY + 36);
+
+  // ── Footer
+  const pageCount = doc.internal.getNumberOfPages();
+  for (let i = 1; i <= pageCount; i++) {
+    doc.setPage(i);
+    doc.setFontSize(7.5);
+    doc.setTextColor(180, 180, 180);
+    doc.text('Generated with GetSoloTools.com — Free tools for freelancers', W / 2, 290, { align: 'center' });
+  }
+
+  const filename = (projectName || 'contract').toLowerCase().replace(/\s+/g, '-');
+  doc.save(`${filename}-contract.pdf`);
+}
+
+// Init
+document.addEventListener('DOMContentLoaded', () => {
+  addScope();
+  addScope();
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('startDate').value = today;
+});
+</script>
+
+</body>
+</html>

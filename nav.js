@@ -8,6 +8,7 @@
     { label: 'Late Fee', href: '/late-payment-fee.html' },
     { label: 'Profit', href: '/project-profit.html' },
     { label: 'Budget', href: '/budget-planner.html' },
+    { label: 'Contract', href: '/contract-generator.html' },
   ];
 
   var currentPath = window.location.pathname;
