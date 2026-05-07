@@ -111,6 +111,46 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://getsolotools.com/invoice-tracker.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://getsolotools.com/blog/how-to-create-a-freelance-portfolio.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://getsolotools.com/blog/freelance-contract-red-flags.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://getsolotools.com/blog/how-to-scale-your-freelance-business.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://getsolotools.com/blog/freelance-client-onboarding-checklist.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://getsolotools.com/blog/how-to-price-a-freelance-project.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://getsolotools.com/blog/how-to-write-a-freelance-invoice-email.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://getsolotools.com/blog/freelance-work-life-balance.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://getsolotools.com/about.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>

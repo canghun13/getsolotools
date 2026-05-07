@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Freelance Invoice Tracker – GetSoloTools</title>
+<meta name="description" content="Track all your invoices in one place. See what's paid, what's pending, and what's overdue — free, no sign-up required.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-728DGKLSE6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-728DGKLSE6');
+</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #1a1a1a; --ink-2: #555; --ink-3: #999;
+    --paper: #fafaf8; --white: #ffffff;
+    --accent: #2d5be3; --accent-light: #eef1fd;
+    --border: #e8e6e0;
+    --paid: #1a8a4a; --paid-bg: #edfaf3;
+    --pending: #b45309; --pending-bg: #fffbeb;
+    --overdue: #c53030; --overdue-bg: #fff5f5;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
+  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; font-size: 15px; }
+
+  .hero { text-align: center; padding: 3.5rem 1rem 2.5rem; max-width: 640px; margin: 0 auto; }
+  .hero-badge { display: inline-block; background: var(--accent-light); color: var(--accent); font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem; }
+  .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
+  .hero p { color: var(--ink-2); font-size: 1rem; max-width: 480px; margin: 0 auto; }
+
+  .main-wrap { max-width: 960px; margin: 0 auto; padding: 0 1rem 4rem; }
+
+  /* Summary Cards */
+  .summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 1.5rem; }
+  @media (max-width: 640px) { .summary { grid-template-columns: repeat(2, 1fr); } }
+  .summary-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; }
+  .summary-card .label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-3); margin-bottom: 6px; }
+  .summary-card .value { font-size: 1.5rem; font-weight: 600; font-family: 'DM Serif Display', serif; }
+  .summary-card .count { font-size: 12px; color: var(--ink-3); margin-top: 2px; }
+  .summary-card.paid .value { color: var(--paid); }
+  .summary-card.pending .value { color: var(--pending); }
+  .summary-card.overdue .value { color: var(--overdue); }
+
+  /* Toolbar */
+  .toolbar { background: var(--white); border: 1px solid var(--border); border-radius: 12px 12px 0 0; padding: 14px 18px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; border-bottom: none; }
+  .toolbar-left { display: flex; gap: 8px; flex: 1; flex-wrap: wrap; }
+  .filter-btn { padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 500; cursor: pointer; border: 1px solid var(--border); background: var(--white); color: var(--ink-2); font-family: 'DM Sans', sans-serif; transition: all 0.15s; }
+  .filter-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; font-family: 'DM Sans', sans-serif; transition: all 0.15s; }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: #2248c4; }
+
+  /* Table */
+  .table-wrap { background: var(--white); border: 1px solid var(--border); border-radius: 0 0 12px 12px; overflow: hidden; }
+  table { width: 100%; border-collapse: collapse; }
+  th { padding: 10px 16px; text-align: left; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-3); background: #fafaf8; border-bottom: 1px solid var(--border); }
+  td { padding: 12px 16px; font-size: 14px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #fafaf8; }
+
+  .status-badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .status-paid { background: var(--paid-bg); color: var(--paid); }
+  .status-pending { background: var(--pending-bg); color: var(--pending); }
+  .status-overdue { background: var(--overdue-bg); color: var(--overdue); }
+
+  .action-btn { background: none; border: none; cursor: pointer; padding: 4px 8px; border-radius: 6px; font-size: 13px; color: var(--ink-3); transition: all 0.15s; font-family: 'DM Sans', sans-serif; }
+  .action-btn:hover { background: var(--accent-light); color: var(--accent); }
+  .action-btn.mark-paid { color: var(--paid); }
+  .action-btn.mark-paid:hover { background: var(--paid-bg); }
+  .action-btn.delete { color: var(--overdue); }
+  .action-btn.delete:hover { background: var(--overdue-bg); }
+
+  .empty-state { text-align: center; padding: 48px 24px; color: var(--ink-3); }
+  .empty-state p { margin-top: 8px; font-size: 14px; }
+
+  /* Modal */
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 200; align-items: center; justify-content: center; padding: 1rem; }
+  .modal-overlay.open { display: flex; }
+  .modal { background: var(--white); border-radius: 16px; padding: 32px; width: 100%; max-width: 480px; box-shadow: 0 20px 60px rgba(0,0,0,0.2); }
+  .modal h2 { font-family: 'DM Serif Display', serif; font-size: 1.4rem; margin-bottom: 20px; }
+  .field { display: flex; flex-direction: column; gap: 4px; margin-bottom: 14px; }
+  label { font-size: 12px; font-weight: 500; color: var(--ink-2); }
+  input, select { width: 100%; padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 14px; font-family: 'DM Sans', sans-serif; color: var(--ink); outline: none; transition: border-color 0.15s; }
+  input:focus, select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(45,91,227,0.1); }
+  .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; }
+  .btn-ghost { background: var(--paper); color: var(--ink); border: 1px solid var(--border); }
+  .btn-ghost:hover { background: #f0f0ee; }
+
+  footer { border-top: 1px solid var(--border); text-align: center; padding: 2rem; font-size: 13px; color: var(--ink-3); margin-top: 2rem; }
+  footer a { color: var(--ink-2); text-decoration: none; margin: 0 0.4rem; }
+  footer a:hover { color: var(--accent); }
+
+  @media (max-width: 600px) {
+    th:nth-child(3), td:nth-child(3),
+    th:nth-child(4), td:nth-child(4) { display: none; }
+  }
+</style>
+</head>
+<body>
+<script src="/nav.js"></script>
+
+<div class="hero">
+  <span class="hero-badge">Free Tool</span>
+  <h1>Invoice Tracker</h1>
+  <p>Track all your invoices in one place. See what's paid, pending, and overdue — no sign-up, no account.</p>
+</div>
+
+<div class="main-wrap">
+
+  <div class="summary">
+    <div class="summary-card">
+      <div class="label">Total Outstanding</div>
+      <div class="value" id="totalOutstanding">$0</div>
+      <div class="count" id="outstandingCount">0 invoices</div>
+    </div>
+    <div class="summary-card paid">
+      <div class="label">Paid</div>
+      <div class="value" id="totalPaid">$0</div>
+      <div class="count" id="paidCount">0 invoices</div>
+    </div>
+    <div class="summary-card pending">
+      <div class="label">Pending</div>
+      <div class="value" id="totalPending">$0</div>
+      <div class="count" id="pendingCount">0 invoices</div>
+    </div>
+    <div class="summary-card overdue">
+      <div class="label">Overdue</div>
+      <div class="value" id="totalOverdue">$0</div>
+      <div class="count" id="overdueCount">0 invoices</div>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <div class="toolbar-left">
+      <button class="filter-btn active" onclick="setFilter('all', this)">All</button>
+      <button class="filter-btn" onclick="setFilter('pending', this)">Pending</button>
+      <button class="filter-btn" onclick="setFilter('overdue', this)">Overdue</button>
+      <button class="filter-btn" onclick="setFilter('paid', this)">Paid</button>
+    </div>
+    <button class="btn btn-primary" onclick="openModal()">+ Add Invoice</button>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Invoice #</th>
+          <th>Client</th>
+          <th>Project</th>
+          <th>Due Date</th>
+          <th>Amount</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="invoiceTable"></tbody>
+    </table>
+    <div class="empty-state" id="emptyState">
+      <div style="font-size:2rem;">🧾</div>
+      <p>No invoices yet. Add your first one to get started.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <h2 id="modalTitle">Add Invoice</h2>
+    <div class="row-2">
+      <div class="field"><label>Invoice #</label><input type="text" id="invoiceNum" placeholder="INV-001" /></div>
+      <div class="field"><label>Status</label>
+        <select id="invoiceStatus">
+          <option value="pending">Pending</option>
+          <option value="paid">Paid</option>
+          <option value="overdue">Overdue</option>
+        </select>
+      </div>
+    </div>
+    <div class="field"><label>Client Name</label><input type="text" id="clientName" placeholder="Acme Corp" /></div>
+    <div class="field"><label>Project / Description</label><input type="text" id="projectName" placeholder="Website redesign" /></div>
+    <div class="row-2">
+      <div class="field"><label>Amount ($)</label><input type="number" id="amount" placeholder="1500" min="0" step="0.01" /></div>
+      <div class="field"><label>Due Date</label><input type="date" id="dueDate" /></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="saveInvoice()">Save Invoice</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 <a href="/">GetSoloTools</a> &nbsp;·&nbsp;
+    <a href="/about.html">About</a>
+    <a href="/blog/index.html" style="color:#1a9e6e;font-weight:600;">Blog</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/contact.html">Contact</a>
+  </p>
+</footer>
+
+<script>
+let invoices = JSON.parse(localStorage.getItem('gst_invoices') || '[]');
+let currentFilter = 'all';
+let editingId = null;
+
+function save() {
+  localStorage.setItem('gst_invoices', JSON.stringify(invoices));
+}
+
+function fmt(n) {
+  return '$' + Number(n).toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+}
+
+function autoStatus(invoice) {
+  if (invoice.status === 'paid') return 'paid';
+  if (invoice.dueDate && new Date(invoice.dueDate) < new Date()) return 'overdue';
+  return invoice.status;
+}
+
+function render() {
+  const filtered = currentFilter === 'all' ? invoices : invoices.filter(i => autoStatus(i) === currentFilter);
+  const tbody = document.getElementById('invoiceTable');
+  const empty = document.getElementById('emptyState');
+
+  if (filtered.length === 0) {
+    tbody.innerHTML = '';
+    empty.style.display = 'block';
+  } else {
+    empty.style.display = 'none';
+    tbody.innerHTML = filtered.map(inv => {
+      const st = autoStatus(inv);
+      const badgeClass = st === 'paid' ? 'status-paid' : st === 'overdue' ? 'status-overdue' : 'status-pending';
+      const markPaidBtn = st !== 'paid' ? `<button class="action-btn mark-paid" onclick="markPaid('${inv.id}')">Mark Paid</button>` : '';
+      return `<tr>
+        <td><strong>${inv.invoiceNum || '—'}</strong></td>
+        <td>${inv.clientName || '—'}</td>
+        <td style="color:var(--ink-2)">${inv.projectName || '—'}</td>
+        <td style="color:var(--ink-2)">${inv.dueDate || '—'}</td>
+        <td><strong>${fmt(inv.amount || 0)}</strong></td>
+        <td><span class="status-badge ${badgeClass}">${st}</span></td>
+        <td>
+          ${markPaidBtn}
+          <button class="action-btn" onclick="editInvoice('${inv.id}')">Edit</button>
+          <button class="action-btn delete" onclick="deleteInvoice('${inv.id}')">Delete</button>
+        </td>
+      </tr>`;
+    }).join('');
+  }
+
+  // Summary
+  const paid = invoices.filter(i => autoStatus(i) === 'paid');
+  const pending = invoices.filter(i => autoStatus(i) === 'pending');
+  const overdue = invoices.filter(i => autoStatus(i) === 'overdue');
+  const outstanding = [...pending, ...overdue];
+
+  const sum = arr => arr.reduce((a, i) => a + Number(i.amount || 0), 0);
+
+  document.getElementById('totalOutstanding').textContent = fmt(sum(outstanding));
+  document.getElementById('outstandingCount').textContent = outstanding.length + ' invoice' + (outstanding.length !== 1 ? 's' : '');
+  document.getElementById('totalPaid').textContent = fmt(sum(paid));
+  document.getElementById('paidCount').textContent = paid.length + ' invoice' + (paid.length !== 1 ? 's' : '');
+  document.getElementById('totalPending').textContent = fmt(sum(pending));
+  document.getElementById('pendingCount').textContent = pending.length + ' invoice' + (pending.length !== 1 ? 's' : '');
+  document.getElementById('totalOverdue').textContent = fmt(sum(overdue));
+  document.getElementById('overdueCount').textContent = overdue.length + ' invoice' + (overdue.length !== 1 ? 's' : '');
+}
+
+function setFilter(f, btn) {
+  currentFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  render();
+}
+
+function openModal(id = null) {
+  editingId = id;
+  document.getElementById('modalTitle').textContent = id ? 'Edit Invoice' : 'Add Invoice';
+  if (id) {
+    const inv = invoices.find(i => i.id === id);
+    document.getElementById('invoiceNum').value = inv.invoiceNum || '';
+    document.getElementById('clientName').value = inv.clientName || '';
+    document.getElementById('projectName').value = inv.projectName || '';
+    document.getElementById('amount').value = inv.amount || '';
+    document.getElementById('dueDate').value = inv.dueDate || '';
+    document.getElementById('invoiceStatus').value = inv.status || 'pending';
+  } else {
+    document.getElementById('invoiceNum').value = 'INV-' + String(invoices.length + 1).padStart(3, '0');
+    document.getElementById('clientName').value = '';
+    document.getElementById('projectName').value = '';
+    document.getElementById('amount').value = '';
+    document.getElementById('dueDate').value = '';
+    document.getElementById('invoiceStatus').value = 'pending';
+  }
+  document.getElementById('modalOverlay').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  editingId = null;
+}
+
+function saveInvoice() {
+  const inv = {
+    id: editingId || Date.now().toString(),
+    invoiceNum: document.getElementById('invoiceNum').value.trim(),
+    clientName: document.getElementById('clientName').value.trim(),
+    projectName: document.getElementById('projectName').value.trim(),
+    amount: document.getElementById('amount').value,
+    dueDate: document.getElementById('dueDate').value,
+    status: document.getElementById('invoiceStatus').value,
+  };
+  if (!inv.clientName || !inv.amount) { alert('Please fill in client name and amount.'); return; }
+  if (editingId) {
+    const idx = invoices.findIndex(i => i.id === editingId);
+    invoices[idx] = inv;
+  } else {
+    invoices.push(inv);
+  }
+  save();
+  render();
+  closeModal();
+}
+
+function markPaid(id) {
+  const inv = invoices.find(i => i.id === id);
+  if (inv) { inv.status = 'paid'; save(); render(); }
+}
+
+function editInvoice(id) { openModal(id); }
+
+function deleteInvoice(id) {
+  if (!confirm('Delete this invoice?')) return;
+  invoices = invoices.filter(i => i.id !== id);
+  save();
+  render();
+}
+
+document.getElementById('modalOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+render();
+</script>
+
+</body>
+</html>
