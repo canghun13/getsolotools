@@ -177,7 +177,7 @@
   }
 </style>`;
 
-  document.write(CSS + navHTML);
+  document.write('<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"><\/script>' + CSS + navHTML);
 
   window.toggleNav = function() {
     document.getElementById('mainNav').classList.toggle('open');
