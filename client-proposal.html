@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Client Proposal Generator for Freelancers – GetSoloTools</title>
+<meta name="description" content="Create a professional client proposal in minutes. Fill in your project details and download a clean PDF proposal instantly. Free, no sign-up required.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-728DGKLSE6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-728DGKLSE6');
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #1a1a1a; --ink-2: #555; --ink-3: #999;
+    --paper: #fafaf8; --white: #ffffff;
+    --accent: #2d5be3; --accent-light: #eef1fd;
+    --border: #e8e6e0;
+    --success: #1a8a4a; --success-light: #f0faf4;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
+  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; font-size: 15px; line-height: 1.6; }
+  .hero { text-align: center; padding: 3.5rem 1rem 2.5rem; max-width: 640px; margin: 0 auto; }
+  .hero-badge { display: inline-block; background: var(--accent-light); color: var(--accent); font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem; }
+  .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
+  .hero p { color: var(--ink-2); font-size: 1rem; max-width: 480px; margin: 0 auto 1.5rem; }
+  .hero-features { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; font-size: 13px; color: var(--ink-3); }
+  .hero-features span::before { content: '✓ '; color: var(--success); font-weight: 600; }
+  .main-wrap { max-width: 900px; margin: 0 auto; padding: 0 1rem 4rem; }
+  .proposal-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow); overflow: hidden; }
+  .proposal-toolbar { background: var(--ink); padding: 0.75rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .toolbar-label { color: rgba(255,255,255,0.5); font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+  .toolbar-actions { display: flex; gap: 0.75rem; }
+  .btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; font-family: inherit; transition: all 0.15s; }
+  .btn-primary { background: var(--accent); color: white; }
+  .btn-primary:hover { background: #2449c0; }
+  .btn-ghost { background: rgba(255,255,255,0.1); color: white; }
+  .btn-ghost:hover { background: rgba(255,255,255,0.2); }
+  .proposal-body { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  @media (max-width: 700px) { .proposal-body { grid-template-columns: 1fr; } }
+  .form-panel { padding: 2rem; border-right: 1px solid var(--border); }
+  .preview-panel { padding: 2rem; background: #f5f5f3; }
+  .section-title { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); margin-bottom: 1.25rem; margin-top: 1.75rem; }
+  .section-title:first-child { margin-top: 0; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem; }
+  .field-full { margin-bottom: 0.75rem; }
+  label { font-size: 12px; font-weight: 500; color: var(--ink-2); display: block; margin-bottom: 4px; }
+  input[type="text"], input[type="number"], input[type="date"], input[type="email"], select, textarea {
+    width: 100%; padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px;
+    font-size: 14px; font-family: 'DM Sans', sans-serif; color: var(--ink); background: var(--white);
+    transition: border-color 0.15s, box-shadow 0.15s; outline: none;
+  }
+  textarea { resize: vertical; min-height: 80px; }
+  input:focus, select:focus, textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(45,91,227,0.1); }
+  .deliverable-row { display: flex; gap: 0.5rem; margin-bottom: 0.5rem; align-items: flex-start; }
+  .deliverable-row input { flex: 1; }
+  .remove-btn { padding: 8px 10px; background: none; border: 1px solid var(--border); border-radius: 8px; cursor: pointer; color: var(--ink-3); font-size: 14px; line-height: 1; flex-shrink: 0; }
+  .remove-btn:hover { border-color: #dc2626; color: #dc2626; }
+  .add-btn { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; color: var(--accent); background: none; border: none; cursor: pointer; font-family: inherit; font-weight: 500; padding: 4px 0; }
+  .add-btn:hover { opacity: 0.8; }
+  /* Preview */
+  .preview-doc { background: white; border-radius: 8px; padding: 2rem; font-size: 13px; line-height: 1.6; box-shadow: 0 2px 8px rgba(0,0,0,0.08); min-height: 400px; }
+  .preview-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 2px solid var(--accent); }
+  .preview-from h2 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--ink); margin-bottom: 2px; }
+  .preview-from p { color: var(--ink-2); font-size: 12px; }
+  .preview-badge { background: var(--accent); color: white; padding: 6px 14px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+  .preview-to { margin-bottom: 1.5rem; }
+  .preview-to h3 { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 6px; }
+  .preview-to p { color: var(--ink); font-size: 13px; }
+  .preview-section { margin-bottom: 1.5rem; }
+  .preview-section h3 { font-family: 'DM Serif Display', serif; font-size: 1rem; color: var(--ink); margin-bottom: 0.5rem; border-left: 3px solid var(--accent); padding-left: 8px; }
+  .preview-section p { color: var(--ink-2); font-size: 13px; }
+  .preview-deliverables { list-style: none; padding: 0; }
+  .preview-deliverables li { padding: 4px 0; color: var(--ink-2); font-size: 13px; }
+  .preview-deliverables li::before { content: '→ '; color: var(--accent); font-weight: 600; }
+  .preview-timeline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .preview-timeline-item { background: var(--paper); border-radius: 6px; padding: 0.6rem 0.75rem; }
+  .preview-timeline-item .tl-label { font-size: 11px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.05em; }
+  .preview-timeline-item .tl-value { font-size: 13px; font-weight: 600; color: var(--ink); }
+  .preview-investment { background: var(--accent); color: white; border-radius: 8px; padding: 1rem 1.25rem; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+  .preview-investment .inv-label { font-size: 12px; opacity: 0.7; }
+  .preview-investment .inv-amount { font-family: 'DM Serif Display', serif; font-size: 1.6rem; }
+  .preview-footer { border-top: 1px solid var(--border); padding-top: 1rem; font-size: 11px; color: var(--ink-3); text-align: center; }
+  .preview-sig { margin-top: 1.5rem; display: flex; justify-content: space-between; }
+  .preview-sig-line { flex: 1; margin: 0 1rem; text-align: center; }
+  .preview-sig-line .sig-line { border-top: 1px solid var(--border); margin-bottom: 4px; padding-top: 4px; font-size: 11px; color: var(--ink-3); }
+  .preview-sig-line .sig-name { font-size: 12px; font-weight: 600; color: var(--ink); }
+  .info-section { margin-top: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+  .info-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; }
+  .info-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.05rem; margin-bottom: 0.5rem; }
+  .info-card p { font-size: 13px; color: var(--ink-2); line-height: 1.6; }
+  footer { border-top: 1px solid var(--border); text-align: center; padding: 2rem; font-size: 13px; color: var(--ink-3); margin-top: 2rem; }
+  footer a { color: var(--ink-2); text-decoration: none; margin: 0 0.4rem; }
+  footer a:hover { color: var(--accent); }
+</style>
+</head>
+<body>
+<script src="/nav.js"></script>
+
+<div class="hero">
+  <div class="hero-badge">Win More Clients</div>
+  <h1>Free Client Proposal Generator</h1>
+  <p>Create a professional project proposal in minutes. Fill in your details, preview instantly, and download as a PDF — no account needed.</p>
+  <div class="hero-features">
+    <span>100% free</span>
+    <span>No sign-up</span>
+    <span>PDF download</span>
+    <span>Instant preview</span>
+  </div>
+</div>
+
+<div class="main-wrap">
+  <div class="proposal-card">
+    <div class="proposal-toolbar">
+      <span class="toolbar-label">Client Proposal</span>
+      <div class="toolbar-actions">
+        <button class="btn btn-ghost" onclick="clearForm()">Clear</button>
+        <button class="btn btn-primary" onclick="downloadPDF()">⬇ Download PDF</button>
+      </div>
+    </div>
+    <div class="proposal-body">
+      <!-- FORM -->
+      <div class="form-panel">
+        <div class="section-title">Your Info</div>
+        <div class="field-row">
+          <div>
+            <label>Your Name / Business</label>
+            <input type="text" id="fromName" placeholder="Jane Smith" oninput="updatePreview()">
+          </div>
+          <div>
+            <label>Your Email</label>
+            <input type="email" id="fromEmail" placeholder="jane@example.com" oninput="updatePreview()">
+          </div>
+        </div>
+        <div class="field-row">
+          <div>
+            <label>Website (optional)</label>
+            <input type="text" id="fromWebsite" placeholder="janesmith.com" oninput="updatePreview()">
+          </div>
+          <div>
+            <label>Phone (optional)</label>
+            <input type="text" id="fromPhone" placeholder="+1 555 000 0000" oninput="updatePreview()">
+          </div>
+        </div>
+
+        <div class="section-title">Client Info</div>
+        <div class="field-row">
+          <div>
+            <label>Client Name</label>
+            <input type="text" id="toName" placeholder="Acme Corp" oninput="updatePreview()">
+          </div>
+          <div>
+            <label>Client Contact</label>
+            <input type="text" id="toContact" placeholder="John Doe" oninput="updatePreview()">
+          </div>
+        </div>
+
+        <div class="section-title">Project Details</div>
+        <div class="field-full">
+          <label>Project Title</label>
+          <input type="text" id="projectTitle" placeholder="Website Redesign Project" oninput="updatePreview()">
+        </div>
+        <div class="field-full">
+          <label>Project Overview</label>
+          <textarea id="projectOverview" placeholder="Brief description of the project scope and goals..." oninput="updatePreview()"></textarea>
+        </div>
+
+        <div class="section-title">Deliverables</div>
+        <div id="deliverablesList"></div>
+        <button class="add-btn" onclick="addDeliverable()">+ Add deliverable</button>
+
+        <div class="section-title">Timeline & Investment</div>
+        <div class="field-row">
+          <div>
+            <label>Proposal Date</label>
+            <input type="date" id="proposalDate" oninput="updatePreview()">
+          </div>
+          <div>
+            <label>Project Start Date</label>
+            <input type="date" id="startDate" oninput="updatePreview()">
+          </div>
+        </div>
+        <div class="field-row">
+          <div>
+            <label>Estimated Duration</label>
+            <input type="text" id="duration" placeholder="4 weeks" oninput="updatePreview()">
+          </div>
+          <div>
+            <label>Currency</label>
+            <select id="currency" onchange="updatePreview()">
+              <option value="$">USD ($)</option>
+              <option value="€">EUR (€)</option>
+              <option value="£">GBP (£)</option>
+              <option value="CA$">CAD (CA$)</option>
+              <option value="AU$">AUD (AU$)</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-row">
+          <div>
+            <label>Total Investment</label>
+            <input type="number" id="totalAmount" placeholder="3000" oninput="updatePreview()">
+          </div>
+          <div>
+            <label>Deposit Required (%)</label>
+            <input type="number" id="depositPct" placeholder="50" min="0" max="100" oninput="updatePreview()">
+          </div>
+        </div>
+
+        <div class="section-title">Terms</div>
+        <div class="field-full">
+          <label>Payment Terms</label>
+          <input type="text" id="paymentTerms" placeholder="50% deposit, 50% on completion" oninput="updatePreview()">
+        </div>
+        <div class="field-full">
+          <label>Revisions Included</label>
+          <input type="text" id="revisions" placeholder="2 rounds of revisions" oninput="updatePreview()">
+        </div>
+        <div class="field-full">
+          <label>Additional Notes (optional)</label>
+          <textarea id="notes" placeholder="Any additional terms, exclusions, or notes..." oninput="updatePreview()" style="min-height:60px;"></textarea>
+        </div>
+      </div>
+
+      <!-- PREVIEW -->
+      <div class="preview-panel">
+        <div class="preview-doc" id="previewDoc">
+          <div class="preview-header">
+            <div class="preview-from">
+              <h2 id="prev-fromName">Your Name</h2>
+              <p id="prev-fromContact"></p>
+            </div>
+            <div class="preview-badge">Proposal</div>
+          </div>
+
+          <div class="preview-to">
+            <h3>Prepared For</h3>
+            <p id="prev-toName">Client Name</p>
+            <p id="prev-toContact" style="color:var(--ink-2);font-size:12px;"></p>
+            <p id="prev-proposalDate" style="color:var(--ink-3);font-size:11px;margin-top:4px;"></p>
+          </div>
+
+          <div class="preview-section">
+            <h3 id="prev-projectTitle">Project Title</h3>
+            <p id="prev-overview" style="color:var(--ink-2);font-size:13px;margin-top:6px;">Project overview will appear here.</p>
+          </div>
+
+          <div class="preview-section">
+            <h3>Deliverables</h3>
+            <ul class="preview-deliverables" id="prev-deliverables">
+              <li>Deliverables will appear here</li>
+            </ul>
+          </div>
+
+          <div class="preview-section">
+            <h3>Timeline</h3>
+            <div class="preview-timeline-grid">
+              <div class="preview-timeline-item">
+                <div class="tl-label">Start Date</div>
+                <div class="tl-value" id="prev-startDate">—</div>
+              </div>
+              <div class="preview-timeline-item">
+                <div class="tl-label">Duration</div>
+                <div class="tl-value" id="prev-duration">—</div>
+              </div>
+              <div class="preview-timeline-item">
+                <div class="tl-label">Revisions</div>
+                <div class="tl-value" id="prev-revisions">—</div>
+              </div>
+              <div class="preview-timeline-item">
+                <div class="tl-label">Payment Terms</div>
+                <div class="tl-value" id="prev-paymentTerms">—</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="preview-investment">
+            <div>
+              <div class="inv-label">Total Investment</div>
+              <div class="inv-amount" id="prev-amount">$0</div>
+            </div>
+            <div style="text-align:right;">
+              <div class="inv-label">Deposit Due</div>
+              <div class="inv-amount" id="prev-deposit">$0</div>
+            </div>
+          </div>
+
+          <div id="prev-notes-wrap" class="preview-section" style="display:none;">
+            <h3>Notes</h3>
+            <p id="prev-notes" style="color:var(--ink-2);font-size:13px;"></p>
+          </div>
+
+          <div class="preview-sig">
+            <div class="preview-sig-line">
+              <div class="sig-line">Signature</div>
+              <div class="sig-name" id="prev-sig-from">Your Name</div>
+            </div>
+            <div class="preview-sig-line">
+              <div class="sig-line">Client Signature</div>
+              <div class="sig-name" id="prev-sig-to">Client Name</div>
+            </div>
+          </div>
+
+          <div class="preview-footer">
+            This proposal is valid for 14 days from the date above.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-section">
+    <div class="info-card">
+      <h3>What makes a great proposal?</h3>
+      <p>The best proposals are specific, not generic. Name the client's problem clearly, show exactly what you'll deliver, and make the pricing feel like a no-brainer relative to the value.</p>
+    </div>
+    <div class="info-card">
+      <h3>Always include a deposit</h3>
+      <p>A 30–50% upfront deposit protects you and filters out low-commitment clients. It also gives you runway to actually start the work without chasing payment mid-project.</p>
+    </div>
+    <div class="info-card">
+      <h3>Limit revision rounds</h3>
+      <p>Scope creep kills freelance profitability. Specify exactly how many revision rounds are included — typically 2 — and what counts as an additional revision vs. a new request.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 <a href="/">GetSoloTools</a> &nbsp;·&nbsp;
+    <a href="/about.html">About</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/blog/index.html" style="color:#1a9e6e;font-weight:600;">Blog</a>
+  </p>
+</footer>
+
+<script>
+let deliverables = [''];
+
+function addDeliverable() {
+  deliverables.push('');
+  renderDeliverables();
+}
+
+function removeDeliverable(i) {
+  deliverables.splice(i, 1);
+  if (deliverables.length === 0) deliverables = [''];
+  renderDeliverables();
+  updatePreview();
+}
+
+function renderDeliverables() {
+  const container = document.getElementById('deliverablesList');
+  container.innerHTML = deliverables.map((d, i) => `
+    <div class="deliverable-row">
+      <input type="text" value="${d}" placeholder="e.g. Homepage design (desktop + mobile)"
+        oninput="deliverables[${i}] = this.value; updatePreview()">
+      ${deliverables.length > 1 ? `<button class="remove-btn" onclick="removeDeliverable(${i})">×</button>` : ''}
+    </div>
+  `).join('');
+}
+
+function fmt(n, sym) {
+  return sym + Number(n).toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+}
+
+function fmtDate(d) {
+  if (!d) return '—';
+  const [y, m, day] = d.split('-');
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return `${months[parseInt(m)-1]} ${parseInt(day)}, ${y}`;
+}
+
+function val(id) { return document.getElementById(id)?.value || ''; }
+
+function updatePreview() {
+  const sym = val('currency') || '$';
+  const amount = parseFloat(val('totalAmount')) || 0;
+  const depositPct = parseFloat(val('depositPct')) || 0;
+  const deposit = amount * depositPct / 100;
+
+  document.getElementById('prev-fromName').textContent = val('fromName') || 'Your Name';
+  const fromParts = [val('fromEmail'), val('fromWebsite'), val('fromPhone')].filter(Boolean);
+  document.getElementById('prev-fromContact').textContent = fromParts.join(' · ');
+  document.getElementById('prev-toName').textContent = val('toName') || 'Client Name';
+  document.getElementById('prev-toContact').textContent = val('toContact');
+  document.getElementById('prev-proposalDate').textContent = val('proposalDate') ? 'Proposed: ' + fmtDate(val('proposalDate')) : '';
+  document.getElementById('prev-projectTitle').textContent = val('projectTitle') || 'Project Title';
+  document.getElementById('prev-overview').textContent = val('projectOverview') || 'Project overview will appear here.';
+  document.getElementById('prev-startDate').textContent = fmtDate(val('startDate'));
+  document.getElementById('prev-duration').textContent = val('duration') || '—';
+  document.getElementById('prev-revisions').textContent = val('revisions') || '—';
+  document.getElementById('prev-paymentTerms').textContent = val('paymentTerms') || '—';
+  document.getElementById('prev-amount').textContent = fmt(amount, sym);
+  document.getElementById('prev-deposit').textContent = fmt(deposit, sym);
+  document.getElementById('prev-sig-from').textContent = val('fromName') || 'Your Name';
+  document.getElementById('prev-sig-to').textContent = val('toName') || 'Client Name';
+
+  const notesEl = document.getElementById('prev-notes');
+  const notesWrap = document.getElementById('prev-notes-wrap');
+  const notesVal = val('notes');
+  notesEl.textContent = notesVal;
+  notesWrap.style.display = notesVal ? '' : 'none';
+
+  const dl = deliverables.filter(d => d.trim());
+  const dlEl = document.getElementById('prev-deliverables');
+  dlEl.innerHTML = dl.length
+    ? dl.map(d => `<li>${d}</li>`).join('')
+    : '<li>Deliverables will appear here</li>';
+}
+
+function clearForm() {
+  ['fromName','fromEmail','fromWebsite','fromPhone','toName','toContact',
+   'projectTitle','projectOverview','proposalDate','startDate','duration',
+   'totalAmount','depositPct','paymentTerms','revisions','notes'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+  deliverables = [''];
+  renderDeliverables();
+  updatePreview();
+}
+
+function downloadPDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ unit: 'mm', format: 'a4' });
+  const sym = val('currency') || '$';
+  const amount = parseFloat(val('totalAmount')) || 0;
+  const depositPct = parseFloat(val('depositPct')) || 0;
+  const deposit = amount * depositPct / 100;
+  const W = 210, margin = 20, contentW = W - margin * 2;
+
+  // Header bar
+  doc.setFillColor(45, 91, 227);
+  doc.rect(0, 0, W, 28, 'F');
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(18);
+  doc.setTextColor(255, 255, 255);
+  doc.text(val('fromName') || 'Your Name', margin, 12);
+  doc.setFontSize(9);
+  doc.setFont('helvetica', 'normal');
+  const fromParts = [val('fromEmail'), val('fromWebsite'), val('fromPhone')].filter(Boolean);
+  doc.text(fromParts.join('  ·  '), margin, 19);
+  doc.setFontSize(10);
+  doc.setFont('helvetica', 'bold');
+  doc.text('CLIENT PROPOSAL', W - margin, 16, { align: 'right' });
+
+  let y = 38;
+
+  // To
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(8);
+  doc.setTextColor(150, 150, 150);
+  doc.text('PREPARED FOR', margin, y);
+  y += 5;
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(13);
+  doc.setTextColor(26, 26, 26);
+  doc.text(val('toName') || 'Client Name', margin, y);
+  if (val('toContact')) {
+    y += 5;
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(10);
+    doc.setTextColor(85, 85, 85);
+    doc.text(val('toContact'), margin, y);
+  }
+  if (val('proposalDate')) {
+    y += 5;
+    doc.setFontSize(9);
+    doc.setTextColor(150, 150, 150);
+    doc.text('Proposed: ' + fmtDate(val('proposalDate')), margin, y);
+  }
+
+  y += 10;
+  doc.setDrawColor(230, 230, 228);
+  doc.line(margin, y, W - margin, y);
+  y += 8;
+
+  // Project Title
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(14);
+  doc.setTextColor(26, 26, 26);
+  doc.text(val('projectTitle') || 'Project Title', margin, y);
+  y += 7;
+
+  // Overview
+  if (val('projectOverview')) {
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(10);
+    doc.setTextColor(85, 85, 85);
+    const overviewLines = doc.splitTextToSize(val('projectOverview'), contentW);
+    doc.text(overviewLines, margin, y);
+    y += overviewLines.length * 5 + 6;
+  }
+
+  // Deliverables
+  const dl = deliverables.filter(d => d.trim());
+  if (dl.length) {
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(11);
+    doc.setTextColor(45, 91, 227);
+    doc.text('Deliverables', margin, y);
+    y += 6;
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(10);
+    doc.setTextColor(85, 85, 85);
+    dl.forEach(d => {
+      doc.text('→  ' + d, margin + 3, y);
+      y += 6;
+    });
+    y += 4;
+  }
+
+  // Timeline grid
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(11);
+  doc.setTextColor(45, 91, 227);
+  doc.text('Timeline & Terms', margin, y);
+  y += 6;
+
+  const gridItems = [
+    ['Start Date', fmtDate(val('startDate'))],
+    ['Duration', val('duration') || '—'],
+    ['Revisions', val('revisions') || '—'],
+    ['Payment Terms', val('paymentTerms') || '—'],
+  ];
+  const colW = contentW / 2;
+  gridItems.forEach(([label, value], i) => {
+    const x = margin + (i % 2) * colW;
+    if (i % 2 === 0 && i > 0) y += 14;
+    doc.setFillColor(248, 248, 246);
+    doc.roundedRect(x, y - 4, colW - 4, 12, 2, 2, 'F');
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(8);
+    doc.setTextColor(150, 150, 150);
+    doc.text(label.toUpperCase(), x + 4, y + 1);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(10);
+    doc.setTextColor(26, 26, 26);
+    doc.text(value, x + 4, y + 7);
+  });
+  y += 18;
+
+  // Investment
+  doc.setFillColor(45, 91, 227);
+  doc.roundedRect(margin, y, contentW, 18, 3, 3, 'F');
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(9);
+  doc.setTextColor(255, 255, 255);
+  doc.text('TOTAL INVESTMENT', margin + 6, y + 6);
+  doc.setFontSize(14);
+  doc.text(fmt(amount, sym), margin + 6, y + 14);
+  doc.setFontSize(9);
+  doc.text('DEPOSIT DUE', W - margin - 6, y + 6, { align: 'right' });
+  doc.setFontSize(14);
+  doc.text(fmt(deposit, sym), W - margin - 6, y + 14, { align: 'right' });
+  y += 24;
+
+  // Notes
+  if (val('notes')) {
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(11);
+    doc.setTextColor(45, 91, 227);
+    doc.text('Notes', margin, y);
+    y += 6;
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(10);
+    doc.setTextColor(85, 85, 85);
+    const noteLines = doc.splitTextToSize(val('notes'), contentW);
+    doc.text(noteLines, margin, y);
+    y += noteLines.length * 5 + 8;
+  }
+
+  // Signatures
+  y = Math.max(y, 240);
+  doc.setDrawColor(230, 230, 228);
+  doc.line(margin, y, margin + 60, y);
+  doc.line(W - margin - 60, y, W - margin, y);
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(9);
+  doc.setTextColor(150, 150, 150);
+  doc.text('Signature', margin, y + 5);
+  doc.text('Client Signature', W - margin - 60, y + 5);
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(10);
+  doc.setTextColor(26, 26, 26);
+  doc.text(val('fromName') || 'Your Name', margin, y + 11);
+  doc.text(val('toName') || 'Client Name', W - margin - 60, y + 11);
+
+  // Footer
+  doc.setFillColor(248, 248, 246);
+  doc.rect(0, 287, W, 10, 'F');
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(8);
+  doc.setTextColor(150, 150, 150);
+  doc.text('This proposal is valid for 14 days. Generated by GetSoloTools.com', W / 2, 293, { align: 'center' });
+
+  const clientName = (val('toName') || 'client').replace(/\s+/g, '-').toLowerCase();
+  doc.save(`proposal-${clientName}.pdf`);
+}
+
+// Init
+window.addEventListener('DOMContentLoaded', () => {
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('proposalDate').value = today;
+  renderDeliverables();
+  updatePreview();
+});
+</script>
+</body>
+</html>

@@ -10,6 +10,7 @@
     { label: 'Budget', href: '/budget-planner.html' },
     { label: 'Contract', href: '/contract-generator.html' },
     { label: 'Tracker', href: '/invoice-tracker.html' },
+    { label: 'Proposal', href: '/client-proposal.html' },
   ];
 
   var currentPath = window.location.pathname;
