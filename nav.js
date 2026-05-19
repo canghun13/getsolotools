@@ -11,6 +11,7 @@
     { label: 'Contract', href: '/contract-generator.html' },
     { label: 'Tracker', href: '/invoice-tracker.html' },
     { label: 'Proposal', href: '/client-proposal.html' },
+    { label: 'Time Tracker', href: '/time-tracker.html' },
   ];
 
   var currentPath = window.location.pathname;
