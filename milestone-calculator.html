@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Milestone Payment Calculator for Freelancers | GetSoloTools</title>
+<meta name="description" content="Split any freelance project into milestone payments. Set percentages or fixed amounts, add due dates, and get a payment schedule you can share with clients — free, no sign-up.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-728DGKLSE6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-728DGKLSE6');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350"
+     crossorigin="anonymous"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #1a1a1a; --ink-2: #555; --ink-3: #999;
+    --paper: #fafaf8; --white: #ffffff;
+    --accent: #2d5be3; --accent-light: #eef1fd;
+    --border: #e8e6e0;
+    --green: #1a8a4a; --green-bg: #edfaf3;
+    --warn: #d97706; --warn-bg: #fffbeb;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
+  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; font-size: 15px; }
+
+  .hero { text-align: center; padding: 3.5rem 1rem 2.5rem; max-width: 640px; margin: 0 auto; }
+  .hero-badge { display: inline-block; background: var(--accent-light); color: var(--accent); font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem; }
+  .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
+  .hero p { color: var(--ink-2); font-size: 1rem; max-width: 480px; margin: 0 auto; }
+
+  .main-wrap { max-width: 900px; margin: 0 auto; padding: 0 1rem 4rem; }
+
+  /* Project Setup */
+  .setup-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow); overflow: hidden; margin-bottom: 1.5rem; }
+  .card-header { background: var(--ink); padding: 0.85rem 1.5rem; color: rgba(255,255,255,0.5); font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+  .card-body { padding: 1.5rem; }
+
+  .setup-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+  @media (max-width: 600px) { .setup-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 420px) { .setup-grid { grid-template-columns: 1fr; } }
+
+  .field-group { display: flex; flex-direction: column; gap: 4px; }
+  .field-group label { font-size: 12px; font-weight: 500; color: var(--ink-2); }
+  .input-wrap { position: relative; }
+  .input-prefix { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); font-size: 14px; color: var(--ink-3); pointer-events: none; }
+  .has-prefix input { padding-left: 26px; }
+  input[type="text"], input[type="number"], input[type="date"], select {
+    width: 100%; padding: 9px 12px; border: 1px solid var(--border);
+    border-radius: 8px; font-size: 14px; font-family: 'DM Sans', sans-serif;
+    color: var(--ink); background: var(--white); outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s; appearance: none;
+  }
+  input:focus, select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(45,91,227,0.1); }
+
+  /* Summary bar */
+  .summary-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 1.5rem; }
+  @media (max-width: 600px) { .summary-bar { grid-template-columns: 1fr 1fr; } }
+  .sum-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+  .sum-card .slabel { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-3); margin-bottom: 4px; }
+  .sum-card .sval { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--ink); }
+  .sum-card.accent-card { background: var(--accent); border-color: var(--accent); }
+  .sum-card.accent-card .slabel { color: rgba(255,255,255,0.6); }
+  .sum-card.accent-card .sval { color: #fff; }
+  .sum-card.warn-card { background: var(--warn-bg); border-color: #fde68a; }
+  .sum-card.warn-card .sval { color: var(--warn); }
+  .sum-card.ok-card { background: var(--green-bg); border-color: #a7f3d0; }
+  .sum-card.ok-card .sval { color: var(--green); }
+
+  /* Progress bar */
+  .progress-wrap { margin-bottom: 1.5rem; }
+  .progress-label { font-size: 12px; font-weight: 500; color: var(--ink-2); margin-bottom: 6px; display: flex; justify-content: space-between; }
+  .progress-track { height: 8px; background: var(--border); border-radius: 99px; overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 99px; background: var(--accent); transition: width 0.3s ease, background 0.3s; }
+  .progress-fill.over { background: #ef4444; }
+  .progress-fill.done { background: var(--green); }
+
+  /* Milestones */
+  .milestones-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow); overflow: hidden; margin-bottom: 1.5rem; }
+  .milestones-header { padding: 1rem 1.5rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .milestones-header-left { display: flex; align-items: center; gap: 12px; }
+  .milestones-title { font-size: 13px; font-weight: 600; color: var(--ink); }
+
+  .mode-toggle { display: flex; background: var(--paper); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .mode-btn { padding: 5px 14px; font-size: 12px; font-weight: 600; cursor: pointer; border: none; background: none; font-family: 'DM Sans', sans-serif; color: var(--ink-2); transition: all 0.15s; }
+  .mode-btn.active { background: var(--accent); color: #fff; }
+
+  .btn-add { display: inline-flex; align-items: center; gap: 5px; padding: 6px 14px; background: var(--accent-light); color: var(--accent); border: 1px solid #c7d6fa; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.15s; }
+  .btn-add:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+  /* Milestone rows */
+  .milestone-list { padding: 1rem 1.5rem; display: flex; flex-direction: column; gap: 10px; }
+  .milestone-row { display: grid; grid-template-columns: 28px 1fr 120px 130px 36px; gap: 8px; align-items: center; }
+  @media (max-width: 640px) { .milestone-row { grid-template-columns: 24px 1fr 90px 36px; } .milestone-row .date-col { display: none; } }
+  @media (max-width: 420px) { .milestone-row { grid-template-columns: 20px 1fr 80px 32px; } }
+
+  .m-num { font-size: 12px; font-weight: 700; color: var(--ink-3); text-align: center; }
+  .m-name input { font-size: 14px; }
+  .m-amount input { font-size: 14px; text-align: right; }
+  .m-date input { font-size: 13px; }
+
+  .btn-del { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border: none; background: none; cursor: pointer; border-radius: 6px; color: var(--ink-3); font-size: 16px; transition: all 0.15s; }
+  .btn-del:hover { background: #fee2e2; color: #dc2626; }
+
+  /* Amount display */
+  .m-amount-display { font-size: 13px; font-weight: 600; color: var(--ink-2); text-align: right; padding-right: 4px; }
+
+  /* Templates */
+  .templates-row { padding: 0 1.5rem 1rem; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tpl-btn { padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 500; cursor: pointer; border: 1px solid var(--border); background: var(--paper); color: var(--ink-2); font-family: 'DM Sans', sans-serif; transition: all 0.15s; }
+  .tpl-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+
+  /* Preview / Schedule */
+  .schedule-card { background: var(--ink); border-radius: 16px; padding: 1.75rem; color: white; margin-bottom: 1.5rem; }
+  .schedule-title { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 1.25rem; }
+  .schedule-list { display: flex; flex-direction: column; gap: 0; }
+  .schedule-item { display: flex; align-items: flex-start; gap: 14px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .schedule-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .s-dot-wrap { display: flex; flex-direction: column; align-items: center; padding-top: 3px; }
+  .s-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+  .s-line { width: 2px; flex: 1; background: rgba(255,255,255,0.1); margin-top: 4px; }
+  .s-body { flex: 1; }
+  .s-name { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 2px; }
+  .s-meta { font-size: 12px; color: rgba(255,255,255,0.45); }
+  .s-amount { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: #fff; text-align: right; }
+  .s-pct { font-size: 11px; color: rgba(255,255,255,0.4); text-align: right; }
+
+  /* Export */
+  .export-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; border: none; font-family: 'DM Sans', sans-serif; transition: all 0.15s; }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: #2248c4; }
+  .btn-ghost { background: var(--white); color: var(--ink); border: 1px solid var(--border); }
+  .btn-ghost:hover { background: #f0f0ee; }
+
+  /* Validation badge */
+  .val-badge { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+  .val-badge.ok { background: var(--green-bg); color: var(--green); }
+  .val-badge.over { background: #fee2e2; color: #dc2626; }
+  .val-badge.under { background: var(--warn-bg); color: var(--warn); }
+
+  /* SEO section */
+  .seo-section { max-width: 900px; margin: 3rem auto 0; padding: 0 1rem 4rem; border-top: 1px solid var(--border); }
+  .seo-inner { max-width: 720px; margin: 0 auto; }
+  .seo-inner h2 { font-family: 'DM Serif Display', serif; font-size: 1.6rem; margin: 2.5rem 0 1rem; letter-spacing: -0.02em; }
+  .seo-inner h3 { font-family: 'DM Serif Display', serif; font-size: 1.15rem; margin: 1.8rem 0 0.6rem; }
+  .seo-inner p { font-size: 1rem; line-height: 1.8; color: var(--ink); margin-bottom: 1.2rem; }
+  .seo-inner ul { margin: 0 0 1.2rem 1.2rem; }
+  .seo-inner ul li { font-size: 1rem; line-height: 1.7; margin-bottom: 6px; }
+
+  footer { border-top: 1px solid var(--border); text-align: center; padding: 2rem; font-size: 13px; color: var(--ink-3); margin-top: 2rem; }
+  footer a { color: var(--ink-2); text-decoration: none; margin: 0 0.4rem; }
+  footer a:hover { color: var(--accent); }
+</style>
+</head>
+<body>
+<script src="/nav.js"></script>
+
+<div class="hero">
+  <span class="hero-badge">Free Tool</span>
+  <h1>Milestone Payment Calculator</h1>
+  <p>Break any freelance project into structured payment milestones. Set amounts by percentage or fixed value, add due dates, and generate a clear payment schedule.</p>
+</div>
+
+<div class="main-wrap">
+
+  <!-- Project Setup -->
+  <div class="setup-card">
+    <div class="card-header">Project Details</div>
+    <div class="card-body">
+      <div class="setup-grid">
+        <div class="field-group" style="grid-column: span 1;">
+          <label>Project Name</label>
+          <input type="text" id="projectName" placeholder="Website Redesign" oninput="render()">
+        </div>
+        <div class="field-group">
+          <label>Total Project Value</label>
+          <div class="input-wrap has-prefix">
+            <span class="input-prefix">$</span>
+            <input type="number" id="totalValue" placeholder="5000" min="0" step="0.01" oninput="render()">
+          </div>
+        </div>
+        <div class="field-group">
+          <label>Currency</label>
+          <select id="currency" onchange="render()">
+            <option value="$">USD ($)</option>
+            <option value="€">EUR (€)</option>
+            <option value="£">GBP (£)</option>
+            <option value="CA$">CAD (CA$)</option>
+            <option value="AU$">AUD (AU$)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Summary Bar -->
+  <div class="summary-bar">
+    <div class="sum-card accent-card">
+      <div class="slabel">Total Value</div>
+      <div class="sval" id="sumTotal">$0</div>
+    </div>
+    <div class="sum-card" id="sumAllocatedCard">
+      <div class="slabel">Allocated</div>
+      <div class="sval" id="sumAllocated">$0</div>
+    </div>
+    <div class="sum-card" id="sumRemainingCard">
+      <div class="slabel">Remaining</div>
+      <div class="sval" id="sumRemaining">$0</div>
+    </div>
+    <div class="sum-card">
+      <div class="slabel">Milestones</div>
+      <div class="sval" id="sumCount">0</div>
+    </div>
+  </div>
+
+  <!-- Progress Bar -->
+  <div class="progress-wrap">
+    <div class="progress-label">
+      <span>Payment allocation</span>
+      <span id="progressLabel">0%</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill" style="width:0%"></div>
+    </div>
+  </div>
+
+  <!-- Milestones -->
+  <div class="milestones-card">
+    <div class="milestones-header">
+      <div class="milestones-header-left">
+        <span class="milestones-title">Milestones</span>
+        <div class="mode-toggle">
+          <button class="mode-btn active" id="btnPct" onclick="setMode('pct')">% Percent</button>
+          <button class="mode-btn" id="btnFixed" onclick="setMode('fixed')">$ Fixed</button>
+        </div>
+      </div>
+      <button class="btn-add" onclick="addMilestone()">+ Add Milestone</button>
+    </div>
+
+    <div class="templates-row">
+      <span style="font-size:12px;color:var(--ink-3);align-self:center;margin-right:2px;">Quick templates:</span>
+      <button class="tpl-btn" onclick="applyTemplate('50-50')">50/50</button>
+      <button class="tpl-btn" onclick="applyTemplate('33-33-33')">3 Equal Parts</button>
+      <button class="tpl-btn" onclick="applyTemplate('50-25-25')">50/25/25</button>
+      <button class="tpl-btn" onclick="applyTemplate('25-50-25')">25/50/25</button>
+      <button class="tpl-btn" onclick="applyTemplate('30-40-30')">30/40/30</button>
+    </div>
+
+    <div class="milestone-list" id="milestoneList"></div>
+  </div>
+
+  <!-- Schedule Preview -->
+  <div class="schedule-card" id="scheduleCard">
+    <div class="schedule-title">Payment Schedule</div>
+    <div class="schedule-list" id="scheduleList"></div>
+  </div>
+
+  <!-- Export -->
+  <div class="export-row">
+    <button class="btn btn-primary" onclick="copySchedule()">Copy Schedule</button>
+    <button class="btn btn-ghost" onclick="exportCSV()">Export CSV</button>
+    <button class="btn btn-ghost" onclick="resetAll()">Reset</button>
+  </div>
+
+</div>
+
+<!-- SEO / How to Use -->
+<div class="seo-section">
+  <div class="seo-inner">
+    <h2>How to Use the Milestone Payment Calculator</h2>
+
+    <p>Milestone payments protect both freelancers and clients. Instead of invoicing everything upfront or waiting until project completion, you split the total fee into stages tied to specific deliverables. This calculator lets you design that structure quickly, whether you're putting together a proposal or confirming payment terms with an existing client.</p>
+
+    <h3>Setting up your project</h3>
+    <p>Enter the total project value and give the project a name. If you're working in a currency other than USD, change the currency selector — it updates all amounts throughout the calculator. The project name appears in the exported payment schedule, which you can copy and paste directly into a proposal or contract.</p>
+
+    <h3>Percent mode vs. fixed amount mode</h3>
+    <p>Use percent mode when your total project fee is confirmed. Enter each milestone as a percentage of the total — the calculator shows you the dollar amount in real time and flags if your milestones add up to more or less than 100%. Use fixed mode when you've already quoted specific amounts per phase and want to verify they add up correctly, or when different milestones have different billing bases.</p>
+
+    <h3>Quick templates</h3>
+    <p>The template buttons load common payment structures that freelancers use across different project types. The 50/25/25 split — 50% upfront, 25% at a mid-project milestone, 25% on delivery — is one of the most widely used structures because it gives freelancers meaningful upfront coverage while keeping clients motivated to provide timely feedback. The 3-equal-parts split works well for longer retainer-style engagements. You can modify any template after applying it.</p>
+
+    <h3>Adding due dates</h3>
+    <p>Assigning dates to each milestone turns the calculator output into a payment schedule you can include directly in a contract. Due dates create accountability — clients know when invoices are coming, which reduces disputes over timing. For date-based milestones, tie dates to project phases rather than calendar dates where possible: "14 days after design approval" is often more practical than a specific date set months in advance. You can note this in the milestone name field.</p>
+
+    <h3>Common milestone structures by project type</h3>
+    <ul>
+      <li><strong>Web design / development:</strong> 50% upfront, 25% after design approval, 25% on launch</li>
+      <li><strong>Copywriting:</strong> 50% upfront, 50% on delivery (or 100% upfront for shorter projects)</li>
+      <li><strong>Branding projects:</strong> 33% upfront, 33% at concept presentation, 33% on final delivery</li>
+      <li><strong>App development:</strong> 25% upfront, 25% at wireframe approval, 25% at development completion, 25% post-launch</li>
+      <li><strong>Consulting engagements:</strong> Monthly billing or 50% upfront + 50% at project end</li>
+    </ul>
+
+    <h3>Protecting yourself with milestone contracts</h3>
+    <p>A milestone payment schedule is only as strong as the contract behind it. Each milestone should have a clear deliverable attached — "50% due at design approval" is better than "50% due at week 3." Vague milestones create room for scope disputes. Specify in your contract what constitutes completion of each phase, how many revision rounds are included, and what happens if a client delays a milestone sign-off. Use our <a href="/contract-generator.html" style="color:var(--accent);">Contract Generator</a> to build a contract that includes your payment milestone terms.</p>
+
+    <p>If a client delays approval or feedback, that shouldn't push back your payment date. A well-written contract treats milestone payment as tied to your delivery, not the client's review timeline. Late payment terms should apply from the originally agreed due date, not from whenever the client gets around to reviewing your work.</p>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 <a href="/">GetSoloTools</a> &nbsp;·&nbsp;
+    <a href="/about.html">About</a>
+    <a href="/blog/index.html" style="color:#1a9e6e;font-weight:600;">Blog</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/contact.html">Contact</a>
+  </p>
+</footer>
+
+<script>
+let mode = 'pct'; // 'pct' or 'fixed'
+let milestones = [];
+let idCounter = 0;
+
+function setMode(m) {
+  mode = m;
+  document.getElementById('btnPct').classList.toggle('active', m === 'pct');
+  document.getElementById('btnFixed').classList.toggle('active', m === 'fixed');
+  renderMilestoneList();
+  render();
+}
+
+function addMilestone(name = '', amount = '', date = '') {
+  milestones.push({ id: ++idCounter, name, amount, date });
+  renderMilestoneList();
+  render();
+}
+
+function removeMilestone(id) {
+  milestones = milestones.filter(m => m.id !== id);
+  renderMilestoneList();
+  render();
+}
+
+function updateMilestone(id, field, value) {
+  const m = milestones.find(m => m.id === id);
+  if (m) m[field] = value;
+  render();
+}
+
+function renderMilestoneList() {
+  const list = document.getElementById('milestoneList');
+  const total = parseFloat(document.getElementById('totalValue').value) || 0;
+  const sym = document.getElementById('currency').value;
+
+  list.innerHTML = milestones.map((m, i) => {
+    const amt = parseFloat(m.amount) || 0;
+    const displayAmt = mode === 'pct'
+      ? (total > 0 ? sym + fmt(total * amt / 100) : '')
+      : '';
+
+    return `<div class="milestone-row" id="row-${m.id}">
+      <span class="m-num">${i + 1}</span>
+      <div class="m-name">
+        <input type="text" placeholder="Milestone ${i + 1} name" value="${m.name}"
+          oninput="updateMilestone(${m.id}, 'name', this.value); render()">
+      </div>
+      <div class="m-amount">
+        <div class="input-wrap ${mode === 'pct' ? '' : 'has-prefix'}">
+          ${mode === 'fixed' ? '<span class="input-prefix">' + sym + '</span>' : ''}
+          <input type="number" placeholder="${mode === 'pct' ? '25' : '1250'}"
+            value="${m.amount}" min="0" step="${mode === 'pct' ? '1' : '0.01'}"
+            style="text-align:right; ${mode === 'pct' ? 'padding-right:22px;' : ''}"
+            oninput="updateMilestone(${m.id}, 'amount', this.value); render()">
+          ${mode === 'pct' ? '<span style="position:absolute;right:10px;top:50%;transform:translateY(-50%);font-size:13px;color:var(--ink-3);pointer-events:none;">%</span>' : ''}
+        </div>
+        ${displayAmt ? '<div style="font-size:11px;color:var(--ink-3);text-align:right;margin-top:2px;">' + displayAmt + '</div>' : ''}
+      </div>
+      <div class="m-date date-col">
+        <input type="date" value="${m.date}" onchange="updateMilestone(${m.id}, 'date', this.value); render()">
+      </div>
+      <button class="btn-del" onclick="removeMilestone(${m.id})" title="Remove">×</button>
+    </div>`;
+  }).join('');
+}
+
+function getMilestoneAmounts() {
+  const total = parseFloat(document.getElementById('totalValue').value) || 0;
+  return milestones.map(m => {
+    const raw = parseFloat(m.amount) || 0;
+    return mode === 'pct' ? (total * raw / 100) : raw;
+  });
+}
+
+function render() {
+  const total = parseFloat(document.getElementById('totalValue').value) || 0;
+  const sym = document.getElementById('currency').value;
+  const amounts = getMilestoneAmounts();
+  const allocated = amounts.reduce((a, b) => a + b, 0);
+  const remaining = total - allocated;
+  const pct = total > 0 ? Math.round((allocated / total) * 100) : 0;
+
+  // Summary
+  document.getElementById('sumTotal').textContent = sym + fmt(total);
+  document.getElementById('sumAllocated').textContent = sym + fmt(allocated);
+  document.getElementById('sumRemaining').textContent = sym + fmt(Math.abs(remaining));
+  document.getElementById('sumCount').textContent = milestones.length;
+
+  // Remaining card color
+  const remCard = document.getElementById('sumRemainingCard');
+  remCard.className = 'sum-card' + (remaining < -0.01 ? ' warn-card' : remaining < 0.01 ? ' ok-card' : '');
+
+  // Progress
+  const fill = document.getElementById('progressFill');
+  const w = Math.min(pct, 100);
+  fill.style.width = w + '%';
+  fill.className = 'progress-fill' + (pct > 100 ? ' over' : pct === 100 ? ' done' : '');
+  document.getElementById('progressLabel').textContent = pct + '%';
+
+  // Re-render milestone list to update display amounts
+  renderMilestoneList();
+
+  // Schedule
+  renderSchedule(total, sym, amounts);
+}
+
+function renderSchedule(total, sym, amounts) {
+  const list = document.getElementById('scheduleList');
+  if (milestones.length === 0) {
+    list.innerHTML = '<div style="color:rgba(255,255,255,0.4);font-size:14px;text-align:center;padding:1rem 0;">Add milestones above to see your payment schedule.</div>';
+    return;
+  }
+
+  list.innerHTML = milestones.map((m, i) => {
+    const amt = amounts[i];
+    const pct = total > 0 ? Math.round((amt / total) * 100) : 0;
+    const name = m.name || ('Milestone ' + (i + 1));
+    const dateStr = m.date ? formatDate(m.date) : 'No date set';
+    const isLast = i === milestones.length - 1;
+
+    return `<div class="schedule-item">
+      <div class="s-dot-wrap">
+        <div class="s-dot"></div>
+        ${!isLast ? '<div class="s-line" style="height:32px;"></div>' : ''}
+      </div>
+      <div class="s-body">
+        <div class="s-name">${name}</div>
+        <div class="s-meta">${dateStr}</div>
+      </div>
+      <div>
+        <div class="s-amount">${sym}${fmt(amt)}</div>
+        <div class="s-pct">${pct}% of total</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function formatDate(dateStr) {
+  if (!dateStr) return '';
+  const d = new Date(dateStr + 'T00:00:00');
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
+
+function fmt(n) {
+  return Number(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+function applyTemplate(tpl) {
+  const templates = {
+    '50-50': [
+      { name: 'Upfront deposit', amount: '50' },
+      { name: 'Final delivery', amount: '50' },
+    ],
+    '33-33-33': [
+      { name: 'Upfront deposit', amount: '33' },
+      { name: 'Mid-project milestone', amount: '33' },
+      { name: 'Final delivery', amount: '34' },
+    ],
+    '50-25-25': [
+      { name: 'Upfront deposit', amount: '50' },
+      { name: 'Mid-project milestone', amount: '25' },
+      { name: 'Final delivery', amount: '25' },
+    ],
+    '25-50-25': [
+      { name: 'Upfront deposit', amount: '25' },
+      { name: 'Mid-project milestone', amount: '50' },
+      { name: 'Final delivery', amount: '25' },
+    ],
+    '30-40-30': [
+      { name: 'Upfront deposit', amount: '30' },
+      { name: 'Mid-project milestone', amount: '40' },
+      { name: 'Final delivery', amount: '30' },
+    ],
+  };
+
+  const tplData = templates[tpl];
+  if (!tplData) return;
+
+  if (mode !== 'pct') setMode('pct');
+  milestones = tplData.map(t => ({ id: ++idCounter, name: t.name, amount: t.amount, date: '' }));
+  renderMilestoneList();
+  render();
+}
+
+function copySchedule() {
+  const total = parseFloat(document.getElementById('totalValue').value) || 0;
+  const sym = document.getElementById('currency').value;
+  const projectName = document.getElementById('projectName').value || 'Project';
+  const amounts = getMilestoneAmounts();
+
+  let text = `Payment Schedule — ${projectName}\n`;
+  text += `Total: ${sym}${fmt(total)}\n\n`;
+
+  milestones.forEach((m, i) => {
+    const name = m.name || ('Milestone ' + (i + 1));
+    const amt = amounts[i];
+    const pct = total > 0 ? Math.round((amt / total) * 100) : 0;
+    const dateStr = m.date ? ' — Due: ' + formatDate(m.date) : '';
+    text += `${i + 1}. ${name}: ${sym}${fmt(amt)} (${pct}%)${dateStr}\n`;
+  });
+
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.querySelector('.btn-primary');
+    const orig = btn.textContent;
+    btn.textContent = '✓ Copied!';
+    btn.style.background = 'var(--green)';
+    setTimeout(() => { btn.textContent = orig; btn.style.background = ''; }, 2000);
+  });
+}
+
+function exportCSV() {
+  const total = parseFloat(document.getElementById('totalValue').value) || 0;
+  const sym = document.getElementById('currency').value;
+  const projectName = document.getElementById('projectName').value || 'Project';
+  const amounts = getMilestoneAmounts();
+
+  const header = ['Milestone', 'Description', 'Amount', 'Percentage', 'Due Date'];
+  const rows = milestones.map((m, i) => {
+    const name = m.name || ('Milestone ' + (i + 1));
+    const amt = amounts[i];
+    const pct = total > 0 ? Math.round((amt / total) * 100) : 0;
+    const dateStr = m.date ? formatDate(m.date) : '';
+    return [i + 1, name, sym + fmt(amt), pct + '%', dateStr];
+  });
+
+  const csv = [header, ...rows].map(r => r.map(v => `"${String(v).replace(/"/g, '""')}"`).join(',')).join('\n');
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = (projectName.replace(/[^a-z0-9]/gi, '-').toLowerCase() || 'milestones') + '-payment-schedule.csv';
+  a.click();
+}
+
+function resetAll() {
+  if (!confirm('Reset everything?')) return;
+  milestones = [];
+  document.getElementById('projectName').value = '';
+  document.getElementById('totalValue').value = '';
+  renderMilestoneList();
+  render();
+}
+
+// Init with a default template
+applyTemplate('50-25-25');
+</script>
+
+</body>
+</html>
