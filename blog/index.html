@@ -11,7 +11,6 @@
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350"
        crossorigin="anonymous"></script>
-  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-728DGKLSE6"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -45,7 +44,7 @@
     .blog-hero {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 64px 24px 40px;
+      padding: 64px 24px 32px;
     }
 
     .blog-hero h1 {
@@ -59,13 +58,59 @@
       color: var(--muted);
       font-size: 1rem;
       max-width: 480px;
+      margin-bottom: 28px;
+    }
+
+    /* SEARCH */
+    .search-wrap {
+      max-width: 480px;
+      position: relative;
+    }
+
+    .search-wrap svg {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #aaa;
+      pointer-events: none;
+    }
+
+    #blogSearch {
+      width: 100%;
+      padding: 11px 16px 11px 42px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 14px;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--ink);
+      background: var(--card-bg);
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    #blogSearch:focus {
+      border-color: var(--blog);
+      box-shadow: 0 0 0 3px rgba(26,158,110,0.1);
+    }
+
+    #blogSearch::placeholder { color: #bbb; }
+
+    /* RESULTS COUNT */
+    .results-meta {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 24px 0;
+      font-size: 13px;
+      color: var(--muted);
+      min-height: 28px;
     }
 
     /* GRID */
     .blog-grid {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 0 24px 80px;
+      padding: 16px 24px 80px;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 24px;
@@ -117,6 +162,16 @@
       margin-top: 4px;
     }
 
+    /* EMPTY STATE */
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px 24px;
+      color: var(--muted);
+    }
+
+    .empty-state p { font-size: 15px; }
+
     /* FOOTER */
     footer {
       margin-top: auto;
@@ -159,218 +214,293 @@
 <body>
   <script src="/nav.js"></script>
 
-<div class="blog-hero">
-  <h1>Freelance Tips &amp; Guides</h1>
-  <p>Practical advice to help you invoice smarter, price confidently, and run your solo business better.</p>
-</div>
-
-<div class="blog-grid">
-  <!-- 글 추가할 때 아래 카드 복사해서 사용 -->
-  <a href="/blog/how-to-write-a-freelance-invoice.html" class="blog-card">
-    <span class="blog-card-tag">Invoicing</span>
-    <h2>How to Write a Freelance Invoice That Gets You Paid Faster</h2>
-    <p>A clear, professional invoice is your fastest path to payment. Here's exactly what to include and how to send it right.</p>
-    <span class="blog-card-meta">Apr 28, 2026 · 5 min read</span>
-  </a>
-
-  <a href="/blog/how-to-set-your-freelance-hourly-rate.html" class="blog-card">
-    <span class="blog-card-tag">Pricing</span>
-    <h2>How to Set Your Freelance Hourly Rate Without Undercharging</h2>
-    <p>Most freelancers charge too little. Learn a simple formula to calculate a rate that actually covers your time and costs.</p>
-    <span class="blog-card-meta">Apr 28, 2026 · 6 min read</span>
-  </a>
-
-  <a href="/blog/freelance-tax-guide-for-beginners.html" class="blog-card">
-    <span class="blog-card-tag">Taxes</span>
-    <h2>Freelance Tax Guide: What to Set Aside and When to Pay</h2>
-    <p>Taxes catch a lot of new freelancers off guard. This guide breaks down what you owe, when you owe it, and how to stay ready.</p>
-    <span class="blog-card-meta">Apr 28, 2026 · 7 min read</span>
-  </a>
-
-  <a href="/blog/how-to-handle-late-payments-as-a-freelancer.html" class="blog-card">
-    <span class="blog-card-tag">Getting Paid</span>
-    <h2>How to Handle Late Payments as a Freelancer</h2>
-    <p>Late payments are frustrating but common. Here's how to follow up professionally, charge late fees, and avoid it next time.</p>
-    <span class="blog-card-meta">Apr 28, 2026 · 5 min read</span>
-  </a>
-
-  <a href="/blog/freelance-budget-planning-guide.html" class="blog-card">
-    <span class="blog-card-tag">Finance</span>
-    <h2>How to Budget as a Freelancer When Your Income Is Unpredictable</h2>
-    <p>Irregular income doesn't have to mean financial stress. A simple budgeting system can give you stability no matter what month it is.</p>
-    <span class="blog-card-meta">Apr 28, 2026 · 6 min read</span>
-  </a>
-
-  <a href="/blog/how-to-write-a-freelance-contract.html" class="blog-card">
-    <span class="blog-card-tag">Contracts</span>
-    <h2>How to Write a Freelance Contract (With Free Template)</h2>
-    <p>A freelance contract protects your time, money, and reputation. Here's exactly what to include and how to write one that holds up.</p>
-    <span class="blog-card-meta">Apr 30, 2026 · 8 min read</span>
-  </a>
-
-  <a href="/blog/freelance-invoice-vs-receipt.html" class="blog-card">
-    <span class="blog-card-tag">Invoicing</span>
-    <h2>Freelance Invoice vs Receipt: What's the Difference?</h2>
-    <p>Invoice or receipt — when do you send each one? Here's the clear distinction and why both matter for your records.</p>
-    <span class="blog-card-meta">May 1, 2026 · 5 min read</span>
-  </a>
-
-  <a href="/blog/how-to-find-freelance-clients.html" class="blog-card">
-    <span class="blog-card-tag">Getting Clients</span>
-    <h2>How to Find Freelance Clients as a Beginner</h2>
-    <p>No portfolio, no network yet? Here's a practical guide to landing your first freelance clients without cold-emailing strangers.</p>
-    <span class="blog-card-meta">May 2, 2026 · 7 min read</span>
-  </a>
-
-  <a href="/blog/freelance-project-management-tips.html" class="blog-card">
-    <span class="blog-card-tag">Project Management</span>
-    <h2>Freelance Project Management: How to Keep Projects on Track</h2>
-    <p>Scope creep, missed deadlines, unclear feedback — here's how to manage projects so they don't go off the rails.</p>
-    <span class="blog-card-meta">May 3, 2026 · 6 min read</span>
-  </a>
-
-  <a href="/blog/how-to-write-a-freelance-proposal.html" class="blog-card">
-    <span class="blog-card-tag">Getting Clients</span>
-    <h2>How to Write a Freelance Proposal That Wins the Job</h2>
-    <p>Most proposals fail because they're about the freelancer, not the client. Here's how to write one that actually converts.</p>
-    <span class="blog-card-meta">May 4, 2026 · 6 min read</span>
-  </a>
-
-  <a href="/blog/freelance-rate-negotiation-guide.html" class="blog-card">
-    <span class="blog-card-tag">Pricing</span>
-    <h2>How to Negotiate Your Freelance Rate (Without Feeling Awkward)</h2>
-    <p>Most freelancers accept the first number offered. Here's how to negotiate confidently and get paid what you're worth.</p>
-    <span class="blog-card-meta">May 5, 2026 · 6 min read</span>
-  </a>
-
-  <a href="/blog/common-freelance-tax-mistakes.html" class="blog-card">
-    <span class="blog-card-tag">Taxes</span>
-    <h2>7 Common Freelance Tax Mistakes (And How to Avoid Them)</h2>
-    <p>Missing quarterly payments, forgetting self-employment tax, skipping deductions — here's what to fix before it costs you.</p>
-    <span class="blog-card-meta">May 6, 2026 · 7 min read</span>
-  </a>
-
-  <a href="/blog/how-to-create-a-freelance-portfolio.html" class="blog-card">
-    <span class="blog-card-tag">Portfolio</span>
-    <h2>How to Create a Freelance Portfolio That Gets You Hired</h2>
-    <p>Your portfolio is your most powerful sales tool. Here's how to build one that wins clients — even if you're just starting out.</p>
-    <span class="blog-card-meta">May 7, 2026 · 6 min read</span>
-  </a>
-
-  <a href="/blog/freelance-contract-red-flags.html" class="blog-card">
-    <span class="blog-card-tag">Contracts</span>
-    <h2>Freelance Contract Red Flags to Watch Out For</h2>
-    <p>Not all contracts protect you equally. Here are the clauses that signal a bad client — and what to do about them.</p>
-    <span class="blog-card-meta">May 8, 2026 · 6 min read</span>
-  </a>
-
-  <a href="/blog/how-to-scale-your-freelance-business.html" class="blog-card">
-    <span class="blog-card-tag">Business Growth</span>
-    <h2>How to Scale Your Freelance Business Beyond Trading Time for Money</h2>
-    <p>Freelancing has a ceiling if you're only selling hours. Here's how to grow your income without working more.</p>
-    <span class="blog-card-meta">May 9, 2026 · 7 min read</span>
-  </a>
-
-  <a href="/blog/freelance-client-onboarding-checklist.html" class="blog-card">
-    <span class="blog-card-tag">Project Management</span>
-    <h2>Freelance Client Onboarding Checklist: How to Start Every Project Right</h2>
-    <p>A smooth onboarding sets the tone for the entire project. Here's the exact checklist to use before starting any engagement.</p>
-    <span class="blog-card-meta">May 10, 2026 · 5 min read</span>
-  </a>
-
-  <a href="/blog/how-to-price-a-freelance-project.html" class="blog-card">
-    <span class="blog-card-tag">Pricing</span>
-    <h2>How to Price a Freelance Project: Fixed Fee vs Hourly Rate</h2>
-    <p>Fixed or hourly — which model should you use? Here's how to choose and calculate the right price every time.</p>
-    <span class="blog-card-meta">May 11, 2026 · 6 min read</span>
-  </a>
-
-  <a href="/blog/how-to-write-a-freelance-invoice-email.html" class="blog-card">
-    <span class="blog-card-tag">Invoicing</span>
-    <h2>How to Write a Freelance Invoice Email (With Templates)</h2>
-    <p>The email you send with your invoice affects how fast you get paid. Here are proven templates for every situation.</p>
-    <span class="blog-card-meta">May 12, 2026 · 5 min read</span>
-  </a>
-
-  <a href="/blog/late-fee-laws-freelancers-new-york.html" class="blog-card">
-    <span class="blog-card-tag">Getting Paid</span>
-    <h2>Late Fee Laws for Freelancers in New York</h2>
-    <p>What New York freelancers need to know about charging late fees, the Freelance Isn't Free Act, and how to collect overdue invoices legally.</p>
-    <span class="blog-card-meta">May 13, 2026 · 6 min read</span>
-  </a>
-  <a href="/blog/late-fee-laws-freelancers-california.html" class="blog-card">
-    <span class="blog-card-tag">Getting Paid</span>
-    <h2>Late Fee Laws for Freelancers in California</h2>
-    <p>California has strict usury laws — but most freelance late fees are perfectly legal. Here's what California freelancers need to know.</p>
-    <span class="blog-card-meta">May 13, 2026 · 6 min read</span>
-  </a>
-  <a href="/blog/late-fee-laws-freelancers-texas.html" class="blog-card">
-    <span class="blog-card-tag">Getting Paid</span>
-    <h2>Late Fee Laws for Freelancers in Texas</h2>
-    <p>Texas is a contract-friendly state with a $20,000 small claims limit. Here's how to enforce late fees as a Texas freelancer.</p>
-    <span class="blog-card-meta">May 13, 2026 · 5 min read</span>
-  </a>
-  <a href="/blog/freelance-work-life-balance.html" class="blog-card">
-    <span class="blog-card-tag">Freelance Life</span>
-    <h2>Freelance Work-Life Balance: How to Protect Your Time and Energy</h2>
-    <p>Freelancing gives you freedom — but it can take over your life. Here's how to set boundaries and avoid burnout.</p>
-    <span class="blog-card-meta">May 13, 2026 · 6 min read</span>
-  </a>
-
-  <a href="/blog/late-fee-laws-freelancers-florida.html" class="blog-card">
-    <span class="blog-card-tag">Getting Paid</span>
-    <h2>Late Fee Laws for Freelancers in Florida</h2>
-    <p>Florida has no cap on commercial late fees — but courts apply a reasonableness standard. Here's what Florida freelancers need to know about charging interest on overdue invoices.</p>
-    <span class="blog-card-meta">May 19, 2026 · 6 min read</span>
-  </a>
-
-  <a href="/blog/late-fee-laws-freelancers-illinois.html" class="blog-card">
-    <span class="blog-card-tag">Getting Paid</span>
-    <h2>Late Fee Laws for Freelancers in Illinois</h2>
-    <p>Illinois's Freelance Workers Protection Act gives you the right to triple damages for late payment. Here's how to use it and what late fee rate to charge.</p>
-    <span class="blog-card-meta">May 19, 2026 · 6 min read</span>
-  </a>
-
-  <a href="/blog/late-fee-laws-freelancers-washington.html" class="blog-card">
-    <span class="blog-card-tag">Getting Paid</span>
-    <h2>Late Fee Laws for Freelancers in Washington State</h2>
-    <p>Washington has no late fee cap on commercial invoices, and Seattle freelancers have extra protections under a city ordinance. Here's the full breakdown.</p>
-    <span class="blog-card-meta">May 19, 2026 · 6 min read</span>
-  </a>
-
-  <a href="/blog/late-fee-laws-freelancers-ohio.html" class="blog-card">
-    <span class="blog-card-tag">Getting Paid</span>
-    <h2>Late Fee Laws for Freelancers in Ohio</h2>
-    <p>Ohio has no state cap on commercial late fees, but courts apply a reasonableness standard. Here's what Ohio freelancers need to know about getting paid on time.</p>
-    <span class="blog-card-meta">May 27, 2026 · 6 min read</span>
-  </a>
-
-  <a href="/blog/late-fee-laws-freelancers-georgia.html" class="blog-card">
-    <span class="blog-card-tag">Getting Paid</span>
-    <h2>Late Fee Laws for Freelancers in Georgia</h2>
-    <p>Georgia defaults to 7% annually on unpaid invoices — but you can contractually charge more. Here's what Atlanta and statewide freelancers need to know about late fees.</p>
-    <span class="blog-card-meta">May 27, 2026 · 6 min read</span>
-  </a>
-
-  <a href="/blog/late-fee-laws-freelancers-new-jersey.html" class="blog-card">
-    <span class="blog-card-tag">Getting Paid</span>
-    <h2>Late Fee Laws for Freelancers in New Jersey</h2>
-    <p>New Jersey's Freelance Worker Protection Act gives independent contractors strong payment rights including double damages. Here's what NJ freelancers need to know.</p>
-    <span class="blog-card-meta">May 27, 2026 · 7 min read</span>
-  </a>
-</div>
-
-<footer>
-  <div class="footer-links">
-    <a href="/about.html">About</a>
-    <a href="/privacy.html">Privacy</a>
-    <a href="/contact.html">Contact</a>
-    <a href="/blog/index.html" class="footer-blog">Blog</a>
+  <div class="blog-hero">
+    <h1>Freelance Tips &amp; Guides</h1>
+    <p>Practical advice to help you invoice smarter, price confidently, and run your solo business better.</p>
+    <div class="search-wrap">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input type="text" id="blogSearch" placeholder="Search articles…" oninput="filterPosts()" autocomplete="off">
+    </div>
   </div>
-  <p class="footer-copy">© 2026 GetSoloTools. Free tools for freelancers.</p>
-</footer>
 
+  <div class="results-meta" id="resultsMeta"></div>
 
+  <div class="blog-grid" id="blogGrid"></div>
 
+  <footer>
+    <div class="footer-links">
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/blog/index.html" class="footer-blog">Blog</a>
+    </div>
+    <p class="footer-copy">© 2026 GetSoloTools. Free tools for freelancers.</p>
+  </footer>
+
+  <script>
+    // ── 글 추가할 때 이 배열 맨 위에 추가 (최신순 유지) ──
+    const posts = [
+      {
+        href: '/blog/late-fee-laws-freelancers-new-jersey.html',
+        tag: 'Getting Paid',
+        title: 'Late Fee Laws for Freelancers in New Jersey',
+        desc: "New Jersey's Freelance Worker Protection Act gives independent contractors strong payment rights including double damages. Here's what NJ freelancers need to know.",
+        date: '2026-05-27',
+        meta: 'May 27, 2026 · 7 min read'
+      },
+      {
+        href: '/blog/late-fee-laws-freelancers-georgia.html',
+        tag: 'Getting Paid',
+        title: 'Late Fee Laws for Freelancers in Georgia',
+        desc: "Georgia defaults to 7% annually on unpaid invoices — but you can contractually charge more. Here's what Atlanta and statewide freelancers need to know about late fees.",
+        date: '2026-05-27',
+        meta: 'May 27, 2026 · 6 min read'
+      },
+      {
+        href: '/blog/late-fee-laws-freelancers-ohio.html',
+        tag: 'Getting Paid',
+        title: 'Late Fee Laws for Freelancers in Ohio',
+        desc: "Ohio has no state cap on commercial late fees, but courts apply a reasonableness standard. Here's what Ohio freelancers need to know about getting paid on time.",
+        date: '2026-05-27',
+        meta: 'May 27, 2026 · 6 min read'
+      },
+      {
+        href: '/blog/late-fee-laws-freelancers-washington.html',
+        tag: 'Getting Paid',
+        title: 'Late Fee Laws for Freelancers in Washington State',
+        desc: 'Washington has no late fee cap on commercial invoices, and Seattle freelancers have extra protections under a city ordinance. Here\'s the full breakdown.',
+        date: '2026-05-19',
+        meta: 'May 19, 2026 · 6 min read'
+      },
+      {
+        href: '/blog/late-fee-laws-freelancers-illinois.html',
+        tag: 'Getting Paid',
+        title: 'Late Fee Laws for Freelancers in Illinois',
+        desc: "Illinois's Freelance Workers Protection Act gives you the right to triple damages for late payment. Here's how to use it and what late fee rate to charge.",
+        date: '2026-05-19',
+        meta: 'May 19, 2026 · 6 min read'
+      },
+      {
+        href: '/blog/late-fee-laws-freelancers-florida.html',
+        tag: 'Getting Paid',
+        title: 'Late Fee Laws for Freelancers in Florida',
+        desc: "Florida has no cap on commercial late fees — but courts apply a reasonableness standard. Here's what Florida freelancers need to know about charging interest on overdue invoices.",
+        date: '2026-05-19',
+        meta: 'May 19, 2026 · 6 min read'
+      },
+      {
+        href: '/blog/freelance-work-life-balance.html',
+        tag: 'Freelance Life',
+        title: 'Freelance Work-Life Balance: How to Protect Your Time and Energy',
+        desc: "Freelancing gives you freedom — but it can take over your life. Here's how to set boundaries and avoid burnout.",
+        date: '2026-05-13',
+        meta: 'May 13, 2026 · 6 min read'
+      },
+      {
+        href: '/blog/late-fee-laws-freelancers-texas.html',
+        tag: 'Getting Paid',
+        title: 'Late Fee Laws for Freelancers in Texas',
+        desc: "Texas is a contract-friendly state with a $20,000 small claims limit. Here's how to enforce late fees as a Texas freelancer.",
+        date: '2026-05-13',
+        meta: 'May 13, 2026 · 5 min read'
+      },
+      {
+        href: '/blog/late-fee-laws-freelancers-california.html',
+        tag: 'Getting Paid',
+        title: 'Late Fee Laws for Freelancers in California',
+        desc: "California has strict usury laws — but most freelance late fees are perfectly legal. Here's what California freelancers need to know.",
+        date: '2026-05-13',
+        meta: 'May 13, 2026 · 6 min read'
+      },
+      {
+        href: '/blog/late-fee-laws-freelancers-new-york.html',
+        tag: 'Getting Paid',
+        title: 'Late Fee Laws for Freelancers in New York',
+        desc: "What New York freelancers need to know about charging late fees, the Freelance Isn't Free Act, and how to collect overdue invoices legally.",
+        date: '2026-05-13',
+        meta: 'May 13, 2026 · 6 min read'
+      },
+      {
+        href: '/blog/how-to-write-a-freelance-invoice-email.html',
+        tag: 'Invoicing',
+        title: 'How to Write a Freelance Invoice Email (With Templates)',
+        desc: 'The email you send with your invoice affects how fast you get paid. Here are proven templates for every situation.',
+        date: '2026-05-12',
+        meta: 'May 12, 2026 · 5 min read'
+      },
+      {
+        href: '/blog/how-to-price-a-freelance-project.html',
+        tag: 'Pricing',
+        title: 'How to Price a Freelance Project: Fixed Fee vs Hourly Rate',
+        desc: 'Fixed or hourly — which model should you use? Here\'s how to choose and calculate the right price every time.',
+        date: '2026-05-11',
+        meta: 'May 11, 2026 · 6 min read'
+      },
+      {
+        href: '/blog/freelance-client-onboarding-checklist.html',
+        tag: 'Project Management',
+        title: 'Freelance Client Onboarding Checklist: How to Start Every Project Right',
+        desc: 'A smooth onboarding sets the tone for the entire project. Here\'s the exact checklist to use before starting any engagement.',
+        date: '2026-05-10',
+        meta: 'May 10, 2026 · 5 min read'
+      },
+      {
+        href: '/blog/how-to-scale-your-freelance-business.html',
+        tag: 'Business Growth',
+        title: 'How to Scale Your Freelance Business Beyond Trading Time for Money',
+        desc: "Freelancing has a ceiling if you're only selling hours. Here's how to grow your income without working more.",
+        date: '2026-05-09',
+        meta: 'May 9, 2026 · 7 min read'
+      },
+      {
+        href: '/blog/freelance-contract-red-flags.html',
+        tag: 'Contracts',
+        title: 'Freelance Contract Red Flags to Watch Out For',
+        desc: "Not all contracts protect you equally. Here are the clauses that signal a bad client — and what to do about them.",
+        date: '2026-05-08',
+        meta: 'May 8, 2026 · 6 min read'
+      },
+      {
+        href: '/blog/how-to-create-a-freelance-portfolio.html',
+        tag: 'Portfolio',
+        title: 'How to Create a Freelance Portfolio That Gets You Hired',
+        desc: "Your portfolio is your most powerful sales tool. Here's how to build one that wins clients — even if you're just starting out.",
+        date: '2026-05-07',
+        meta: 'May 7, 2026 · 6 min read'
+      },
+      {
+        href: '/blog/common-freelance-tax-mistakes.html',
+        tag: 'Taxes',
+        title: '7 Common Freelance Tax Mistakes (And How to Avoid Them)',
+        desc: "Missing quarterly payments, forgetting self-employment tax, skipping deductions — here's what to fix before it costs you.",
+        date: '2026-05-06',
+        meta: 'May 6, 2026 · 7 min read'
+      },
+      {
+        href: '/blog/freelance-rate-negotiation-guide.html',
+        tag: 'Pricing',
+        title: 'How to Negotiate Your Freelance Rate (Without Feeling Awkward)',
+        desc: "Most freelancers accept the first number offered. Here's how to negotiate confidently and get paid what you're worth.",
+        date: '2026-05-05',
+        meta: 'May 5, 2026 · 6 min read'
+      },
+      {
+        href: '/blog/how-to-write-a-freelance-proposal.html',
+        tag: 'Getting Clients',
+        title: 'How to Write a Freelance Proposal That Wins the Job',
+        desc: "Most proposals fail because they're about the freelancer, not the client. Here's how to write one that actually converts.",
+        date: '2026-05-04',
+        meta: 'May 4, 2026 · 6 min read'
+      },
+      {
+        href: '/blog/freelance-project-management-tips.html',
+        tag: 'Project Management',
+        title: 'Freelance Project Management: How to Keep Projects on Track',
+        desc: "Scope creep, missed deadlines, unclear feedback — here's how to manage projects so they don't go off the rails.",
+        date: '2026-05-03',
+        meta: 'May 3, 2026 · 6 min read'
+      },
+      {
+        href: '/blog/how-to-find-freelance-clients.html',
+        tag: 'Getting Clients',
+        title: 'How to Find Freelance Clients as a Beginner',
+        desc: "No portfolio, no network yet? Here's a practical guide to landing your first freelance clients without cold-emailing strangers.",
+        date: '2026-05-02',
+        meta: 'May 2, 2026 · 7 min read'
+      },
+      {
+        href: '/blog/freelance-invoice-vs-receipt.html',
+        tag: 'Invoicing',
+        title: 'Freelance Invoice vs Receipt: What\'s the Difference?',
+        desc: "Invoice or receipt — when do you send each one? Here's the clear distinction and why both matter for your records.",
+        date: '2026-05-01',
+        meta: 'May 1, 2026 · 5 min read'
+      },
+      {
+        href: '/blog/how-to-write-a-freelance-contract.html',
+        tag: 'Contracts',
+        title: 'How to Write a Freelance Contract (With Free Template)',
+        desc: "A freelance contract protects your time, money, and reputation. Here's exactly what to include and how to write one that holds up.",
+        date: '2026-04-30',
+        meta: 'Apr 30, 2026 · 8 min read'
+      },
+      {
+        href: '/blog/how-to-handle-late-payments-as-a-freelancer.html',
+        tag: 'Getting Paid',
+        title: 'How to Handle Late Payments as a Freelancer',
+        desc: "Late payments are frustrating but common. Here's how to follow up professionally, charge late fees, and avoid it next time.",
+        date: '2026-04-28',
+        meta: 'Apr 28, 2026 · 5 min read'
+      },
+      {
+        href: '/blog/freelance-budget-planning-guide.html',
+        tag: 'Finance',
+        title: "How to Budget as a Freelancer When Your Income Is Unpredictable",
+        desc: "Irregular income doesn't have to mean financial stress. A simple budgeting system can give you stability no matter what month it is.",
+        date: '2026-04-28',
+        meta: 'Apr 28, 2026 · 6 min read'
+      },
+      {
+        href: '/blog/freelance-tax-guide-for-beginners.html',
+        tag: 'Taxes',
+        title: 'Freelance Tax Guide: What to Set Aside and When to Pay',
+        desc: "Taxes catch a lot of new freelancers off guard. This guide breaks down what you owe, when you owe it, and how to stay ready.",
+        date: '2026-04-28',
+        meta: 'Apr 28, 2026 · 7 min read'
+      },
+      {
+        href: '/blog/how-to-set-your-freelance-hourly-rate.html',
+        tag: 'Pricing',
+        title: 'How to Set Your Freelance Hourly Rate Without Undercharging',
+        desc: "Most freelancers charge too little. Learn a simple formula to calculate a rate that actually covers your time and costs.",
+        date: '2026-04-28',
+        meta: 'Apr 28, 2026 · 6 min read'
+      },
+      {
+        href: '/blog/how-to-write-a-freelance-invoice.html',
+        tag: 'Invoicing',
+        title: 'How to Write a Freelance Invoice That Gets You Paid Faster',
+        desc: "A clear, professional invoice is your fastest path to payment. Here's exactly what to include and how to send it right.",
+        date: '2026-04-28',
+        meta: 'Apr 28, 2026 · 5 min read'
+      },
+    ];
+
+    function filterPosts() {
+      const q = document.getElementById('blogSearch').value.trim().toLowerCase();
+      const grid = document.getElementById('blogGrid');
+      const meta = document.getElementById('resultsMeta');
+
+      const filtered = q
+        ? posts.filter(p =>
+            p.title.toLowerCase().includes(q) ||
+            p.desc.toLowerCase().includes(q) ||
+            p.tag.toLowerCase().includes(q)
+          )
+        : posts;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '<div class="empty-state"><p>No articles found for "<strong>' + q + '</strong>"</p></div>';
+        meta.textContent = '0 articles';
+        return;
+      }
+
+      meta.textContent = q ? filtered.length + ' of ' + posts.length + ' articles' : '';
+
+      grid.innerHTML = filtered.map(p => `
+        <a href="${p.href}" class="blog-card">
+          <span class="blog-card-tag">${p.tag}</span>
+          <h2>${p.title}</h2>
+          <p>${p.desc}</p>
+          <span class="blog-card-meta">${p.meta}</span>
+        </a>
+      `).join('');
+    }
+
+    // 초기 렌더
+    filterPosts();
+  </script>
 </body>
 </html>
