@@ -13,6 +13,7 @@
     { label: 'Proposal', href: '/client-proposal.html' },
     { label: 'Time Tracker', href: '/time-tracker.html' },
     { label: 'Milestone Pay', href: '/milestone-calculator.html' },
+    { label: 'Savings', href: '/savings-calculator.html' },
   ];
 
   var currentPath = window.location.pathname;
