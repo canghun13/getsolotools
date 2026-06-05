@@ -19,6 +19,7 @@ GetSoloTools provides a suite of free tools designed for freelancers, independen
 - [Client Proposal Generator](https://getsolotools.com/client-proposal.html): Create a structured project proposal to send to prospective clients, including scope, deliverables, and pricing.
 - [Time Tracker](https://getsolotools.com/time-tracker.html): Track billable hours by project and client directly in the browser, with session history and export.
 - [Milestone Payment Calculator](https://getsolotools.com/milestone-calculator.html): Split a project's total fee into milestone payments by percentage or fixed amount, with due dates and exportable payment schedule.
+- [NDA Generator](https://getsolotools.com/nda-generator.html): Create a mutual or one-way non-disclosure agreement for freelance projects. Fill in party details, define confidential information, and download a PDF NDA instantly.
 
 ## Guides: Getting Paid & Late Fees
 
@@ -41,6 +42,7 @@ GetSoloTools provides a suite of free tools designed for freelancers, independen
 - [How to Write a Freelance Invoice That Gets You Paid Faster](https://getsolotools.com/blog/how-to-write-a-freelance-invoice.html): What to include on a freelance invoice, common mistakes, and how to send it effectively.
 - [Freelance Invoice vs Receipt: What's the Difference?](https://getsolotools.com/blog/freelance-invoice-vs-receipt.html): When to send an invoice vs a receipt and why both matter for freelance record-keeping.
 - [How to Write a Freelance Invoice Email (With Templates)](https://getsolotools.com/blog/how-to-write-a-freelance-invoice-email.html): Email templates for sending invoices, following up on overdue payments, and handling disputes.
+- [How to Send a Freelance Quote That Wins the Project](https://getsolotools.com/blog/how-to-send-a-freelance-quote.html): What to include in a freelance quote, how to price accurately, common mistakes, and how to follow up effectively.
 
 ## Guides: Pricing & Rates
 
@@ -52,12 +54,14 @@ GetSoloTools provides a suite of free tools designed for freelancers, independen
 
 - [How to Write a Freelance Contract (With Free Template)](https://getsolotools.com/blog/how-to-write-a-freelance-contract.html): What to include in a freelance contract to protect scope, payment, IP, and revision terms.
 - [Freelance Contract Red Flags to Watch Out For](https://getsolotools.com/blog/freelance-contract-red-flags.html): Contract clauses that signal a problematic client and how to handle them before signing.
+- [How to Write a Freelance NDA (And When You Actually Need One)](https://getsolotools.com/blog/how-to-write-a-freelance-nda.html): When freelancers need an NDA, mutual vs one-way agreements, what to include, and how to get it signed quickly.
 
 ## Guides: Taxes & Finance
 
 - [Freelance Tax Guide: What to Set Aside and When to Pay](https://getsolotools.com/blog/freelance-tax-guide-for-beginners.html): US freelance tax overview — self-employment tax, quarterly payments, and how much to save.
 - [7 Common Freelance Tax Mistakes (And How to Avoid Them)](https://getsolotools.com/blog/common-freelance-tax-mistakes.html): The most costly freelance tax errors and how to avoid them.
 - [How to Budget as a Freelancer When Your Income Is Unpredictable](https://getsolotools.com/blog/freelance-budget-planning-guide.html): Budgeting system for variable income, including fixed costs, tax reserves, and emergency funds.
+- [How to Track Freelance Income and Expenses (Without an Accountant)](https://getsolotools.com/blog/how-to-track-freelance-income-and-expenses.html): A practical system for categorizing income and expenses, setting aside taxes, and doing a monthly financial review.
 
 ## Guides: Clients & Business
 

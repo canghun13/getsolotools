@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Freelance NDA Generator – GetSoloTools</title>
+<meta name="description" content="Create a professional non-disclosure agreement for freelancers in minutes. Fill in your details and download a clean PDF NDA instantly. No sign-up required.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-728DGKLSE6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-728DGKLSE6');
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1a1a;
+    --ink-2: #555;
+    --ink-3: #999;
+    --paper: #fafaf8;
+    --white: #ffffff;
+    --accent: #2d5be3;
+    --accent-light: #eef1fd;
+    --border: #e8e6e0;
+    --success: #1a8a4a;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
+  }
+
+  body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; font-size: 15px; line-height: 1.6; }
+
+  .hero { text-align: center; padding: 3.5rem 1rem 2.5rem; max-width: 640px; margin: 0 auto; }
+  .hero-badge { display: inline-block; background: var(--accent-light); color: var(--accent); font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem; }
+  .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
+  .hero p { color: var(--ink-2); font-size: 1rem; max-width: 480px; margin: 0 auto 1.5rem; }
+  .hero-features { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; font-size: 13px; color: var(--ink-3); }
+  .hero-features span::before { content: '✓ '; color: var(--success); font-weight: 600; }
+
+  .main-wrap { max-width: 860px; margin: 0 auto; padding: 0 1rem 4rem; }
+
+  .contract-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow); overflow: hidden; }
+
+  .contract-toolbar { background: var(--ink); padding: 0.75rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .toolbar-label { color: rgba(255,255,255,0.5); font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+  .toolbar-actions { display: flex; gap: 0.5rem; }
+
+  .btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; font-family: 'DM Sans', sans-serif; transition: all 0.15s; text-decoration: none; }
+  .btn-ghost { background: rgba(255,255,255,0.1); color: #fff; }
+  .btn-ghost:hover { background: rgba(255,255,255,0.18); }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: #2248c4; }
+  .btn-success { background: var(--success); color: #fff; }
+  .btn-success:hover { background: #156b3a; }
+  .btn-lg { padding: 11px 22px; font-size: 14px; }
+
+  .contract-body { padding: 2rem; }
+
+  .section-title { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+
+  .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+  @media (max-width: 600px) { .row-2 { grid-template-columns: 1fr; } }
+
+  .field-group { display: flex; flex-direction: column; gap: 0.75rem; }
+  .field { display: flex; flex-direction: column; gap: 4px; }
+
+  label { font-size: 12px; font-weight: 500; color: var(--ink-2); }
+
+  input[type="text"], input[type="date"], input[type="number"], textarea, select {
+    width: 100%; padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 14px; font-family: 'DM Sans', sans-serif; color: var(--ink); background: var(--white); transition: border-color 0.15s; outline: none;
+  }
+  input:focus, textarea:focus, select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(45,91,227,0.1); }
+  textarea { resize: vertical; min-height: 80px; }
+
+  .divider { border: none; border-top: 1px solid var(--border); margin: 1.75rem 0; }
+
+  .checkbox-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .checkbox-row input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--accent); cursor: pointer; }
+  .checkbox-row label { font-size: 14px; color: var(--ink); cursor: pointer; margin: 0; }
+
+  .bottom-actions { display: flex; justify-content: flex-end; gap: 0.75rem; padding-top: 1.5rem; border-top: 1px solid var(--border); margin-top: 1.5rem; flex-wrap: wrap; }
+
+  .info-section { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; margin-top: 2rem; }
+  .info-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+  .info-card h3 { font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+  .info-card p { font-size: 13px; color: var(--ink-2); line-height: 1.6; }
+
+  footer { border-top: 1px solid var(--border); text-align: center; padding: 2rem; font-size: 13px; color: var(--ink-3); margin-top: 2rem; }
+  footer a { color: var(--ink-2); text-decoration: none; margin: 0 0.4rem; }
+  footer a:hover { color: var(--accent); }
+</style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350"
+       crossorigin="anonymous"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Freelance NDA Generator",
+  "url": "https://getsolotools.com/nda-generator.html",
+  "description": "Create a professional non-disclosure agreement for freelancers in minutes. Fill in your details and download a clean PDF NDA instantly. Free.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "GetSoloTools",
+    "url": "https://getsolotools.com"
+  },
+  "keywords": "freelance NDA generator, non-disclosure agreement freelancer, NDA template, confidentiality agreement"
+}
+</script>
+</head>
+<body>
+<script src="/nav.js"></script>
+
+<div class="hero">
+  <span class="hero-badge">Free Tool</span>
+  <h1>Freelance NDA Generator</h1>
+  <p>Create a mutual or one-way non-disclosure agreement in minutes. Download a clean PDF — no sign-up required.</p>
+  <div class="hero-features">
+    <span>Free forever</span>
+    <span>No sign-up</span>
+    <span>Instant PDF</span>
+  </div>
+</div>
+
+<div class="main-wrap">
+  <div class="contract-card">
+    <div class="contract-toolbar">
+      <span class="toolbar-label">NDA Generator</span>
+      <div class="toolbar-actions">
+        <button class="btn btn-ghost" onclick="clearForm()">Clear</button>
+        <button class="btn btn-success" onclick="generatePDF()">⬇ Download PDF</button>
+      </div>
+    </div>
+
+    <div class="contract-body">
+
+      <!-- PARTIES -->
+      <div class="section-title">Parties</div>
+      <div class="row-2">
+        <div class="field-group">
+          <div style="font-size:12px;font-weight:600;color:var(--ink-3);margin-bottom:4px;">DISCLOSING PARTY (you)</div>
+          <div class="field"><label>Full Name / Business Name</label><input type="text" id="freelancerName" placeholder="Jane Smith" /></div>
+          <div class="field"><label>Address</label><textarea id="freelancerAddress" placeholder="123 Main St, City, State, ZIP" style="min-height:56px;"></textarea></div>
+          <div class="field"><label>Email</label><input type="text" id="freelancerEmail" placeholder="jane@example.com" /></div>
+        </div>
+        <div class="field-group">
+          <div style="font-size:12px;font-weight:600;color:var(--ink-3);margin-bottom:4px;">RECEIVING PARTY (client)</div>
+          <div class="field"><label>Full Name / Business Name</label><input type="text" id="clientName" placeholder="Acme Corp" /></div>
+          <div class="field"><label>Address</label><textarea id="clientAddress" placeholder="456 Client Ave, City, State, ZIP" style="min-height:56px;"></textarea></div>
+          <div class="field"><label>Email</label><input type="text" id="clientEmail" placeholder="client@acme.com" /></div>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- NDA TYPE & PROJECT -->
+      <div class="section-title">Agreement Details</div>
+      <div class="row-2">
+        <div class="field">
+          <label>NDA Type</label>
+          <select id="ndaType">
+            <option value="mutual">Mutual (both parties are bound)</option>
+            <option value="oneway">One-Way (client receives confidential info only)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Effective Date</label>
+          <input type="date" id="effectiveDate" />
+        </div>
+        <div class="field">
+          <label>Project / Engagement Name</label>
+          <input type="text" id="projectName" placeholder="e.g. Brand Redesign Project" />
+        </div>
+        <div class="field">
+          <label>NDA Duration</label>
+          <select id="ndaDuration">
+            <option value="1 year">1 year</option>
+            <option value="2 years" selected>2 years</option>
+            <option value="3 years">3 years</option>
+            <option value="5 years">5 years</option>
+            <option value="indefinitely">Indefinitely</option>
+          </select>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- CONFIDENTIAL INFO -->
+      <div class="section-title">Confidential Information</div>
+      <div class="field" style="margin-bottom:1rem;">
+        <label>Describe what information is considered confidential</label>
+        <textarea id="confInfo" placeholder="e.g. Business strategies, client lists, financial data, proprietary processes, project details, technical specifications, and any other non-public information shared during the course of this engagement." style="min-height:100px;"></textarea>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- OPTIONAL CLAUSES -->
+      <div class="section-title">Optional Clauses</div>
+      <div class="checkbox-row"><input type="checkbox" id="clauseNoSolicit" /><label for="clauseNoSolicit">Non-solicitation clause (parties won't poach each other's clients or employees)</label></div>
+      <div class="checkbox-row"><input type="checkbox" id="clauseReturn" checked /><label for="clauseReturn">Return of materials (confidential materials returned or destroyed on request)</label></div>
+      <div class="checkbox-row"><input type="checkbox" id="clauseInjunctive" checked /><label for="clauseInjunctive">Injunctive relief clause (breach may cause irreparable harm warranting injunction)</label></div>
+      <div class="checkbox-row"><input type="checkbox" id="clauseGoverning" checked /><label for="clauseGoverning">Governing law clause</label></div>
+
+      <div style="margin-top:1.25rem;" class="field">
+        <label>Governing State / Country (if applicable)</label>
+        <input type="text" id="governingLaw" placeholder="California, USA" />
+      </div>
+
+      <hr class="divider" />
+
+      <!-- NOTES -->
+      <div class="section-title">Additional Notes</div>
+      <textarea id="notes" placeholder="Any additional terms or special conditions…"></textarea>
+
+      <div class="bottom-actions">
+        <button class="btn btn-ghost btn-lg" style="background:var(--paper);color:var(--ink);border:1px solid var(--border)" onclick="clearForm()">Clear Form</button>
+        <button class="btn btn-success btn-lg" onclick="generatePDF()">⬇ Download PDF NDA</button>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="info-section">
+    <div class="info-card">
+      <h3>Mutual vs One-Way NDA</h3>
+      <p>A mutual NDA protects both parties equally — common when sharing ideas back and forth. A one-way NDA protects only the disclosing party — use it when a client is sharing sensitive business info with you.</p>
+    </div>
+    <div class="info-card">
+      <h3>When do you need an NDA?</h3>
+      <p>Any time a client shares business strategies, unreleased product details, financial data, or proprietary processes. NDAs are also useful before pitching a new project idea to a potential client.</p>
+    </div>
+    <div class="info-card">
+      <h3>NDA vs Contract</h3>
+      <p>An NDA covers confidentiality only. Your freelance contract covers scope, payment, and deliverables. Most projects need both — sign the NDA first, then the project contract before work begins.</p>
+    </div>
+    <div class="info-card">
+      <h3>How to get it signed</h3>
+      <p>Download the PDF and use DocuSign, HelloSign, or any e-signature tool. Sign the NDA before discussing any sensitive project details — once information is shared, the NDA can't cover it retroactively.</p>
+    </div>
+  </div>
+</div>
+
+<div class="seo-section" style="max-width:860px;margin:3rem auto 0;padding:0 1rem 4rem;border-top:1px solid var(--border, #e8e6e0);">
+  <div style="max-width:720px;margin:0 auto;">
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.6rem;margin:2.5rem 0 1rem;letter-spacing:-0.02em;color:var(--ink,#1a1a1a);">How to Use the Free Freelance NDA Generator</h2>
+    <div style="font-size:1rem;line-height:1.8;color:var(--ink,#1a1a1a);">
+
+      <p>A non-disclosure agreement (NDA) is a contract that protects confidential information shared between two parties. For freelancers, NDAs come up in two common situations: a client wants you to sign one before sharing sensitive business details, or you want one in place before pitching a new idea or sharing your own proprietary process. This generator creates a clean, professional NDA in minutes — tailored to your situation.</p>
+
+      <h3>Mutual vs one-way NDA: which one do you need?</h3>
+      <p>A mutual NDA binds both parties to confidentiality. If you and a client are sharing sensitive information in both directions — discussing business strategy, exploring a new product concept, or collaborating on something that requires openness on both sides — a mutual NDA is the right choice.</p>
+      <p>A one-way NDA (also called a unilateral NDA) only protects one side. If a client is sharing proprietary business information with you — say, their internal processes, unreleased product roadmap, or financial data — but you're not sharing anything sensitive in return, a one-way NDA where the client is the disclosing party makes more sense.</p>
+
+      <h3>What a freelance NDA should cover</h3>
+      <p>The definition of confidential information is the most important clause. It should be specific enough to be enforceable but broad enough to actually protect what matters. Vague definitions like "any information shared" are often unenforceable. Specific descriptions — client lists, financial projections, unreleased product specifications, proprietary workflows — are more defensible.</p>
+      <p>The duration of the NDA matters too. Most freelance NDAs run one to three years. Indefinite NDAs are harder to enforce and may signal overcaution from a client. Two years is a reasonable standard for most freelance engagements.</p>
+
+      <h3>NDA vs freelance contract: you often need both</h3>
+      <p>An NDA only covers confidentiality. It doesn't address scope of work, payment terms, intellectual property, or what happens if a project gets cancelled. Most professional freelance engagements need both a signed NDA and a full project contract. Sign the NDA first — before any sensitive information changes hands — then use our <a href="/contract-generator.html" style="color:var(--accent);">Freelance Contract Generator</a> to cover the full project terms before work begins.</p>
+
+      <h3>Getting an NDA signed quickly</h3>
+      <p>Use an e-signature tool like DocuSign or HelloSign to send the PDF for signature without back-and-forth. The key is timing: get the NDA signed before you discuss anything the other party would want protected. Once information has been shared, an NDA signed afterward doesn't cover it retroactively.</p>
+
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 <a href="/">GetSoloTools</a> &nbsp;·&nbsp;
+    <a href="/about.html">About</a>
+    <a href="/blog/index.html" style="color:#1a9e6e;font-weight:600;">Blog</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/contact.html">Contact</a>
+  </p>
+</footer>
+
+<script>
+function clearForm() {
+  if (!confirm('Clear all fields?')) return;
+  ['freelancerName','freelancerAddress','freelancerEmail','clientName','clientAddress','clientEmail',
+   'projectName','governingLaw','notes','confInfo'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+  ['clauseReturn','clauseInjunctive','clauseGoverning'].forEach(id => {
+    document.getElementById(id).checked = true;
+  });
+  document.getElementById('clauseNoSolicit').checked = false;
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('effectiveDate').value = today;
+}
+
+function generatePDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ unit: 'mm', format: 'a4' });
+
+  const W = 210, M = 18;
+  let y = M;
+
+  const freelancerName = document.getElementById('freelancerName').value || 'Disclosing Party';
+  const freelancerAddress = document.getElementById('freelancerAddress').value;
+  const freelancerEmail = document.getElementById('freelancerEmail').value;
+  const clientName = document.getElementById('clientName').value || 'Receiving Party';
+  const clientAddress = document.getElementById('clientAddress').value;
+  const clientEmail = document.getElementById('clientEmail').value;
+  const ndaType = document.getElementById('ndaType').value;
+  const effectiveDate = document.getElementById('effectiveDate').value;
+  const projectName = document.getElementById('projectName').value;
+  const ndaDuration = document.getElementById('ndaDuration').value;
+  const confInfo = document.getElementById('confInfo').value;
+  const clauseNoSolicit = document.getElementById('clauseNoSolicit').checked;
+  const clauseReturn = document.getElementById('clauseReturn').checked;
+  const clauseInjunctive = document.getElementById('clauseInjunctive').checked;
+  const clauseGoverning = document.getElementById('clauseGoverning').checked;
+  const governingLaw = document.getElementById('governingLaw').value;
+  const notes = document.getElementById('notes').value;
+
+  const isMutual = ndaType === 'mutual';
+  const ndaTitle = isMutual ? 'MUTUAL NON-DISCLOSURE AGREEMENT' : 'NON-DISCLOSURE AGREEMENT';
+  const today = new Date().toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
+  const effDateFormatted = effectiveDate
+    ? new Date(effectiveDate + 'T00:00:00').toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' })
+    : today;
+
+  // Header
+  doc.setFillColor(26, 26, 26);
+  doc.rect(0, 0, W, 36, 'F');
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(16);
+  doc.setTextColor(255, 255, 255);
+  doc.text(ndaTitle, M, 16);
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(9);
+  doc.setTextColor(180, 180, 180);
+  const subLine = (projectName ? projectName + '  ·  ' : '') + 'Effective ' + effDateFormatted;
+  doc.text(subLine, M, 26);
+
+  y = 48;
+
+  function sectionHeader(title) {
+    doc.setFillColor(245, 245, 243);
+    doc.rect(M, y - 4, W - M * 2, 9, 'F');
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(8);
+    doc.setTextColor(120, 120, 120);
+    doc.text(title.toUpperCase(), M + 3, y + 2);
+    y += 10;
+  }
+
+  function bodyText(text, indent = 0) {
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(9.5);
+    doc.setTextColor(40, 40, 40);
+    const lines = doc.splitTextToSize(text, W - M * 2 - indent);
+    lines.forEach(line => {
+      if (y > 270) { doc.addPage(); y = M; }
+      doc.text(line, M + indent, y);
+      y += 5.5;
+    });
+    y += 2;
+  }
+
+  // Parties
+  sectionHeader('Parties');
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(9.5);
+  doc.setTextColor(26, 26, 26);
+  const p1Label = isMutual ? 'Party A:' : 'Disclosing Party:';
+  const p2Label = isMutual ? 'Party B:' : 'Receiving Party:';
+  doc.text(p1Label, M, y); doc.text(p2Label, W / 2 + 2, y);
+  y += 6;
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(9);
+  doc.setTextColor(50, 50, 50);
+  const fLines = [freelancerName, freelancerAddress, freelancerEmail].filter(Boolean);
+  const cLines = [clientName, clientAddress, clientEmail].filter(Boolean);
+  const maxLines = Math.max(fLines.length, cLines.length);
+  for (let i = 0; i < maxLines; i++) {
+    if (fLines[i]) doc.text(fLines[i], M, y);
+    if (cLines[i]) doc.text(cLines[i], W / 2 + 2, y);
+    y += 5.5;
+  }
+  y += 4;
+
+  // Agreement Details
+  sectionHeader('Agreement Details');
+  bodyText(`This ${isMutual ? 'Mutual ' : ''}Non-Disclosure Agreement ("Agreement") is entered into as of ${effDateFormatted} by and between ${freelancerName} and ${clientName}${projectName ? ' in connection with ' + projectName : ''}.`);
+  bodyText(`The purpose of this Agreement is to prevent the unauthorized disclosure of confidential information shared between the parties. This Agreement shall remain in effect for ${ndaDuration} from the effective date.`);
+
+  // Confidential Info
+  sectionHeader('Confidential Information');
+  if (isMutual) {
+    bodyText('"Confidential Information" means any non-public information disclosed by either party to the other, whether orally, in writing, or by inspection of tangible objects, that is designated as confidential or that reasonably should be understood to be confidential given the nature of the information and circumstances of disclosure.');
+  } else {
+    bodyText('"Confidential Information" means any non-public information disclosed by the Disclosing Party to the Receiving Party, whether orally, in writing, or by inspection of tangible objects, that is designated as confidential or that reasonably should be understood to be confidential given the nature of the information and circumstances of disclosure.');
+  }
+  if (confInfo) {
+    bodyText('Confidential Information in this Agreement specifically includes, but is not limited to:');
+    bodyText(confInfo, 4);
+  }
+  bodyText('Confidential Information does not include information that: (a) is or becomes generally known to the public without breach of any obligation; (b) was known to the receiving party prior to disclosure; (c) was independently developed without use of confidential information; or (d) is required to be disclosed by law or court order.');
+
+  // Obligations
+  sectionHeader('Obligations');
+  if (isMutual) {
+    bodyText('Each party agrees to: (a) hold the other party\'s Confidential Information in strict confidence; (b) not disclose the Confidential Information to any third party without prior written consent; (c) use the Confidential Information solely for the purpose of evaluating or engaging in the business relationship between the parties; and (d) protect the Confidential Information using the same degree of care used to protect its own confidential information, but no less than reasonable care.');
+  } else {
+    bodyText('The Receiving Party agrees to: (a) hold the Confidential Information in strict confidence; (b) not disclose the Confidential Information to any third party without prior written consent of the Disclosing Party; (c) use the Confidential Information solely for the purpose of evaluating or engaging in the business relationship between the parties; and (d) protect the Confidential Information using the same degree of care used to protect its own confidential information, but no less than reasonable care.');
+  }
+
+  // Optional Clauses
+  if (clauseReturn || clauseNoSolicit || clauseInjunctive || (clauseGoverning && governingLaw)) {
+    sectionHeader('Additional Terms');
+    if (clauseReturn) bodyText('Return of Materials: Upon request by the disclosing party, or upon termination of this Agreement, the receiving party shall promptly return or certify the destruction of all materials containing Confidential Information.');
+    if (clauseNoSolicit) bodyText('Non-Solicitation: During the term of this Agreement and for one (1) year thereafter, neither party shall directly solicit or hire the other party\'s employees, contractors, or clients without prior written consent.');
+    if (clauseInjunctive) bodyText('Injunctive Relief: Each party acknowledges that a breach of this Agreement may cause irreparable harm for which monetary damages would be an inadequate remedy, and that the non-breaching party shall be entitled to seek injunctive relief in addition to any other remedies available at law or equity.');
+    if (clauseGoverning && governingLaw) bodyText(`Governing Law: This Agreement shall be governed by and construed in accordance with the laws of ${governingLaw}, without regard to its conflict of law principles.`);
+  }
+
+  if (notes) {
+    sectionHeader('Additional Notes');
+    bodyText(notes);
+  }
+
+  // Signatures
+  if (y > 230) { doc.addPage(); y = M; }
+  sectionHeader('Signatures');
+  bodyText('By signing below, both parties agree to the terms of this Non-Disclosure Agreement.');
+  y += 6;
+
+  const sigY = y;
+  doc.setDrawColor(180, 180, 180);
+  const p1SigLabel = isMutual ? 'Party A Signature' : 'Disclosing Party Signature';
+  const p2SigLabel = isMutual ? 'Party B Signature' : 'Receiving Party Signature';
+  doc.line(M, sigY + 14, M + 70, sigY + 14);
+  doc.line(W / 2 + 2, sigY + 14, W / 2 + 72, sigY + 14);
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(8.5);
+  doc.setTextColor(120, 120, 120);
+  doc.text(p1SigLabel, M, sigY + 20);
+  doc.text(p2SigLabel, W / 2 + 2, sigY + 20);
+  doc.text(freelancerName, M, sigY + 27);
+  doc.text(clientName, W / 2 + 2, sigY + 27);
+  doc.line(M, sigY + 36, M + 70, sigY + 36);
+  doc.line(W / 2 + 2, sigY + 36, W / 2 + 72, sigY + 36);
+  doc.text('Date', M, sigY + 42);
+  doc.text('Date', W / 2 + 2, sigY + 42);
+
+  // Footer
+  const pageCount = doc.internal.getNumberOfPages();
+  for (let i = 1; i <= pageCount; i++) {
+    doc.setPage(i);
+    doc.setFontSize(7.5);
+    doc.setTextColor(180, 180, 180);
+    doc.text('Generated with GetSoloTools.com — Free tools for freelancers', W / 2, 290, { align: 'center' });
+  }
+
+  const filename = (projectName || 'nda').toLowerCase().replace(/\s+/g, '-');
+  doc.save(`${filename}-nda.pdf`);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('effectiveDate').value = today;
+});
+</script>
+
+</body>
+</html>

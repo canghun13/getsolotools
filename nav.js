@@ -14,6 +14,7 @@
     { label: 'Time Tracker', href: '/time-tracker.html' },
     { label: 'Milestone Pay', href: '/milestone-calculator.html' },
     { label: 'Savings', href: '/savings-calculator.html' },
+    { label: 'NDA', href: '/nda-generator.html' },
   ];
 
   var currentPath = window.location.pathname;
