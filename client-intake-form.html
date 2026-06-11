@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Client Intake Form Generator – GetSoloTools</title>
+<meta name="description" content="Create a professional client intake form for freelancers. Collect project details, budget, timeline, and client information. Download as PDF. Free, no sign-up.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-728DGKLSE6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-728DGKLSE6');
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #1a1a1a; --ink-2: #555; --ink-3: #999;
+    --paper: #fafaf8; --white: #ffffff;
+    --accent: #2d5be3; --accent-light: #eef1fd;
+    --border: #e8e6e0; --success: #1a8a4a;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
+  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; font-size: 15px; line-height: 1.6; }
+
+  .hero { text-align: center; padding: 3.5rem 1rem 2.5rem; max-width: 640px; margin: 0 auto; }
+  .hero-badge { display: inline-block; background: var(--accent-light); color: var(--accent); font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem; }
+  .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
+  .hero p { color: var(--ink-2); font-size: 1rem; max-width: 480px; margin: 0 auto 1.5rem; }
+  .hero-features { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; font-size: 13px; color: var(--ink-3); }
+  .hero-features span::before { content: '✓ '; color: var(--success); font-weight: 600; }
+
+  .main-wrap { max-width: 860px; margin: 0 auto; padding: 0 1rem 4rem; }
+
+  .card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow); overflow: hidden; margin-bottom: 1.5rem; }
+  .card-header { background: var(--ink); color: #fff; padding: 0.9rem 1.5rem; font-size: 13px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+  .card-body { padding: 1.5rem; }
+
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-grid.single { grid-template-columns: 1fr; }
+  @media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; } }
+
+  .field { display: flex; flex-direction: column; gap: 5px; }
+  .field label { font-size: 12px; font-weight: 600; color: var(--ink-2); letter-spacing: 0.03em; text-transform: uppercase; }
+  .field input, .field textarea, .field select {
+    border: 1px solid var(--border); border-radius: 8px;
+    padding: 10px 14px; font-size: 14px; font-family: inherit;
+    background: var(--paper); color: var(--ink);
+    transition: border-color 0.15s;
+  }
+  .field input:focus, .field textarea:focus, .field select:focus {
+    outline: none; border-color: var(--accent);
+    background: #fff;
+  }
+  .field textarea { resize: vertical; min-height: 90px; }
+
+  .section-divider { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+
+  .radio-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .radio-label { display: flex; align-items: center; gap: 6px; font-size: 14px; cursor: pointer; }
+  .radio-label input { accent-color: var(--accent); width: 16px; height: 16px; }
+
+  .checkbox-group { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+  @media (max-width: 500px) { .checkbox-group { grid-template-columns: 1fr; } }
+  .check-label { display: flex; align-items: center; gap: 8px; font-size: 14px; cursor: pointer; }
+  .check-label input { accent-color: var(--accent); width: 15px; height: 15px; }
+
+  .btn-download {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent); color: #fff;
+    border: none; border-radius: 10px;
+    padding: 14px 28px; font-size: 15px; font-weight: 600;
+    cursor: pointer; font-family: inherit;
+    transition: opacity 0.15s;
+  }
+  .btn-download:hover { opacity: 0.88; }
+  .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+
+  .btn-clear {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent; color: var(--ink-3);
+    border: 1px solid var(--border); border-radius: 10px;
+    padding: 14px 24px; font-size: 15px; font-weight: 500;
+    cursor: pointer; font-family: inherit;
+    transition: all 0.15s;
+  }
+  .btn-clear:hover { border-color: var(--ink-2); color: var(--ink); }
+
+  .how-to { max-width: 720px; margin: 3rem auto 0; padding: 0 1rem; }
+  .how-to h2 { font-family: 'DM Serif Display', serif; font-size: 1.6rem; margin: 2.5rem 0 1rem; letter-spacing: -0.02em; color: var(--ink); }
+  .how-to h3 { font-size: 1.05rem; font-weight: 600; margin: 1.5rem 0 0.5rem; }
+  .how-to p { font-size: 1rem; line-height: 1.8; color: var(--ink); margin-bottom: 1rem; }
+
+  .faq-section { max-width: 720px; margin: 3rem auto 2rem; padding: 0 1.5rem; }
+  .faq-section h2 { font-family: 'DM Serif Display', serif; font-size: 1.6rem; margin: 0 0 1.5rem; letter-spacing: -0.02em; color: #1a1a1a; }
+  .faq-border { border-top: 1px solid #e8e4dd; }
+  details { border-bottom: 1px solid #e8e4dd; padding: 1rem 0; }
+  summary { font-weight: 600; font-size: 1rem; cursor: pointer; color: #1a1a1a; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+  summary .plus { color: #2d5be3; font-size: 1.2rem; }
+  details p { margin: 0.75rem 0 0; font-size: 0.95rem; line-height: 1.75; color: #444; }
+
+  footer { border-top: 1px solid var(--border); text-align: center; padding: 2rem; font-size: 13px; color: var(--ink-3); margin-top: 2rem; }
+  footer a { color: var(--ink-2); text-decoration: none; margin: 0 0.4rem; }
+  footer a:hover { color: var(--accent); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Client Intake Form Generator",
+  "url": "https://getsolotools.com/client-intake-form.html",
+  "description": "Free client intake form generator for freelancers. Collect project details, budget, and timeline from new clients. Download as PDF.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+</head>
+<body>
+<script src="/nav.js"></script>
+
+<div class="hero">
+  <div class="hero-badge">New Client Onboarding</div>
+  <h1>Client Intake Form</h1>
+  <p>Collect everything you need from a new client before the project starts. Fill in your details and download a clean PDF form — or send this page for clients to reference.</p>
+  <div class="hero-features">
+    <span>100% Free</span>
+    <span>No Sign-up</span>
+    <span>PDF Download</span>
+  </div>
+</div>
+
+<div class="main-wrap">
+
+  <!-- FREELANCER INFO -->
+  <div class="card">
+    <div class="card-header">Your Information</div>
+    <div class="card-body">
+      <div class="form-grid">
+        <div class="field">
+          <label>Your Name / Business Name</label>
+          <input type="text" id="freelancerName" placeholder="e.g. Jane Smith Design">
+        </div>
+        <div class="field">
+          <label>Your Email</label>
+          <input type="email" id="freelancerEmail" placeholder="jane@example.com">
+        </div>
+        <div class="field">
+          <label>Your Website (optional)</label>
+          <input type="text" id="freelancerWebsite" placeholder="www.janesmith.com">
+        </div>
+        <div class="field">
+          <label>Date Submitted</label>
+          <input type="date" id="intakeDate">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLIENT INFO -->
+  <div class="card">
+    <div class="card-header">Client Information</div>
+    <div class="card-body">
+      <div class="form-grid">
+        <div class="field">
+          <label>Client Name</label>
+          <input type="text" id="clientName" placeholder="Full name">
+        </div>
+        <div class="field">
+          <label>Company / Organization</label>
+          <input type="text" id="clientCompany" placeholder="Company name (if applicable)">
+        </div>
+        <div class="field">
+          <label>Client Email</label>
+          <input type="email" id="clientEmail" placeholder="client@company.com">
+        </div>
+        <div class="field">
+          <label>Client Phone (optional)</label>
+          <input type="tel" id="clientPhone" placeholder="+1 (555) 000-0000">
+        </div>
+        <div class="field">
+          <label>Website / Social (optional)</label>
+          <input type="text" id="clientWebsite" placeholder="www.clientsite.com">
+        </div>
+        <div class="field">
+          <label>Industry / Niche</label>
+          <input type="text" id="clientIndustry" placeholder="e.g. SaaS, E-commerce, Legal">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT DETAILS -->
+  <div class="card">
+    <div class="card-header">Project Details</div>
+    <div class="card-body">
+      <div class="form-grid single">
+        <div class="field">
+          <label>Project Title / Name</label>
+          <input type="text" id="projectTitle" placeholder="e.g. Website Redesign, Brand Identity Package">
+        </div>
+        <div class="field">
+          <label>Project Description</label>
+          <textarea id="projectDescription" placeholder="Describe the project in detail. What do you need done? What problem are you trying to solve?"></textarea>
+        </div>
+        <div class="field">
+          <label>Goals & Success Criteria</label>
+          <textarea id="projectGoals" placeholder="What does success look like? What outcomes do you expect from this project?"></textarea>
+        </div>
+      </div>
+
+      <hr class="section-divider">
+
+      <div class="form-grid">
+        <div class="field">
+          <label>Desired Start Date</label>
+          <input type="date" id="startDate">
+        </div>
+        <div class="field">
+          <label>Deadline / Delivery Date</label>
+          <input type="date" id="deadline">
+        </div>
+        <div class="field">
+          <label>Budget Range</label>
+          <select id="budget">
+            <option value="">Select a range</option>
+            <option>Under $500</option>
+            <option>$500 – $1,000</option>
+            <option>$1,000 – $2,500</option>
+            <option>$2,500 – $5,000</option>
+            <option>$5,000 – $10,000</option>
+            <option>$10,000 – $25,000</option>
+            <option>$25,000+</option>
+            <option>Flexible / To be discussed</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Preferred Payment Structure</label>
+          <select id="paymentStructure">
+            <option value="">Select</option>
+            <option>50% deposit, 50% on delivery</option>
+            <option>Milestone payments</option>
+            <option>Monthly retainer</option>
+            <option>Full payment upfront</option>
+            <option>Net 30 on invoice</option>
+            <option>To be discussed</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DELIVERABLES -->
+  <div class="card">
+    <div class="card-header">Deliverables & Scope</div>
+    <div class="card-body">
+      <div class="form-grid single">
+        <div class="field">
+          <label>Specific Deliverables Expected</label>
+          <textarea id="deliverables" placeholder="List the specific outputs you expect — e.g. '5 blog posts, 800 words each' or '3 logo concepts + final files in AI/PNG/SVG'"></textarea>
+        </div>
+        <div class="field">
+          <label>What Is NOT Included (scope boundaries)</label>
+          <textarea id="outOfScope" placeholder="Anything that is explicitly out of scope for this project — helps prevent scope creep later"></textarea>
+        </div>
+        <div class="field">
+          <label>Number of Revision Rounds Expected</label>
+          <select id="revisions">
+            <option value="">Select</option>
+            <option>1 round</option>
+            <option>2 rounds</option>
+            <option>3 rounds</option>
+            <option>Unlimited (retainer)</option>
+            <option>To be agreed in contract</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ASSETS & ACCESS -->
+  <div class="card">
+    <div class="card-header">Assets, Access & References</div>
+    <div class="card-body">
+      <div class="form-grid single">
+        <div class="field">
+          <label>Assets Client Will Provide</label>
+          <textarea id="clientAssets" placeholder="e.g. brand guidelines, existing logos, copy, product photos, login credentials, API access..."></textarea>
+        </div>
+        <div class="field">
+          <label>Reference Examples / Inspiration</label>
+          <textarea id="references" placeholder="Links or descriptions of work you like — competitors, style references, examples of what you're aiming for"></textarea>
+        </div>
+        <div class="field">
+          <label>Things to Avoid</label>
+          <textarea id="avoidList" placeholder="Colors, styles, tones, or approaches that don't fit your brand or that you've already tried and rejected"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMMUNICATION -->
+  <div class="card">
+    <div class="card-header">Communication & Process</div>
+    <div class="card-body">
+      <div class="form-grid">
+        <div class="field">
+          <label>Preferred Communication Channel</label>
+          <select id="commChannel">
+            <option value="">Select</option>
+            <option>Email</option>
+            <option>Slack</option>
+            <option>Google Meet / Zoom calls</option>
+            <option>Project management tool (Asana, Notion, etc.)</option>
+            <option>Mix of email + calls</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Expected Response Time</label>
+          <select id="responseTime">
+            <option value="">Select</option>
+            <option>Same business day</option>
+            <option>Within 24 hours</option>
+            <option>Within 48 hours</option>
+            <option>Flexible</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Decision Maker / Approver</label>
+          <input type="text" id="decisionMaker" placeholder="Who has final approval on deliverables?">
+        </div>
+        <div class="field">
+          <label>Other Stakeholders Involved</label>
+          <input type="text" id="stakeholders" placeholder="e.g. marketing team, CEO, third-party developer">
+        </div>
+      </div>
+      <hr class="section-divider">
+      <div class="form-grid single">
+        <div class="field">
+          <label>Additional Notes / Special Requirements</label>
+          <textarea id="additionalNotes" placeholder="Anything else we should know before starting — legal requirements, platform constraints, launch dependencies, etc."></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn-download" onclick="downloadPDF()">⬇ Download PDF</button>
+    <button class="btn-clear" onclick="clearForm()">Clear Form</button>
+  </div>
+
+</div>
+
+<!-- HOW TO USE -->
+<div class="how-to">
+  <h2>How to Use This Client Intake Form</h2>
+  <div style="font-size:1rem;line-height:1.8;color:var(--ink);">
+
+    <h3>Why a client intake form matters</h3>
+    <p>Most project problems — scope creep, missed expectations, revision disputes — start with unclear information at the beginning. A client intake form captures everything you need to know before a single hour of work is spent. It also signals professionalism to new clients and sets a clear, structured tone for the engagement.</p>
+
+    <h3>When to send it</h3>
+    <p>Send your intake form after an initial discovery call and before you issue a quote or sign a contract. The information collected here directly informs your proposal and contract — the deliverables section, the timeline, the scope boundaries. Think of it as your discovery document: the input that makes everything else accurate.</p>
+
+    <h3>How to use the PDF</h3>
+    <p>Fill in your own name and the date, then either complete the rest of the form yourself based on what you know from initial conversations, or share the PDF with the client to fill out. Many freelancers find it useful to go through the form together on a kickoff call — it ensures nothing is missed and gives the client a chance to clarify their expectations in real time.</p>
+
+    <h3>What to do with the information</h3>
+    <p>Once the intake form is complete, use it to write your project proposal, draft your contract scope, and set the project brief. Reference it throughout the project whenever scope questions come up — if a client asks for something that wasn't in the intake form, you have a clear basis for discussing whether it's in or out of scope.</p>
+
+    <h3>Storing and referencing intake forms</h3>
+    <p>Save a copy of every intake form with your project files. They're useful for resolving scope disputes, writing case studies after the project ends, and improving your intake questions over time. Over several projects, patterns emerge about what clients consistently don't know upfront — and you can add prompts to surface that information earlier.</p>
+
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-border">
+    <details>
+      <summary>What is a client intake form? <span class="plus">+</span></summary>
+      <p>A client intake form is a document freelancers use to collect key information from new clients before starting a project. It captures project goals, scope, budget, timeline, assets, and communication preferences — everything you need to write an accurate proposal and avoid surprises mid-project.</p>
+    </details>
+    <details>
+      <summary>When should I send an intake form to a client? <span class="plus">+</span></summary>
+      <p>After an initial call or inquiry, before issuing a quote or contract. The intake form informs both documents — you can't write an accurate scope or timeline without knowing what the client actually needs. Sending it early also signals that you have a professional, structured process.</p>
+    </details>
+    <details>
+      <summary>Should I fill it out myself or have the client fill it out? <span class="plus">+</span></summary>
+      <p>Both approaches work. Some freelancers fill it out themselves based on a discovery call, then send it to the client for review and corrections. Others send it to clients to complete independently. A third option — going through it together on a call — is often the most thorough, as clients tend to give better answers when prompted in conversation than when writing alone.</p>
+    </details>
+    <details>
+      <summary>Is an intake form the same as a contract? <span class="plus">+</span></summary>
+      <p>No. An intake form is an information-gathering tool, not a legally binding document. Once you have the information, you use it to create a contract that defines the formal terms of the engagement. Think of the intake form as the input and the contract as the output. Always use a signed contract before starting work.</p>
+    </details>
+    <details>
+      <summary>What if a client doesn't want to fill out a form? <span class="plus">+</span></summary>
+      <p>Resistance to structured onboarding can be a signal about how a client will engage throughout the project. You can offer to go through the questions verbally on a call instead — that often works for clients who don't like forms. The key information still gets captured, just in a different format. Skipping it entirely increases your risk of scope disputes later.</p>
+    </details>
+    <details>
+      <summary>How detailed should the intake form be? <span class="plus">+</span></summary>
+      <p>Detailed enough to write an accurate scope and proposal, but not so long that clients abandon it halfway through. This form covers the core bases for most freelance projects. For highly specialized work (large software builds, long-term consulting engagements), you may want to add fields specific to your niche. For simple one-off tasks, you can skip sections that aren't relevant.</p>
+    </details>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 <a href="/">GetSoloTools</a> &nbsp;·&nbsp;
+    <a href="/about.html">About</a>
+    <a href="/blog/index.html" style="color:#1a9e6e;font-weight:600;">Blog</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/contact.html">Contact</a>
+  </p>
+</footer>
+
+<script>
+function g(id) { return document.getElementById(id) ? document.getElementById(id).value.trim() : ''; }
+
+function downloadPDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ unit: 'mm', format: 'a4' });
+  const W = 210, margin = 18, colW = W - margin * 2;
+  let y = 20;
+
+  const accent = [45, 91, 227];
+  const dark = [26, 26, 26];
+  const grey = [120, 120, 120];
+  const lightGrey = [240, 238, 234];
+
+  function checkPage(needed = 10) {
+    if (y + needed > 278) { doc.addPage(); y = 20; }
+  }
+
+  // Header
+  doc.setFillColor(...accent);
+  doc.rect(0, 0, W, 28, 'F');
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(18);
+  doc.setTextColor(255, 255, 255);
+  doc.text('CLIENT INTAKE FORM', margin, 13);
+  doc.setFontSize(9);
+  doc.setFont('helvetica', 'normal');
+  const fl = g('freelancerName') || 'GetSoloTools';
+  const dt = g('intakeDate') || new Date().toISOString().split('T')[0];
+  doc.text(`${fl}  ·  ${dt}`, margin, 21);
+  y = 36;
+
+  function sectionHeader(title) {
+    checkPage(14);
+    doc.setFillColor(...lightGrey);
+    doc.rect(margin, y, colW, 8, 'F');
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(9);
+    doc.setTextColor(...dark);
+    doc.text(title.toUpperCase(), margin + 3, y + 5.5);
+    y += 12;
+  }
+
+  function row(label, value) {
+    if (!value) return;
+    checkPage(16);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(8);
+    doc.setTextColor(...grey);
+    doc.text(label.toUpperCase(), margin, y);
+    y += 5;
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(10);
+    doc.setTextColor(...dark);
+    const lines = doc.splitTextToSize(value, colW);
+    lines.forEach(line => {
+      checkPage(6);
+      doc.text(line, margin, y);
+      y += 5.5;
+    });
+    y += 3;
+  }
+
+  // Freelancer Info
+  sectionHeader('Your Information');
+  row('Name / Business', g('freelancerName'));
+  row('Email', g('freelancerEmail'));
+  row('Website', g('freelancerWebsite'));
+
+  // Client Info
+  sectionHeader('Client Information');
+  row('Client Name', g('clientName'));
+  row('Company', g('clientCompany'));
+  row('Email', g('clientEmail'));
+  row('Phone', g('clientPhone'));
+  row('Website', g('clientWebsite'));
+  row('Industry', g('clientIndustry'));
+
+  // Project
+  sectionHeader('Project Details');
+  row('Project Title', g('projectTitle'));
+  row('Description', g('projectDescription'));
+  row('Goals & Success Criteria', g('projectGoals'));
+  row('Start Date', g('startDate'));
+  row('Deadline', g('deadline'));
+  row('Budget Range', g('budget'));
+  row('Payment Structure', g('paymentStructure'));
+
+  // Deliverables
+  sectionHeader('Deliverables & Scope');
+  row('Deliverables', g('deliverables'));
+  row('Out of Scope', g('outOfScope'));
+  row('Revision Rounds', g('revisions'));
+
+  // Assets
+  sectionHeader('Assets & References');
+  row('Client-Provided Assets', g('clientAssets'));
+  row('References / Inspiration', g('references'));
+  row('Things to Avoid', g('avoidList'));
+
+  // Communication
+  sectionHeader('Communication & Process');
+  row('Preferred Channel', g('commChannel'));
+  row('Response Time', g('responseTime'));
+  row('Decision Maker', g('decisionMaker'));
+  row('Other Stakeholders', g('stakeholders'));
+  row('Additional Notes', g('additionalNotes'));
+
+  // Footer
+  const pages = doc.internal.getNumberOfPages();
+  for (let i = 1; i <= pages; i++) {
+    doc.setPage(i);
+    doc.setFontSize(8);
+    doc.setTextColor(...grey);
+    doc.text('Generated with GetSoloTools.com — Free tools for freelancers', W / 2, 290, { align: 'center' });
+  }
+
+  const client = g('clientName') || g('clientCompany') || 'client';
+  doc.save(`intake-form-${client.toLowerCase().replace(/\s+/g, '-')}.pdf`);
+}
+
+function clearForm() {
+  const ids = ['freelancerName','freelancerEmail','freelancerWebsite','intakeDate',
+    'clientName','clientCompany','clientEmail','clientPhone','clientWebsite','clientIndustry',
+    'projectTitle','projectDescription','projectGoals','startDate','deadline','budget','paymentStructure',
+    'deliverables','outOfScope','revisions','clientAssets','references','avoidList',
+    'commChannel','responseTime','decisionMaker','stakeholders','additionalNotes'];
+  ids.forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('intakeDate').value = new Date().toISOString().split('T')[0];
+});
+</script>
+</body>
+</html>

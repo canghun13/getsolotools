@@ -15,6 +15,7 @@
     { label: 'Milestone Pay', href: '/milestone-calculator.html' },
     { label: 'Savings', href: '/savings-calculator.html' },
     { label: 'NDA', href: '/nda-generator.html' },
+    { label: 'Client Intake Form', href: '/client-intake-form.html' },
   ];
 
   var currentPath = window.location.pathname;
