@@ -18,6 +18,7 @@ GetSoloTools provides a suite of free tools designed for freelancers, independen
 - [Invoice Tracker](https://getsolotools.com/invoice-tracker.html): Track the status of multiple client invoices — sent, paid, overdue — in one place without a subscription.
 - [Client Proposal Generator](https://getsolotools.com/client-proposal.html): Create a structured project proposal to send to prospective clients, including scope, deliverables, and pricing.
 - [Time Tracker](https://getsolotools.com/time-tracker.html): Track billable hours by project and client directly in the browser, with session history and export.
+- [Freelance Savings Calculator](https://getsolotools.com/savings-calculator.html): Calculate how much to save each month for taxes, retirement, and an emergency fund based on your freelance income and goals.
 - [Milestone Payment Calculator](https://getsolotools.com/milestone-calculator.html): Split a project's total fee into milestone payments by percentage or fixed amount, with due dates and exportable payment schedule.
 - [NDA Generator](https://getsolotools.com/nda-generator.html): Create a mutual or one-way non-disclosure agreement for freelance projects. Fill in party details, define confidential information, and download a PDF NDA instantly.
 - [Client Intake Form](https://getsolotools.com/client-intake-form.html): Generate a professional client intake form to collect project details, goals, budget, timeline, deliverables, and communication preferences before starting work. Download as PDF.
