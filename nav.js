@@ -16,6 +16,7 @@
     { label: 'Savings', href: '/savings-calculator.html' },
     { label: 'NDA', href: '/nda-generator.html' },
     { label: 'Client Intake Form', href: '/client-intake-form.html' },
+    { label: 'Expense Report', href: '/expense-report.html' },
   ];
 
   var currentPath = window.location.pathname;

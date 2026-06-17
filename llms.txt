@@ -21,6 +21,7 @@ GetSoloTools provides a suite of free tools designed for freelancers, independen
 - [Freelance Savings Calculator](https://getsolotools.com/savings-calculator.html): Calculate how much to save each month for taxes, retirement, and an emergency fund based on your freelance income and goals.
 - [Milestone Payment Calculator](https://getsolotools.com/milestone-calculator.html): Split a project's total fee into milestone payments by percentage or fixed amount, with due dates and exportable payment schedule.
 - [NDA Generator](https://getsolotools.com/nda-generator.html): Create a mutual or one-way non-disclosure agreement for freelance projects. Fill in party details, define confidential information, and download a PDF NDA instantly.
+- [Freelance Expense Report Generator](https://getsolotools.com/expense-report.html): Create a professional expense report for client reimbursement or tax records. Add itemized expenses by category, see a category breakdown, and download as PDF instantly.
 - [Client Intake Form](https://getsolotools.com/client-intake-form.html): Generate a professional client intake form to collect project details, goals, budget, timeline, deliverables, and communication preferences before starting work. Download as PDF.
 
 ## Guides: Getting Paid & Late Fees
@@ -38,6 +39,10 @@ GetSoloTools provides a suite of free tools designed for freelancers, independen
 - [Late Fee Laws for Freelancers in Pennsylvania](https://getsolotools.com/blog/late-fee-laws-freelancers-pennsylvania.html): Pennsylvania's 6% default interest rate, commercial contract options, Philadelphia Wage Theft ordinance, and small claims up to $12,000.
 - [Late Fee Laws for Freelancers in Michigan](https://getsolotools.com/blog/late-fee-laws-freelancers-michigan.html): Michigan's 5% default rate (one of the lowest in the US), commercial rate options, and small claims up to $7,000.
 - [Late Fee Laws for Freelancers in Colorado](https://getsolotools.com/blog/late-fee-laws-freelancers-colorado.html): Colorado's 8% default rate, Prompt Payment Act for government clients, Denver gig worker protections, and small claims up to $7,500.
+
+## Guides: Finance & Expenses
+
+- [How to Write a Freelance Expense Report (Free Template)](https://getsolotools.com/blog/how-to-write-a-freelance-expense-report.html): When to use an expense report vs an invoice, what to include, how to categorize expenses, and how to use expense reports for tax deductions.
 
 ## Guides: Invoicing
 

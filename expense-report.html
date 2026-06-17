@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Freelance Expense Report Generator – GetSoloTools</title>
+<meta name="description" content="Create a professional expense report for free. Add expenses, attach categories, and download as PDF. No sign-up required.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-728DGKLSE6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-728DGKLSE6');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #1a1a1a;
+    --ink-2: #555;
+    --ink-3: #999;
+    --paper: #fafaf8;
+    --white: #ffffff;
+    --accent: #2d5be3;
+    --accent-light: #eef1fd;
+    --border: #e8e6e0;
+    --border-dark: #c8c4bc;
+    --success: #1a8a4a;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
+  }
+
+  body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; font-size: 15px; line-height: 1.6; }
+
+  .hero { text-align: center; padding: 3.5rem 1rem 2.5rem; max-width: 640px; margin: 0 auto; }
+  .hero-badge { display: inline-block; background: var(--accent-light); color: var(--accent); font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem; }
+  .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(1.9rem, 5vw, 2.8rem); line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
+  .hero p { color: var(--ink-2); font-size: 1rem; max-width: 480px; margin: 0 auto 1.5rem; }
+  .hero-features { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; font-size: 13px; color: var(--ink-3); }
+  .hero-features span::before { content: '✓ '; color: var(--success); font-weight: 600; }
+
+  .main-wrap { max-width: 860px; margin: 0 auto; padding: 0 1rem 4rem; }
+  .card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow); overflow: hidden; }
+  .toolbar { background: var(--ink); padding: 0.75rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .toolbar-label { color: rgba(255,255,255,0.5); font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+  .toolbar-actions { display: flex; gap: 0.5rem; }
+
+  .btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; font-family: 'DM Sans', sans-serif; transition: all 0.15s; }
+  .btn-ghost { background: rgba(255,255,255,0.1); color: #fff; }
+  .btn-ghost:hover { background: rgba(255,255,255,0.18); }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: #2248c4; transform: translateY(-1px); }
+  .btn-lg { padding: 12px 24px; font-size: 15px; border-radius: 10px; }
+
+  .body { padding: 2rem; }
+  .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+  .row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+  @media (max-width: 640px) { .row-2, .row-3 { grid-template-columns: 1fr; } }
+  .field-group { display: flex; flex-direction: column; gap: 0.75rem; }
+  .section-title { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+  label { font-size: 12px; font-weight: 500; color: var(--ink-2); display: block; margin-bottom: 4px; }
+  input[type="text"], input[type="date"], input[type="number"], textarea, select {
+    width: 100%; padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px;
+    font-size: 14px; font-family: 'DM Sans', sans-serif; color: var(--ink); background: var(--white);
+    transition: border-color 0.15s, box-shadow 0.15s; outline: none;
+  }
+  input:focus, textarea:focus, select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(45,91,227,0.1); }
+  textarea { resize: vertical; min-height: 70px; }
+
+  /* Expense Items */
+  .expenses-section { margin-bottom: 1.5rem; }
+  .expenses-header { display: grid; grid-template-columns: 100px 1fr 140px 100px 36px; gap: 8px; padding: 8px 12px; background: var(--paper); border-radius: 8px 8px 0 0; border: 1px solid var(--border); border-bottom: none; }
+  .expenses-header span { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-3); }
+  .expense-row { display: grid; grid-template-columns: 100px 1fr 140px 100px 36px; gap: 8px; padding: 8px; border: 1px solid var(--border); border-top: none; align-items: center; background: var(--white); }
+  .expense-row:last-of-type { border-radius: 0 0 8px 8px; }
+  .expense-row:hover { background: #fafaf8; }
+  .btn-remove { width: 28px; height: 28px; border: none; background: none; color: var(--ink-3); cursor: pointer; border-radius: 6px; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
+  .btn-remove:hover { background: #ffeaea; color: #c0392b; }
+  .btn-add-item { margin-top: 0.5rem; background: none; border: 1.5px dashed var(--border-dark); color: var(--ink-2); font-size: 13px; font-weight: 500; padding: 8px 16px; border-radius: 8px; cursor: pointer; width: 100%; font-family: 'DM Sans', sans-serif; transition: all 0.15s; }
+  .btn-add-item:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+
+  @media (max-width: 640px) {
+    .expenses-header { grid-template-columns: 1fr 36px; }
+    .expenses-header span:not(:first-child):not(:last-child) { display: none; }
+    .expense-row { grid-template-columns: 1fr; }
+    .expense-row > * { width: 100%; }
+  }
+
+  /* Summary */
+  .summary-wrap { display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+  .category-summary { flex: 1; min-width: 200px; }
+  .category-summary h3 { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.75rem; }
+  .cat-bar { margin-bottom: 8px; }
+  .cat-bar-label { display: flex; justify-content: space-between; font-size: 12px; color: var(--ink-2); margin-bottom: 3px; }
+  .cat-bar-track { background: var(--paper); border-radius: 4px; height: 6px; overflow: hidden; border: 1px solid var(--border); }
+  .cat-bar-fill { height: 100%; border-radius: 4px; background: var(--accent); transition: width 0.3s; }
+
+  .totals-box { min-width: 260px; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .totals-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; font-size: 14px; border-bottom: 1px solid var(--border); }
+  .totals-row:last-child { border-bottom: none; }
+  .totals-row label { font-size: 14px; margin: 0; color: var(--ink-2); font-weight: 400; }
+  .totals-row.total-final { background: var(--ink); color: white; }
+  .totals-row.total-final label { color: rgba(255,255,255,0.7); font-weight: 600; }
+  .totals-row.total-final .total-amount { font-size: 18px; font-weight: 700; color: white; }
+
+  .bottom-actions { display: flex; gap: 1rem; justify-content: flex-end; padding-top: 1.5rem; border-top: 1px solid var(--border); flex-wrap: wrap; }
+
+  /* Info / FAQ */
+  .info-section { margin-top: 3rem; }
+  .info-section h2 { font-family: 'DM Serif Display', serif; font-size: 1.5rem; margin-bottom: 1.25rem; letter-spacing: -0.02em; }
+  .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; margin-bottom: 3rem; }
+  .info-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; }
+  .info-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.05rem; margin-bottom: 0.5rem; }
+  .info-card p { font-size: 13px; color: var(--ink-2); line-height: 1.6; }
+
+  .faq-section { margin-bottom: 3rem; }
+  .faq-section h2 { font-family: 'DM Serif Display', serif; font-size: 1.5rem; margin-bottom: 1.25rem; letter-spacing: -0.02em; }
+  details { border-bottom: 1px solid var(--border); padding: 1rem 0; }
+  details summary { font-weight: 600; font-size: 0.97rem; cursor: pointer; color: var(--ink); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+  details summary::after { content: '+'; color: var(--accent); font-size: 1.2rem; flex-shrink: 0; margin-left: 1rem; }
+  details[open] summary::after { content: '−'; }
+  details p { margin-top: 0.75rem; font-size: 0.93rem; line-height: 1.75; color: #444; }
+
+  .related-section { margin-bottom: 2rem; }
+  .related-section h2 { font-family: 'DM Serif Display', serif; font-size: 1.2rem; margin-bottom: 1rem; }
+  .related-section ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+  .related-section ul li a { color: var(--accent); text-decoration: none; font-size: 0.95rem; }
+  .related-section ul li a:hover { text-decoration: underline; }
+
+  footer { border-top: 1px solid var(--border); text-align: center; padding: 2rem; font-size: 13px; color: var(--ink-3); margin-top: 2rem; }
+  footer a { color: var(--ink-2); text-decoration: none; margin: 0 0.4rem; }
+  footer a:hover { color: var(--accent); }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Freelance Expense Report Generator",
+  "url": "https://getsolotools.com/expense-report.html",
+  "description": "Free online tool to create professional freelance expense reports. Add expenses by category, calculate totals, and download as PDF instantly.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+</head>
+<body>
+<script src="/nav.js"></script>
+
+<div class="hero">
+  <span class="hero-badge">Free Tool</span>
+  <h1>Freelance Expense Report Generator</h1>
+  <p>Track and document your business expenses. Download a clean PDF to submit to clients or keep for tax records.</p>
+  <div class="hero-features">
+    <span>Categorized expenses</span>
+    <span>PDF download</span>
+    <span>No sign-up</span>
+  </div>
+</div>
+
+<div class="main-wrap">
+  <div class="card">
+    <div class="toolbar">
+      <span class="toolbar-label">Expense Report</span>
+      <div class="toolbar-actions">
+        <button class="btn btn-ghost" onclick="clearAll()">Clear</button>
+        <button class="btn btn-primary" onclick="generatePDF()">↓ Download PDF</button>
+      </div>
+    </div>
+
+    <div class="body">
+      <!-- Header Info -->
+      <div class="row-2" style="margin-bottom:1.5rem;">
+        <div>
+          <p class="section-title">Your Details</p>
+          <div class="field-group">
+            <div><label>Your Name / Business Name</label><input type="text" id="fromName" placeholder="Jane Smith"></div>
+            <div><label>Email</label><input type="text" id="fromEmail" placeholder="jane@example.com"></div>
+          </div>
+        </div>
+        <div>
+          <p class="section-title">Report Details</p>
+          <div class="field-group">
+            <div><label>Report Title</label><input type="text" id="reportTitle" placeholder="Project Expenses — June 2026"></div>
+            <div class="row-2" style="margin-bottom:0;">
+              <div><label>Period Start</label><input type="date" id="periodStart"></div>
+              <div><label>Period End</label><input type="date" id="periodEnd"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row-2" style="margin-bottom:2rem;">
+        <div>
+          <p class="section-title">Submit To (optional)</p>
+          <div class="field-group">
+            <div><label>Client / Company Name</label><input type="text" id="toName" placeholder="Acme Corp"></div>
+            <div><label>Client Email</label><input type="text" id="toEmail" placeholder="billing@acmecorp.com"></div>
+          </div>
+        </div>
+        <div>
+          <p class="section-title">Currency</p>
+          <div>
+            <label>Currency</label>
+            <select id="currency" onchange="recalc()">
+              <option value="USD">USD — US Dollar ($)</option>
+              <option value="EUR">EUR — Euro (€)</option>
+              <option value="GBP">GBP — British Pound (£)</option>
+              <option value="CAD">CAD — Canadian Dollar (C$)</option>
+              <option value="AUD">AUD — Australian Dollar (A$)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Expense Items -->
+      <div class="expenses-section">
+        <p class="section-title" style="margin-bottom:0.75rem;">Expenses</p>
+        <div class="expenses-header">
+          <span>Date</span>
+          <span>Description</span>
+          <span>Category</span>
+          <span>Amount</span>
+          <span></span>
+        </div>
+        <div id="expenseRows"></div>
+        <button class="btn-add-item" onclick="addRow()">+ Add Expense</button>
+      </div>
+
+      <!-- Summary -->
+      <div class="summary-wrap">
+        <div class="category-summary">
+          <h3>By Category</h3>
+          <div id="catBars"></div>
+        </div>
+        <div class="totals-box">
+          <div class="totals-row">
+            <label>Number of expenses</label>
+            <span id="expenseCount">0</span>
+          </div>
+          <div class="totals-row total-final">
+            <label>Total</label>
+            <span class="total-amount" id="grandTotal">$0.00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notes -->
+      <div style="margin-bottom:1.5rem;">
+        <label>Notes / Purpose</label>
+        <textarea id="notes" rows="3" placeholder="Business purpose, project name, or any additional context..."></textarea>
+      </div>
+
+      <div class="bottom-actions">
+        <button class="btn btn-ghost" style="background:var(--paper);color:var(--ink);border:1px solid var(--border);" onclick="clearAll()">Clear all</button>
+        <button class="btn btn-primary btn-lg" onclick="generatePDF()">↓ Download PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- How to Use -->
+  <div class="info-section">
+    <h2>How to Use the Expense Report Generator</h2>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>1. Fill in your details</h3>
+        <p>Enter your name and the report period. If you're submitting to a client for reimbursement, add their name and email too.</p>
+      </div>
+      <div class="info-card">
+        <h3>2. Add your expenses</h3>
+        <p>Enter each expense with a date, description, category, and amount. Use clear descriptions so the client or your accountant can identify each item.</p>
+      </div>
+      <div class="info-card">
+        <h3>3. Review the summary</h3>
+        <p>The category breakdown and total update automatically. Check everything looks right before downloading.</p>
+      </div>
+      <div class="info-card">
+        <h3>4. Download as PDF</h3>
+        <p>Click Download PDF to get a professional, formatted expense report ready to email or save for tax records.</p>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+      <details>
+        <summary>What's the difference between an expense report and an invoice?</summary>
+        <p>An invoice is a request for payment for services rendered. An expense report documents money you've already spent on behalf of a client or project — typically seeking reimbursement. Use an invoice to bill for your time; use an expense report to bill for out-of-pocket costs like travel, software, or materials.</p>
+      </details>
+      <details>
+        <summary>Which expenses can freelancers typically deduct on taxes?</summary>
+        <p>Common deductible business expenses include software and tools, home office costs, business travel, professional development, equipment, phone and internet (business-use portion), and professional services like accounting fees. Keep receipts and records for everything — this expense report can serve as that record. Consult a tax professional for your specific situation.</p>
+      </details>
+      <details>
+        <summary>Should I include receipts with the expense report?</summary>
+        <p>For client reimbursement, most clients will want receipts attached — especially for amounts over $25. For your own tax records, you should keep receipts regardless of amount. The expense report itself is a summary; the receipts are the supporting documentation.</p>
+      </details>
+      <details>
+        <summary>How often should freelancers submit expense reports?</summary>
+        <p>For client reimbursements, submit at the end of the project or monthly for ongoing work — whatever your contract specifies. For tax purposes, track expenses as they happen and do a monthly review. Waiting until tax season makes it much harder to remember what each expense was for.</p>
+      </details>
+      <details>
+        <summary>Is this expense report template legally valid?</summary>
+        <p>This tool generates a professional expense report suitable for client reimbursement and tax record-keeping. It's not a substitute for legal or tax advice. Requirements vary by client and by tax jurisdiction — if you have specific compliance needs, consult a professional.</p>
+      </details>
+    </div>
+
+    <!-- Related -->
+    <div class="related-section">
+      <h2>Related tools and guides</h2>
+      <ul>
+        <li><a href="/tax-estimator.html">Freelance Tax Estimator — estimate your quarterly tax bill</a></li>
+        <li><a href="/budget-planner.html">Freelance Budget Planner — track income and monthly expenses</a></li>
+        <li><a href="/">Invoice Generator — bill clients for your services</a></li>
+        <li><a href="/blog/how-to-write-a-freelance-expense-report.html">How to Write a Freelance Expense Report (Free Template)</a></li>
+        <li><a href="/blog/freelance-tax-guide-for-beginners.html">Freelance Tax Guide: What to Set Aside and When to Pay</a></li>
+        <li><a href="/blog/how-to-track-freelance-income-and-expenses.html">How to Track Freelance Income and Expenses</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 <a href="/">GetSoloTools</a> &nbsp;·&nbsp;
+    <a href="/about.html">About</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/blog/index.html" style="color:#1a9e6e;font-weight:600;">Blog</a>
+  </p>
+</footer>
+
+<script>
+const CURRENCIES = { USD:'$', EUR:'€', GBP:'£', CAD:'C$', AUD:'A$' };
+const CATEGORIES = ['Software & Tools', 'Travel', 'Meals', 'Equipment', 'Home Office', 'Professional Development', 'Marketing', 'Subcontractors', 'Other'];
+
+function sym() { return CURRENCIES[document.getElementById('currency').value] || '$'; }
+
+function addRow(date='', desc='', cat='', amt='') {
+  const div = document.createElement('div');
+  div.className = 'expense-row';
+  div.innerHTML = `
+    <input type="date" value="${date}" oninput="recalc()" style="font-size:13px;padding:6px 8px;">
+    <input type="text" placeholder="Description" value="${desc}" style="font-size:13px;padding:6px 8px;">
+    <select onchange="recalc()" style="font-size:13px;padding:6px 8px;">
+      ${CATEGORIES.map(c => `<option${c===cat?' selected':''}>${c}</option>`).join('')}
+    </select>
+    <input type="number" min="0" step="0.01" placeholder="0.00" value="${amt}" oninput="recalc()" style="font-size:13px;padding:6px 8px;text-align:right;">
+    <button class="btn-remove" onclick="this.closest('.expense-row').remove();recalc();" title="Remove">×</button>
+  `;
+  document.getElementById('expenseRows').appendChild(div);
+  recalc();
+}
+
+function recalc() {
+  const rows = document.querySelectorAll('.expense-row');
+  const s = sym();
+  let grand = 0;
+  const catTotals = {};
+
+  rows.forEach(row => {
+    const inputs = row.querySelectorAll('input, select');
+    const amt = parseFloat(inputs[3]?.value) || 0;
+    const cat = inputs[2]?.value || 'Other';
+    grand += amt;
+    catTotals[cat] = (catTotals[cat] || 0) + amt;
+  });
+
+  document.getElementById('grandTotal').textContent = s + grand.toFixed(2);
+  document.getElementById('expenseCount').textContent = rows.length;
+
+  const barsEl = document.getElementById('catBars');
+  barsEl.innerHTML = '';
+  const sorted = Object.entries(catTotals).sort((a,b) => b[1]-a[1]);
+  sorted.forEach(([cat, total]) => {
+    const pct = grand > 0 ? (total/grand*100).toFixed(1) : 0;
+    barsEl.innerHTML += `
+      <div class="cat-bar">
+        <div class="cat-bar-label"><span>${cat}</span><span>${s}${total.toFixed(2)}</span></div>
+        <div class="cat-bar-track"><div class="cat-bar-fill" style="width:${pct}%"></div></div>
+      </div>`;
+  });
+}
+
+function clearAll() {
+  if (!confirm('Clear all entries?')) return;
+  ['fromName','fromEmail','reportTitle','periodStart','periodEnd','toName','toEmail','notes'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+  document.getElementById('expenseRows').innerHTML = '';
+  recalc();
+}
+
+function generatePDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ orientation: 'p', unit: 'mm', format: 'a4' });
+  const W = 210, margin = 18;
+  const s = sym();
+
+  const fromName = document.getElementById('fromName').value || 'Freelancer';
+  const fromEmail = document.getElementById('fromEmail').value;
+  const toName = document.getElementById('toName').value;
+  const toEmail = document.getElementById('toEmail').value;
+  const reportTitle = document.getElementById('reportTitle').value || 'Expense Report';
+  const periodStart = document.getElementById('periodStart').value;
+  const periodEnd = document.getElementById('periodEnd').value;
+  const notes = document.getElementById('notes').value;
+
+  // Header bar
+  doc.setFillColor(45, 91, 227);
+  doc.rect(0, 0, W, 38, 'F');
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(20);
+  doc.setTextColor(255, 255, 255);
+  doc.text('EXPENSE REPORT', margin, 16);
+  doc.setFontSize(9);
+  doc.setFont('helvetica', 'normal');
+  doc.setTextColor(180, 200, 255);
+  doc.text(reportTitle, margin, 24);
+  if (periodStart || periodEnd) {
+    doc.text(`Period: ${periodStart || '—'} to ${periodEnd || '—'}`, margin, 31);
+  }
+
+  let y = 48;
+
+  // From / To
+  doc.setFont('helvetica', 'bold'); doc.setFontSize(7.5); doc.setTextColor(150,150,150);
+  doc.text('SUBMITTED BY', margin, y);
+  doc.setFont('helvetica', 'bold'); doc.setFontSize(11); doc.setTextColor(26,26,26);
+  doc.text(fromName, margin, y+6);
+  doc.setFont('helvetica', 'normal'); doc.setFontSize(9); doc.setTextColor(80,80,80);
+  if (fromEmail) doc.text(fromEmail, margin, y+12);
+
+  if (toName) {
+    const rx = W/2 + 5;
+    doc.setFont('helvetica', 'bold'); doc.setFontSize(7.5); doc.setTextColor(150,150,150);
+    doc.text('SUBMITTED TO', rx, y);
+    doc.setFont('helvetica', 'bold'); doc.setFontSize(11); doc.setTextColor(26,26,26);
+    doc.text(toName, rx, y+6);
+    doc.setFont('helvetica', 'normal'); doc.setFontSize(9); doc.setTextColor(80,80,80);
+    if (toEmail) doc.text(toEmail, rx, y+12);
+  }
+
+  y += 24;
+
+  // Expense table
+  const rows = document.querySelectorAll('.expense-row');
+  const tableData = [];
+  let grand = 0;
+
+  rows.forEach(row => {
+    const inputs = row.querySelectorAll('input, select');
+    const date = inputs[0]?.value || '';
+    const desc = inputs[1]?.value || '';
+    const cat = inputs[2]?.value || '';
+    const amt = parseFloat(inputs[3]?.value) || 0;
+    grand += amt;
+    tableData.push([date, desc, cat, s + amt.toFixed(2)]);
+  });
+
+  doc.autoTable({
+    startY: y,
+    head: [['Date', 'Description', 'Category', 'Amount']],
+    body: tableData,
+    margin: { left: margin, right: margin },
+    headStyles: { fillColor: [45, 91, 227], textColor: 255, fontStyle: 'bold', fontSize: 8 },
+    bodyStyles: { fontSize: 9, textColor: [30,30,30] },
+    alternateRowStyles: { fillColor: [250,250,248] },
+    columnStyles: { 3: { halign: 'right' } },
+  });
+
+  y = doc.lastAutoTable.finalY + 6;
+
+  // Total
+  const totW = 70;
+  doc.setFillColor(45,91,227);
+  doc.rect(W - margin - totW, y, totW, 12, 'F');
+  doc.setFont('helvetica','bold'); doc.setFontSize(8); doc.setTextColor(180,200,255);
+  doc.text('TOTAL', W - margin - totW + 4, y+5);
+  doc.setFont('helvetica','bold'); doc.setFontSize(12); doc.setTextColor(255,255,255);
+  doc.text(s + grand.toFixed(2), W - margin - 4, y+8, {align:'right'});
+  y += 18;
+
+  if (notes) {
+    doc.setFont('helvetica','bold'); doc.setFontSize(8); doc.setTextColor(120,120,120);
+    doc.text('NOTES', margin, y); y += 5;
+    doc.setFont('helvetica','normal'); doc.setFontSize(9); doc.setTextColor(60,60,60);
+    const lines = doc.splitTextToSize(notes, W - margin*2);
+    lines.forEach(line => { doc.text(line, margin, y); y += 5; });
+  }
+
+  doc.setFontSize(7.5); doc.setTextColor(180,180,180);
+  doc.text('Generated with GetSoloTools.com — Free tools for freelancers', W/2, 290, {align:'center'});
+
+  const slug = (reportTitle || 'expense-report').toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g,'');
+  doc.save(slug + '.pdf');
+}
+
+// Init
+document.addEventListener('DOMContentLoaded', () => {
+  const today = new Date().toISOString().split('T')[0];
+  const firstOfMonth = today.slice(0,8) + '01';
+  document.getElementById('periodStart').value = firstOfMonth;
+  document.getElementById('periodEnd').value = today;
+  addRow(today, '', 'Software & Tools', '');
+  addRow(today, '', 'Travel', '');
+});
+</script>
+</body>
+</html>
