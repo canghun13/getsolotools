@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Freelance Scope of Work Generator – GetSoloTools</title>
+<meta name="description" content="Create a professional scope of work for any freelance project. Define deliverables, timelines, and exclusions — then download as a clean PDF. Free, no sign-up required.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-728DGKLSE6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-728DGKLSE6');
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1a1a;
+    --ink-2: #555;
+    --ink-3: #999;
+    --paper: #fafaf8;
+    --white: #ffffff;
+    --accent: #2d5be3;
+    --accent-light: #eef1fd;
+    --border: #e8e6e0;
+    --border-dark: #c8c4bc;
+    --success: #1a8a4a;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    min-height: 100vh;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 3.5rem 1rem 2.5rem;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.75rem;
+    color: var(--ink);
+  }
+
+  .hero p {
+    color: var(--ink-2);
+    font-size: 1rem;
+    max-width: 480px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .hero-features {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: var(--ink-3);
+  }
+
+  .hero-features span::before {
+    content: '✓ ';
+    color: var(--success);
+    font-weight: 600;
+  }
+
+  .main-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1rem 4rem;
+  }
+
+  .sow-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .sow-toolbar {
+    background: var(--ink);
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .toolbar-label {
+    color: rgba(255,255,255,0.5);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .toolbar-actions { display: flex; gap: 0.5rem; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.15s;
+    text-decoration: none;
+  }
+
+  .btn-ghost { background: rgba(255,255,255,0.1); color: #fff; }
+  .btn-ghost:hover { background: rgba(255,255,255,0.18); }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: #2248c4; transform: translateY(-1px); }
+  .btn-success { background: var(--success); color: #fff; }
+  .btn-success:hover { background: #156b3a; }
+  .btn-lg { padding: 12px 24px; font-size: 15px; border-radius: 10px; }
+
+  .sow-body { padding: 2rem; }
+
+  .row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 600px) { .row-2 { grid-template-columns: 1fr; } }
+
+  .field-group { display: flex; flex-direction: column; gap: 0.75rem; }
+
+  .section-title {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 0.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink-2);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  input[type="text"],
+  input[type="date"],
+  input[type="number"],
+  textarea,
+  select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    background: var(--white);
+    transition: border-color 0.15s;
+    outline: none;
+  }
+
+  input:focus, textarea:focus, select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(45,91,227,0.1);
+  }
+
+  textarea { resize: vertical; min-height: 70px; }
+
+  .divider { border: none; border-top: 1px solid var(--border); margin: 1.75rem 0; }
+
+  /* Deliverables list */
+  .list-row {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    margin-bottom: 8px;
+  }
+
+  .list-row textarea { min-height: 48px; flex: 1; }
+  .list-row input[type="text"] { flex: 1; }
+
+  .btn-remove {
+    background: none;
+    border: none;
+    color: var(--ink-3);
+    font-size: 18px;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 6px;
+    line-height: 1;
+    transition: background 0.15s;
+    flex-shrink: 0;
+  }
+
+  .btn-remove:hover { background: #fee; color: #c00; }
+
+  .add-btn {
+    background: none;
+    border: 1.5px dashed var(--border-dark);
+    color: var(--ink-2);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 8px;
+    width: 100%;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.15s;
+    margin-top: 4px;
+  }
+
+  .add-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+
+  /* Milestone table */
+  .milestone-header {
+    display: grid;
+    grid-template-columns: 1fr 130px 36px;
+    gap: 8px;
+    padding: 8px 12px;
+    background: var(--paper);
+    border-radius: 8px 8px 0 0;
+    border: 1px solid var(--border);
+    border-bottom: none;
+  }
+
+  .milestone-header span {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-3);
+  }
+
+  .milestone-row {
+    display: grid;
+    grid-template-columns: 1fr 130px 36px;
+    gap: 8px;
+    padding: 8px;
+    border: 1px solid var(--border);
+    border-top: none;
+    align-items: center;
+    background: var(--white);
+  }
+
+  .milestone-row:last-child { border-radius: 0 0 8px 8px; }
+
+  /* Payment section */
+  .payment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 1.25rem;
+    background: var(--paper);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+  }
+
+  /* Bottom actions */
+  .bottom-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+
+  /* Info cards */
+  .info-section {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .info-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+  }
+
+  .info-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+  }
+
+  .info-card p {
+    font-size: 13px;
+    color: var(--ink-2);
+    line-height: 1.6;
+  }
+
+  /* Hamburger */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  @media (max-width: 768px) { .hamburger { display: flex; } }
+
+  /* SEO section */
+  .seo-section { max-width: 860px; margin: 3rem auto 0; padding: 0 1rem 4rem; border-top: 1px solid var(--border); }
+  .seo-section h2 { font-family: 'DM Serif Display', serif; font-size: 1.6rem; margin: 2.5rem 0 1rem; letter-spacing: -0.02em; }
+  .seo-section h3 { font-size: 1.1rem; font-weight: 600; margin: 2rem 0 0.75rem; }
+  .seo-section p { font-size: 1rem; line-height: 1.8; margin-bottom: 1.25rem; color: var(--ink); }
+
+  /* FAQ */
+  .faq-wrap { max-width: 720px; margin: 3rem auto 2rem; padding: 0 1.5rem; }
+  .faq-wrap h2 { font-family: 'DM Serif Display', serif; font-size: 1.6rem; margin: 0 0 1.5rem; letter-spacing: -0.02em; }
+  details { border-bottom: 1px solid #e8e4dd; padding: 1rem 0; }
+  summary {
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #1a1a1a;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  summary .plus { color: var(--accent); font-size: 1.2rem; }
+  details p { margin: 0.75rem 0 0; font-size: 0.95rem; line-height: 1.75; color: #444; }
+</style>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350"
+     crossorigin="anonymous"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Free Freelance Scope of Work Generator",
+  "url": "https://getsolotools.com/scope-of-work.html",
+  "description": "Create a professional scope of work for any freelance project. Define deliverables, timelines, revisions, and exclusions — then download a clean PDF. Free, no sign-up required.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "GetSoloTools",
+    "url": "https://getsolotools.com"
+  },
+  "keywords": "scope of work generator, freelance scope of work, SOW template, freelance project scope, free scope of work"
+}
+</script>
+</head>
+<body>
+<script src="/nav.js"></script>
+
+<div class="hero">
+  <div class="hero-badge">100% Free — No Sign-up</div>
+  <h1>Freelance Scope of Work Generator</h1>
+  <p>Define your deliverables, timeline, and what's out of scope. Download a clean PDF to send to your client before work begins.</p>
+  <div class="hero-features">
+    <span>PDF Download</span>
+    <span>Deliverables List</span>
+    <span>Milestone Timeline</span>
+    <span>Free Forever</span>
+  </div>
+</div>
+
+<div class="main-wrap">
+  <div class="sow-card">
+    <div class="sow-toolbar">
+      <span class="toolbar-label">Scope of Work Editor</span>
+      <div class="toolbar-actions">
+        <button class="btn btn-ghost" onclick="clearForm()">Clear</button>
+        <button class="btn btn-primary" onclick="generatePDF()">⬇ Download PDF</button>
+      </div>
+    </div>
+
+    <div class="sow-body">
+
+      <!-- PARTIES -->
+      <div class="row-2">
+        <div class="field-group">
+          <div class="section-title">Your Information</div>
+          <div>
+            <label>Your Name / Business Name *</label>
+            <input type="text" id="fromName" placeholder="Your Studio LLC">
+          </div>
+          <div>
+            <label>Your Role / Title</label>
+            <input type="text" id="fromRole" placeholder="Freelance Web Designer">
+          </div>
+          <div>
+            <label>Email</label>
+            <input type="text" id="fromEmail" placeholder="hello@yourstudio.com">
+          </div>
+        </div>
+
+        <div class="field-group">
+          <div class="section-title">Client Information</div>
+          <div>
+            <label>Client Name / Company *</label>
+            <input type="text" id="toName" placeholder="Acme Corp">
+          </div>
+          <div>
+            <label>Client Contact Name</label>
+            <input type="text" id="toContact" placeholder="Jane Smith">
+          </div>
+          <div>
+            <label>Client Email</label>
+            <input type="text" id="toEmail" placeholder="jane@acmecorp.com">
+          </div>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <!-- PROJECT OVERVIEW -->
+      <div class="field-group" style="margin-bottom: 1.5rem;">
+        <div class="section-title">Project Overview</div>
+        <div>
+          <label>Project Title *</label>
+          <input type="text" id="projectTitle" placeholder="Website Redesign for Acme Corp">
+        </div>
+        <div>
+          <label>Project Summary</label>
+          <textarea id="projectSummary" placeholder="A brief description of the project objective — what you'll be building and why."></textarea>
+        </div>
+      </div>
+
+      <!-- DATES -->
+      <div class="payment-grid">
+        <div>
+          <label>SOW Date</label>
+          <input type="date" id="sowDate">
+        </div>
+        <div>
+          <label>Project Start Date</label>
+          <input type="date" id="startDate">
+        </div>
+        <div>
+          <label>Estimated End Date</label>
+          <input type="date" id="endDate">
+        </div>
+        <div>
+          <label>Project Type</label>
+          <select id="projectType">
+            <option value="Fixed Price">Fixed Price</option>
+            <option value="Hourly">Hourly</option>
+            <option value="Retainer">Retainer</option>
+            <option value="Time & Materials">Time & Materials</option>
+          </select>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <!-- DELIVERABLES (IN SCOPE) -->
+      <div class="field-group" style="margin-bottom: 1.5rem;">
+        <div class="section-title">Deliverables (In Scope)</div>
+        <p style="font-size:13px;color:var(--ink-2);margin-bottom:0.75rem;">List exactly what you will deliver. Be specific — vague scope leads to disputes.</p>
+        <div id="deliverablesContainer"></div>
+        <button class="add-btn" onclick="addDeliverable()">+ Add Deliverable</button>
+      </div>
+
+      <hr class="divider">
+
+      <!-- EXCLUSIONS (OUT OF SCOPE) -->
+      <div class="field-group" style="margin-bottom: 1.5rem;">
+        <div class="section-title">Exclusions (Out of Scope)</div>
+        <p style="font-size:13px;color:var(--ink-2);margin-bottom:0.75rem;">State clearly what is NOT included. This is just as important as what you will deliver.</p>
+        <div id="exclusionsContainer"></div>
+        <button class="add-btn" onclick="addExclusion()">+ Add Exclusion</button>
+      </div>
+
+      <hr class="divider">
+
+      <!-- MILESTONES -->
+      <div class="field-group" style="margin-bottom: 1.5rem;">
+        <div class="section-title">Milestones & Timeline</div>
+        <p style="font-size:13px;color:var(--ink-2);margin-bottom:0.75rem;">Break the project into phases with target dates.</p>
+        <div class="milestone-header">
+          <span>Milestone</span>
+          <span>Target Date</span>
+          <span></span>
+        </div>
+        <div id="milestonesContainer"></div>
+        <button class="add-btn" onclick="addMilestone()" style="border-radius: 0 0 8px 8px; margin-top:0;">+ Add Milestone</button>
+      </div>
+
+      <hr class="divider">
+
+      <!-- REVISION POLICY + PAYMENT -->
+      <div class="row-2">
+        <div class="field-group">
+          <div class="section-title">Revision Policy</div>
+          <div>
+            <label>Rounds of Revisions Included</label>
+            <input type="number" id="revisions" value="2" min="0" max="20">
+          </div>
+          <div>
+            <label>Additional Revision Rate</label>
+            <input type="text" id="revisionRate" placeholder="$75/hour or $200/round">
+          </div>
+          <div>
+            <label>What counts as a revision?</label>
+            <textarea id="revisionNotes" placeholder="Feedback on existing work. New directions, additional deliverables, or change of brief are billed separately."></textarea>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <div class="section-title">Payment Terms</div>
+          <div>
+            <label>Total Project Fee</label>
+            <input type="text" id="totalFee" placeholder="$5,000">
+          </div>
+          <div>
+            <label>Deposit (upfront)</label>
+            <input type="text" id="deposit" placeholder="50% — $2,500 due before work begins">
+          </div>
+          <div>
+            <label>Payment Schedule</label>
+            <textarea id="paymentSchedule" placeholder="50% deposit on signing&#10;25% on first draft delivery&#10;25% on final delivery"></textarea>
+          </div>
+          <div>
+            <label>Late Fee</label>
+            <input type="text" id="lateFee" placeholder="1.5% per month after 14 days overdue">
+          </div>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <!-- ASSUMPTIONS & NOTES -->
+      <div class="field-group" style="margin-bottom: 1.5rem;">
+        <div class="section-title">Assumptions & Client Responsibilities</div>
+        <textarea id="assumptions" rows="4" placeholder="Client will provide brand assets within 3 business days of project start.&#10;Client feedback on each milestone due within 5 business days of delivery.&#10;Delays caused by the client will extend project deadlines accordingly."></textarea>
+      </div>
+
+      <div class="field-group" style="margin-bottom: 1.5rem;">
+        <div class="section-title">Additional Notes</div>
+        <textarea id="additionalNotes" rows="3" placeholder="Intellectual property transfers to client upon receipt of final payment. Freelancer retains the right to display this work in their portfolio unless otherwise agreed."></textarea>
+      </div>
+
+      <!-- BOTTOM ACTIONS -->
+      <div class="bottom-actions">
+        <button class="btn btn-lg" style="background:var(--paper);color:var(--ink);border:1px solid var(--border)" onclick="clearForm()">Clear Form</button>
+        <button class="btn btn-success btn-lg" onclick="generatePDF()">⬇ Download SOW PDF</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- INFO CARDS -->
+  <div class="info-section">
+    <div class="info-card">
+      <h3>What is a scope of work?</h3>
+      <p>A scope of work (SOW) is a written agreement that defines exactly what you'll deliver on a project — deliverables, timeline, revisions, and what's excluded. It prevents scope creep and protects both parties.</p>
+    </div>
+    <div class="info-card">
+      <h3>SOW vs contract</h3>
+      <p>A contract sets the legal terms — payment, IP, liability. A scope of work defines the project itself. Many freelancers use both: a contract for the legal framework and a SOW for the work details.</p>
+    </div>
+    <div class="info-card">
+      <h3>Why exclusions matter</h3>
+      <p>Listing what's NOT included is just as important as what is. "Does not include copywriting, photography, or ongoing maintenance" saves you from absorbing work that was never part of the deal.</p>
+    </div>
+    <div class="info-card">
+      <h3>When to send it</h3>
+      <p>Send the SOW before work begins — ideally with your contract and deposit request. Don't start until both are signed and the deposit is received. This is standard practice and filters out clients who aren't serious.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- SEO SECTION -->
+<div class="seo-section">
+  <div style="max-width:720px;margin:0 auto;">
+    <h2>How to Use the Freelance Scope of Work Generator</h2>
+    <p>A scope of work is one of the most protective documents a freelancer can use. More projects go sideways because of unclear scope than any other reason — and most disputes could have been avoided with a well-written SOW sent before work began.</p>
+
+    <h3>Fill in both parties and the project overview</h3>
+    <p>Start with your name, the client's name, and a clear project title. The project summary should answer one question: what will exist at the end of this project that doesn't exist now? "A fully responsive 5-page website for Acme Corp" is better than "a website." Specificity sets expectations before a single hour of work is logged.</p>
+
+    <h3>Write your deliverables precisely</h3>
+    <p>Each deliverable should describe a concrete output — not an activity. "3 blog posts, 800–1,000 words each, SEO-optimized" is a deliverable. "Content writing" is not. The more precise your deliverables, the less room there is for the client to interpret them differently than you intended. If something involves a specific format, quantity, or technical constraint, put it in the deliverable description.</p>
+
+    <h3>List your exclusions</h3>
+    <p>This is the section most freelancers skip, and it's the section that causes the most problems. If you're designing a logo, note that brand guidelines, stationery, and social media templates are not included. If you're building a website, note that copywriting, photography, and hosting setup are separate. Exclusions give you a clear basis to say "that's outside our agreement" when a client asks for something you never intended to provide.</p>
+
+    <h3>Set milestones and payment to match</h3>
+    <p>Milestone-based invoicing — billing at defined points in the project rather than all at the end — improves your cash flow and reduces the risk of non-payment. Tie each payment to a concrete milestone: first draft delivery, client approval, final file handoff. This also creates natural checkpoints where both parties confirm the project is on track before proceeding to the next phase.</p>
+
+    <h3>Send it before you start</h3>
+    <p>The scope of work only protects you if it's signed before work begins. Use e-signature tools like DocuSign or HelloSign — or simply have the client reply to an email confirming they've read and agreed. An unambiguous written record of what was agreed is more valuable than any verbal conversation. If a client is unwilling to sign a scope of work, that tells you something important before you've invested any time in the project.</p>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-wrap">
+  <h2 style="border-top:1px solid #e8e4dd;padding-top:2.5rem;">Frequently Asked Questions</h2>
+  <div style="border-top:1px solid #e8e4dd;">
+    <details>
+      <summary>Do I need both a contract and a scope of work? <span class="plus">+</span></summary>
+      <p>They serve different purposes. A contract covers the legal terms — payment consequences, intellectual property, dispute resolution. A scope of work defines the project work itself — deliverables, timeline, revisions. For larger projects, using both gives you the strongest protection. For smaller projects, a well-written SOW with clear payment terms can often serve both functions.</p>
+    </details>
+    <details>
+      <summary>What's the difference between a scope of work and a proposal? <span class="plus">+</span></summary>
+      <p>A proposal is typically sent before the client has committed — it sells the project and often includes pricing options. A scope of work is sent after the client has agreed to move forward — it defines exactly what will be delivered. A proposal can include a draft scope, but the final SOW is agreed and signed once the project is confirmed.</p>
+    </details>
+    <details>
+      <summary>How specific should my deliverables be? <span class="plus">+</span></summary>
+      <p>As specific as possible. Include quantities, formats, dimensions, technical specifications, and any constraints. If you're writing 5 blog posts, specify the word count range. If you're designing a logo, specify how many initial concepts, how many revision rounds, and what file formats you'll deliver. The more specific the deliverable, the less room for disagreement about whether it was met.</p>
+    </details>
+    <details>
+      <summary>What happens if the client asks for something outside the scope? <span class="plus">+</span></summary>
+      <p>That's a change order — a separate, written agreement covering the additional work and its cost. You should acknowledge the request in writing, explain that it's outside the current scope, and issue a change order before doing any of the additional work. Most professional clients expect this process and respect freelancers who follow it consistently.</p>
+    </details>
+    <details>
+      <summary>Is a scope of work legally binding? <span class="plus">+</span></summary>
+      <p>Yes — when signed by both parties, a scope of work is a legally enforceable agreement. It can be a standalone document or incorporated by reference into a larger contract. For the strongest protection, use it alongside a contract that includes payment terms, IP clauses, and a dispute resolution process. Electronic signatures are legally valid in most jurisdictions.</p>
+    </details>
+    <details>
+      <summary>Is my data private? <span class="plus">+</span></summary>
+      <p>Yes. This tool runs entirely in your browser. No data is sent to any server. Your project details, client information, and pricing never leave your device.</p>
+    </details>
+  </div>
+</div>
+
+<!-- BLOG LINKS -->
+<div style="max-width:860px;margin:0 auto 3rem;padding:0 1rem;">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;">
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.4rem;">Related Guides</h2>
+    <a href="/blog/index.html" style="font-size:13px;color:#1a9e6e;font-weight:600;text-decoration:none;">View all →</a>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;">
+    <a href="/blog/how-to-write-a-scope-of-work-for-freelance-projects.html" style="background:#fff;border:1px solid var(--border);border-radius:8px;padding:20px;text-decoration:none;color:inherit;display:block;transition:box-shadow 0.2s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)'" onmouseout="this.style.boxShadow='none'">
+      <span style="font-size:11px;font-weight:600;color:#1a9e6e;text-transform:uppercase;letter-spacing:0.05em;">Contracts</span>
+      <p style="font-family:'DM Serif Display',serif;font-size:1rem;line-height:1.3;margin:6px 0 8px;color:var(--ink);">How to Write a Scope of Work for Freelance Projects</p>
+      <span style="font-size:12px;color:#aaa;">8 min read</span>
+    </a>
+    <a href="/blog/how-to-write-a-freelance-contract.html" style="background:#fff;border:1px solid var(--border);border-radius:8px;padding:20px;text-decoration:none;color:inherit;display:block;transition:box-shadow 0.2s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)'" onmouseout="this.style.boxShadow='none'">
+      <span style="font-size:11px;font-weight:600;color:#1a9e6e;text-transform:uppercase;letter-spacing:0.05em;">Contracts</span>
+      <p style="font-family:'DM Serif Display',serif;font-size:1rem;line-height:1.3;margin:6px 0 8px;color:var(--ink);">How to Write a Freelance Contract (With Free Template)</p>
+      <span style="font-size:12px;color:#aaa;">8 min read</span>
+    </a>
+    <a href="/blog/freelance-client-onboarding-checklist.html" style="background:#fff;border:1px solid var(--border);border-radius:8px;padding:20px;text-decoration:none;color:inherit;display:block;transition:box-shadow 0.2s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)'" onmouseout="this.style.boxShadow='none'">
+      <span style="font-size:11px;font-weight:600;color:#1a9e6e;text-transform:uppercase;letter-spacing:0.05em;">Project Management</span>
+      <p style="font-family:'DM Serif Display',serif;font-size:1rem;line-height:1.3;margin:6px 0 8px;color:var(--ink);">Freelance Client Onboarding Checklist</p>
+      <span style="font-size:12px;color:#aaa;">5 min read</span>
+    </a>
+  </div>
+</div>
+
+<footer style="border-top:1px solid var(--border);text-align:center;padding:2rem;font-size:13px;color:var(--ink-3);margin-top:2rem;">
+  <p>© 2026 <a href="/" style="color:var(--ink-2);text-decoration:none;font-weight:500;">GetSoloTools</a> &nbsp;·&nbsp;
+    <a href="/about.html" style="color:var(--ink-3);text-decoration:none;margin:0 0.4rem;">About</a>
+    <a href="/blog/index.html" style="color:#1a9e6e;text-decoration:none;font-weight:600;margin:0 0.4rem;">Blog</a>
+    <a href="/privacy.html" style="color:var(--ink-3);text-decoration:none;margin:0 0.4rem;">Privacy</a>
+    <a href="/contact.html" style="color:var(--ink-3);text-decoration:none;margin:0 0.4rem;">Contact</a>
+  </p>
+</footer>
+
+<script>
+// ─── Deliverables ───
+let dCount = 0;
+function addDeliverable(val = '') {
+  dCount++;
+  const id = dCount;
+  const c = document.getElementById('deliverablesContainer');
+  const row = document.createElement('div');
+  row.className = 'list-row';
+  row.id = 'd-' + id;
+  row.innerHTML = `
+    <textarea placeholder="Design and develop 5-page WordPress website — Home, About, Services, Blog, Contact. Mobile-responsive. Does not include copywriting.">${val}</textarea>
+    <button class="btn-remove" onclick="document.getElementById('d-${id}').remove()" title="Remove">×</button>
+  `;
+  c.appendChild(row);
+}
+
+// ─── Exclusions ───
+let eCount = 0;
+function addExclusion(val = '') {
+  eCount++;
+  const id = eCount;
+  const c = document.getElementById('exclusionsContainer');
+  const row = document.createElement('div');
+  row.className = 'list-row';
+  row.id = 'e-' + id;
+  row.innerHTML = `
+    <input type="text" placeholder="Copywriting, photography, hosting setup, ongoing maintenance" value="${val}">
+    <button class="btn-remove" onclick="document.getElementById('e-${id}').remove()" title="Remove">×</button>
+  `;
+  c.appendChild(row);
+}
+
+// ─── Milestones ───
+let mCount = 0;
+function addMilestone(label = '', date = '') {
+  mCount++;
+  const id = mCount;
+  const c = document.getElementById('milestonesContainer');
+  const row = document.createElement('div');
+  row.className = 'milestone-row';
+  row.id = 'm-' + id;
+  row.innerHTML = `
+    <input type="text" placeholder="First draft delivery" value="${label}">
+    <input type="date" value="${date}">
+    <button class="btn-remove" onclick="document.getElementById('m-${id}').remove()" title="Remove">×</button>
+  `;
+  c.appendChild(row);
+}
+
+// ─── Clear ───
+function clearForm() {
+  if (!confirm('Clear all fields?')) return;
+  ['fromName','fromRole','fromEmail','toName','toContact','toEmail',
+   'projectTitle','projectSummary','revisions','revisionRate','revisionNotes',
+   'totalFee','deposit','paymentSchedule','lateFee','assumptions','additionalNotes',
+   'sowDate','startDate','endDate'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = el.type === 'number' ? '2' : '';
+  });
+  document.getElementById('deliverablesContainer').innerHTML = '';
+  document.getElementById('exclusionsContainer').innerHTML = '';
+  document.getElementById('milestonesContainer').innerHTML = '';
+  dCount = 0; eCount = 0; mCount = 0;
+  initDefaults();
+}
+
+// ─── PDF ───
+async function generatePDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ unit: 'mm', format: 'a4' });
+
+  const W = 210, M = 18;
+  let y = M;
+
+  const v = id => (document.getElementById(id)?.value || '').trim();
+
+  const fromName = v('fromName') || 'Freelancer';
+  const fromRole = v('fromRole');
+  const fromEmail = v('fromEmail');
+  const toName = v('toName') || 'Client';
+  const toContact = v('toContact');
+  const toEmail = v('toEmail');
+  const projectTitle = v('projectTitle') || 'Project Scope of Work';
+  const projectSummary = v('projectSummary');
+  const sowDate = v('sowDate');
+  const startDate = v('startDate');
+  const endDate = v('endDate');
+  const projectType = v('projectType');
+  const revisions = v('revisions');
+  const revisionRate = v('revisionRate');
+  const revisionNotes = v('revisionNotes');
+  const totalFee = v('totalFee');
+  const deposit = v('deposit');
+  const paymentSchedule = v('paymentSchedule');
+  const lateFee = v('lateFee');
+  const assumptions = v('assumptions');
+  const additionalNotes = v('additionalNotes');
+
+  const deliverables = [...document.querySelectorAll('#deliverablesContainer textarea')].map(t => t.value.trim()).filter(Boolean);
+  const exclusions = [...document.querySelectorAll('#exclusionsContainer input[type="text"]')].map(i => i.value.trim()).filter(Boolean);
+  const milestones = [...document.querySelectorAll('#milestonesContainer .milestone-row')].map(row => {
+    const inputs = row.querySelectorAll('input');
+    return { label: inputs[0]?.value.trim(), date: inputs[1]?.value.trim() };
+  }).filter(m => m.label);
+
+  function addPage() {
+    doc.addPage();
+    y = M;
+  }
+
+  function checkY(needed = 20) {
+    if (y + needed > 275) addPage();
+  }
+
+  function sectionHeader(title) {
+    checkY(16);
+    doc.setFillColor(26, 26, 26);
+    doc.rect(M, y, W - M * 2, 8, 'F');
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(8);
+    doc.setTextColor(200, 200, 200);
+    doc.text(title.toUpperCase(), M + 3, y + 5.5);
+    y += 12;
+    doc.setTextColor(30, 30, 30);
+  }
+
+  function bodyText(text, indent = 0, bold = false) {
+    doc.setFont('helvetica', bold ? 'bold' : 'normal');
+    doc.setFontSize(9.5);
+    doc.setTextColor(40, 40, 40);
+    const lines = doc.splitTextToSize(text, W - M * 2 - indent - 4);
+    lines.forEach(line => {
+      checkY(6);
+      doc.text(line, M + indent, y);
+      y += 5.5;
+    });
+    y += 2;
+  }
+
+  // HEADER
+  doc.setFillColor(26, 26, 26);
+  doc.rect(0, 0, W, 44, 'F');
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(20);
+  doc.setTextColor(255, 255, 255);
+  doc.text('SCOPE OF WORK', W - M, 18, { align: 'right' });
+  doc.setFontSize(9);
+  doc.setFont('helvetica', 'normal');
+  doc.setTextColor(180, 180, 180);
+  doc.text(projectTitle, W - M, 27, { align: 'right' });
+  if (sowDate) doc.text(`Date: ${sowDate}`, W - M, 35, { align: 'right' });
+
+  // PARTIES
+  y = 56;
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(8);
+  doc.setTextColor(140, 140, 140);
+  doc.text('PREPARED BY', M, y);
+  doc.text('PREPARED FOR', W / 2 + 5, y);
+  y += 5;
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(11);
+  doc.setTextColor(26, 26, 26);
+  doc.text(fromName, M, y);
+  doc.text(toName, W / 2 + 5, y);
+  y += 5;
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(9);
+  doc.setTextColor(80, 80, 80);
+  if (fromRole) { doc.text(fromRole, M, y); }
+  if (toContact) { doc.text(toContact, W / 2 + 5, y); }
+  y += 5;
+  if (fromEmail) { doc.text(fromEmail, M, y); }
+  if (toEmail) { doc.text(toEmail, W / 2 + 5, y); }
+  y += 12;
+
+  // PROJECT META
+  doc.setFillColor(248, 248, 246);
+  doc.roundedRect(M, y, W - M * 2, 16, 2, 2, 'F');
+  const metas = [
+    ['Start Date', startDate || '—'],
+    ['End Date', endDate || '—'],
+    ['Project Type', projectType || '—'],
+  ];
+  const colW = (W - M * 2) / metas.length;
+  metas.forEach(([lbl, val], i) => {
+    const x = M + i * colW + colW / 2;
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(7);
+    doc.setTextColor(140, 140, 140);
+    doc.text(lbl.toUpperCase(), x, y + 5, { align: 'center' });
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(9);
+    doc.setTextColor(26, 26, 26);
+    doc.text(val, x, y + 12, { align: 'center' });
+  });
+  y += 22;
+
+  // PROJECT SUMMARY
+  if (projectSummary) {
+    sectionHeader('Project Overview');
+    bodyText(projectSummary);
+    y += 4;
+  }
+
+  // DELIVERABLES
+  if (deliverables.length > 0) {
+    sectionHeader('Deliverables — In Scope');
+    deliverables.forEach((d, i) => {
+      checkY(10);
+      doc.setFillColor(i % 2 === 0 ? 250 : 255, i % 2 === 0 ? 250 : 255, i % 2 === 0 ? 248 : 255);
+      const lineH = Math.ceil(doc.splitTextToSize(d, W - M * 2 - 10).length * 5.5) + 6;
+      doc.rect(M, y - 3, W - M * 2, lineH, 'F');
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(9);
+      doc.setTextColor(45, 91, 227);
+      doc.text(`${i + 1}.`, M + 2, y + 1);
+      bodyText(d, 8);
+    });
+    y += 4;
+  }
+
+  // EXCLUSIONS
+  if (exclusions.length > 0) {
+    sectionHeader('Exclusions — Out of Scope');
+    exclusions.forEach(ex => {
+      checkY(8);
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(9.5);
+      doc.setTextColor(40, 40, 40);
+      doc.text('✕', M + 2, y);
+      const lines = doc.splitTextToSize(ex, W - M * 2 - 10);
+      lines.forEach(line => { doc.text(line, M + 8, y); y += 5.5; });
+      y += 2;
+    });
+    y += 4;
+  }
+
+  // MILESTONES
+  if (milestones.length > 0) {
+    sectionHeader('Milestones & Timeline');
+    milestones.forEach((m, i) => {
+      checkY(8);
+      if (i % 2 === 0) { doc.setFillColor(250, 250, 248); doc.rect(M, y - 3, W - M * 2, 9, 'F'); }
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(9.5);
+      doc.setTextColor(40, 40, 40);
+      doc.text(m.label, M + 3, y + 1);
+      if (m.date) {
+        doc.setFont('helvetica', 'bold');
+        doc.text(m.date, W - M - 2, y + 1, { align: 'right' });
+      }
+      y += 9;
+    });
+    y += 4;
+  }
+
+  // REVISIONS
+  sectionHeader('Revision Policy');
+  bodyText(`Rounds of revisions included: ${revisions || '2'}`);
+  if (revisionRate) bodyText(`Additional revision rate: ${revisionRate}`);
+  if (revisionNotes) bodyText(revisionNotes);
+  y += 4;
+
+  // PAYMENT
+  if (totalFee || deposit || paymentSchedule) {
+    sectionHeader('Payment Terms');
+    if (totalFee) bodyText(`Total project fee: ${totalFee}`, 0, true);
+    if (deposit) bodyText(`Deposit: ${deposit}`);
+    if (paymentSchedule) { bodyText('Payment schedule:'); paymentSchedule.split('\n').forEach(line => { if (line.trim()) bodyText('• ' + line.trim(), 4); }); }
+    if (lateFee) bodyText(`Late fee: ${lateFee}`);
+    y += 4;
+  }
+
+  // ASSUMPTIONS
+  if (assumptions) {
+    sectionHeader('Assumptions & Client Responsibilities');
+    assumptions.split('\n').forEach(line => { if (line.trim()) bodyText('• ' + line.trim(), 4); });
+    y += 4;
+  }
+
+  // ADDITIONAL NOTES
+  if (additionalNotes) {
+    sectionHeader('Additional Notes');
+    bodyText(additionalNotes);
+    y += 4;
+  }
+
+  // SIGNATURE
+  checkY(40);
+  sectionHeader('Acceptance');
+  bodyText('By signing below, both parties agree to the scope of work as defined in this document.');
+  y += 10;
+  doc.setDrawColor(180, 180, 180);
+  doc.line(M, y, M + 75, y);
+  doc.line(W - M - 75, y, W - M, y);
+  y += 5;
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(8);
+  doc.setTextColor(140, 140, 140);
+  doc.text(fromName + ' (Freelancer)', M, y);
+  doc.text(toName + ' (Client)', W - M, y, { align: 'right' });
+  y += 4;
+  doc.text('Date: _______________', M, y);
+  doc.text('Date: _______________', W - M, y, { align: 'right' });
+
+  // FOOTER
+  const pageCount = doc.getNumberOfPages();
+  for (let i = 1; i <= pageCount; i++) {
+    doc.setPage(i);
+    doc.setFontSize(7.5);
+    doc.setTextColor(180, 180, 180);
+    doc.text('Generated with GetSoloTools.com — Free tools for freelancers', W / 2, 290, { align: 'center' });
+    if (pageCount > 1) doc.text(`Page ${i} of ${pageCount}`, W - M, 290, { align: 'right' });
+  }
+
+  const filename = (projectTitle || 'scope-of-work').replace(/[^a-z0-9]/gi, '-').toLowerCase();
+  doc.save(filename + '-sow.pdf');
+}
+
+function toggleNav() {
+  document.getElementById('mainNav').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('open');
+}
+
+function initDefaults() {
+  const today = new Date();
+  const start = new Date();
+  start.setDate(start.getDate() + 7);
+  const end = new Date();
+  end.setDate(end.getDate() + 37);
+  document.getElementById('sowDate').value = today.toISOString().split('T')[0];
+  document.getElementById('startDate').value = start.toISOString().split('T')[0];
+  document.getElementById('endDate').value = end.toISOString().split('T')[0];
+
+  addDeliverable('');
+  addDeliverable('');
+  addExclusion('');
+  addMilestone('', '');
+  addMilestone('', '');
+}
+
+document.addEventListener('DOMContentLoaded', initDefaults);
+</script>
+
+</body>
+</html>

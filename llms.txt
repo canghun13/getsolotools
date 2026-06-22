@@ -21,6 +21,7 @@ GetSoloTools provides a suite of free tools designed for freelancers, independen
 - [Freelance Savings Calculator](https://getsolotools.com/savings-calculator.html): Calculate how much to save each month for taxes, retirement, and an emergency fund based on your freelance income and goals.
 - [Milestone Payment Calculator](https://getsolotools.com/milestone-calculator.html): Split a project's total fee into milestone payments by percentage or fixed amount, with due dates and exportable payment schedule.
 - [NDA Generator](https://getsolotools.com/nda-generator.html): Create a mutual or one-way non-disclosure agreement for freelance projects. Fill in party details, define confidential information, and download a PDF NDA instantly.
+- [Freelance Scope of Work Generator](https://getsolotools.com/scope-of-work.html): Create a professional scope of work for any freelance project. Define deliverables, exclusions, milestones, revision policy, and payment terms — download as a clean PDF. Free, no sign-up required.
 - [Freelance Expense Report Generator](https://getsolotools.com/expense-report.html): Create a professional expense report for client reimbursement or tax records. Add itemized expenses by category, see a category breakdown, and download as PDF instantly.
 - [Client Intake Form](https://getsolotools.com/client-intake-form.html): Generate a professional client intake form to collect project details, goals, budget, timeline, deliverables, and communication preferences before starting work. Download as PDF.
 
@@ -59,6 +60,7 @@ GetSoloTools provides a suite of free tools designed for freelancers, independen
 
 ## Guides: Contracts
 
+- [How to Write a Scope of Work for Freelance Projects](https://getsolotools.com/blog/how-to-write-a-scope-of-work-for-freelance-projects.html): How to write precise deliverables, why exclusions matter, milestone-based timelines, revision policy, and how to get a scope of work signed before work starts.
 - [How to Write a Freelance Contract (With Free Template)](https://getsolotools.com/blog/how-to-write-a-freelance-contract.html): What to include in a freelance contract to protect scope, payment, IP, and revision terms.
 - [Freelance Contract Red Flags to Watch Out For](https://getsolotools.com/blog/freelance-contract-red-flags.html): Contract clauses that signal a problematic client and how to handle them before signing.
 - [How to Write a Freelance NDA (And When You Actually Need One)](https://getsolotools.com/blog/how-to-write-a-freelance-nda.html): When freelancers need an NDA, mutual vs one-way agreements, what to include, and how to get it signed quickly.
