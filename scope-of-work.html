@@ -902,9 +902,9 @@ async function generatePDF() {
   doc.setFillColor(248, 248, 246);
   doc.roundedRect(M, y, W - M * 2, 16, 2, 2, 'F');
   const metas = [
-    ['Start Date', startDate || '—'],
-    ['End Date', endDate || '—'],
-    ['Project Type', projectType || '—'],
+    ['Start Date', startDate || '-'],
+    ['End Date', endDate || '-'],
+    ['Project Type', projectType || '-'],
   ];
   const colW = (W - M * 2) / metas.length;
   metas.forEach(([lbl, val], i) => {
@@ -929,7 +929,7 @@ async function generatePDF() {
 
   // DELIVERABLES
   if (deliverables.length > 0) {
-    sectionHeader('Deliverables — In Scope');
+    sectionHeader('Deliverables - In Scope');
     deliverables.forEach((d, i) => {
       checkY(10);
       doc.setFillColor(i % 2 === 0 ? 250 : 255, i % 2 === 0 ? 250 : 255, i % 2 === 0 ? 248 : 255);
@@ -946,13 +946,13 @@ async function generatePDF() {
 
   // EXCLUSIONS
   if (exclusions.length > 0) {
-    sectionHeader('Exclusions — Out of Scope');
+    sectionHeader('Exclusions - Out of Scope');
     exclusions.forEach(ex => {
       checkY(8);
       doc.setFont('helvetica', 'normal');
       doc.setFontSize(9.5);
       doc.setTextColor(40, 40, 40);
-      doc.text('✕', M + 2, y);
+      doc.text('-', M + 2, y);
       const lines = doc.splitTextToSize(ex, W - M * 2 - 10);
       lines.forEach(line => { doc.text(line, M + 8, y); y += 5.5; });
       y += 2;
@@ -991,7 +991,7 @@ async function generatePDF() {
     sectionHeader('Payment Terms');
     if (totalFee) bodyText(`Total project fee: ${totalFee}`, 0, true);
     if (deposit) bodyText(`Deposit: ${deposit}`);
-    if (paymentSchedule) { bodyText('Payment schedule:'); paymentSchedule.split('\n').forEach(line => { if (line.trim()) bodyText('• ' + line.trim(), 4); }); }
+    if (paymentSchedule) { bodyText('Payment schedule:'); paymentSchedule.split('\n').forEach(line => { if (line.trim()) bodyText('- ' + line.trim(), 4); }); }
     if (lateFee) bodyText(`Late fee: ${lateFee}`);
     y += 4;
   }
@@ -999,7 +999,7 @@ async function generatePDF() {
   // ASSUMPTIONS
   if (assumptions) {
     sectionHeader('Assumptions & Client Responsibilities');
-    assumptions.split('\n').forEach(line => { if (line.trim()) bodyText('• ' + line.trim(), 4); });
+    assumptions.split('\n').forEach(line => { if (line.trim()) bodyText('- ' + line.trim(), 4); });
     y += 4;
   }
 
@@ -1034,7 +1034,7 @@ async function generatePDF() {
     doc.setPage(i);
     doc.setFontSize(7.5);
     doc.setTextColor(180, 180, 180);
-    doc.text('Generated with GetSoloTools.com — Free tools for freelancers', W / 2, 290, { align: 'center' });
+    doc.text('Generated with GetSoloTools.com - Free tools for freelancers', W / 2, 290, { align: 'center' });
     if (pageCount > 1) doc.text(`Page ${i} of ${pageCount}`, W - M, 290, { align: 'right' });
   }
 
