@@ -45,10 +45,12 @@
         ${dropdownItems}
       </div>
     </div>
+    <a href="/email-templates/index.html" class="nav-templates-link">Templates</a>
     <a href="/blog/index.html" class="nav-blog-link">Blog</a>
   </div>
   <nav id="mainNav">
     ${mobileItems}
+    <a href="/email-templates/index.html" class="nav-templates-link">Templates</a>
     <a href="/blog/index.html" class="nav-blog-link">Blog</a>
   </nav>
   <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
@@ -124,6 +126,15 @@
   }
   .nav-dropdown a:hover { background: #fafaf8; color: #2d5be3; }
   .nav-dropdown a.active { color: #2d5be3; font-weight: 700; background: #f0f4ff; }
+  .nav-templates-link {
+    color: #d4622a;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 14px;
+    margin-left: 1.5rem;
+    transition: opacity 0.15s;
+  }
+  .nav-templates-link:hover { opacity: 0.8; }
   .nav-blog-link {
     color: #1a9e6e;
     font-weight: 600;
@@ -181,6 +192,7 @@
     }
     #mainNav a:last-child { border-bottom: none; }
     #mainNav a.active { color: #2d5be3; font-weight: 700; }
+    #mainNav .nav-templates-link { margin-left: 0; color: #d4622a; font-weight: 600; }
     #mainNav .nav-blog-link { margin-left: 0; color: #1a9e6e; font-weight: 600; }
   }
 </style>`;

@@ -82,3 +82,26 @@ GetSoloTools provides a suite of free tools designed for freelancers, independen
 - [How to Scale Your Freelance Business Beyond Trading Time for Money](https://getsolotools.com/blog/how-to-scale-your-freelance-business.html): Strategies for growing freelance income without proportionally increasing hours worked.
 - [Freelance Work-Life Balance: How to Protect Your Time and Energy](https://getsolotools.com/blog/freelance-work-life-balance.html): Boundary-setting and time management strategies to avoid burnout as a freelancer.
 - [How to Calculate Late Fees on Unpaid Freelance Invoices](https://getsolotools.com/blog/how-to-calculate-late-fees-on-invoices.html): The math behind late fee calculation, how to issue a follow-up invoice with late fees, and how to communicate the charge professionally.
+
+## Email Templates
+
+- [Freelance Invoice Email Template](https://getsolotools.com/email-templates/invoice-email.html): The standard email to send when delivering an invoice to a client.
+- [Invoice Follow-Up Email Template](https://getsolotools.com/email-templates/invoice-follow-up.html): A polite reminder email for invoices that are due or slightly overdue.
+- [Late Payment Notice Email Template](https://getsolotools.com/email-templates/late-payment-notice.html): A firmer email for invoices that are significantly overdue.
+- [Final Payment Demand Email Template](https://getsolotools.com/email-templates/final-payment-demand.html): A last-resort email before escalating to collections or legal action.
+- [Payment Received Confirmation Email Template](https://getsolotools.com/email-templates/payment-received.html): Confirm payment received and close the invoice professionally.
+- [Project Proposal Email Template](https://getsolotools.com/email-templates/project-proposal-email.html): The email to send when delivering a formal proposal to a prospective client.
+- [Freelance Quote Email Template](https://getsolotools.com/email-templates/quote-email.html): A short email for sharing a pricing estimate with a potential client.
+- [Proposal Follow-Up Email Template](https://getsolotools.com/email-templates/proposal-follow-up.html): Check in professionally after sending a proposal with no response.
+- [New Client Welcome Email Template](https://getsolotools.com/email-templates/new-client-welcome.html): Set expectations and kick off the client relationship on the right foot.
+- [Sending a Contract Email Template](https://getsolotools.com/email-templates/sending-contract.html): The email to send when sharing a contract for signature.
+- [Sending a Scope of Work Email Template](https://getsolotools.com/email-templates/sending-scope-of-work.html): Introduce your scope of work document clearly and professionally.
+- [Project Kickoff Email Template](https://getsolotools.com/email-templates/project-kickoff.html): Confirm project start with timeline, deliverables, and next steps.
+- [Project Status Update Email Template](https://getsolotools.com/email-templates/project-update.html): Keep clients informed on progress mid-project.
+- [Responding to a Revision Request Email Template](https://getsolotools.com/email-templates/revision-request-response.html): Handle revision requests professionally, including out-of-scope ones.
+- [Requesting a Deadline Extension Email Template](https://getsolotools.com/email-templates/deadline-extension-request.html): Ask for more time without damaging the client relationship.
+- [Project Completion Email Template](https://getsolotools.com/email-templates/project-completion.html): Deliver final files, confirm completion, and remind client of final invoice.
+- [Cold Outreach Email Template](https://getsolotools.com/email-templates/cold-outreach.html): Reach out to a potential client you've never worked with before.
+- [Asking for a Referral Email Template](https://getsolotools.com/email-templates/referral-request.html): Ask a happy client to refer you to others without feeling awkward.
+- [Requesting a Testimonial Email Template](https://getsolotools.com/email-templates/testimonial-request.html): Ask for a review or testimonial after a successful project.
+- [Sending an NDA Email Template](https://getsolotools.com/email-templates/sending-nda.html): Send a Non-Disclosure Agreement to a client before sharing sensitive project details.
