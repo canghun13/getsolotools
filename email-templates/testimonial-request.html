@@ -21,8 +21,12 @@
     .back-link:hover { color: var(--ink); }
     .page-tag { font-size: 0.75rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; display: block; }
     h1 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem, 4vw, 2.4rem); line-height: 1.2; margin-bottom: 20px; }
-    .intro { font-size: 1rem; line-height: 1.8; color: var(--muted); margin-bottom: 36px; }
-    .template-box { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin: 0 0 36px; }
+    h2 { font-family: 'DM Serif Display', serif; font-size: 1.35rem; margin: 40px 0 14px; }
+    h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+    .intro { font-size: 1rem; line-height: 1.8; color: #444; margin-bottom: 12px; }
+    .when-to-send { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 16px 20px; margin-bottom: 36px; font-size: 0.92rem; line-height: 1.7; color: #444; }
+    .when-to-send strong { color: var(--ink); display: block; margin-bottom: 4px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .template-box { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin: 0 0 12px; }
     .template-header { background: #f5f5f2; padding: 12px 20px; font-size: 12px; color: var(--muted); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
     .template-header strong { color: var(--ink); }
     .copy-btn { background: var(--accent); color: #fff; border: none; border-radius: 5px; font-size: 12px; font-weight: 600; padding: 5px 12px; cursor: pointer; font-family: inherit; transition: opacity 0.15s; }
@@ -30,11 +34,20 @@
     .subject-line { padding: 12px 20px; font-size: 0.88rem; border-bottom: 1px solid var(--border); background: #fafaf8; }
     .subject-line span { font-weight: 600; color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; margin-right: 8px; }
     .template-body { padding: 20px; font-size: 0.92rem; line-height: 1.9; color: #333; white-space: pre-line; }
-    .tips-section h2 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; margin-bottom: 16px; }
-    .tips-section ul { margin: 0 0 36px 20px; }
-    .tips-section li { margin-bottom: 10px; line-height: 1.7; font-size: 0.95rem; }
+    .section { margin-bottom: 36px; }
+    .section ul, .section ol { margin: 0 0 0 20px; }
+    .section li { margin-bottom: 10px; line-height: 1.7; font-size: 0.95rem; }
+    .section p { font-size: 0.95rem; line-height: 1.8; color: #444; margin-bottom: 12px; }
+    .mistakes { background: #fff8f6; border: 1px solid #f5d5c8; border-radius: 8px; padding: 20px 24px; }
+    .mistakes li { color: #5a2a1a; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 18px 0; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h3 { font-size: 0.98rem; font-weight: 600; margin-bottom: 8px; }
+    .faq-item p { font-size: 0.92rem; line-height: 1.75; color: #444; margin: 0; }
+    .variant { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 16px; }
+    .variant h3 { font-size: 0.88rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; padding: 12px 20px; background: #f5f5f2; border-bottom: 1px solid var(--border); margin: 0; }
     .related { margin-top: 36px; }
-    .related h2 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin-bottom: 14px; }
+    .related h2 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin-bottom: 14px; margin-top: 0; }
     .related-links { display: flex; flex-direction: column; gap: 8px; }
     .related-links a { font-size: 0.9rem; color: var(--accent); text-decoration: none; }
     .related-links a:hover { text-decoration: underline; }
@@ -74,38 +87,82 @@
     <a href="/email-templates/index.html" class="back-link">&#8592; Back to Templates</a>
     <span class="page-tag">Client Acquisition</span>
     <h1>Requesting a Testimonial Email Template</h1>
-    <p class="intro">Testimonials are one of the most powerful tools for winning new clients — but almost no freelancer thinks to ask for them. The trick is to ask at exactly the right moment (right after a win) and make it as easy as possible to say yes.</p>
+    <p class="intro">A well-placed testimonial from a real client is worth more than any marketing copy you can write about yourself. It's the difference between you saying you're good and someone else saying it. Most clients are genuinely happy to help — they just need to be asked.</p>
 
+    <div class="when-to-send">
+      <strong>When to send</strong>
+      Wait 1-2 weeks after project completion. The client has had time to use or see the results of your work, and the positive experience is still fresh. Don't ask during the project or on the day of final delivery.
+    </div>
+
+    <h2>The Template</h2>
     <div class="template-box" id="templateBox">
       <div class="template-header">
         <strong>Email Template</strong>
         <button class="copy-btn" onclick="copyTemplate()">Copy</button>
       </div>
-      <div class="subject-line"><span>Subject:</span> Quick Favor: Testimonial for [Your Name/Business]</div>
+      <div class="subject-line"><span>Subject:</span> Quick Favor: A Testimonial for My Portfolio</div>
       <div class="template-body" id="templateContent">Hi [Client Name],
 
-I hope you're well. I really enjoyed working on [project name] with you and I'm thrilled with how it turned out.
+I hope you're well. I really enjoyed working on [project name] and I'm glad with how it came out.
 
-I'm putting together some testimonials for my portfolio / website, and I'd love to include your feedback. If you have 5 minutes, it would mean a lot to me.
+I'm updating my portfolio and would love to include a short testimonial from you, if you'd be willing. A few sentences about your experience working with me — the process, the results, or anything that stood out — would be incredibly helpful.
 
-A few sentences is plenty. Anything you'd be comfortable sharing about working together — the process, the results, or the experience — would be wonderful.
+You can reply directly to this email, or if you prefer, [leave a review on LinkedIn / Google / etc.].
 
-You can reply directly to this email or [leave a review on LinkedIn / Google / etc.].
+No pressure at all, and absolutely no particular format required. Whatever feels natural is perfect.
 
-Thank you so much — I really appreciate it.
+Thank you in advance — I really appreciate it.
 
 Best,
 [Your Name]</div>
     </div>
 
-    <div class="tips-section">
-      <h2>Tips for This Email</h2>
+    <div class="section">
+      <h2>Tips for Getting This Right</h2>
       <ul>
-        <li>Ask within 1-2 weeks of project completion — enthusiasm fades quickly.</li>
-        <li>Tell them what format you need: a reply, a LinkedIn recommendation, or a Google review.</li>
-        <li>If they struggle to know what to say, offer guiding questions: What was the challenge? What was the result? Would they recommend you?</li>
-        <li>Never ask for a testimonial if the project had issues — wait for a genuinely happy client.</li>
+        <li>Give them a format option — reply by email, leave a LinkedIn recommendation, or write a Google review. Remove any friction.</li>
+        <li>Tell them they can write anything — don't give them a script, but do reassure them that a few sentences is plenty.</li>
+        <li>Optional: share 2-3 guiding questions if they seem stuck — 'What was the challenge? What was the result? Would you recommend me?'</li>
+        <li>Always say thank you after they send one, and tell them where you used it. It closes the loop and strengthens the relationship.</li>
+        <li>Keep the testimonial request separate from your referral request — combining them in one email dilutes both asks.</li>
       </ul>
+    </div>
+
+    <div class="section">
+      <h2>Common Mistakes to Avoid</h2>
+      <div class="mistakes">
+        <ul>
+          <li>Asking too early — a testimonial requested before the client has seen the results of your work will be generic and weak.</li>
+          <li>Being too prescriptive — telling the client exactly what to write makes the testimonial sound inauthentic.</li>
+          <li>Not following up if they don't respond — a single gentle follow-up a week later is perfectly appropriate.</li>
+          <li>Asking clients who weren't happy with the project — a negative or lukewarm testimonial can damage your reputation.</li>
+        </ul>
+      </div>
+    </div>
+
+    
+
+    <div class="section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-wrap">
+              <div class="faq-item">
+        <h3>Where should I ask them to leave the testimonial?</h3>
+        <p>LinkedIn recommendations are valuable because they're tied to real profiles. Google reviews help local visibility. Your own website gives you full control. Ideally, ask for both — a LinkedIn recommendation and a short quote you can use on your site.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What makes a good testimonial?</h3>
+        <p>A specific result ('increased our conversion rate by 30%') is far more compelling than a generic compliment ('great to work with'). If the client gives you something vague, you can gently ask if they'd be willing to add a specific outcome or result.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I write a draft testimonial for the client to approve?</h3>
+        <p>You can offer to — some clients appreciate not having to write from scratch. If you do this, make it genuinely reflect what they've said to you, and make clear it's a draft for them to edit freely. Never submit a testimonial without explicit approval.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How many testimonials do I need?</h3>
+        <p>Three to five strong, specific testimonials are more effective than a dozen generic ones. Quality over quantity — a few detailed, credible testimonials from recognizable companies or people in your niche are powerful.</p>
+      </div>
+
+      </div>
     </div>
 
     <div class="related">
@@ -119,6 +176,7 @@ Best,
       <h2>Related Guides</h2>
       <div class="related-links">
         <a href="/blog/how-to-create-a-freelance-portfolio.html">How to Create a Freelance Portfolio</a>
+        <a href="/blog/freelance-client-onboarding-checklist.html">Freelance Client Onboarding Checklist</a>
       </div>
     </div>
   </div>

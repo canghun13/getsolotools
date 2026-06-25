@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>New Client Welcome Email Template – GetSoloTools</title>
-  <meta name="description" content="A warm, professional welcome email template to send when a new freelance client signs on. Set expectations from day one." />
+  <meta name="description" content="A warm, professional welcome email template to send when a new freelance client signs on. Set expectations, confirm next steps, and start the project right." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -21,8 +21,12 @@
     .back-link:hover { color: var(--ink); }
     .page-tag { font-size: 0.75rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; display: block; }
     h1 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem, 4vw, 2.4rem); line-height: 1.2; margin-bottom: 20px; }
-    .intro { font-size: 1rem; line-height: 1.8; color: var(--muted); margin-bottom: 36px; }
-    .template-box { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin: 0 0 36px; }
+    h2 { font-family: 'DM Serif Display', serif; font-size: 1.35rem; margin: 40px 0 14px; }
+    h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+    .intro { font-size: 1rem; line-height: 1.8; color: #444; margin-bottom: 12px; }
+    .when-to-send { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 16px 20px; margin-bottom: 36px; font-size: 0.92rem; line-height: 1.7; color: #444; }
+    .when-to-send strong { color: var(--ink); display: block; margin-bottom: 4px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .template-box { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin: 0 0 12px; }
     .template-header { background: #f5f5f2; padding: 12px 20px; font-size: 12px; color: var(--muted); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
     .template-header strong { color: var(--ink); }
     .copy-btn { background: var(--accent); color: #fff; border: none; border-radius: 5px; font-size: 12px; font-weight: 600; padding: 5px 12px; cursor: pointer; font-family: inherit; transition: opacity 0.15s; }
@@ -30,11 +34,20 @@
     .subject-line { padding: 12px 20px; font-size: 0.88rem; border-bottom: 1px solid var(--border); background: #fafaf8; }
     .subject-line span { font-weight: 600; color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; margin-right: 8px; }
     .template-body { padding: 20px; font-size: 0.92rem; line-height: 1.9; color: #333; white-space: pre-line; }
-    .tips-section h2 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; margin-bottom: 16px; }
-    .tips-section ul { margin: 0 0 36px 20px; }
-    .tips-section li { margin-bottom: 10px; line-height: 1.7; font-size: 0.95rem; }
+    .section { margin-bottom: 36px; }
+    .section ul, .section ol { margin: 0 0 0 20px; }
+    .section li { margin-bottom: 10px; line-height: 1.7; font-size: 0.95rem; }
+    .section p { font-size: 0.95rem; line-height: 1.8; color: #444; margin-bottom: 12px; }
+    .mistakes { background: #fff8f6; border: 1px solid #f5d5c8; border-radius: 8px; padding: 20px 24px; }
+    .mistakes li { color: #5a2a1a; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 18px 0; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h3 { font-size: 0.98rem; font-weight: 600; margin-bottom: 8px; }
+    .faq-item p { font-size: 0.92rem; line-height: 1.75; color: #444; margin: 0; }
+    .variant { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 16px; }
+    .variant h3 { font-size: 0.88rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; padding: 12px 20px; background: #f5f5f2; border-bottom: 1px solid var(--border); margin: 0; }
     .related { margin-top: 36px; }
-    .related h2 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin-bottom: 14px; }
+    .related h2 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin-bottom: 14px; margin-top: 0; }
     .related-links { display: flex; flex-direction: column; gap: 8px; }
     .related-links a { font-size: 0.9rem; color: var(--accent); text-decoration: none; }
     .related-links a:hover { text-decoration: underline; }
@@ -51,7 +64,7 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "New Client Welcome Email Template",
-    "description": "A warm, professional welcome email template to send when a new freelance client signs on. Set expectations from day one.",
+    "description": "A warm, professional welcome email template to send when a new freelance client signs on. Set expectations, confirm next steps, and start the project right.",
     "url": "https://getsolotools.com/email-templates/new-client-welcome.html",
     "datePublished": "2026-06-25",
     "dateModified": "2026-06-25",
@@ -74,42 +87,85 @@
     <a href="/email-templates/index.html" class="back-link">&#8592; Back to Templates</a>
     <span class="page-tag">Client Onboarding</span>
     <h1>New Client Welcome Email Template</h1>
-    <p class="intro">First impressions matter. A welcome email sent right after a client says yes sets the tone for the whole project. It shows you're organized, confirms next steps, and prevents the confusion that comes from jumping straight into work without alignment.</p>
+    <p class="intro">The moment a client says yes is when expectations start forming. A welcome email sent within hours of that confirmation sets a professional tone, prevents confusion about next steps, and reduces the back-and-forth that slows projects down before they even start.</p>
 
+    <div class="when-to-send">
+      <strong>When to send</strong>
+      Send within a few hours of the client confirming they want to proceed — ideally the same day. Don't let the momentum cool before you've established the next steps.
+    </div>
+
+    <h2>The Template</h2>
     <div class="template-box" id="templateBox">
       <div class="template-header">
         <strong>Email Template</strong>
         <button class="copy-btn" onclick="copyTemplate()">Copy</button>
       </div>
-      <div class="subject-line"><span>Subject:</span> Welcome - Next Steps for [Project Name]</div>
+      <div class="subject-line"><span>Subject:</span> Welcome Aboard - Next Steps for [Project Name]</div>
       <div class="template-body" id="templateContent">Hi [Client Name],
 
-I'm thrilled to be working with you on [project name]. I wanted to send a quick welcome note and outline what happens next.
+I'm thrilled to be working with you on [project name]. I wanted to send a quick welcome note and outline what happens next so we're both on the same page.
 
 Here's what to expect:
 
-1. Contract: I'll send the project contract shortly for your review and signature.
-2. Intake: I may send a short questionnaire to gather the details I need to get started.
+1. Contract: I'll send the project contract within [X hours/1 business day] for your review and signature.
+2. Intake: I'll follow up with a short questionnaire to make sure I have everything I need to deliver great work.
 3. Kickoff: Once the contract is signed and the deposit is received, we'll [schedule a kickoff call / I'll get started on [date]].
 
-Project timeline: [start date] to [end date]
-Payment terms: [deposit amount] upfront, remainder due [upon completion / in milestones]
+Project timeline: [start date] to [estimated completion date]
+Payment: [deposit amount] upfront, remainder due [upon completion / at milestone X]
 
-If you have any questions before we get started, don't hesitate to reach out. I'm looking forward to this project.
+If you have any questions in the meantime, don't hesitate to reach out. I'm looking forward to this.
 
 Best,
 [Your Name]</div>
     </div>
 
-    <div class="tips-section">
-      <h2>Tips for This Email</h2>
+    <div class="section">
+      <h2>Tips for Getting This Right</h2>
       <ul>
-        <li>Send this within 24 hours of the client confirming they want to proceed.</li>
         <li>Number your next steps so the client knows exactly what to expect and in what order.</li>
-        <li>Confirm the payment terms here — don't leave them ambiguous until the invoice arrives.</li>
-        <li>If you're requiring a deposit, state it clearly and early.</li>
-        <li>Keep the tone warm but structured — you're setting a professional standard from the start.</li>
+        <li>Confirm the payment terms explicitly here — stating them early prevents awkward conversations when the invoice arrives.</li>
+        <li>Include the deposit requirement if you have one. State it as a standard part of your process, not an afterthought.</li>
+        <li>Give a rough project timeline even if it's approximate — clients want to know when to expect things to start and end.</li>
+        <li>Keep the tone warm but organized. You're signaling that you run a professional operation.</li>
       </ul>
+    </div>
+
+    <div class="section">
+      <h2>Common Mistakes to Avoid</h2>
+      <div class="mistakes">
+        <ul>
+          <li>Waiting too long to send it — a welcome email sent two days later feels disorganized and lets uncertainty set in.</li>
+          <li>Skipping it entirely and jumping straight into work — without this email, the client doesn't know what to expect and small gaps turn into frustration.</li>
+          <li>Making it too long — this is a quick orientation, not a project brief. Save the detail for the contract and kickoff call.</li>
+          <li>Not confirming the deposit requirement — clients shouldn't be surprised by this when the invoice arrives.</li>
+        </ul>
+      </div>
+    </div>
+
+    
+
+    <div class="section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-wrap">
+              <div class="faq-item">
+        <h3>Should I send a contract at the same time as the welcome email?</h3>
+        <p>You can, but it's often cleaner to send them separately — welcome email first to set the tone, then the contract within a few hours or the next business day. Sending both at once can feel overwhelming.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What if I don't require a deposit?</h3>
+        <p>Skip that part of the template. Not all freelancers require deposits — it depends on the project size, the client relationship, and your personal policy. But for new clients on larger projects, deposits are strongly recommended.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What should I include in the client intake questionnaire?</h3>
+        <p>Project goals, target audience, key competitors, brand guidelines, existing assets, timeline preferences, and communication preferences. The goal is to get everything you need to start before the first working session.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How formal should this email be?</h3>
+        <p>Match the tone of how you've been communicating with the client. If your conversations have been casual, a slightly warm tone is fine. If it's been formal, keep it professional. Consistency matters more than a specific register.</p>
+      </div>
+
+      </div>
     </div>
 
     <div class="related">

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Project Proposal Email Template – GetSoloTools</title>
-  <meta name="description" content="A professional email template for sending a project proposal to a client. Clear structure, easy to customize." />
+  <meta name="description" content="A professional email template for sending a project proposal to a client. Includes tips on structure, timing, and how to increase your close rate." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -21,8 +21,12 @@
     .back-link:hover { color: var(--ink); }
     .page-tag { font-size: 0.75rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; display: block; }
     h1 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem, 4vw, 2.4rem); line-height: 1.2; margin-bottom: 20px; }
-    .intro { font-size: 1rem; line-height: 1.8; color: var(--muted); margin-bottom: 36px; }
-    .template-box { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin: 0 0 36px; }
+    h2 { font-family: 'DM Serif Display', serif; font-size: 1.35rem; margin: 40px 0 14px; }
+    h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+    .intro { font-size: 1rem; line-height: 1.8; color: #444; margin-bottom: 12px; }
+    .when-to-send { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 16px 20px; margin-bottom: 36px; font-size: 0.92rem; line-height: 1.7; color: #444; }
+    .when-to-send strong { color: var(--ink); display: block; margin-bottom: 4px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .template-box { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin: 0 0 12px; }
     .template-header { background: #f5f5f2; padding: 12px 20px; font-size: 12px; color: var(--muted); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
     .template-header strong { color: var(--ink); }
     .copy-btn { background: var(--accent); color: #fff; border: none; border-radius: 5px; font-size: 12px; font-weight: 600; padding: 5px 12px; cursor: pointer; font-family: inherit; transition: opacity 0.15s; }
@@ -30,11 +34,20 @@
     .subject-line { padding: 12px 20px; font-size: 0.88rem; border-bottom: 1px solid var(--border); background: #fafaf8; }
     .subject-line span { font-weight: 600; color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; margin-right: 8px; }
     .template-body { padding: 20px; font-size: 0.92rem; line-height: 1.9; color: #333; white-space: pre-line; }
-    .tips-section h2 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; margin-bottom: 16px; }
-    .tips-section ul { margin: 0 0 36px 20px; }
-    .tips-section li { margin-bottom: 10px; line-height: 1.7; font-size: 0.95rem; }
+    .section { margin-bottom: 36px; }
+    .section ul, .section ol { margin: 0 0 0 20px; }
+    .section li { margin-bottom: 10px; line-height: 1.7; font-size: 0.95rem; }
+    .section p { font-size: 0.95rem; line-height: 1.8; color: #444; margin-bottom: 12px; }
+    .mistakes { background: #fff8f6; border: 1px solid #f5d5c8; border-radius: 8px; padding: 20px 24px; }
+    .mistakes li { color: #5a2a1a; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 18px 0; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h3 { font-size: 0.98rem; font-weight: 600; margin-bottom: 8px; }
+    .faq-item p { font-size: 0.92rem; line-height: 1.75; color: #444; margin: 0; }
+    .variant { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 16px; }
+    .variant h3 { font-size: 0.88rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; padding: 12px 20px; background: #f5f5f2; border-bottom: 1px solid var(--border); margin: 0; }
     .related { margin-top: 36px; }
-    .related h2 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin-bottom: 14px; }
+    .related h2 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin-bottom: 14px; margin-top: 0; }
     .related-links { display: flex; flex-direction: column; gap: 8px; }
     .related-links a { font-size: 0.9rem; color: var(--accent); text-decoration: none; }
     .related-links a:hover { text-decoration: underline; }
@@ -51,7 +64,7 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "Project Proposal Email Template",
-    "description": "A professional email template for sending a project proposal to a client. Clear structure, easy to customize.",
+    "description": "A professional email template for sending a project proposal to a client. Includes tips on structure, timing, and how to increase your close rate.",
     "url": "https://getsolotools.com/email-templates/project-proposal-email.html",
     "datePublished": "2026-06-25",
     "dateModified": "2026-06-25",
@@ -74,26 +87,33 @@
     <a href="/email-templates/index.html" class="back-link">&#8592; Back to Templates</a>
     <span class="page-tag">Proposals & Quotes</span>
     <h1>Project Proposal Email Template</h1>
-    <p class="intro">The email you send with your proposal is the first thing the client reads. It should be warm and confident — not long. Let the proposal document do the heavy lifting. This email just needs to introduce it, confirm what's inside, and tell the client what to do next.</p>
+    <p class="intro">The email you send with your proposal is the first thing the client reads — before they open a single page of the document itself. It needs to be warm, confident, and concise. Your job here is to make the client want to open the attachment, not to put everything in the email.</p>
 
+    <div class="when-to-send">
+      <strong>When to send</strong>
+      Send within 24-48 hours of your discovery call or initial conversation. Longer than that and the momentum fades. If you need more time to put together a thorough proposal, send a brief email acknowledging the conversation and setting an expectation for when the proposal will arrive.
+    </div>
+
+    <h2>The Template</h2>
     <div class="template-box" id="templateBox">
       <div class="template-header">
         <strong>Email Template</strong>
         <button class="copy-btn" onclick="copyTemplate()">Copy</button>
       </div>
-      <div class="subject-line"><span>Subject:</span> Project Proposal: [Project Name]</div>
+      <div class="subject-line"><span>Subject:</span> Project Proposal: [Project Name] - [Your Name]</div>
       <div class="template-body" id="templateContent">Hi [Client Name],
 
-Thank you for taking the time to discuss [project name] with me. I've put together a proposal based on our conversation and I'm excited about the opportunity to work together.
+Thank you for taking the time to discuss [project name] with me. I've put together a proposal based on our conversation and I'm genuinely excited about the opportunity to work together.
 
 The proposal covers:
 - Project scope and deliverables
-- Timeline
-- Pricing and payment terms
+- Proposed timeline
+- Investment and payment terms
+- Next steps
 
-Please find the full proposal attached. I'm happy to walk you through it on a call or answer any questions via email.
+Please find the full proposal attached. I'm happy to walk you through it on a call or answer any questions via email — whichever works better for you.
 
-I've set a validity period of [14 days] on this proposal. If you'd like to move forward or have questions, please get in touch by [date].
+I've set a validity period of 14 days on this proposal. If you'd like to move forward or have any questions, please get in touch by [date].
 
 Looking forward to hearing from you.
 
@@ -101,14 +121,52 @@ Best,
 [Your Name]</div>
     </div>
 
-    <div class="tips-section">
-      <h2>Tips for This Email</h2>
+    <div class="section">
+      <h2>Tips for Getting This Right</h2>
       <ul>
-        <li>Summarize what's in the proposal so the client knows what to expect before opening it.</li>
-        <li>Set a validity date on the proposal — it creates urgency and prevents scope creep from delayed starts.</li>
-        <li>Offer to walk them through it — many clients won't read every word; a call increases close rate.</li>
-        <li>Keep the email itself to under 150 words. The proposal is the pitch, not the email.</li>
+        <li>Briefly list what's in the proposal so the client knows what to expect — it lowers the barrier to opening it.</li>
+        <li>Use the word 'investment' instead of 'cost' or 'price' — it subtly frames your services as value-generating rather than a line-item expense.</li>
+        <li>Set a validity date — it creates urgency and prevents clients from sitting on proposals indefinitely.</li>
+        <li>Offer a call to walk them through it. Many clients won't read every word of a proposal — a brief call dramatically increases your close rate.</li>
+        <li>Personalize the opening line. Reference something specific from your conversation to show this isn't a template.</li>
       </ul>
+    </div>
+
+    <div class="section">
+      <h2>Common Mistakes to Avoid</h2>
+      <div class="mistakes">
+        <ul>
+          <li>Sending the proposal without following up — a proposal sent with no follow-up has a much lower close rate than one followed up within 3-5 days.</li>
+          <li>Writing a novel in the email itself — the proposal is the document. The email just introduces it.</li>
+          <li>Not setting a validity period — open-ended proposals let clients delay indefinitely or come back months later expecting the same price.</li>
+          <li>Sending too late — proposals sent more than 48 hours after a conversation arrive when the client's enthusiasm has cooled.</li>
+        </ul>
+      </div>
+    </div>
+
+    
+
+    <div class="section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-wrap">
+              <div class="faq-item">
+        <h3>How long should a freelance proposal be?</h3>
+        <p>Long enough to answer every question the client has, short enough that they'll actually read it. For most projects, 2-5 pages is ideal. Include scope, timeline, pricing, and terms. Skip filler content about your company history unless specifically relevant.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Should I include pricing in the proposal email or only in the document?</h3>
+        <p>Keep pricing in the document, not the email. The email is an introduction — you want the client to open the proposal and read through the full scope before they see the price.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What if the client wants changes to the proposal?</h3>
+        <p>That's a normal part of the process. Treat it as a negotiation, not a rejection. Make adjustments, re-send, and set a new validity period on the revised version.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Should I follow up if I don't hear back?</h3>
+        <p>Yes — send one follow-up 3-5 business days after sending the proposal. One follow-up is professional. Multiple follow-ups become annoying. Use the proposal follow-up template for this.</p>
+      </div>
+
+      </div>
     </div>
 
     <div class="related">

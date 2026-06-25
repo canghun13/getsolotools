@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Scope of Work Email Template – GetSoloTools</title>
-  <meta name="description" content="A professional email template for sending a scope of work document to a freelance client." />
+  <meta name="description" content="A professional email template for sending a scope of work document to a freelance client before starting a project." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -21,8 +21,12 @@
     .back-link:hover { color: var(--ink); }
     .page-tag { font-size: 0.75rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; display: block; }
     h1 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem, 4vw, 2.4rem); line-height: 1.2; margin-bottom: 20px; }
-    .intro { font-size: 1rem; line-height: 1.8; color: var(--muted); margin-bottom: 36px; }
-    .template-box { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin: 0 0 36px; }
+    h2 { font-family: 'DM Serif Display', serif; font-size: 1.35rem; margin: 40px 0 14px; }
+    h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+    .intro { font-size: 1rem; line-height: 1.8; color: #444; margin-bottom: 12px; }
+    .when-to-send { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 16px 20px; margin-bottom: 36px; font-size: 0.92rem; line-height: 1.7; color: #444; }
+    .when-to-send strong { color: var(--ink); display: block; margin-bottom: 4px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .template-box { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin: 0 0 12px; }
     .template-header { background: #f5f5f2; padding: 12px 20px; font-size: 12px; color: var(--muted); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
     .template-header strong { color: var(--ink); }
     .copy-btn { background: var(--accent); color: #fff; border: none; border-radius: 5px; font-size: 12px; font-weight: 600; padding: 5px 12px; cursor: pointer; font-family: inherit; transition: opacity 0.15s; }
@@ -30,11 +34,20 @@
     .subject-line { padding: 12px 20px; font-size: 0.88rem; border-bottom: 1px solid var(--border); background: #fafaf8; }
     .subject-line span { font-weight: 600; color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; margin-right: 8px; }
     .template-body { padding: 20px; font-size: 0.92rem; line-height: 1.9; color: #333; white-space: pre-line; }
-    .tips-section h2 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; margin-bottom: 16px; }
-    .tips-section ul { margin: 0 0 36px 20px; }
-    .tips-section li { margin-bottom: 10px; line-height: 1.7; font-size: 0.95rem; }
+    .section { margin-bottom: 36px; }
+    .section ul, .section ol { margin: 0 0 0 20px; }
+    .section li { margin-bottom: 10px; line-height: 1.7; font-size: 0.95rem; }
+    .section p { font-size: 0.95rem; line-height: 1.8; color: #444; margin-bottom: 12px; }
+    .mistakes { background: #fff8f6; border: 1px solid #f5d5c8; border-radius: 8px; padding: 20px 24px; }
+    .mistakes li { color: #5a2a1a; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 18px 0; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h3 { font-size: 0.98rem; font-weight: 600; margin-bottom: 8px; }
+    .faq-item p { font-size: 0.92rem; line-height: 1.75; color: #444; margin: 0; }
+    .variant { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 16px; }
+    .variant h3 { font-size: 0.88rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; padding: 12px 20px; background: #f5f5f2; border-bottom: 1px solid var(--border); margin: 0; }
     .related { margin-top: 36px; }
-    .related h2 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin-bottom: 14px; }
+    .related h2 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin-bottom: 14px; margin-top: 0; }
     .related-links { display: flex; flex-direction: column; gap: 8px; }
     .related-links a { font-size: 0.9rem; color: var(--accent); text-decoration: none; }
     .related-links a:hover { text-decoration: underline; }
@@ -51,7 +64,7 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "Scope of Work Email Template",
-    "description": "A professional email template for sending a scope of work document to a freelance client.",
+    "description": "A professional email template for sending a scope of work document to a freelance client before starting a project.",
     "url": "https://getsolotools.com/email-templates/sending-scope-of-work.html",
     "datePublished": "2026-06-25",
     "dateModified": "2026-06-25",
@@ -74,41 +87,85 @@
     <a href="/email-templates/index.html" class="back-link">&#8592; Back to Templates</a>
     <span class="page-tag">Client Onboarding</span>
     <h1>Scope of Work Email Template</h1>
-    <p class="intro">A scope of work document prevents misunderstandings before they happen. This email introduces it clearly and gives the client a chance to flag anything before you're locked into a contract. Think of it as a professional alignment step.</p>
+    <p class="intro">A scope of work document is the most effective tool for preventing scope creep — but only if the client actually reads and agrees to it before work begins. This email introduces the document clearly and creates a natural checkpoint for alignment before you're locked into a contract.</p>
 
+    <div class="when-to-send">
+      <strong>When to send</strong>
+      Send the scope of work before the contract — it's much easier to adjust terms at this stage. Once the contract is signed, changes require formal amendments.
+    </div>
+
+    <h2>The Template</h2>
     <div class="template-box" id="templateBox">
       <div class="template-header">
         <strong>Email Template</strong>
         <button class="copy-btn" onclick="copyTemplate()">Copy</button>
       </div>
-      <div class="subject-line"><span>Subject:</span> Scope of Work: [Project Name]</div>
+      <div class="subject-line"><span>Subject:</span> Scope of Work: [Project Name] - Please Review</div>
       <div class="template-body" id="templateContent">Hi [Client Name],
 
-Attached is the scope of work for [project name], which outlines everything we've agreed on before we get started.
+Attached is the scope of work for [project name], which summarizes everything we've discussed and agreed on before we get started.
 
-It includes:
+It covers:
 - Project objectives and deliverables
+- What's included — and what's explicitly out of scope
 - Timeline and milestones
-- What's included (and what's out of scope)
 - Revision policy
 - Payment schedule
 
-Please review it and let me know if anything looks off or if you'd like to make adjustments. Once we're both aligned, I'll proceed with the contract.
+Please review it carefully and let me know if anything looks different from what you were expecting, or if you'd like to make any adjustments. Once we're both aligned, I'll send over the contract.
 
-Happy to jump on a quick call if it's easier to go through it together.
+Happy to schedule a quick call to go through it together if that's easier.
 
 Best,
 [Your Name]</div>
     </div>
 
-    <div class="tips-section">
-      <h2>Tips for This Email</h2>
+    <div class="section">
+      <h2>Tips for Getting This Right</h2>
       <ul>
-        <li>Send the scope of work before the contract — it's easier to align on terms at this stage.</li>
-        <li>List what's out of scope explicitly. Ambiguity on this is the most common source of scope creep.</li>
-        <li>Offer a call to review it — clients who review it verbally tend to have fewer surprises later.</li>
-        <li>Don't start work until both parties have confirmed alignment on the scope.</li>
+        <li>Explicitly list what's out of scope — this is the most important part of any scope document and the most commonly missed.</li>
+        <li>Offer a call to review it. Clients who discuss the scope verbally have fewer surprises and disputes mid-project.</li>
+        <li>Be specific about deliverables — 'a website' is not a deliverable. '5-page website with homepage, about, services, blog, and contact pages' is a deliverable.</li>
+        <li>Include the revision policy clearly — how many rounds, what counts as a revision versus a new request.</li>
+        <li>Don't start work until the client has acknowledged the scope in writing, even informally.</li>
       </ul>
+    </div>
+
+    <div class="section">
+      <h2>Common Mistakes to Avoid</h2>
+      <div class="mistakes">
+        <ul>
+          <li>Skipping the scope of work and going straight to a contract — contracts are harder to negotiate. A scope of work is the right place to iron out expectations.</li>
+          <li>Being vague about what's included — vague deliverables always expand in the client's mind.</li>
+          <li>Not defining out-of-scope items — if you don't say what's not included, clients assume everything is.</li>
+          <li>Sending it after the project has started — the scope needs to be agreed before work begins, not mid-project when there's already a dispute.</li>
+        </ul>
+      </div>
+    </div>
+
+    
+
+    <div class="section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-wrap">
+              <div class="faq-item">
+        <h3>Is a scope of work the same as a contract?</h3>
+        <p>No. A scope of work defines what you're doing. A contract is the legal agreement that governs the entire relationship, including payment, IP, liability, and dispute resolution. The scope of work is often attached to or incorporated into the contract.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What if the client wants to change the scope mid-project?</h3>
+        <p>Refer back to the agreed scope of work. Any changes outside the original scope should go through a formal change request, with a new quote and timeline. Your contract should include a clause for this.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How detailed should a scope of work be?</h3>
+        <p>Detailed enough that there's no ambiguity about what you're delivering. If you can imagine a client asking 'does this include X?' about something, include it explicitly — either as in-scope or out-of-scope.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Do I need a scope of work for small projects?</h3>
+        <p>For very small, simple, one-deliverable projects, a detailed contract may be sufficient. But for anything that takes more than a few hours or involves multiple deliverables, a scope of work is worth the 20 minutes it takes to write.</p>
+      </div>
+
+      </div>
     </div>
 
     <div class="related">

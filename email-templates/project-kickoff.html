@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Project Kickoff Email Template – GetSoloTools</title>
-  <meta name="description" content="A clear project kickoff email template to send once a freelance contract is signed and work is about to begin." />
+  <meta name="description" content="A clear project kickoff email template for freelancers to send once a contract is signed and the project is officially starting." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -21,8 +21,12 @@
     .back-link:hover { color: var(--ink); }
     .page-tag { font-size: 0.75rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; display: block; }
     h1 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem, 4vw, 2.4rem); line-height: 1.2; margin-bottom: 20px; }
-    .intro { font-size: 1rem; line-height: 1.8; color: var(--muted); margin-bottom: 36px; }
-    .template-box { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin: 0 0 36px; }
+    h2 { font-family: 'DM Serif Display', serif; font-size: 1.35rem; margin: 40px 0 14px; }
+    h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+    .intro { font-size: 1rem; line-height: 1.8; color: #444; margin-bottom: 12px; }
+    .when-to-send { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 16px 20px; margin-bottom: 36px; font-size: 0.92rem; line-height: 1.7; color: #444; }
+    .when-to-send strong { color: var(--ink); display: block; margin-bottom: 4px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .template-box { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin: 0 0 12px; }
     .template-header { background: #f5f5f2; padding: 12px 20px; font-size: 12px; color: var(--muted); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
     .template-header strong { color: var(--ink); }
     .copy-btn { background: var(--accent); color: #fff; border: none; border-radius: 5px; font-size: 12px; font-weight: 600; padding: 5px 12px; cursor: pointer; font-family: inherit; transition: opacity 0.15s; }
@@ -30,11 +34,20 @@
     .subject-line { padding: 12px 20px; font-size: 0.88rem; border-bottom: 1px solid var(--border); background: #fafaf8; }
     .subject-line span { font-weight: 600; color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; margin-right: 8px; }
     .template-body { padding: 20px; font-size: 0.92rem; line-height: 1.9; color: #333; white-space: pre-line; }
-    .tips-section h2 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; margin-bottom: 16px; }
-    .tips-section ul { margin: 0 0 36px 20px; }
-    .tips-section li { margin-bottom: 10px; line-height: 1.7; font-size: 0.95rem; }
+    .section { margin-bottom: 36px; }
+    .section ul, .section ol { margin: 0 0 0 20px; }
+    .section li { margin-bottom: 10px; line-height: 1.7; font-size: 0.95rem; }
+    .section p { font-size: 0.95rem; line-height: 1.8; color: #444; margin-bottom: 12px; }
+    .mistakes { background: #fff8f6; border: 1px solid #f5d5c8; border-radius: 8px; padding: 20px 24px; }
+    .mistakes li { color: #5a2a1a; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 18px 0; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h3 { font-size: 0.98rem; font-weight: 600; margin-bottom: 8px; }
+    .faq-item p { font-size: 0.92rem; line-height: 1.75; color: #444; margin: 0; }
+    .variant { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 16px; }
+    .variant h3 { font-size: 0.88rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; padding: 12px 20px; background: #f5f5f2; border-bottom: 1px solid var(--border); margin: 0; }
     .related { margin-top: 36px; }
-    .related h2 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin-bottom: 14px; }
+    .related h2 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin-bottom: 14px; margin-top: 0; }
     .related-links { display: flex; flex-direction: column; gap: 8px; }
     .related-links a { font-size: 0.9rem; color: var(--accent); text-decoration: none; }
     .related-links a:hover { text-decoration: underline; }
@@ -51,7 +64,7 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "Project Kickoff Email Template",
-    "description": "A clear project kickoff email template to send once a freelance contract is signed and work is about to begin.",
+    "description": "A clear project kickoff email template for freelancers to send once a contract is signed and the project is officially starting.",
     "url": "https://getsolotools.com/email-templates/project-kickoff.html",
     "datePublished": "2026-06-25",
     "dateModified": "2026-06-25",
@@ -74,42 +87,84 @@
     <a href="/email-templates/index.html" class="back-link">&#8592; Back to Templates</a>
     <span class="page-tag">Client Onboarding</span>
     <h1>Project Kickoff Email Template</h1>
-    <p class="intro">A kickoff email locks in the project details once everything is confirmed. It gives both you and the client a shared reference point for the timeline and responsibilities, and prevents the 'wait, I thought you were starting next week' conversations.</p>
+    <p class="intro">A kickoff email is your first official communication as a working team. It locks in the key details you've agreed on, tells the client exactly what you need from them to get started, and sets the cadence for how you'll communicate throughout the project.</p>
 
+    <div class="when-to-send">
+      <strong>When to send</strong>
+      Send this the day the contract is signed and the deposit clears — not days later. Momentum matters at the start of a project.
+    </div>
+
+    <h2>The Template</h2>
     <div class="template-box" id="templateBox">
       <div class="template-header">
         <strong>Email Template</strong>
         <button class="copy-btn" onclick="copyTemplate()">Copy</button>
       </div>
-      <div class="subject-line"><span>Subject:</span> We're Officially Kicking Off - [Project Name]</div>
+      <div class="subject-line"><span>Subject:</span> We're Kicking Off - [Project Name]</div>
       <div class="template-body" id="templateContent">Hi [Client Name],
 
-Great news - the contract is signed and we're ready to go. Here's a quick summary to make sure we're fully aligned before I get started.
+Great news — the contract is signed and we're officially ready to go. Here's a quick summary to make sure we're fully aligned before I get started.
 
 Project: [Project Name]
 Start date: [Date]
 First deliverable: [Deliverable] by [Date]
-Final deadline: [Date]
+Final delivery: [Date]
 
-What I need from you to start:
-- [Asset or information needed]
-- [Asset or information needed]
+What I need from you before I can start:
+- [Asset, file, or information needed]
+- [Access, login, or approval needed]
 
-I'll check in on [day/date] with an initial update. In the meantime, the best way to reach me is [email/Slack/etc.].
+I'll send you an update on [day/date] so you know where things stand. The best way to reach me during the project is [email/Slack/etc.].
 
-Excited to get started — let's make this great.
+Let's make this great.
 
 [Your Name]</div>
     </div>
 
-    <div class="tips-section">
-      <h2>Tips for This Email</h2>
+    <div class="section">
+      <h2>Tips for Getting This Right</h2>
       <ul>
-        <li>Send this the day the contract is signed — not days later.</li>
-        <li>List exactly what you need from the client before you can start. Don't chase it after the fact.</li>
-        <li>Confirm the first check-in date so the client knows when to expect to hear from you.</li>
-        <li>Keep it energetic — this email sets the tone and signals you're organized and excited.</li>
+        <li>List exactly what you need from the client before you can start. Chase these items down before work begins, not after.</li>
+        <li>Confirm the first check-in date so the client knows when to expect to hear from you — it prevents anxious 'how's it going?' emails.</li>
+        <li>Keep it short and energetic. This is the starting gun, not a project management document.</li>
+        <li>Match the tone to the client — a startup founder wants energy; a corporate client wants structure.</li>
       </ul>
+    </div>
+
+    <div class="section">
+      <h2>Common Mistakes to Avoid</h2>
+      <div class="mistakes">
+        <ul>
+          <li>Not asking for what you need upfront — if you don't request assets, logins, or information at kickoff, you'll be chasing them mid-project and missing deadlines.</li>
+          <li>Sending it days after the contract is signed — the kickoff email should go out the same day to maintain momentum.</li>
+          <li>Over-loading it with project management detail — save that for your project management tool. This email just confirms the start and the immediate next steps.</li>
+        </ul>
+      </div>
+    </div>
+
+    
+
+    <div class="section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-wrap">
+              <div class="faq-item">
+        <h3>Should I have a kickoff call in addition to this email?</h3>
+        <p>For larger or more complex projects, yes — a kickoff call helps catch misalignments early and builds rapport. For small, well-defined projects, this email may be sufficient.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What if the client doesn't send me the assets I asked for?</h3>
+        <p>Follow up politely but promptly. State clearly in your follow-up that you can't start until you receive them, and flag if this will affect the timeline. Document the delay in writing.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How often should I send project updates after kickoff?</h3>
+        <p>For projects under two weeks, once or twice is usually enough. For longer projects, a weekly status update email is a professional standard that keeps clients confident without requiring them to ask.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Should I use a project management tool instead?</h3>
+        <p>For solo freelancers, email is often sufficient. If the project is complex or involves many moving parts, tools like Notion, Trello, or Asana can help — but the kickoff email still serves as the human starting point.</p>
+      </div>
+
+      </div>
     </div>
 
     <div class="related">
@@ -117,6 +172,7 @@ Excited to get started — let's make this great.
       <div class="related-links">
         <a href="/client-intake-form.html">Client Intake Form</a>
         <a href="/time-tracker.html">Time Tracker</a>
+        <a href="/milestone-calculator.html">Milestone Payment Calculator</a>
       </div>
     </div>
     <div class="related" style="margin-top:24px;">

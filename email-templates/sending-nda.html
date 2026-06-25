@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sending an NDA Email Template – GetSoloTools</title>
-  <meta name="description" content="A professional email template for sending a Non-Disclosure Agreement (NDA) to a freelance client before starting work." />
+  <meta name="description" content="A professional email template for sending a Non-Disclosure Agreement to a freelance client before discussing sensitive project details." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -21,8 +21,12 @@
     .back-link:hover { color: var(--ink); }
     .page-tag { font-size: 0.75rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; display: block; }
     h1 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem, 4vw, 2.4rem); line-height: 1.2; margin-bottom: 20px; }
-    .intro { font-size: 1rem; line-height: 1.8; color: var(--muted); margin-bottom: 36px; }
-    .template-box { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin: 0 0 36px; }
+    h2 { font-family: 'DM Serif Display', serif; font-size: 1.35rem; margin: 40px 0 14px; }
+    h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+    .intro { font-size: 1rem; line-height: 1.8; color: #444; margin-bottom: 12px; }
+    .when-to-send { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 16px 20px; margin-bottom: 36px; font-size: 0.92rem; line-height: 1.7; color: #444; }
+    .when-to-send strong { color: var(--ink); display: block; margin-bottom: 4px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .template-box { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin: 0 0 12px; }
     .template-header { background: #f5f5f2; padding: 12px 20px; font-size: 12px; color: var(--muted); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
     .template-header strong { color: var(--ink); }
     .copy-btn { background: var(--accent); color: #fff; border: none; border-radius: 5px; font-size: 12px; font-weight: 600; padding: 5px 12px; cursor: pointer; font-family: inherit; transition: opacity 0.15s; }
@@ -30,11 +34,20 @@
     .subject-line { padding: 12px 20px; font-size: 0.88rem; border-bottom: 1px solid var(--border); background: #fafaf8; }
     .subject-line span { font-weight: 600; color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; margin-right: 8px; }
     .template-body { padding: 20px; font-size: 0.92rem; line-height: 1.9; color: #333; white-space: pre-line; }
-    .tips-section h2 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; margin-bottom: 16px; }
-    .tips-section ul { margin: 0 0 36px 20px; }
-    .tips-section li { margin-bottom: 10px; line-height: 1.7; font-size: 0.95rem; }
+    .section { margin-bottom: 36px; }
+    .section ul, .section ol { margin: 0 0 0 20px; }
+    .section li { margin-bottom: 10px; line-height: 1.7; font-size: 0.95rem; }
+    .section p { font-size: 0.95rem; line-height: 1.8; color: #444; margin-bottom: 12px; }
+    .mistakes { background: #fff8f6; border: 1px solid #f5d5c8; border-radius: 8px; padding: 20px 24px; }
+    .mistakes li { color: #5a2a1a; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 18px 0; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h3 { font-size: 0.98rem; font-weight: 600; margin-bottom: 8px; }
+    .faq-item p { font-size: 0.92rem; line-height: 1.75; color: #444; margin: 0; }
+    .variant { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 16px; }
+    .variant h3 { font-size: 0.88rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; padding: 12px 20px; background: #f5f5f2; border-bottom: 1px solid var(--border); margin: 0; }
     .related { margin-top: 36px; }
-    .related h2 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin-bottom: 14px; }
+    .related h2 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin-bottom: 14px; margin-top: 0; }
     .related-links { display: flex; flex-direction: column; gap: 8px; }
     .related-links a { font-size: 0.9rem; color: var(--accent); text-decoration: none; }
     .related-links a:hover { text-decoration: underline; }
@@ -51,7 +64,7 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "Sending an NDA Email Template",
-    "description": "A professional email template for sending a Non-Disclosure Agreement (NDA) to a freelance client before starting work.",
+    "description": "A professional email template for sending a Non-Disclosure Agreement to a freelance client before discussing sensitive project details.",
     "url": "https://getsolotools.com/email-templates/sending-nda.html",
     "datePublished": "2026-06-25",
     "dateModified": "2026-06-25",
@@ -74,8 +87,14 @@
     <a href="/email-templates/index.html" class="back-link">&#8592; Back to Templates</a>
     <span class="page-tag">Client Onboarding</span>
     <h1>Sending an NDA Email Template</h1>
-    <p class="intro">Sending an NDA before discussing sensitive project details is a professional standard in many industries. This email makes it feel routine rather than alarming — it's framed as mutual protection, not distrust.</p>
+    <p class="intro">An NDA protects both parties when sensitive information — business strategies, unreleased products, client lists, proprietary processes — needs to be shared before or during a project. Framing it as mutual protection rather than distrust is key to keeping the conversation comfortable.</p>
 
+    <div class="when-to-send">
+      <strong>When to send</strong>
+      Send the NDA before any substantive project discussion that involves confidential information. It should be one of the first documents in your onboarding sequence — before the scope of work and before the contract.
+    </div>
+
+    <h2>The Template</h2>
     <div class="template-box" id="templateBox">
       <div class="template-header">
         <strong>Email Template</strong>
@@ -84,29 +103,67 @@
       <div class="subject-line"><span>Subject:</span> NDA for [Project Name] - Please Review and Sign</div>
       <div class="template-body" id="templateContent">Hi [Client Name],
 
-Before we dive into the details of [project name], I'd like to have a mutual Non-Disclosure Agreement in place to protect both of our interests.
+Before we get into the details of [project name], I'd like to put a mutual Non-Disclosure Agreement in place to protect both of our interests.
 
 The NDA is attached. It's straightforward and covers:
-- Confidentiality of project details and information shared
-- Mutual protection for both parties
-- Duration of the agreement
+- Confidentiality of information shared by both parties
+- What constitutes confidential information for this project
+- The duration of the agreement
 
-Please review it and, if you're happy with the terms, sign and return it. Once that's in place, I'm ready to move forward with a full briefing call.
+Please review it and, if you're happy with the terms, sign and return it at your convenience. Once that's done, I'm ready to move forward with a full briefing.
 
-Let me know if you have any questions.
+Let me know if you have any questions about any of the clauses.
 
 Best,
 [Your Name]</div>
     </div>
 
-    <div class="tips-section">
-      <h2>Tips for This Email</h2>
+    <div class="section">
+      <h2>Tips for Getting This Right</h2>
       <ul>
-        <li>Frame the NDA as mutual protection for both parties — it's less confrontational and more accurate.</li>
-        <li>Send the NDA before sharing any proprietary information, not after.</li>
-        <li>Keep the email short and matter-of-fact — an overly formal tone can make the client uneasy.</li>
-        <li>If the client pushes back on signing, be willing to discuss specific clauses rather than walking away immediately.</li>
+        <li>Frame the NDA as mutual — it protects the client's information as much as yours. Mutual NDAs are less confrontational than one-way agreements.</li>
+        <li>Keep the email short and matter-of-fact. An overly formal tone around an NDA can make clients unnecessarily anxious.</li>
+        <li>Send before any briefing call where sensitive information will be discussed — not after.</li>
+        <li>Use an e-signature tool to make signing fast and easy.</li>
+        <li>If a client pushes back on specific clauses, be willing to discuss. An NDA negotiation is not a red flag — it's due diligence.</li>
       </ul>
+    </div>
+
+    <div class="section">
+      <h2>Common Mistakes to Avoid</h2>
+      <div class="mistakes">
+        <ul>
+          <li>Sending the NDA after you've already discussed sensitive information — the protection only works if it's in place before the disclosure.</li>
+          <li>Using a one-sided NDA that only protects the client — mutual NDAs are standard and more likely to be signed without pushback.</li>
+          <li>Using overly aggressive or complex legal language — a simple, readable NDA gets signed faster than a 10-page legal document.</li>
+          <li>Not following up if it doesn't get signed — an unsigned NDA provides no protection.</li>
+        </ul>
+      </div>
+    </div>
+
+    
+
+    <div class="section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-wrap">
+              <div class="faq-item">
+        <h3>Do I actually need an NDA for every project?</h3>
+        <p>No — NDAs are most valuable when genuinely sensitive information is involved. For standard creative or development work where the client isn't sharing proprietary data, a solid contract with a confidentiality clause may be sufficient.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What's the difference between a mutual and a one-way NDA?</h3>
+        <p>A mutual NDA protects both parties' confidential information. A one-way NDA protects only one party (usually the client). Mutual NDAs are more appropriate for freelance relationships since both parties may share sensitive information.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How long should an NDA last?</h3>
+        <p>One to two years is typical for freelance projects. Some NDAs have no expiration date for certain types of confidential information, like trade secrets. The duration should reflect how long the information is likely to remain sensitive.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What if a client refuses to sign an NDA?</h3>
+        <p>It depends on the reason. If they want to modify specific clauses, that's normal and worth discussing. If they refuse to sign any form of confidentiality agreement before sharing sensitive information, that's a red flag about how they approach professional relationships generally.</p>
+      </div>
+
+      </div>
     </div>
 
     <div class="related">
@@ -120,6 +177,7 @@ Best,
       <h2>Related Guides</h2>
       <div class="related-links">
         <a href="/blog/how-to-write-a-freelance-nda.html">How to Write a Freelance NDA</a>
+        <a href="/blog/how-to-write-a-freelance-contract.html">How to Write a Freelance Contract</a>
       </div>
     </div>
   </div>

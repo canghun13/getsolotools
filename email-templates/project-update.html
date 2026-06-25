@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Project Status Update Email Template – GetSoloTools</title>
-  <meta name="description" content="A clear project status update email template to keep freelance clients informed on progress mid-project." />
+  <meta name="description" content="A clear, scannable project status update email template for freelancers. Keep clients informed, prevent micro-management, and flag blockers early." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -21,8 +21,12 @@
     .back-link:hover { color: var(--ink); }
     .page-tag { font-size: 0.75rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; display: block; }
     h1 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem, 4vw, 2.4rem); line-height: 1.2; margin-bottom: 20px; }
-    .intro { font-size: 1rem; line-height: 1.8; color: var(--muted); margin-bottom: 36px; }
-    .template-box { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin: 0 0 36px; }
+    h2 { font-family: 'DM Serif Display', serif; font-size: 1.35rem; margin: 40px 0 14px; }
+    h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+    .intro { font-size: 1rem; line-height: 1.8; color: #444; margin-bottom: 12px; }
+    .when-to-send { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 16px 20px; margin-bottom: 36px; font-size: 0.92rem; line-height: 1.7; color: #444; }
+    .when-to-send strong { color: var(--ink); display: block; margin-bottom: 4px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .template-box { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin: 0 0 12px; }
     .template-header { background: #f5f5f2; padding: 12px 20px; font-size: 12px; color: var(--muted); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
     .template-header strong { color: var(--ink); }
     .copy-btn { background: var(--accent); color: #fff; border: none; border-radius: 5px; font-size: 12px; font-weight: 600; padding: 5px 12px; cursor: pointer; font-family: inherit; transition: opacity 0.15s; }
@@ -30,11 +34,20 @@
     .subject-line { padding: 12px 20px; font-size: 0.88rem; border-bottom: 1px solid var(--border); background: #fafaf8; }
     .subject-line span { font-weight: 600; color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; margin-right: 8px; }
     .template-body { padding: 20px; font-size: 0.92rem; line-height: 1.9; color: #333; white-space: pre-line; }
-    .tips-section h2 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; margin-bottom: 16px; }
-    .tips-section ul { margin: 0 0 36px 20px; }
-    .tips-section li { margin-bottom: 10px; line-height: 1.7; font-size: 0.95rem; }
+    .section { margin-bottom: 36px; }
+    .section ul, .section ol { margin: 0 0 0 20px; }
+    .section li { margin-bottom: 10px; line-height: 1.7; font-size: 0.95rem; }
+    .section p { font-size: 0.95rem; line-height: 1.8; color: #444; margin-bottom: 12px; }
+    .mistakes { background: #fff8f6; border: 1px solid #f5d5c8; border-radius: 8px; padding: 20px 24px; }
+    .mistakes li { color: #5a2a1a; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 18px 0; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h3 { font-size: 0.98rem; font-weight: 600; margin-bottom: 8px; }
+    .faq-item p { font-size: 0.92rem; line-height: 1.75; color: #444; margin: 0; }
+    .variant { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 16px; }
+    .variant h3 { font-size: 0.88rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; padding: 12px 20px; background: #f5f5f2; border-bottom: 1px solid var(--border); margin: 0; }
     .related { margin-top: 36px; }
-    .related h2 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin-bottom: 14px; }
+    .related h2 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin-bottom: 14px; margin-top: 0; }
     .related-links { display: flex; flex-direction: column; gap: 8px; }
     .related-links a { font-size: 0.9rem; color: var(--accent); text-decoration: none; }
     .related-links a:hover { text-decoration: underline; }
@@ -51,7 +64,7 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "Project Status Update Email Template",
-    "description": "A clear project status update email template to keep freelance clients informed on progress mid-project.",
+    "description": "A clear, scannable project status update email template for freelancers. Keep clients informed, prevent micro-management, and flag blockers early.",
     "url": "https://getsolotools.com/email-templates/project-update.html",
     "datePublished": "2026-06-25",
     "dateModified": "2026-06-25",
@@ -74,43 +87,90 @@
     <a href="/email-templates/index.html" class="back-link">&#8592; Back to Templates</a>
     <span class="page-tag">Project Communication</span>
     <h1>Project Status Update Email Template</h1>
-    <p class="intro">Regular status updates keep clients confident and prevent micro-management. You don't need to send one every day — weekly or at key milestones is enough. The key is consistency. Clients who feel informed rarely panic.</p>
+    <p class="intro">Clients who feel uninformed become anxious clients who send check-in emails and schedule unnecessary calls. A brief, structured update sent at a predictable cadence eliminates all of that. The format matters as much as the content — scannable is better than thorough.</p>
 
+    <div class="when-to-send">
+      <strong>When to send</strong>
+      Weekly on longer projects, or after each major milestone on shorter ones. Agree on the update frequency at kickoff so clients know when to expect it.
+    </div>
+
+    <h2>The Template</h2>
     <div class="template-box" id="templateBox">
       <div class="template-header">
         <strong>Email Template</strong>
         <button class="copy-btn" onclick="copyTemplate()">Copy</button>
       </div>
-      <div class="subject-line"><span>Subject:</span> Project Update: [Project Name] - [Week/Date]</div>
+      <div class="subject-line"><span>Subject:</span> Project Update: [Project Name] - [Date]</div>
       <div class="template-body" id="templateContent">Hi [Client Name],
 
-Here's a quick update on where things stand with [project name].
+Here's a quick update on [project name].
 
-Completed this week:
-- [Task or deliverable]
-- [Task or deliverable]
+Completed:
+- [Task or deliverable completed]
+- [Task or deliverable completed]
 
 In progress:
-- [Task] - on track for [date]
+- [Current task] - on track for [date]
 
-Coming up next:
+Up next:
 - [Next milestone or deliverable] by [date]
 
-No blockers at the moment. [Or: I do need [X] from you by [date] to stay on schedule.]
+Blockers / Action needed:
+- [None at the moment] OR [I need [X] from you by [date] to stay on schedule]
+
+Overall status: On track for [final delivery date].
 
 Let me know if you have any questions.
 
 [Your Name]</div>
     </div>
 
-    <div class="tips-section">
-      <h2>Tips for This Email</h2>
+    <div class="section">
+      <h2>Tips for Getting This Right</h2>
       <ul>
-        <li>Break updates into three sections: done, in progress, and coming next. It's scannable and clear.</li>
-        <li>Always flag if you need something from the client and by when. Don't let blockers hide in prose.</li>
+        <li>Use the same structure every time — completed, in progress, up next, blockers. It becomes easy to scan and easy to write.</li>
+        <li>Always flag blockers explicitly and say what you need from the client and by when. Buried in prose, blockers get missed.</li>
         <li>If you're behind, say so proactively. Clients handle bad news better when it's not a surprise.</li>
-        <li>Keep it brief — a status update email should take less than 60 seconds to read.</li>
+        <li>Keep it under 200 words. A status update should take less than 60 seconds to read.</li>
+        <li>Send at the same time each week — predictability builds confidence.</li>
       </ul>
+    </div>
+
+    <div class="section">
+      <h2>Common Mistakes to Avoid</h2>
+      <div class="mistakes">
+        <ul>
+          <li>Sending updates only when something goes wrong — by then it's a crisis, not an update.</li>
+          <li>Writing a wall of text — use bullet points and short sentences. Nobody reads paragraphs in a status email.</li>
+          <li>Burying blockers at the end — if you need something from the client, make it impossible to miss.</li>
+          <li>Skipping updates on short projects — even a one-week project benefits from a midpoint check-in.</li>
+        </ul>
+      </div>
+    </div>
+
+    
+
+    <div class="section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-wrap">
+              <div class="faq-item">
+        <h3>How long should a project update email be?</h3>
+        <p>As short as possible. Three to five bullet points covering what's done, what's in progress, and what's next is ideal. Add a blocker section only if there's something the client needs to act on.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What if the project is behind schedule?</h3>
+        <p>Say so directly. State what's causing the delay, the new expected delivery date, and what you're doing to recover time if possible. Clients respect honesty — they don't respect finding out at the last minute.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Should I send updates even when there's nothing major to report?</h3>
+        <p>Yes — a brief 'everything is on track, next update Friday' message is better than silence. Silence makes clients nervous even when things are fine.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What if the client never reads my updates?</h3>
+        <p>Keep sending them anyway. They serve as a paper trail that protects you if there's ever a dispute about what was communicated and when.</p>
+      </div>
+
+      </div>
     </div>
 
     <div class="related">
@@ -118,6 +178,7 @@ Let me know if you have any questions.
       <div class="related-links">
         <a href="/time-tracker.html">Time Tracker</a>
         <a href="/milestone-calculator.html">Milestone Payment Calculator</a>
+        <a href="/invoice-tracker.html">Invoice Tracker</a>
       </div>
     </div>
     <div class="related" style="margin-top:24px;">

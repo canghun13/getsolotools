@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Responding to a Revision Request Email Template – GetSoloTools</title>
-  <meta name="description" content="A professional email template for responding to a client revision request — including how to handle out-of-scope requests." />
+  <meta name="description" content="A professional email template for responding to client revision requests — including how to handle requests that fall outside your agreed scope." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -21,8 +21,12 @@
     .back-link:hover { color: var(--ink); }
     .page-tag { font-size: 0.75rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; display: block; }
     h1 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem, 4vw, 2.4rem); line-height: 1.2; margin-bottom: 20px; }
-    .intro { font-size: 1rem; line-height: 1.8; color: var(--muted); margin-bottom: 36px; }
-    .template-box { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin: 0 0 36px; }
+    h2 { font-family: 'DM Serif Display', serif; font-size: 1.35rem; margin: 40px 0 14px; }
+    h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+    .intro { font-size: 1rem; line-height: 1.8; color: #444; margin-bottom: 12px; }
+    .when-to-send { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 16px 20px; margin-bottom: 36px; font-size: 0.92rem; line-height: 1.7; color: #444; }
+    .when-to-send strong { color: var(--ink); display: block; margin-bottom: 4px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .template-box { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin: 0 0 12px; }
     .template-header { background: #f5f5f2; padding: 12px 20px; font-size: 12px; color: var(--muted); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
     .template-header strong { color: var(--ink); }
     .copy-btn { background: var(--accent); color: #fff; border: none; border-radius: 5px; font-size: 12px; font-weight: 600; padding: 5px 12px; cursor: pointer; font-family: inherit; transition: opacity 0.15s; }
@@ -30,11 +34,20 @@
     .subject-line { padding: 12px 20px; font-size: 0.88rem; border-bottom: 1px solid var(--border); background: #fafaf8; }
     .subject-line span { font-weight: 600; color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; margin-right: 8px; }
     .template-body { padding: 20px; font-size: 0.92rem; line-height: 1.9; color: #333; white-space: pre-line; }
-    .tips-section h2 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; margin-bottom: 16px; }
-    .tips-section ul { margin: 0 0 36px 20px; }
-    .tips-section li { margin-bottom: 10px; line-height: 1.7; font-size: 0.95rem; }
+    .section { margin-bottom: 36px; }
+    .section ul, .section ol { margin: 0 0 0 20px; }
+    .section li { margin-bottom: 10px; line-height: 1.7; font-size: 0.95rem; }
+    .section p { font-size: 0.95rem; line-height: 1.8; color: #444; margin-bottom: 12px; }
+    .mistakes { background: #fff8f6; border: 1px solid #f5d5c8; border-radius: 8px; padding: 20px 24px; }
+    .mistakes li { color: #5a2a1a; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 18px 0; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h3 { font-size: 0.98rem; font-weight: 600; margin-bottom: 8px; }
+    .faq-item p { font-size: 0.92rem; line-height: 1.75; color: #444; margin: 0; }
+    .variant { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 16px; }
+    .variant h3 { font-size: 0.88rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; padding: 12px 20px; background: #f5f5f2; border-bottom: 1px solid var(--border); margin: 0; }
     .related { margin-top: 36px; }
-    .related h2 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin-bottom: 14px; }
+    .related h2 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin-bottom: 14px; margin-top: 0; }
     .related-links { display: flex; flex-direction: column; gap: 8px; }
     .related-links a { font-size: 0.9rem; color: var(--accent); text-decoration: none; }
     .related-links a:hover { text-decoration: underline; }
@@ -51,7 +64,7 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "Responding to a Revision Request Email Template",
-    "description": "A professional email template for responding to a client revision request — including how to handle out-of-scope requests.",
+    "description": "A professional email template for responding to client revision requests — including how to handle requests that fall outside your agreed scope.",
     "url": "https://getsolotools.com/email-templates/revision-request-response.html",
     "datePublished": "2026-06-25",
     "dateModified": "2026-06-25",
@@ -74,38 +87,83 @@
     <a href="/email-templates/index.html" class="back-link">&#8592; Back to Templates</a>
     <span class="page-tag">Project Communication</span>
     <h1>Responding to a Revision Request Email Template</h1>
-    <p class="intro">Revision requests are normal — but scope creep is where freelance projects break down. This template lets you respond graciously to in-scope revisions while clearly flagging anything extra, along with the cost and timeline impact.</p>
+    <p class="intro">Revision requests are a normal part of every creative project. The challenge is responding in a way that's collaborative and professional while being clear about what's included in your original scope — and what isn't. How you handle this email often defines the tone for the rest of the project.</p>
 
+    <div class="when-to-send">
+      <strong>When to send</strong>
+      Send this as soon as you've reviewed the client's feedback — ideally the same day. Don't let revision requests sit unanswered.
+    </div>
+
+    <h2>The Template</h2>
     <div class="template-box" id="templateBox">
       <div class="template-header">
         <strong>Email Template</strong>
         <button class="copy-btn" onclick="copyTemplate()">Copy</button>
       </div>
-      <div class="subject-line"><span>Subject:</span> Re: Revisions on [Project Name]</div>
+      <div class="subject-line"><span>Subject:</span> Re: Revisions - [Project Name]</div>
       <div class="template-body" id="templateContent">Hi [Client Name],
 
-Thanks for the feedback on [deliverable name] — I appreciate the detail.
+Thank you for the detailed feedback on [deliverable] — I appreciate you taking the time.
 
-I can make the following revisions within our agreed scope:
-- [Change 1]
-- [Change 2]
+Here's what I can address within our agreed scope:
+- [Revision 1]
+- [Revision 2]
+- [Revision 3]
 
-Regarding [out-of-scope request], this falls outside the original scope we agreed on. I'm happy to include it as an additional item — the estimated cost would be $[amount] and it would add [X] days to the timeline.
+Regarding [out-of-scope request]: this falls outside the scope we agreed on in the contract. I'm happy to include it — the additional cost would be $[amount] and it would add approximately [X] days to the timeline. Let me know if you'd like to proceed with that.
 
-Let me know how you'd like to proceed, and I'll get the in-scope revisions started right away.
+I'll get started on the in-scope revisions right away and have them back to you by [date].
 
 Best,
 [Your Name]</div>
     </div>
 
-    <div class="tips-section">
-      <h2>Tips for This Email</h2>
+    <div class="section">
+      <h2>Tips for Getting This Right</h2>
       <ul>
-        <li>Always confirm what's in scope before flagging what isn't — it softens the message.</li>
-        <li>Give a specific price and timeline for out-of-scope work, not a vague 'we can discuss it.'</li>
-        <li>Don't apologize for enforcing your scope — you're running a business, not a charity.</li>
-        <li>If scope creep is recurring, revisit your contract language for future projects.</li>
+        <li>Always acknowledge what you can do before addressing what falls outside scope — lead with yes before you get to the limit.</li>
+        <li>Give a specific price and timeline for out-of-scope work. 'We can discuss it' is vague and delays the decision.</li>
+        <li>Frame out-of-scope items as additions, not refusals. You're not saying no — you're quoting for extra work.</li>
+        <li>Confirm when you'll deliver the in-scope revisions so the client knows what to expect.</li>
+        <li>Keep records of all scope discussions in writing. If a dispute arises later, your email trail is your evidence.</li>
       </ul>
+    </div>
+
+    <div class="section">
+      <h2>Common Mistakes to Avoid</h2>
+      <div class="mistakes">
+        <ul>
+          <li>Doing out-of-scope work without flagging it — this sets a precedent that clients can expand scope for free.</li>
+          <li>Being defensive or apologetic about enforcing scope — your contract defines what's included. Enforcing it is professional, not confrontational.</li>
+          <li>Not giving a price for out-of-scope work — 'that's extra' without a number doesn't move things forward.</li>
+          <li>Agreeing verbally to additions without updating the contract — always get scope changes in writing.</li>
+        </ul>
+      </div>
+    </div>
+
+    
+
+    <div class="section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-wrap">
+              <div class="faq-item">
+        <h3>What counts as a revision versus a new request?</h3>
+        <p>A revision is a change to the deliverable within the original brief — adjusting colors, fixing copy, tweaking layout. A new request is something not in the original scope — adding pages, changing the concept, or requesting entirely new deliverables.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How many revision rounds should I include in my contracts?</h3>
+        <p>Two rounds is standard for most creative work. More than that and projects drag on indefinitely. Be specific in your contract — 'two rounds of revisions to the agreed deliverables' is better than 'reasonable revisions.'</p>
+      </div>
+      <div class="faq-item">
+        <h3>What if the client insists their revision is within scope?</h3>
+        <p>Go back to the written scope of work or contract and point to the specific language. If the scope is ambiguous, you may need to meet in the middle. Use this as a lesson to write more specific scope documents in future.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Should I charge for every small change?</h3>
+        <p>Not necessarily — small corrections (typos, minor tweaks) are usually absorbed. Save out-of-scope charges for meaningful additions that require significant time. Being rigid about tiny things damages the relationship without much financial benefit.</p>
+      </div>
+
+      </div>
     </div>
 
     <div class="related">
@@ -113,6 +171,7 @@ Best,
       <div class="related-links">
         <a href="/contract-generator.html">Contract Generator</a>
         <a href="/scope-of-work.html">Scope of Work Generator</a>
+        <a href="/project-profit.html">Project Profit Calculator</a>
       </div>
     </div>
     <div class="related" style="margin-top:24px;">

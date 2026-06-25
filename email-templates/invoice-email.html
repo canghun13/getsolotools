@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Freelance Invoice Email Template – GetSoloTools</title>
-  <meta name="description" content="A professional email template for sending your invoice to clients. Clear, concise, and easy to customize." />
+  <meta name="description" content="A professional email template for sending your invoice to a client. Includes tips, common mistakes, and variations for different situations." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -21,8 +21,12 @@
     .back-link:hover { color: var(--ink); }
     .page-tag { font-size: 0.75rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; display: block; }
     h1 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem, 4vw, 2.4rem); line-height: 1.2; margin-bottom: 20px; }
-    .intro { font-size: 1rem; line-height: 1.8; color: var(--muted); margin-bottom: 36px; }
-    .template-box { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin: 0 0 36px; }
+    h2 { font-family: 'DM Serif Display', serif; font-size: 1.35rem; margin: 40px 0 14px; }
+    h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+    .intro { font-size: 1rem; line-height: 1.8; color: #444; margin-bottom: 12px; }
+    .when-to-send { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 16px 20px; margin-bottom: 36px; font-size: 0.92rem; line-height: 1.7; color: #444; }
+    .when-to-send strong { color: var(--ink); display: block; margin-bottom: 4px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .template-box { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin: 0 0 12px; }
     .template-header { background: #f5f5f2; padding: 12px 20px; font-size: 12px; color: var(--muted); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
     .template-header strong { color: var(--ink); }
     .copy-btn { background: var(--accent); color: #fff; border: none; border-radius: 5px; font-size: 12px; font-weight: 600; padding: 5px 12px; cursor: pointer; font-family: inherit; transition: opacity 0.15s; }
@@ -30,11 +34,20 @@
     .subject-line { padding: 12px 20px; font-size: 0.88rem; border-bottom: 1px solid var(--border); background: #fafaf8; }
     .subject-line span { font-weight: 600; color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; margin-right: 8px; }
     .template-body { padding: 20px; font-size: 0.92rem; line-height: 1.9; color: #333; white-space: pre-line; }
-    .tips-section h2 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; margin-bottom: 16px; }
-    .tips-section ul { margin: 0 0 36px 20px; }
-    .tips-section li { margin-bottom: 10px; line-height: 1.7; font-size: 0.95rem; }
+    .section { margin-bottom: 36px; }
+    .section ul, .section ol { margin: 0 0 0 20px; }
+    .section li { margin-bottom: 10px; line-height: 1.7; font-size: 0.95rem; }
+    .section p { font-size: 0.95rem; line-height: 1.8; color: #444; margin-bottom: 12px; }
+    .mistakes { background: #fff8f6; border: 1px solid #f5d5c8; border-radius: 8px; padding: 20px 24px; }
+    .mistakes li { color: #5a2a1a; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 18px 0; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h3 { font-size: 0.98rem; font-weight: 600; margin-bottom: 8px; }
+    .faq-item p { font-size: 0.92rem; line-height: 1.75; color: #444; margin: 0; }
+    .variant { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 16px; }
+    .variant h3 { font-size: 0.88rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; padding: 12px 20px; background: #f5f5f2; border-bottom: 1px solid var(--border); margin: 0; }
     .related { margin-top: 36px; }
-    .related h2 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin-bottom: 14px; }
+    .related h2 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin-bottom: 14px; margin-top: 0; }
     .related-links { display: flex; flex-direction: column; gap: 8px; }
     .related-links a { font-size: 0.9rem; color: var(--accent); text-decoration: none; }
     .related-links a:hover { text-decoration: underline; }
@@ -51,7 +64,7 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "Freelance Invoice Email Template",
-    "description": "A professional email template for sending your invoice to clients. Clear, concise, and easy to customize.",
+    "description": "A professional email template for sending your invoice to a client. Includes tips, common mistakes, and variations for different situations.",
     "url": "https://getsolotools.com/email-templates/invoice-email.html",
     "datePublished": "2026-06-25",
     "dateModified": "2026-06-25",
@@ -74,8 +87,14 @@
     <a href="/email-templates/index.html" class="back-link">&#8592; Back to Templates</a>
     <span class="page-tag">Invoicing & Payment</span>
     <h1>Freelance Invoice Email Template</h1>
-    <p class="intro">The email you send with your invoice shapes how quickly you get paid. Keep it short and direct — the invoice has all the details. Your email just needs to introduce it, confirm the total, and tell the client what to do next.</p>
+    <p class="intro">The email you send with your invoice shapes how quickly you get paid. Most freelancers treat it as an afterthought — a quick 'see attached' and nothing more. But a clear, professional invoice email sets expectations, removes friction, and signals that you run a legitimate business.</p>
 
+    <div class="when-to-send">
+      <strong>When to send</strong>
+      Send this the same day you complete a milestone or finish a project. Don't let invoices sit in draft — delay on your end signals that payment isn't urgent.
+    </div>
+
+    <h2>The Template</h2>
     <div class="template-box" id="templateBox">
       <div class="template-header">
         <strong>Email Template</strong>
@@ -96,15 +115,76 @@ Best,
 [Your Name]</div>
     </div>
 
-    <div class="tips-section">
-      <h2>Tips for This Email</h2>
+    <div class="section">
+      <h2>Tips for Getting This Right</h2>
       <ul>
-        <li>Put the invoice number and amount in the subject line so the client can find it easily later.</li>
-        <li>Always include the payment due date in the body — don't make them open the attachment to find it.</li>
-        <li>List the accepted payment methods clearly to avoid back-and-forth.</li>
-        <li>If you use a payment link (PayPal, Stripe, etc.), drop it directly in the email body.</li>
-        <li>Keep the tone warm but professional — you want to make paying as easy as possible.</li>
+        <li>Put the invoice number and amount in the subject line so the client can find it easily later in their inbox.</li>
+        <li>Always include the payment due date in the body — don't make the client open the attachment to find it.</li>
+        <li>List your accepted payment methods clearly. If you have a payment link, drop it directly in the email body.</li>
+        <li>Keep the email short. The invoice has the details — the email just introduces it.</li>
+        <li>If this is a new client, briefly remind them of the project name so there's no confusion.</li>
       </ul>
+    </div>
+
+    <div class="section">
+      <h2>Common Mistakes to Avoid</h2>
+      <div class="mistakes">
+        <ul>
+          <li>Writing only 'Please find attached' with no context — clients get dozens of emails and need a clear reminder of what this is for.</li>
+          <li>Forgetting to actually attach the invoice — always double-check before sending.</li>
+          <li>Not including the due date in the email body — this is the most important piece of information and it should be impossible to miss.</li>
+          <li>Sending from a personal or unprofessional email address — use a business email if you have one.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section"><h2>Variations</h2>      <div class="variant">
+        <h3>For a milestone payment (mid-project)</h3>
+        <div class="template-body">Hi [Client Name],
+
+Attached is Invoice #[002] for the completion of [Milestone Name] — $[amount] as per our agreed payment schedule.
+
+Payment is due by [date]. The next milestone, [Next Milestone], is on track for [date].
+
+Thanks,
+[Your Name]</div>
+      </div>
+      <div class="variant">
+        <h3>For a long-term/retainer client</h3>
+        <div class="template-body">Hi [Client Name],
+
+Here's Invoice #[012] for [Month] — $[amount] as agreed.
+
+Due date: [date]. Payment details below as usual.
+
+[Payment details]
+
+Thanks,
+[Your Name]</div>
+      </div>
+</div>
+
+    <div class="section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-wrap">
+              <div class="faq-item">
+        <h3>Should I send the invoice as a PDF or in the email body?</h3>
+        <p>PDF is the standard — it's professional, easy to file, and preserves formatting. Some freelancers also paste the invoice details in the email body as a backup, but a PDF attachment is always expected.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What payment terms are standard for freelancers?</h3>
+        <p>Net 15 (due in 15 days) is common for freelancers. Net 30 is standard in many industries but gives clients more time to delay. For new clients, consider requiring a deposit upfront and the remainder on delivery.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What if my client says they never received the invoice?</h3>
+        <p>Re-send it immediately and follow up with a read receipt or delivery confirmation. If this happens repeatedly, switch to a platform that confirms delivery, like a dedicated invoicing tool.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Should I number my invoices?</h3>
+        <p>Yes, always. Sequential invoice numbers (Invoice #001, #002, etc.) make it easy to track payments, reference specific invoices in follow-ups, and maintain clean records for tax purposes.</p>
+      </div>
+
+      </div>
     </div>
 
     <div class="related">

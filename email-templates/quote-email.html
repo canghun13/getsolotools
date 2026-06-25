@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Freelance Quote Email Template – GetSoloTools</title>
-  <meta name="description" content="A short, professional email template for sending a pricing quote to a potential freelance client." />
+  <meta name="description" content="A short, professional email template for sending a pricing quote to a freelance client. Includes tips on how to structure your quote and handle negotiation." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -21,8 +21,12 @@
     .back-link:hover { color: var(--ink); }
     .page-tag { font-size: 0.75rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; display: block; }
     h1 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem, 4vw, 2.4rem); line-height: 1.2; margin-bottom: 20px; }
-    .intro { font-size: 1rem; line-height: 1.8; color: var(--muted); margin-bottom: 36px; }
-    .template-box { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin: 0 0 36px; }
+    h2 { font-family: 'DM Serif Display', serif; font-size: 1.35rem; margin: 40px 0 14px; }
+    h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+    .intro { font-size: 1rem; line-height: 1.8; color: #444; margin-bottom: 12px; }
+    .when-to-send { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 16px 20px; margin-bottom: 36px; font-size: 0.92rem; line-height: 1.7; color: #444; }
+    .when-to-send strong { color: var(--ink); display: block; margin-bottom: 4px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .template-box { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin: 0 0 12px; }
     .template-header { background: #f5f5f2; padding: 12px 20px; font-size: 12px; color: var(--muted); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
     .template-header strong { color: var(--ink); }
     .copy-btn { background: var(--accent); color: #fff; border: none; border-radius: 5px; font-size: 12px; font-weight: 600; padding: 5px 12px; cursor: pointer; font-family: inherit; transition: opacity 0.15s; }
@@ -30,11 +34,20 @@
     .subject-line { padding: 12px 20px; font-size: 0.88rem; border-bottom: 1px solid var(--border); background: #fafaf8; }
     .subject-line span { font-weight: 600; color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; margin-right: 8px; }
     .template-body { padding: 20px; font-size: 0.92rem; line-height: 1.9; color: #333; white-space: pre-line; }
-    .tips-section h2 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; margin-bottom: 16px; }
-    .tips-section ul { margin: 0 0 36px 20px; }
-    .tips-section li { margin-bottom: 10px; line-height: 1.7; font-size: 0.95rem; }
+    .section { margin-bottom: 36px; }
+    .section ul, .section ol { margin: 0 0 0 20px; }
+    .section li { margin-bottom: 10px; line-height: 1.7; font-size: 0.95rem; }
+    .section p { font-size: 0.95rem; line-height: 1.8; color: #444; margin-bottom: 12px; }
+    .mistakes { background: #fff8f6; border: 1px solid #f5d5c8; border-radius: 8px; padding: 20px 24px; }
+    .mistakes li { color: #5a2a1a; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 18px 0; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h3 { font-size: 0.98rem; font-weight: 600; margin-bottom: 8px; }
+    .faq-item p { font-size: 0.92rem; line-height: 1.75; color: #444; margin: 0; }
+    .variant { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 16px; }
+    .variant h3 { font-size: 0.88rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; padding: 12px 20px; background: #f5f5f2; border-bottom: 1px solid var(--border); margin: 0; }
     .related { margin-top: 36px; }
-    .related h2 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin-bottom: 14px; }
+    .related h2 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin-bottom: 14px; margin-top: 0; }
     .related-links { display: flex; flex-direction: column; gap: 8px; }
     .related-links a { font-size: 0.9rem; color: var(--accent); text-decoration: none; }
     .related-links a:hover { text-decoration: underline; }
@@ -51,7 +64,7 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "Freelance Quote Email Template",
-    "description": "A short, professional email template for sending a pricing quote to a potential freelance client.",
+    "description": "A short, professional email template for sending a pricing quote to a freelance client. Includes tips on how to structure your quote and handle negotiation.",
     "url": "https://getsolotools.com/email-templates/quote-email.html",
     "datePublished": "2026-06-25",
     "dateModified": "2026-06-25",
@@ -74,8 +87,14 @@
     <a href="/email-templates/index.html" class="back-link">&#8592; Back to Templates</a>
     <span class="page-tag">Proposals & Quotes</span>
     <h1>Freelance Quote Email Template</h1>
-    <p class="intro">A quote email should be short and clear. The client asked for a number — give it to them quickly, with just enough context to understand what's included. Save the full detail for the contract or proposal stage.</p>
+    <p class="intro">A quote email should do one thing: give the client the number they asked for, with just enough context to understand what they're getting. Don't bury the price in paragraphs of preamble. Be clear, be direct, and make it easy for them to say yes — or to open a conversation if they want to negotiate.</p>
 
+    <div class="when-to-send">
+      <strong>When to send</strong>
+      Send within 24 hours of a client asking for a quote. The faster you respond, the more professional you appear and the less likely they are to have moved on to another freelancer.
+    </div>
+
+    <h2>The Template</h2>
     <div class="template-box" id="templateBox">
       <div class="template-header">
         <strong>Email Template</strong>
@@ -86,29 +105,85 @@
 
 Thanks for reaching out. Based on what you've shared about [project description], here's my quote:
 
-[Service/Deliverable]: $[amount]
-[Service/Deliverable]: $[amount]
+[Service or Deliverable 1]: $[amount]
+[Service or Deliverable 2]: $[amount]
 
-Total estimate: $[total]
+Total: $[total]
 
-This covers [brief scope description]. The quote is valid for [14 days].
+This covers [brief scope summary]. The quote is valid for 14 days.
 
-Timeline: approximately [X weeks] from project start.
+Estimated timeline: [X weeks] from project start.
 
-Let me know if you have questions or if you'd like to adjust the scope. Happy to hop on a quick call to discuss.
+Let me know if you have questions, or if you'd like to adjust the scope. I'm happy to hop on a quick call to discuss.
 
 Best,
 [Your Name]</div>
     </div>
 
-    <div class="tips-section">
-      <h2>Tips for This Email</h2>
+    <div class="section">
+      <h2>Tips for Getting This Right</h2>
       <ul>
-        <li>Break down the quote by deliverable so the client can see where the cost comes from.</li>
-        <li>Set a validity period — quotes that never expire let clients stall indefinitely.</li>
-        <li>Include the timeline alongside the price so they understand what they're buying.</li>
-        <li>Offer to adjust scope — it opens a negotiation that keeps the conversation moving.</li>
+        <li>Break the quote down by deliverable or service — it shows transparency and helps the client understand where the cost comes from.</li>
+        <li>Set a validity period. A quote that never expires lets clients stall, then come back months later expecting the same price.</li>
+        <li>Include the timeline alongside the price — clients want to know when they'll have the work, not just what it costs.</li>
+        <li>Offer to adjust scope — it opens a conversation rather than forcing a binary yes/no decision.</li>
+        <li>Don't apologize for your rate. State it confidently.</li>
       </ul>
+    </div>
+
+    <div class="section">
+      <h2>Common Mistakes to Avoid</h2>
+      <div class="mistakes">
+        <ul>
+          <li>Giving a range instead of a specific number — ranges make you look uncertain and clients always anchor to the lower end.</li>
+          <li>Under-quoting to win the project — you'll resent the work and the client will get lower quality than they'd have gotten if you'd priced it properly.</li>
+          <li>Not including a timeline — clients need to know when to expect delivery, not just how much it costs.</li>
+          <li>Forgetting to follow up — if you don't hear back within 3-5 days, a single follow-up is appropriate and often closes the deal.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section"><h2>Variations</h2>      <div class="variant">
+        <h3>Hourly rate quote</h3>
+        <div class="template-body">Hi [Client Name],
+
+Based on what you've described, here's my estimate:
+
+Rate: $[hourly rate]/hour
+Estimated hours: [X-Y hours]
+Estimated total: $[low]-$[high]
+
+I'll track time carefully and send a detailed breakdown with each invoice. The estimate is based on [scope assumptions].
+
+Timeline: approximately [X weeks] from start.
+
+Let me know if you'd like to proceed or have questions.
+
+[Your Name]</div>
+      </div>
+</div>
+
+    <div class="section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-wrap">
+              <div class="faq-item">
+        <h3>Fixed price or hourly — which should I quote?</h3>
+        <p>Fixed price works best when the scope is clearly defined. Hourly is better for open-ended work or projects that are likely to evolve. Many freelancers use fixed price for most projects and hourly for revisions or ongoing work.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What if the client says my quote is too high?</h3>
+        <p>Ask what budget they have in mind, then work backwards to see if you can reduce scope to fit it — not reduce your rate. If you can't make it work at a rate that's fair to you, it's okay to decline.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Should I include taxes in my quote?</h3>
+        <p>In the US, freelancers generally don't charge sales tax on services (though this varies by state). Your quote should be your fee. Self-employment taxes are your own responsibility, not added to the client invoice.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How detailed should the scope description be in the quote email?</h3>
+        <p>One or two sentences is enough for the email. The full scope detail goes in the contract or proposal. The quote email is just the number and a brief summary — save the detailed breakdown for later.</p>
+      </div>
+
+      </div>
     </div>
 
     <div class="related">
@@ -116,6 +191,7 @@ Best,
       <div class="related-links">
         <a href="/quote.html">Quote Generator</a>
         <a href="/hourly-rate.html">Hourly Rate Calculator</a>
+        <a href="/project-profit.html">Project Profit Calculator</a>
       </div>
     </div>
     <div class="related" style="margin-top:24px;">

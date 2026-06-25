@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Project Completion Email Template – GetSoloTools</title>
-  <meta name="description" content="A professional project completion email template for freelancers — deliver final files, invite feedback, and close the project cleanly." />
+  <meta name="description" content="A professional project completion email template for freelancers — deliver final files, close the project cleanly, and set up your next invoice." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -21,8 +21,12 @@
     .back-link:hover { color: var(--ink); }
     .page-tag { font-size: 0.75rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; display: block; }
     h1 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem, 4vw, 2.4rem); line-height: 1.2; margin-bottom: 20px; }
-    .intro { font-size: 1rem; line-height: 1.8; color: var(--muted); margin-bottom: 36px; }
-    .template-box { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin: 0 0 36px; }
+    h2 { font-family: 'DM Serif Display', serif; font-size: 1.35rem; margin: 40px 0 14px; }
+    h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+    .intro { font-size: 1rem; line-height: 1.8; color: #444; margin-bottom: 12px; }
+    .when-to-send { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 16px 20px; margin-bottom: 36px; font-size: 0.92rem; line-height: 1.7; color: #444; }
+    .when-to-send strong { color: var(--ink); display: block; margin-bottom: 4px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .template-box { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin: 0 0 12px; }
     .template-header { background: #f5f5f2; padding: 12px 20px; font-size: 12px; color: var(--muted); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
     .template-header strong { color: var(--ink); }
     .copy-btn { background: var(--accent); color: #fff; border: none; border-radius: 5px; font-size: 12px; font-weight: 600; padding: 5px 12px; cursor: pointer; font-family: inherit; transition: opacity 0.15s; }
@@ -30,11 +34,20 @@
     .subject-line { padding: 12px 20px; font-size: 0.88rem; border-bottom: 1px solid var(--border); background: #fafaf8; }
     .subject-line span { font-weight: 600; color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; margin-right: 8px; }
     .template-body { padding: 20px; font-size: 0.92rem; line-height: 1.9; color: #333; white-space: pre-line; }
-    .tips-section h2 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; margin-bottom: 16px; }
-    .tips-section ul { margin: 0 0 36px 20px; }
-    .tips-section li { margin-bottom: 10px; line-height: 1.7; font-size: 0.95rem; }
+    .section { margin-bottom: 36px; }
+    .section ul, .section ol { margin: 0 0 0 20px; }
+    .section li { margin-bottom: 10px; line-height: 1.7; font-size: 0.95rem; }
+    .section p { font-size: 0.95rem; line-height: 1.8; color: #444; margin-bottom: 12px; }
+    .mistakes { background: #fff8f6; border: 1px solid #f5d5c8; border-radius: 8px; padding: 20px 24px; }
+    .mistakes li { color: #5a2a1a; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 18px 0; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h3 { font-size: 0.98rem; font-weight: 600; margin-bottom: 8px; }
+    .faq-item p { font-size: 0.92rem; line-height: 1.75; color: #444; margin: 0; }
+    .variant { background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 16px; }
+    .variant h3 { font-size: 0.88rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; padding: 12px 20px; background: #f5f5f2; border-bottom: 1px solid var(--border); margin: 0; }
     .related { margin-top: 36px; }
-    .related h2 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin-bottom: 14px; }
+    .related h2 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin-bottom: 14px; margin-top: 0; }
     .related-links { display: flex; flex-direction: column; gap: 8px; }
     .related-links a { font-size: 0.9rem; color: var(--accent); text-decoration: none; }
     .related-links a:hover { text-decoration: underline; }
@@ -51,7 +64,7 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "Project Completion Email Template",
-    "description": "A professional project completion email template for freelancers — deliver final files, invite feedback, and close the project cleanly.",
+    "description": "A professional project completion email template for freelancers — deliver final files, close the project cleanly, and set up your next invoice.",
     "url": "https://getsolotools.com/email-templates/project-completion.html",
     "datePublished": "2026-06-25",
     "dateModified": "2026-06-25",
@@ -74,44 +87,89 @@
     <a href="/email-templates/index.html" class="back-link">&#8592; Back to Templates</a>
     <span class="page-tag">Project Communication</span>
     <h1>Project Completion Email Template</h1>
-    <p class="intro">The project completion email is your final handoff. It delivers the work, confirms what's included, and reminds the client of the outstanding invoice — all in one tidy email. A clean finish leaves a strong impression and increases the chance of repeat work.</p>
+    <p class="intro">The project completion email is your last chance to make a great impression and close out the project professionally. It delivers the work, sets expectations for the final review, triggers the final payment, and leaves the door open for repeat business — all in one email.</p>
 
+    <div class="when-to-send">
+      <strong>When to send</strong>
+      Send this the moment you're ready to hand off the final deliverables — not before. Don't send a 'it's almost done' email; wait until everything is actually ready.
+    </div>
+
+    <h2>The Template</h2>
     <div class="template-box" id="templateBox">
       <div class="template-header">
         <strong>Email Template</strong>
         <button class="copy-btn" onclick="copyTemplate()">Copy</button>
       </div>
-      <div class="subject-line"><span>Subject:</span> [Project Name] Complete - Final Delivery</div>
+      <div class="subject-line"><span>Subject:</span> [Project Name] - Final Delivery</div>
       <div class="template-body" id="templateContent">Hi [Client Name],
 
-I'm pleased to let you know that [project name] is complete. Please find the final deliverables attached / linked below.
+I'm pleased to let you know that [project name] is complete. Please find the final deliverables below.
 
 Delivery includes:
 - [Deliverable 1]
 - [Deliverable 2]
-- [Any source files, passwords, or handover documents]
+- [Deliverable 3 — source files, passwords, handover docs, etc.]
 
-[Optional: brief note on anything the client needs to know about using the files]
+[Any important notes about the files — formats, how to use them, access instructions]
 
-Please review everything and let me know if you have any questions. If any minor tweaks are needed, I'm happy to address them.
+Please review everything and let me know if you have any questions. I'm happy to address any minor tweaks within our agreed scope.
 
-As a reminder, the final invoice (#[X]) for $[amount] is due on [date].
+As a reminder, the final invoice (#[X]) for $[amount] is due on [date]. I've attached it here for your records.
 
-It's been a pleasure working with you on this. I hope we get to work together again.
+[Optional: link to payment portal]
+
+It's been a pleasure working with you on this. I'd love to work together again — don't hesitate to reach out when your next project comes up.
 
 Best,
 [Your Name]</div>
     </div>
 
-    <div class="tips-section">
-      <h2>Tips for This Email</h2>
+    <div class="section">
+      <h2>Tips for Getting This Right</h2>
       <ul>
-        <li>List every deliverable explicitly so nothing gets missed or disputed later.</li>
-        <li>Include any important handover information (login credentials, file formats, usage notes).</li>
-        <li>Always include the final invoice reminder in this email — it's the natural moment for it.</li>
-        <li>End warmly — this is a relationship asset. Happy clients refer new clients.</li>
-        <li>Follow up in 30 days to ask for a testimonial while the project is still fresh.</li>
+        <li>List every deliverable explicitly so there's no ambiguity about what you've delivered and what's been received.</li>
+        <li>Include any handover information the client will need — file formats, login credentials, instructions for use.</li>
+        <li>Attach the final invoice in this email — it's the natural moment for it and reduces the chance of it being ignored.</li>
+        <li>End with a warm, genuine close — this is a relationship asset. Happy clients refer new clients.</li>
+        <li>Set a clear scope for any final tweaks — 'minor tweaks within our agreed scope' signals you're open to feedback but not unlimited revisions.</li>
       </ul>
+    </div>
+
+    <div class="section">
+      <h2>Common Mistakes to Avoid</h2>
+      <div class="mistakes">
+        <ul>
+          <li>Sending the deliverables without the invoice — don't make two separate emails when one will do. The delivery email is the perfect moment to include the final invoice.</li>
+          <li>Not listing what's included — clients don't always remember exactly what was in scope. Listing deliverables confirms you've completed everything agreed.</li>
+          <li>Leaving the door to revisions too wide open — 'let me know if you need any changes' without a scope qualifier invites unlimited requests.</li>
+          <li>Not following up if there's no response after a week — a brief check-in to confirm they received and reviewed everything is perfectly appropriate.</li>
+        </ul>
+      </div>
+    </div>
+
+    
+
+    <div class="section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-wrap">
+              <div class="faq-item">
+        <h3>What if the client requests significant changes after the final delivery?</h3>
+        <p>Refer to your contract's revision policy. If the requested changes are within your agreed revision rounds, accommodate them. If they exceed the scope, quote for the additional work before proceeding.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How long should I give the client to review the final deliverables?</h3>
+        <p>Typically 5-7 business days is reasonable. If your contract specifies a review period, refer to that. Make it clear in your follow-up if silence after that period means the project is considered accepted.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Should I send a testimonial request with the completion email?</h3>
+        <p>Not in the same email — it's too much at once. Wait 1-2 weeks after delivery, once the client has had time to use the work, then send a separate testimonial request.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What format should I send the final files in?</h3>
+        <p>In whatever format the client will actually use. For design work, this typically means source files (AI, PSD, Figma) plus export formats (PDF, PNG, JPEG). For writing, this means the final document in Google Docs or Word, plus a PDF. Always confirm format preferences at kickoff, not at delivery.</p>
+      </div>
+
+      </div>
     </div>
 
     <div class="related">
@@ -119,6 +177,7 @@ Best,
       <div class="related-links">
         <a href="/">Invoice Generator</a>
         <a href="/receipt.html">Receipt Generator</a>
+        <a href="/invoice-tracker.html">Invoice Tracker</a>
       </div>
     </div>
     <div class="related" style="margin-top:24px;">
