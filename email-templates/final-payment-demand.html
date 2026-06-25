@@ -78,10 +78,10 @@
 
     <div class="template-box" id="templateBox">
       <div class="template-header">
-        <span><strong>Email Template</strong> &mdash; click to copy</span>
+        <strong>Email Template</strong>
         <button class="copy-btn" onclick="copyTemplate()">Copy</button>
       </div>
-      <div class="subject-line"><span>Subject:</span>Final Notice: Invoice #[001] - Immediate Payment Required</div>
+      <div class="subject-line"><span>Subject:</span> Final Notice: Invoice #[001] - Immediate Payment Required</div>
       <div class="template-body" id="templateContent">Hi [Client Name],
 
 This is a final notice regarding Invoice #[001] for $[amount], originally due on [due date] and now [X] days overdue.
@@ -111,8 +111,19 @@ I would strongly prefer to resolve this directly. Please contact me immediately 
       </ul>
     </div>
 
-    [('Late Payment Fee Calculator', '/late-payment-fee.html'), ('Contract Generator', '/contract-generator.html')]
-    [('How to Handle Late Payments as a Freelancer', '/blog/how-to-handle-late-payments-as-a-freelancer.html')]
+    <div class="related">
+      <h2>Related Tools</h2>
+      <div class="related-links">
+        <a href="/late-payment-fee.html">Late Payment Fee Calculator</a>
+        <a href="/contract-generator.html">Contract Generator</a>
+      </div>
+    </div>
+    <div class="related" style="margin-top:24px;">
+      <h2>Related Guides</h2>
+      <div class="related-links">
+        <a href="/blog/how-to-handle-late-payments-as-a-freelancer.html">How to Handle Late Payments as a Freelancer</a>
+      </div>
+    </div>
   </div>
 
   <footer>
@@ -128,9 +139,9 @@ I would strongly prefer to resolve this directly. Please contact me immediately 
 
   <script>
     function copyTemplate() {
-      var subject = document.querySelector('.subject-line').textContent.replace('Subject:', 'Subject:').trim();
-      var body = document.getElementById('templateContent').textContent.trim();
-      var full = subject + '\n\n' + body;
+      var subject = document.querySelector('.subject-line').innerText.replace('Subject:', '').trim();
+      var body = document.getElementById('templateContent').innerText.trim();
+      var full = 'Subject: ' + subject + '\n\n' + body;
       navigator.clipboard.writeText(full).then(function() {
         var btn = document.querySelector('.copy-btn');
         btn.textContent = 'Copied!';

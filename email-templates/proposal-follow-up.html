@@ -78,10 +78,10 @@
 
     <div class="template-box" id="templateBox">
       <div class="template-header">
-        <span><strong>Email Template</strong> &mdash; click to copy</span>
+        <strong>Email Template</strong>
         <button class="copy-btn" onclick="copyTemplate()">Copy</button>
       </div>
-      <div class="subject-line"><span>Subject:</span>Following Up: Proposal for [Project Name]</div>
+      <div class="subject-line"><span>Subject:</span> Following Up: Proposal for [Project Name]</div>
       <div class="template-body" id="templateContent">Hi [Client Name],
 
 I wanted to follow up on the proposal I sent over on [date] for [project name].
@@ -103,12 +103,23 @@ Best,
         <li>Don't apologize for following up — it signals weakness. Just check in matter-of-factly.</li>
         <li>Re-open the door on scope/budget — it invites negotiation rather than a hard no.</li>
         <li>Remind them of the validity date to create a soft deadline.</li>
-        <li>If they still don't respond after a second follow-up, move on. One follow-up is fine; three is too many.</li>
+        <li>If they still don't respond after a second follow-up, move on.</li>
       </ul>
     </div>
 
-    [('Client Proposal Generator', '/client-proposal.html')]
-    [('How to Write a Freelance Proposal', '/blog/how-to-write-a-freelance-proposal.html'), ('Freelance Rate Negotiation Guide', '/blog/freelance-rate-negotiation-guide.html')]
+    <div class="related">
+      <h2>Related Tools</h2>
+      <div class="related-links">
+        <a href="/client-proposal.html">Client Proposal Generator</a>
+      </div>
+    </div>
+    <div class="related" style="margin-top:24px;">
+      <h2>Related Guides</h2>
+      <div class="related-links">
+        <a href="/blog/how-to-write-a-freelance-proposal.html">How to Write a Freelance Proposal</a>
+        <a href="/blog/freelance-rate-negotiation-guide.html">Freelance Rate Negotiation Guide</a>
+      </div>
+    </div>
   </div>
 
   <footer>
@@ -124,9 +135,9 @@ Best,
 
   <script>
     function copyTemplate() {
-      var subject = document.querySelector('.subject-line').textContent.replace('Subject:', 'Subject:').trim();
-      var body = document.getElementById('templateContent').textContent.trim();
-      var full = subject + '\n\n' + body;
+      var subject = document.querySelector('.subject-line').innerText.replace('Subject:', '').trim();
+      var body = document.getElementById('templateContent').innerText.trim();
+      var full = 'Subject: ' + subject + '\n\n' + body;
       navigator.clipboard.writeText(full).then(function() {
         var btn = document.querySelector('.copy-btn');
         btn.textContent = 'Copied!';

@@ -78,10 +78,10 @@
 
     <div class="template-box" id="templateBox">
       <div class="template-header">
-        <span><strong>Email Template</strong> &mdash; click to copy</span>
+        <strong>Email Template</strong>
         <button class="copy-btn" onclick="copyTemplate()">Copy</button>
       </div>
-      <div class="subject-line"><span>Subject:</span>Quote for [Project Name] - [Your Name/Business]</div>
+      <div class="subject-line"><span>Subject:</span> Quote for [Project Name] - [Your Name/Business]</div>
       <div class="template-body" id="templateContent">Hi [Client Name],
 
 Thanks for reaching out. Based on what you've shared about [project description], here's my quote:
@@ -111,8 +111,20 @@ Best,
       </ul>
     </div>
 
-    [('Quote Generator', '/quote.html'), ('Hourly Rate Calculator', '/hourly-rate.html')]
-    [('How to Send a Freelance Quote', '/blog/how-to-send-a-freelance-quote.html'), ('How to Price a Freelance Project', '/blog/how-to-price-a-freelance-project.html')]
+    <div class="related">
+      <h2>Related Tools</h2>
+      <div class="related-links">
+        <a href="/quote.html">Quote Generator</a>
+        <a href="/hourly-rate.html">Hourly Rate Calculator</a>
+      </div>
+    </div>
+    <div class="related" style="margin-top:24px;">
+      <h2>Related Guides</h2>
+      <div class="related-links">
+        <a href="/blog/how-to-send-a-freelance-quote.html">How to Send a Freelance Quote</a>
+        <a href="/blog/how-to-price-a-freelance-project.html">How to Price a Freelance Project</a>
+      </div>
+    </div>
   </div>
 
   <footer>
@@ -128,9 +140,9 @@ Best,
 
   <script>
     function copyTemplate() {
-      var subject = document.querySelector('.subject-line').textContent.replace('Subject:', 'Subject:').trim();
-      var body = document.getElementById('templateContent').textContent.trim();
-      var full = subject + '\n\n' + body;
+      var subject = document.querySelector('.subject-line').innerText.replace('Subject:', '').trim();
+      var body = document.getElementById('templateContent').innerText.trim();
+      var full = 'Subject: ' + subject + '\n\n' + body;
       navigator.clipboard.writeText(full).then(function() {
         var btn = document.querySelector('.copy-btn');
         btn.textContent = 'Copied!';

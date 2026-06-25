@@ -74,14 +74,14 @@
     <a href="/email-templates/index.html" class="back-link">&#8592; Back to Templates</a>
     <span class="page-tag">Client Onboarding</span>
     <h1>Project Kickoff Email Template</h1>
-    <p class="intro">A kickoff email locks in the project details once everything is confirmed. It gives both you and the client a shared reference point for the timeline and responsibilities, and prevents the awkward 'wait, I thought you were starting next week' conversations.</p>
+    <p class="intro">A kickoff email locks in the project details once everything is confirmed. It gives both you and the client a shared reference point for the timeline and responsibilities, and prevents the 'wait, I thought you were starting next week' conversations.</p>
 
     <div class="template-box" id="templateBox">
       <div class="template-header">
-        <span><strong>Email Template</strong> &mdash; click to copy</span>
+        <strong>Email Template</strong>
         <button class="copy-btn" onclick="copyTemplate()">Copy</button>
       </div>
-      <div class="subject-line"><span>Subject:</span>We're Officially Kicking Off - [Project Name]</div>
+      <div class="subject-line"><span>Subject:</span> We're Officially Kicking Off - [Project Name]</div>
       <div class="template-body" id="templateContent">Hi [Client Name],
 
 Great news - the contract is signed and we're ready to go. Here's a quick summary to make sure we're fully aligned before I get started.
@@ -112,8 +112,20 @@ Excited to get started — let's make this great.
       </ul>
     </div>
 
-    [('Client Intake Form', '/client-intake-form.html'), ('Time Tracker', '/time-tracker.html')]
-    [('Freelance Client Onboarding Checklist', '/blog/freelance-client-onboarding-checklist.html'), ('Freelance Project Management Tips', '/blog/freelance-project-management-tips.html')]
+    <div class="related">
+      <h2>Related Tools</h2>
+      <div class="related-links">
+        <a href="/client-intake-form.html">Client Intake Form</a>
+        <a href="/time-tracker.html">Time Tracker</a>
+      </div>
+    </div>
+    <div class="related" style="margin-top:24px;">
+      <h2>Related Guides</h2>
+      <div class="related-links">
+        <a href="/blog/freelance-client-onboarding-checklist.html">Freelance Client Onboarding Checklist</a>
+        <a href="/blog/freelance-project-management-tips.html">Freelance Project Management Tips</a>
+      </div>
+    </div>
   </div>
 
   <footer>
@@ -129,9 +141,9 @@ Excited to get started — let's make this great.
 
   <script>
     function copyTemplate() {
-      var subject = document.querySelector('.subject-line').textContent.replace('Subject:', 'Subject:').trim();
-      var body = document.getElementById('templateContent').textContent.trim();
-      var full = subject + '\n\n' + body;
+      var subject = document.querySelector('.subject-line').innerText.replace('Subject:', '').trim();
+      var body = document.getElementById('templateContent').innerText.trim();
+      var full = 'Subject: ' + subject + '\n\n' + body;
       navigator.clipboard.writeText(full).then(function() {
         var btn = document.querySelector('.copy-btn');
         btn.textContent = 'Copied!';

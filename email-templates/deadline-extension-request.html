@@ -78,10 +78,10 @@
 
     <div class="template-box" id="templateBox">
       <div class="template-header">
-        <span><strong>Email Template</strong> &mdash; click to copy</span>
+        <strong>Email Template</strong>
         <button class="copy-btn" onclick="copyTemplate()">Copy</button>
       </div>
-      <div class="subject-line"><span>Subject:</span>Timeline Update: [Project Name]</div>
+      <div class="subject-line"><span>Subject:</span> Timeline Update: [Project Name]</div>
       <div class="template-body" id="templateContent">Hi [Client Name],
 
 I wanted to get ahead of something regarding the [project name] deadline.
@@ -103,14 +103,25 @@ Best,
       <ul>
         <li>Ask as early as possible — the longer you wait, the harder it is for the client to accommodate.</li>
         <li>Give a specific new date, not 'a few more days.' Vagueness signals disorganization.</li>
-        <li>Keep the reason brief and honest. You don't need to over-explain — one clear sentence is enough.</li>
+        <li>Keep the reason brief and honest. One clear sentence is enough.</li>
         <li>Confirm that the rest of the project is on track to reassure them this is an isolated issue.</li>
         <li>Offer to get on a call if the deadline is particularly critical for them.</li>
       </ul>
     </div>
 
-    [('Time Tracker', '/time-tracker.html'), ('Milestone Payment Calculator', '/milestone-calculator.html')]
-    [('Freelance Project Management Tips', '/blog/freelance-project-management-tips.html')]
+    <div class="related">
+      <h2>Related Tools</h2>
+      <div class="related-links">
+        <a href="/time-tracker.html">Time Tracker</a>
+        <a href="/milestone-calculator.html">Milestone Payment Calculator</a>
+      </div>
+    </div>
+    <div class="related" style="margin-top:24px;">
+      <h2>Related Guides</h2>
+      <div class="related-links">
+        <a href="/blog/freelance-project-management-tips.html">Freelance Project Management Tips</a>
+      </div>
+    </div>
   </div>
 
   <footer>
@@ -126,9 +137,9 @@ Best,
 
   <script>
     function copyTemplate() {
-      var subject = document.querySelector('.subject-line').textContent.replace('Subject:', 'Subject:').trim();
-      var body = document.getElementById('templateContent').textContent.trim();
-      var full = subject + '\n\n' + body;
+      var subject = document.querySelector('.subject-line').innerText.replace('Subject:', '').trim();
+      var body = document.getElementById('templateContent').innerText.trim();
+      var full = 'Subject: ' + subject + '\n\n' + body;
       navigator.clipboard.writeText(full).then(function() {
         var btn = document.querySelector('.copy-btn');
         btn.textContent = 'Copied!';

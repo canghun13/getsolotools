@@ -78,10 +78,10 @@
 
     <div class="template-box" id="templateBox">
       <div class="template-header">
-        <span><strong>Email Template</strong> &mdash; click to copy</span>
+        <strong>Email Template</strong>
         <button class="copy-btn" onclick="copyTemplate()">Copy</button>
       </div>
-      <div class="subject-line"><span>Subject:</span>A Small Favor - [Your Name]</div>
+      <div class="subject-line"><span>Subject:</span> A Small Favor - [Your Name]</div>
       <div class="template-body" id="templateContent">Hi [Client Name],
 
 I hope you're doing well. I really enjoyed working on [project name] with you and I'm glad it went well.
@@ -100,14 +100,25 @@ Best,
       <h2>Tips for This Email</h2>
       <ul>
         <li>Send this within 1-2 weeks of a successful project completion — while the experience is fresh.</li>
-        <li>Be specific about what kind of work or client you're looking for. 'Anyone who needs help' is too vague.</li>
-        <li>Make it easy to say no — 'no pressure' language removes the awkwardness and paradoxically makes people more likely to say yes.</li>
+        <li>Be specific about what kind of work or client you're looking for.</li>
+        <li>Make it easy to say no — 'no pressure' language paradoxically makes people more likely to say yes.</li>
         <li>Never ask for a referral before the project is finished or if the project didn't go well.</li>
       </ul>
     </div>
 
-    [('Client Proposal Generator', '/client-proposal.html')]
-    [('How to Find Freelance Clients', '/blog/how-to-find-freelance-clients.html'), ('How to Scale Your Freelance Business', '/blog/how-to-scale-your-freelance-business.html')]
+    <div class="related">
+      <h2>Related Tools</h2>
+      <div class="related-links">
+        <a href="/client-proposal.html">Client Proposal Generator</a>
+      </div>
+    </div>
+    <div class="related" style="margin-top:24px;">
+      <h2>Related Guides</h2>
+      <div class="related-links">
+        <a href="/blog/how-to-find-freelance-clients.html">How to Find Freelance Clients</a>
+        <a href="/blog/how-to-scale-your-freelance-business.html">How to Scale Your Freelance Business</a>
+      </div>
+    </div>
   </div>
 
   <footer>
@@ -123,9 +134,9 @@ Best,
 
   <script>
     function copyTemplate() {
-      var subject = document.querySelector('.subject-line').textContent.replace('Subject:', 'Subject:').trim();
-      var body = document.getElementById('templateContent').textContent.trim();
-      var full = subject + '\n\n' + body;
+      var subject = document.querySelector('.subject-line').innerText.replace('Subject:', '').trim();
+      var body = document.getElementById('templateContent').innerText.trim();
+      var full = 'Subject: ' + subject + '\n\n' + body;
       navigator.clipboard.writeText(full).then(function() {
         var btn = document.querySelector('.copy-btn');
         btn.textContent = 'Copied!';

@@ -78,10 +78,10 @@
 
     <div class="template-box" id="templateBox">
       <div class="template-header">
-        <span><strong>Email Template</strong> &mdash; click to copy</span>
+        <strong>Email Template</strong>
         <button class="copy-btn" onclick="copyTemplate()">Copy</button>
       </div>
-      <div class="subject-line"><span>Subject:</span>Re: Revisions on [Project Name]</div>
+      <div class="subject-line"><span>Subject:</span> Re: Revisions on [Project Name]</div>
       <div class="template-body" id="templateContent">Hi [Client Name],
 
 Thanks for the feedback on [deliverable name] — I appreciate the detail.
@@ -108,8 +108,19 @@ Best,
       </ul>
     </div>
 
-    [('Contract Generator', '/contract-generator.html'), ('Scope of Work Generator', '/scope-of-work.html')]
-    [('How to Write a Freelance Contract', '/blog/how-to-write-a-freelance-contract.html')]
+    <div class="related">
+      <h2>Related Tools</h2>
+      <div class="related-links">
+        <a href="/contract-generator.html">Contract Generator</a>
+        <a href="/scope-of-work.html">Scope of Work Generator</a>
+      </div>
+    </div>
+    <div class="related" style="margin-top:24px;">
+      <h2>Related Guides</h2>
+      <div class="related-links">
+        <a href="/blog/how-to-write-a-freelance-contract.html">How to Write a Freelance Contract</a>
+      </div>
+    </div>
   </div>
 
   <footer>
@@ -125,9 +136,9 @@ Best,
 
   <script>
     function copyTemplate() {
-      var subject = document.querySelector('.subject-line').textContent.replace('Subject:', 'Subject:').trim();
-      var body = document.getElementById('templateContent').textContent.trim();
-      var full = subject + '\n\n' + body;
+      var subject = document.querySelector('.subject-line').innerText.replace('Subject:', '').trim();
+      var body = document.getElementById('templateContent').innerText.trim();
+      var full = 'Subject: ' + subject + '\n\n' + body;
       navigator.clipboard.writeText(full).then(function() {
         var btn = document.querySelector('.copy-btn');
         btn.textContent = 'Copied!';

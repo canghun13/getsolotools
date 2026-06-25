@@ -78,10 +78,10 @@
 
     <div class="template-box" id="templateBox">
       <div class="template-header">
-        <span><strong>Email Template</strong> &mdash; click to copy</span>
+        <strong>Email Template</strong>
         <button class="copy-btn" onclick="copyTemplate()">Copy</button>
       </div>
-      <div class="subject-line"><span>Subject:</span>NDA for [Project Name] - Please Review and Sign</div>
+      <div class="subject-line"><span>Subject:</span> NDA for [Project Name] - Please Review and Sign</div>
       <div class="template-body" id="templateContent">Hi [Client Name],
 
 Before we dive into the details of [project name], I'd like to have a mutual Non-Disclosure Agreement in place to protect both of our interests.
@@ -109,8 +109,19 @@ Best,
       </ul>
     </div>
 
-    [('NDA Generator', '/nda-generator.html'), ('Contract Generator', '/contract-generator.html')]
-    [('How to Write a Freelance NDA', '/blog/how-to-write-a-freelance-nda.html')]
+    <div class="related">
+      <h2>Related Tools</h2>
+      <div class="related-links">
+        <a href="/nda-generator.html">NDA Generator</a>
+        <a href="/contract-generator.html">Contract Generator</a>
+      </div>
+    </div>
+    <div class="related" style="margin-top:24px;">
+      <h2>Related Guides</h2>
+      <div class="related-links">
+        <a href="/blog/how-to-write-a-freelance-nda.html">How to Write a Freelance NDA</a>
+      </div>
+    </div>
   </div>
 
   <footer>
@@ -126,9 +137,9 @@ Best,
 
   <script>
     function copyTemplate() {
-      var subject = document.querySelector('.subject-line').textContent.replace('Subject:', 'Subject:').trim();
-      var body = document.getElementById('templateContent').textContent.trim();
-      var full = subject + '\n\n' + body;
+      var subject = document.querySelector('.subject-line').innerText.replace('Subject:', '').trim();
+      var body = document.getElementById('templateContent').innerText.trim();
+      var full = 'Subject: ' + subject + '\n\n' + body;
       navigator.clipboard.writeText(full).then(function() {
         var btn = document.querySelector('.copy-btn');
         btn.textContent = 'Copied!';
