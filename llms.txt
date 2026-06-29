@@ -105,3 +105,7 @@ GetSoloTools provides a suite of free tools designed for freelancers, independen
 - [Asking for a Referral Email Template](https://getsolotools.com/email-templates/referral-request.html): Ask a happy client to refer you to others without feeling awkward.
 - [Requesting a Testimonial Email Template](https://getsolotools.com/email-templates/testimonial-request.html): Ask for a review or testimonial after a successful project.
 - [Sending an NDA Email Template](https://getsolotools.com/email-templates/sending-nda.html): Send a Non-Disclosure Agreement to a client before sharing sensitive project details.
+- [Rate Increase Notice Email Template](https://getsolotools.com/email-templates/rate-increase.html): Notify existing clients of a freelance rate increase professionally and with enough notice.
+- [Turning Down a Project Email Template](https://getsolotools.com/email-templates/declining-project.html): Decline a freelance project politely and professionally without burning bridges.
+- [Ending a Client Relationship Email Template](https://getsolotools.com/email-templates/ending-client-relationship.html): Step away from an ongoing client relationship gracefully and professionally.
+- [Out of Office / Vacation Notice Email Template](https://getsolotools.com/email-templates/out-of-office.html): Let clients know you're taking time off and set clear expectations before you go.
