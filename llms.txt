@@ -109,3 +109,5 @@ GetSoloTools provides a suite of free tools designed for freelancers, independen
 - [Turning Down a Project Email Template](https://getsolotools.com/email-templates/declining-project.html): Decline a freelance project politely and professionally without burning bridges.
 - [Ending a Client Relationship Email Template](https://getsolotools.com/email-templates/ending-client-relationship.html): Step away from an ongoing client relationship gracefully and professionally.
 - [Out of Office / Vacation Notice Email Template](https://getsolotools.com/email-templates/out-of-office.html): Let clients know you're taking time off and set clear expectations before you go.
+- [How to Get Freelance Retainer Clients](https://getsolotools.com/blog/how-to-get-freelance-retainer-clients.html): How to find, pitch, structure, and keep retainer clients for stable monthly freelance income.
+- [Freelance Payment Terms Guide](https://getsolotools.com/blog/freelance-payment-terms-guide.html): What Net 30, Net 15, deposits, and milestone payments mean — and how to get clients to pay faster.
