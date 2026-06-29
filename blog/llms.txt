@@ -1,0 +1,113 @@
+# GetSoloTools
+
+> Free browser-based tools for freelancers. No sign-up required. Everything runs in the browser — invoices, contracts, calculators, and time tracking for independent contractors and self-employed professionals.
+
+GetSoloTools provides a suite of free tools designed for freelancers, independent contractors, and self-employed professionals. All tools work entirely in the browser with no account required. The site also publishes practical guides on freelance finance, contracts, client management, and getting paid.
+
+## Tools
+
+- [Invoice Generator](https://getsolotools.com/): Create professional freelance invoices with itemized line items, tax calculation, and PDF-ready output.
+- [Receipt Generator](https://getsolotools.com/receipt.html): Generate payment receipts to send clients after an invoice has been paid.
+- [Quote Generator](https://getsolotools.com/quote.html): Build project quotes and estimates to send to prospective clients before work begins.
+- [Hourly Rate Calculator](https://getsolotools.com/hourly-rate.html): Calculate a sustainable freelance hourly rate based on target income, billable hours, taxes, and expenses.
+- [Tax Estimator](https://getsolotools.com/tax-estimator.html): Estimate quarterly self-employment tax obligations for US-based freelancers, including SE tax and income tax.
+- [Late Payment Fee Calculator](https://getsolotools.com/late-payment-fee.html): Calculate the total amount owed on an overdue invoice including accumulated late fees at a specified monthly rate.
+- [Project Profit Calculator](https://getsolotools.com/project-profit.html): Calculate the true profit of a freelance project after accounting for hours worked, expenses, and taxes.
+- [Freelance Budget Planner](https://getsolotools.com/budget-planner.html): Build a monthly budget for variable freelance income, separating fixed costs from discretionary spending.
+- [Contract Generator](https://getsolotools.com/contract-generator.html): Generate a basic freelance service contract with customizable terms covering scope, payment, revisions, and IP.
+- [Invoice Tracker](https://getsolotools.com/invoice-tracker.html): Track the status of multiple client invoices — sent, paid, overdue — in one place without a subscription.
+- [Client Proposal Generator](https://getsolotools.com/client-proposal.html): Create a structured project proposal to send to prospective clients, including scope, deliverables, and pricing.
+- [Time Tracker](https://getsolotools.com/time-tracker.html): Track billable hours by project and client directly in the browser, with session history and export.
+- [Freelance Savings Calculator](https://getsolotools.com/savings-calculator.html): Calculate how much to save each month for taxes, retirement, and an emergency fund based on your freelance income and goals.
+- [Milestone Payment Calculator](https://getsolotools.com/milestone-calculator.html): Split a project's total fee into milestone payments by percentage or fixed amount, with due dates and exportable payment schedule.
+- [NDA Generator](https://getsolotools.com/nda-generator.html): Create a mutual or one-way non-disclosure agreement for freelance projects. Fill in party details, define confidential information, and download a PDF NDA instantly.
+- [Freelance Scope of Work Generator](https://getsolotools.com/scope-of-work.html): Create a professional scope of work for any freelance project. Define deliverables, exclusions, milestones, revision policy, and payment terms — download as a clean PDF. Free, no sign-up required.
+- [Freelance Expense Report Generator](https://getsolotools.com/expense-report.html): Create a professional expense report for client reimbursement or tax records. Add itemized expenses by category, see a category breakdown, and download as PDF instantly.
+- [Client Intake Form](https://getsolotools.com/client-intake-form.html): Generate a professional client intake form to collect project details, goals, budget, timeline, deliverables, and communication preferences before starting work. Download as PDF.
+
+## Guides: Getting Paid & Late Fees
+
+- [How to Handle Late Payments as a Freelancer](https://getsolotools.com/blog/how-to-handle-late-payments-as-a-freelancer.html): How to follow up professionally, charge late fees, and prevent late payment in future contracts.
+- [Late Fee Laws for Freelancers in New York](https://getsolotools.com/blog/late-fee-laws-freelancers-new-york.html): NY Freelance Isn't Free Act, maximum late fee rates, and how to collect overdue invoices in New York.
+- [Late Fee Laws for Freelancers in California](https://getsolotools.com/blog/late-fee-laws-freelancers-california.html): California usury law context, commercial late fee rules, and enforcement options for CA freelancers.
+- [Late Fee Laws for Freelancers in Texas](https://getsolotools.com/blog/late-fee-laws-freelancers-texas.html): Texas contract law, $20,000 small claims limit, and late fee enforcement for TX freelancers.
+- [Late Fee Laws for Freelancers in Florida](https://getsolotools.com/blog/late-fee-laws-freelancers-florida.html): Florida's commercial late fee rules, reasonableness standard, and collection options.
+- [Late Fee Laws for Freelancers in Illinois](https://getsolotools.com/blog/late-fee-laws-freelancers-illinois.html): Illinois Freelance Workers Protection Act, triple damages, and late fee enforcement for IL freelancers.
+- [Late Fee Laws for Freelancers in Washington State](https://getsolotools.com/blog/late-fee-laws-freelancers-washington.html): Washington state rules, Seattle Independent Contractor Protections Ordinance, and late fee enforcement.
+- [Late Fee Laws for Freelancers in Ohio](https://getsolotools.com/blog/late-fee-laws-freelancers-ohio.html): Ohio commercial late fee rules, Prompt Payment Act for government clients, and small claims options.
+- [Late Fee Laws for Freelancers in Georgia](https://getsolotools.com/blog/late-fee-laws-freelancers-georgia.html): Georgia's 7% legal default interest rate, commercial rate options, and Magistrate Court for collection.
+- [Late Fee Laws for Freelancers in New Jersey](https://getsolotools.com/blog/late-fee-laws-freelancers-new-jersey.html): NJ Freelance Worker Protection Act, double damages, written contract requirements, and payment deadlines.
+- [Late Fee Laws for Freelancers in Pennsylvania](https://getsolotools.com/blog/late-fee-laws-freelancers-pennsylvania.html): Pennsylvania's 6% default interest rate, commercial contract options, Philadelphia Wage Theft ordinance, and small claims up to $12,000.
+- [Late Fee Laws for Freelancers in Michigan](https://getsolotools.com/blog/late-fee-laws-freelancers-michigan.html): Michigan's 5% default rate (one of the lowest in the US), commercial rate options, and small claims up to $7,000.
+- [Late Fee Laws for Freelancers in Colorado](https://getsolotools.com/blog/late-fee-laws-freelancers-colorado.html): Colorado's 8% default rate, Prompt Payment Act for government clients, Denver gig worker protections, and small claims up to $7,500.
+
+## Guides: Finance & Expenses
+
+- [How to Write a Freelance Expense Report (Free Template)](https://getsolotools.com/blog/how-to-write-a-freelance-expense-report.html): When to use an expense report vs an invoice, what to include, how to categorize expenses, and how to use expense reports for tax deductions.
+
+## Guides: Invoicing
+
+- [How to Write a Freelance Invoice That Gets You Paid Faster](https://getsolotools.com/blog/how-to-write-a-freelance-invoice.html): What to include on a freelance invoice, common mistakes, and how to send it effectively.
+- [Freelance Invoice vs Receipt: What's the Difference?](https://getsolotools.com/blog/freelance-invoice-vs-receipt.html): When to send an invoice vs a receipt and why both matter for freelance record-keeping.
+- [How to Write a Freelance Invoice Email (With Templates)](https://getsolotools.com/blog/how-to-write-a-freelance-invoice-email.html): Email templates for sending invoices, following up on overdue payments, and handling disputes.
+- [How to Send a Freelance Quote That Wins the Project](https://getsolotools.com/blog/how-to-send-a-freelance-quote.html): What to include in a freelance quote, how to price accurately, common mistakes, and how to follow up effectively.
+
+## Guides: Pricing & Rates
+
+- [How to Set Your Freelance Hourly Rate Without Undercharging](https://getsolotools.com/blog/how-to-set-your-freelance-hourly-rate.html): Formula for calculating a freelance hourly rate that covers taxes, expenses, and target income.
+- [How to Negotiate Your Freelance Rate (Without Feeling Awkward)](https://getsolotools.com/blog/freelance-rate-negotiation-guide.html): Tactics for negotiating higher rates with clients, including how to handle pushback.
+- [How to Price a Freelance Project: Fixed Fee vs Hourly Rate](https://getsolotools.com/blog/how-to-price-a-freelance-project.html): When to use fixed-fee vs hourly pricing and how to calculate the right number for each model.
+
+## Guides: Contracts
+
+- [How to Write a Scope of Work for Freelance Projects](https://getsolotools.com/blog/how-to-write-a-scope-of-work-for-freelance-projects.html): How to write precise deliverables, why exclusions matter, milestone-based timelines, revision policy, and how to get a scope of work signed before work starts.
+- [How to Write a Freelance Contract (With Free Template)](https://getsolotools.com/blog/how-to-write-a-freelance-contract.html): What to include in a freelance contract to protect scope, payment, IP, and revision terms.
+- [Freelance Contract Red Flags to Watch Out For](https://getsolotools.com/blog/freelance-contract-red-flags.html): Contract clauses that signal a problematic client and how to handle them before signing.
+- [How to Write a Freelance NDA (And When You Actually Need One)](https://getsolotools.com/blog/how-to-write-a-freelance-nda.html): When freelancers need an NDA, mutual vs one-way agreements, what to include, and how to get it signed quickly.
+
+## Guides: Taxes & Finance
+
+- [Freelance Tax Guide: What to Set Aside and When to Pay](https://getsolotools.com/blog/freelance-tax-guide-for-beginners.html): US freelance tax overview — self-employment tax, quarterly payments, and how much to save.
+- [7 Common Freelance Tax Mistakes (And How to Avoid Them)](https://getsolotools.com/blog/common-freelance-tax-mistakes.html): The most costly freelance tax errors and how to avoid them.
+- [How to Budget as a Freelancer When Your Income Is Unpredictable](https://getsolotools.com/blog/freelance-budget-planning-guide.html): Budgeting system for variable income, including fixed costs, tax reserves, and emergency funds.
+- [How to Track Freelance Income and Expenses (Without an Accountant)](https://getsolotools.com/blog/how-to-track-freelance-income-and-expenses.html): A practical system for categorizing income and expenses, setting aside taxes, and doing a monthly financial review.
+
+## Guides: Clients & Business
+
+- [How to Find Freelance Clients as a Beginner](https://getsolotools.com/blog/how-to-find-freelance-clients.html): Practical strategies for landing first clients without a large portfolio or network.
+- [How to Write a Freelance Proposal That Wins the Job](https://getsolotools.com/blog/how-to-write-a-freelance-proposal.html): Proposal structure and language that converts prospects into paying clients.
+- [Freelance Client Onboarding Checklist: How to Start Every Project Right](https://getsolotools.com/blog/freelance-client-onboarding-checklist.html): Step-by-step checklist for onboarding new freelance clients before starting work.
+- [Freelance Project Management: How to Keep Projects on Track](https://getsolotools.com/blog/freelance-project-management-tips.html): How to manage scope, deadlines, and client communication on freelance projects.
+- [How to Create a Freelance Portfolio That Gets You Hired](https://getsolotools.com/blog/how-to-create-a-freelance-portfolio.html): What to include in a freelance portfolio, how to present it, and how to build one from scratch.
+- [How to Scale Your Freelance Business Beyond Trading Time for Money](https://getsolotools.com/blog/how-to-scale-your-freelance-business.html): Strategies for growing freelance income without proportionally increasing hours worked.
+- [Freelance Work-Life Balance: How to Protect Your Time and Energy](https://getsolotools.com/blog/freelance-work-life-balance.html): Boundary-setting and time management strategies to avoid burnout as a freelancer.
+- [How to Calculate Late Fees on Unpaid Freelance Invoices](https://getsolotools.com/blog/how-to-calculate-late-fees-on-invoices.html): The math behind late fee calculation, how to issue a follow-up invoice with late fees, and how to communicate the charge professionally.
+
+## Email Templates
+
+- [Freelance Invoice Email Template](https://getsolotools.com/email-templates/invoice-email.html): The standard email to send when delivering an invoice to a client.
+- [Invoice Follow-Up Email Template](https://getsolotools.com/email-templates/invoice-follow-up.html): A polite reminder email for invoices that are due or slightly overdue.
+- [Late Payment Notice Email Template](https://getsolotools.com/email-templates/late-payment-notice.html): A firmer email for invoices that are significantly overdue.
+- [Final Payment Demand Email Template](https://getsolotools.com/email-templates/final-payment-demand.html): A last-resort email before escalating to collections or legal action.
+- [Payment Received Confirmation Email Template](https://getsolotools.com/email-templates/payment-received.html): Confirm payment received and close the invoice professionally.
+- [Project Proposal Email Template](https://getsolotools.com/email-templates/project-proposal-email.html): The email to send when delivering a formal proposal to a prospective client.
+- [Freelance Quote Email Template](https://getsolotools.com/email-templates/quote-email.html): A short email for sharing a pricing estimate with a potential client.
+- [Proposal Follow-Up Email Template](https://getsolotools.com/email-templates/proposal-follow-up.html): Check in professionally after sending a proposal with no response.
+- [New Client Welcome Email Template](https://getsolotools.com/email-templates/new-client-welcome.html): Set expectations and kick off the client relationship on the right foot.
+- [Sending a Contract Email Template](https://getsolotools.com/email-templates/sending-contract.html): The email to send when sharing a contract for signature.
+- [Sending a Scope of Work Email Template](https://getsolotools.com/email-templates/sending-scope-of-work.html): Introduce your scope of work document clearly and professionally.
+- [Project Kickoff Email Template](https://getsolotools.com/email-templates/project-kickoff.html): Confirm project start with timeline, deliverables, and next steps.
+- [Project Status Update Email Template](https://getsolotools.com/email-templates/project-update.html): Keep clients informed on progress mid-project.
+- [Responding to a Revision Request Email Template](https://getsolotools.com/email-templates/revision-request-response.html): Handle revision requests professionally, including out-of-scope ones.
+- [Requesting a Deadline Extension Email Template](https://getsolotools.com/email-templates/deadline-extension-request.html): Ask for more time without damaging the client relationship.
+- [Project Completion Email Template](https://getsolotools.com/email-templates/project-completion.html): Deliver final files, confirm completion, and remind client of final invoice.
+- [Cold Outreach Email Template](https://getsolotools.com/email-templates/cold-outreach.html): Reach out to a potential client you've never worked with before.
+- [Asking for a Referral Email Template](https://getsolotools.com/email-templates/referral-request.html): Ask a happy client to refer you to others without feeling awkward.
+- [Requesting a Testimonial Email Template](https://getsolotools.com/email-templates/testimonial-request.html): Ask for a review or testimonial after a successful project.
+- [Sending an NDA Email Template](https://getsolotools.com/email-templates/sending-nda.html): Send a Non-Disclosure Agreement to a client before sharing sensitive project details.
+- [Rate Increase Notice Email Template](https://getsolotools.com/email-templates/rate-increase.html): Notify existing clients of a freelance rate increase professionally and with enough notice.
+- [Turning Down a Project Email Template](https://getsolotools.com/email-templates/declining-project.html): Decline a freelance project politely and professionally without burning bridges.
+- [Ending a Client Relationship Email Template](https://getsolotools.com/email-templates/ending-client-relationship.html): Step away from an ongoing client relationship gracefully and professionally.
+- [Out of Office / Vacation Notice Email Template](https://getsolotools.com/email-templates/out-of-office.html): Let clients know you're taking time off and set clear expectations before you go.
+- [How to Get Freelance Retainer Clients](https://getsolotools.com/blog/how-to-get-freelance-retainer-clients.html): How to find, pitch, structure, and keep retainer clients for stable monthly freelance income.
+- [Freelance Payment Terms Guide](https://getsolotools.com/blog/freelance-payment-terms-guide.html): What Net 30, Net 15, deposits, and milestone payments mean — and how to get clients to pay faster.
