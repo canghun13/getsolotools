@@ -1114,12 +1114,12 @@ async function generatePDF() {
   const total = discounted + taxAmt;
 
   const totalsX = W - margin - 70;
-  const totalsRight = W - margin;
+  const totalsRight = W - margin - 2;
 
   function totalsLine(label, value, bold = false) {
     if (bold) {
       doc.setFillColor(26, 26, 26);
-      doc.rect(totalsX - 4, y - 4, 70 + 4, 11, 'F');
+      doc.rect(totalsX - 4, y - 4, (totalsRight + 4) - (totalsX - 4), 11, 'F');
       doc.setTextColor(255, 255, 255);
     } else {
       doc.setTextColor(80, 80, 80);
