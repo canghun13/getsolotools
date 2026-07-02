@@ -1134,6 +1134,7 @@ async function generatePDF() {
   totalsLine('Subtotal', `${sym}${subtotal.toFixed(2)}`);
   if (discount > 0) totalsLine(`Discount (${discount}%)`, `-${sym}${discountAmt.toFixed(2)}`);
   if (taxRate > 0) totalsLine(`Tax (${taxRate}%)`, `${sym}${taxAmt.toFixed(2)}`);
+  y += 3;
   totalsLine('TOTAL DUE', `${sym}${total.toFixed(2)}`, true);
 
   // NOTES
