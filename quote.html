@@ -562,10 +562,10 @@ async function generatePDF() {
   y += 6;
   const taxAmt = subtotal * (taxRate/100);
   const total = subtotal + taxAmt;
-  const totalsX = W-margin-70; const totalsRight = W-margin-2;
+  const totalsX = W-margin-70; const totalsRight = W-margin-4;
 
   function totalsLine(label, value, bold=false) {
-    if (bold) { doc.setFillColor(45,91,227); doc.rect(totalsX-4, y-4, (totalsRight+4)-(totalsX-4), 11, 'F'); doc.setTextColor(255,255,255); }
+    if (bold) { doc.setFillColor(45,91,227); doc.rect(totalsX-4, y-4, 74, 11, 'F'); doc.setTextColor(255,255,255); }
     else { doc.setTextColor(80,80,80); }
     doc.setFont('helvetica', bold?'bold':'normal'); doc.setFontSize(bold?11:9);
     doc.text(label, totalsX, y+3); doc.text(value, totalsRight, y+3, {align:'right'});
