@@ -21,7 +21,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root { --ink: #1a1a1a; --accent: #2d5be3; --blog: #1a9e6e; --paper: #fafaf8; --muted: #6b6b6b; --border: #e5e5e2; }
     body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; display: flex; flex-direction: column; }
-    .article-wrap { max-width: 720px; margin: 0 auto; padding: 56px 24px 80px; flex: 1; }
+    .article-wrap { max-width: 720px; margin: 0 auto; padding: 56px 24px 80px; flex: 1; min-width: 0; }
     .article-tag { font-size: 0.75rem; font-weight: 600; color: var(--blog); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; display: block; }
     .article-wrap h1 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem, 4vw, 2.4rem); line-height: 1.2; margin-bottom: 16px; }
     .article-meta { font-size: 0.82rem; color: #aaa; margin-bottom: 40px; }
@@ -60,7 +60,7 @@
     .footer-links a:hover { color: var(--ink); }
     .footer-links .footer-blog { color: var(--blog); font-weight: 600; }
     .footer-copy { font-size: 0.78rem; color: #aaa; }
-    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; min-width: 0; }
 </style>
 <script type="application/ld+json">
 {
