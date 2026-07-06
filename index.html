@@ -501,6 +501,15 @@
     }
     .invoice-body { padding: 1.25rem; }
   }
+  @media (max-width: 380px) {
+    .items-header, .item-row {
+      grid-template-columns: 1fr 42px 64px 64px 24px;
+      gap: 4px;
+    }
+    .item-row input[type="number"] { padding: 6px 4px; font-size: 12px; }
+    .item-amount { font-size: 12px; padding: 6px 4px; }
+    .item-row .btn-remove { width: 24px; height: 24px; font-size: 14px; }
+  }
 
   /* HAMBURGER MENU */
   .hamburger {

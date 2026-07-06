@@ -161,6 +161,14 @@
   }
 
   @media (max-width: 600px) { .row-2 { grid-template-columns: 1fr; } }
+  @media (max-width: 560px) {
+    .sow-body { padding: 1.25rem; }
+    .milestone-header, .milestone-row { grid-template-columns: 1fr 90px 28px; gap: 4px; }
+    .milestone-header span { font-size: 9px; }
+  }
+  @media (max-width: 380px) {
+    .milestone-header, .milestone-row { grid-template-columns: 1fr 74px 24px; gap: 3px; }
+  }
 
   .field-group { display: flex; flex-direction: column; gap: 0.75rem; }
 
