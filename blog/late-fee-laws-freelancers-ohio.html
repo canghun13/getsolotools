@@ -38,7 +38,7 @@
     .highlight-box p + p { margin-top: 10px; }
     .warning-box { background: #fff8f0; border: 1px solid #f0d9b0; border-left: 4px solid #e0933a; border-radius: 8px; padding: 20px 24px; margin: 28px 0; }
     .warning-box p { margin: 0; font-size: 0.95rem; }
-    .data-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 15px; }
+    .data-table { width: 100%; min-width: 400px; border-collapse: collapse; margin: 24px 0; font-size: 15px; }
     .data-table th { background: #1a1a1a; color: #fff; padding: 10px 14px; text-align: left; font-size: 13px; }
     .data-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
     .data-table tr:nth-child(even) td { background: #f5f5f2; }
@@ -54,7 +54,8 @@
     .footer-links a:hover { color: var(--ink); }
     .footer-links .footer-blog { color: var(--blog); font-weight: 600; }
     .footer-copy { font-size: 0.78rem; color: #aaa; }
-  </style>
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+</style>
 
 <script type="application/ld+json">
 {
@@ -134,7 +135,7 @@
       </div>
 
       <h2>Ohio Late Fee Quick Reference</h2>
-      <table class="data-table">
+      <div class="table-scroll"><table class="data-table">
         <thead>
           <tr>
             <th>Item</th>
@@ -175,7 +176,7 @@
             <td>Up to $6,000</td>
           </tr>
         </tbody>
-      </table>
+      </table></div>
 
       <h2>Collecting Late Payments in Ohio</h2>
       <p>Ohio Small Claims Court handles disputes up to $6,000 in Municipal Court. For amounts between $6,000 and $15,000, Municipal Court handles cases with a simplified procedure. Amounts above $15,000 go to Common Pleas Court, where you'll likely want an attorney.</p>

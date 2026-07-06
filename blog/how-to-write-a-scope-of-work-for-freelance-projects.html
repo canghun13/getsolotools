@@ -147,6 +147,7 @@
 
     .compare-table {
       width: 100%;
+      min-width: 480px;
       border-collapse: collapse;
       margin: 24px 0;
       font-size: 15px;
@@ -227,7 +228,8 @@
 
     .back-link { display: inline-block; margin-bottom: 32px; font-size: 0.85rem; color: var(--muted); text-decoration: none; }
     .back-link:hover { color: var(--ink); }
-  </style>
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+</style>
 
 <script type="application/ld+json">
 {
@@ -295,7 +297,7 @@
       For shorter or lower-stakes projects, a detailed SOW with payment terms baked in can sometimes replace a separate contract. But for any project over a few hundred dollars, using both gives you the strongest protection.
     </p>
 
-    <table class="compare-table">
+    <div class="table-scroll"><table class="compare-table">
       <thead>
         <tr>
           <th>Document</th>
@@ -315,7 +317,7 @@
           <td>Any project where work scope could be interpreted differently</td>
         </tr>
       </tbody>
-    </table>
+    </table></div>
 
     <h2 id="deliverables">Writing Precise Deliverables</h2>
     <p>

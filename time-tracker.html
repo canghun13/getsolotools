@@ -97,7 +97,7 @@
   .filter-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
   .log-toolbar-right { display: flex; gap: 8px; }
 
-  table { width: 100%; border-collapse: collapse; }
+  table { width: 100%; min-width: 640px; border-collapse: collapse; }
   th { padding: 10px 16px; text-align: left; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-3); background: #fafaf8; border-bottom: 1px solid var(--border); }
   td { padding: 11px 16px; font-size: 14px; border-bottom: 1px solid var(--border); vertical-align: middle; }
   tr:last-child td { border-bottom: none; }
@@ -121,6 +121,7 @@
   @media (max-width: 600px) {
     th:nth-child(4), td:nth-child(4) { display: none; }
   }
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 </style>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350"
        crossorigin="anonymous"></script>
@@ -278,7 +279,7 @@
         <button class="btn btn-ghost" style="padding:6px 14px; font-size:13px; color:#dc2626;" onclick="clearAll()">Clear All</button>
       </div>
     </div>
-    <table>
+    <div class="table-scroll"><table>
       <thead>
         <tr>
           <th>Date</th>
@@ -291,7 +292,7 @@
         </tr>
       </thead>
       <tbody id="logTable"></tbody>
-    </table>
+    </table></div>
     <div class="empty-state" id="emptyState">
       <div class="icon">⏱</div>
       <p>No time entries yet. Start the timer or log time manually.</p>

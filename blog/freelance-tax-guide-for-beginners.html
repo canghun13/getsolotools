@@ -34,7 +34,7 @@
     .article-body ul, .article-body ol { margin: 0 0 20px 20px; }
     .article-body ul li, .article-body ol li { margin-bottom: 8px; line-height: 1.7; }
     .article-body strong { font-weight: 600; }
-    .article-body table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.92rem; }
+    .article-body table { width: 100%; min-width: 480px; border-collapse: collapse; margin: 24px 0; font-size: 0.92rem; }
     .article-body th { background: #f0f4ff; text-align: left; padding: 10px 14px; font-weight: 600; border: 1px solid #d0dcf8; }
     .article-body td { padding: 10px 14px; border: 1px solid var(--border); }
     .article-body tr:nth-child(even) td { background: #fafaf8; }
@@ -63,7 +63,8 @@
     .footer-links a:hover { color: var(--ink); }
     .footer-links .footer-blog { color: var(--blog); font-weight: 600; }
     .footer-copy { font-size: 0.78rem; color: #aaa; }
-  </style>
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -201,7 +202,7 @@
     <p>Missing quarterly payments doesn't result in criminal penalties, but the IRS will charge you an underpayment penalty when you file your annual return — even if you pay everything owed by April.</p>
 
     <h3>2026 Quarterly Due Dates</h3>
-    <table>
+    <div class="table-scroll"><table>
       <thead>
         <tr><th>Quarter</th><th>Income period</th><th>Due date</th></tr>
       </thead>
@@ -211,7 +212,7 @@
         <tr><td>Q3</td><td>June – August</td><td>September 15, 2026</td></tr>
         <tr><td>Q4</td><td>September – December</td><td>January 15, 2027</td></tr>
       </tbody>
-    </table>
+    </table></div>
 
     <h3>How to Calculate Your Quarterly Payment</h3>
     <p>The easiest method is the <strong>safe harbor rule</strong>: pay 100% of last year's total tax bill across four equal quarterly payments, and you won't be penalized — regardless of how much you earn this year. If you earned over $150,000 last year, that threshold is 110% of last year's tax.</p>

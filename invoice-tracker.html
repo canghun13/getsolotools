@@ -58,7 +58,7 @@
 
   /* Table */
   .table-wrap { background: var(--white); border: 1px solid var(--border); border-radius: 0 0 12px 12px; overflow: hidden; }
-  table { width: 100%; border-collapse: collapse; }
+  table { width: 100%; min-width: 640px; border-collapse: collapse; }
   th { padding: 10px 16px; text-align: left; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-3); background: #fafaf8; border-bottom: 1px solid var(--border); }
   td { padding: 12px 16px; font-size: 14px; border-bottom: 1px solid var(--border); vertical-align: middle; }
   tr:last-child td { border-bottom: none; }
@@ -101,6 +101,7 @@
     th:nth-child(3), td:nth-child(3),
     th:nth-child(4), td:nth-child(4) { display: none; }
   }
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 </style>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350"
        crossorigin="anonymous"></script>
@@ -173,7 +174,7 @@
   </div>
 
   <div class="table-wrap">
-    <table>
+    <div class="table-scroll"><table>
       <thead>
         <tr>
           <th>Invoice #</th>
@@ -186,7 +187,7 @@
         </tr>
       </thead>
       <tbody id="invoiceTable"></tbody>
-    </table>
+    </table></div>
     <div class="empty-state" id="emptyState">
       <div style="font-size:2rem;">🧾</div>
       <p>No invoices yet. Add your first one to get started.</p>
