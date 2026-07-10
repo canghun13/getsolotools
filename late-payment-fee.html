@@ -190,7 +190,38 @@
     "name": "GetSoloTools",
     "url": "https://getsolotools.com"
   },
+  "dateModified": "2026-07-10",
   "keywords": "late payment fee calculator, late fee calculator, overdue invoice calculator, freelance late fee"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Calculate a Late Fee on an Overdue Invoice",
+  "description": "Calculate the total amount owed on an overdue invoice including late fees, using either a daily or monthly interest rate.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Find your daily or monthly rate",
+      "text": "Divide your annual rate by 365 to get a daily rate (e.g., 18% ÷ 365 = 0.0493% per day), or use your stated monthly rate directly (e.g., 1.5% per month)."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Count the days or months overdue",
+      "text": "Count the number of days (or full months) between the invoice due date and today, or the date you plan to send the follow-up."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Multiply the rate by the overdue period",
+      "text": "Multiply the invoice amount by the daily rate and the number of days overdue (or the monthly rate and the number of months overdue) to get the late fee amount."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Add the fee to the original invoice amount",
+      "text": "Add the calculated late fee to the original invoice amount to get the new total due, then issue an updated invoice or follow-up email showing the breakdown."
+    }
+  ]
 }
 </script>
 <script type="application/ld+json">
@@ -244,6 +275,30 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Include a line like: 'Invoices unpaid after [X] days will be subject to a late fee of [X]% per month on the outstanding balance.' Add this to every contract and reference it on every invoice."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the maximum late fee I'm legally allowed to charge?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There's no single federal maximum. Most states don't cap late fees on business-to-business contracts as long as the rate is disclosed upfront and considered 'reasonable' — 1.5% per month (18% annually) is the widely accepted standard nationwide. A few states set a specific default rate that applies only when your contract is silent (often 5–8% annually); once you state your own rate in writing, that default no longer applies. Check your state's guide below for specifics."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is charging interest the same thing as a late fee?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In practice, yes — both terms describe the same thing: a charge that accrues on an unpaid balance after the due date. 'Late fee' is more common in freelance and small business contracts, while 'interest' is the term used in most state statutes. This calculator works the same way regardless of which word your contract uses, as long as you enter the rate and overdue period."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I use simple interest or compound interest for late fees?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Simple interest — calculated only on the original invoice amount, not on previously accrued fees — is the standard for freelance late fees and what this calculator uses. Compounding (charging interest on interest) is less common in freelance contracts and can look punitive to a court if disputed. If you want to compound fees, state that explicitly in your contract; otherwise, simple interest is the safer default."
       }
     }
   ]
@@ -404,6 +459,7 @@
 <div class="seo-section" style="max-width:860px;margin:3rem auto 0;padding:0 1rem 4rem;border-top:1px solid var(--border, #e8e6e0);">
   <div style="max-width:720px;margin:0 auto;">
     <h2 style="font-family:'DM Serif Display',serif;font-size:1.6rem;margin:2.5rem 0 1rem;letter-spacing:-0.02em;color:var(--ink,#1a1a1a);">How to Use the Late Payment Fee Calculator</h2>
+    <p style="font-size:0.82rem;color:#999;margin:-0.5rem 0 1.25rem;">Last updated: July 2026</p>
     <div style="font-size:1rem;line-height:1.8;color:var(--ink,#1a1a1a);">
       
         <p>When a client pays late, you're entitled to charge interest on the overdue balance — as long as you've stated that in your contract and on your invoice. This calculator tells you exactly how much a client owes including accumulated late fees, so you can issue an updated invoice with confidence.</p>
@@ -479,6 +535,18 @@
       <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">How do I add a late fee clause to my contract? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
       <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Include a line like: 'Invoices unpaid after [X] days will be subject to a late fee of [X]% per month on the outstanding balance.' Add this to every contract and reference it on every invoice.</p>
     </details>
+    <details style="border-bottom:1px solid #e8e4dd;padding:1rem 0;">
+      <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">What's the maximum late fee I'm legally allowed to charge? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
+      <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">There's no single federal maximum. Most states don't cap late fees on business-to-business contracts as long as the rate is disclosed upfront and considered "reasonable" — 1.5% per month (18% annually) is the widely accepted standard nationwide. A few states set a specific default rate that applies only when your contract is silent (often 5–8% annually); once you state your own rate in writing, that default no longer applies. Check your state's guide below for specifics.</p>
+    </details>
+    <details style="border-bottom:1px solid #e8e4dd;padding:1rem 0;">
+      <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">Is charging interest the same thing as a late fee? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
+      <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">In practice, yes — both terms describe the same thing: a charge that accrues on an unpaid balance after the due date. "Late fee" is more common in freelance and small business contracts, while "interest" is the term used in most state statutes. This calculator works the same way regardless of which word your contract uses, as long as you enter the rate and overdue period.</p>
+    </details>
+    <details style="border-bottom:1px solid #e8e4dd;padding:1rem 0;">
+      <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">Should I use simple interest or compound interest for late fees? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
+      <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Simple interest — calculated only on the original invoice amount, not on previously accrued fees — is the standard for freelance late fees and what this calculator uses. Compounding (charging interest on interest) is less common in freelance contracts and can look punitive to a court if disputed. If you want to compound fees, state that explicitly in your contract; otherwise, simple interest is the safer default.</p>
+    </details>
 
   </div>
 </div>
@@ -486,6 +554,35 @@
 <div style="max-width:720px;margin:3rem auto 0;padding:0 1.5rem;">
   <h2 style="font-family:'DM Serif Display',serif;font-size:1.6rem;margin:0 0 1rem;letter-spacing:-0.02em;color:#1a1a1a;">Late Fee Laws by State</h2>
   <p style="font-size:0.95rem;line-height:1.8;color:#444;margin-bottom:1.5rem;">There is no single federal rule governing late fees for freelancers. Each state sets its own rules — or leaves it entirely to contract terms. Here's what you need to know for the most common states.</p>
+
+  <div style="overflow-x:auto;margin-bottom:2rem;">
+    <table style="width:100%;min-width:520px;border-collapse:collapse;font-size:0.85rem;">
+      <thead>
+        <tr style="border-bottom:2px solid #e8e6e0;">
+          <th style="text-align:left;padding:8px 10px;color:#1a1a1a;">State</th>
+          <th style="text-align:left;padding:8px 10px;color:#1a1a1a;">Default rate if contract is silent</th>
+          <th style="text-align:left;padding:8px 10px;color:#1a1a1a;">Freelancer protection law?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid #eee;"><td style="padding:8px 10px;color:#555;">California</td><td style="padding:8px 10px;color:#555;">No statutory cap (B2B)</td><td style="padding:8px 10px;color:#555;">Contract-dependent</td></tr>
+        <tr style="border-bottom:1px solid #eee;"><td style="padding:8px 10px;color:#555;">New York</td><td style="padding:8px 10px;color:#555;">Contract-dependent</td><td style="padding:8px 10px;color:#555;">Yes — Freelance Isn't Free Act</td></tr>
+        <tr style="border-bottom:1px solid #eee;"><td style="padding:8px 10px;color:#555;">Florida</td><td style="padding:8px 10px;color:#555;">8% annually</td><td style="padding:8px 10px;color:#555;">No</td></tr>
+        <tr style="border-bottom:1px solid #eee;"><td style="padding:8px 10px;color:#555;">Illinois</td><td style="padding:8px 10px;color:#555;">Contract-dependent</td><td style="padding:8px 10px;color:#555;">Yes — Freelance Worker Protection Act</td></tr>
+        <tr style="border-bottom:1px solid #eee;"><td style="padding:8px 10px;color:#555;">Texas</td><td style="padding:8px 10px;color:#555;">Contract-dependent</td><td style="padding:8px 10px;color:#555;">No</td></tr>
+        <tr style="border-bottom:1px solid #eee;"><td style="padding:8px 10px;color:#555;">Pennsylvania</td><td style="padding:8px 10px;color:#555;">6% annually</td><td style="padding:8px 10px;color:#555;">Philadelphia ordinance only</td></tr>
+        <tr style="border-bottom:1px solid #eee;"><td style="padding:8px 10px;color:#555;">Ohio</td><td style="padding:8px 10px;color:#555;">No statutory cap</td><td style="padding:8px 10px;color:#555;">No</td></tr>
+        <tr style="border-bottom:1px solid #eee;"><td style="padding:8px 10px;color:#555;">Colorado</td><td style="padding:8px 10px;color:#555;">8% annually</td><td style="padding:8px 10px;color:#555;">No</td></tr>
+        <tr style="border-bottom:1px solid #eee;"><td style="padding:8px 10px;color:#555;">Georgia</td><td style="padding:8px 10px;color:#555;">7% annually</td><td style="padding:8px 10px;color:#555;">No</td></tr>
+        <tr style="border-bottom:1px solid #eee;"><td style="padding:8px 10px;color:#555;">Michigan</td><td style="padding:8px 10px;color:#555;">Low default (specify your own)</td><td style="padding:8px 10px;color:#555;">No</td></tr>
+        <tr style="border-bottom:1px solid #eee;"><td style="padding:8px 10px;color:#555;">New Jersey</td><td style="padding:8px 10px;color:#555;">Contract-dependent</td><td style="padding:8px 10px;color:#555;">Yes — Freelance Worker Protection Act</td></tr>
+        <tr style="border-bottom:1px solid #eee;"><td style="padding:8px 10px;color:#555;">Washington</td><td style="padding:8px 10px;color:#555;">No statutory cap</td><td style="padding:8px 10px;color:#555;">Seattle ordinance only</td></tr>
+        <tr style="border-bottom:1px solid #eee;"><td style="padding:8px 10px;color:#555;">Indiana</td><td style="padding:8px 10px;color:#555;">8% annually</td><td style="padding:8px 10px;color:#555;">No</td></tr>
+        <tr><td style="padding:8px 10px;color:#555;">Wisconsin</td><td style="padding:8px 10px;color:#555;">5% annually</td><td style="padding:8px 10px;color:#555;">No</td></tr>
+      </tbody>
+    </table>
+  </div>
+
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem;margin-bottom:2rem;">
     <div style="background:#fff;border:1px solid #e8e6e0;border-radius:10px;padding:1.25rem;">
       <h3 style="font-size:1rem;font-weight:700;margin-bottom:6px;">California</h3>
