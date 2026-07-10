@@ -37,6 +37,8 @@
   .main-wrap { max-width: 860px; margin: 0 auto; padding: 0 1rem 4rem; }
   .calculator-grid { display: grid; grid-template-columns: 1fr 320px; gap: 1.5rem; align-items: start; margin-top: 2rem; }
   @media (max-width: 700px) { .calculator-grid { grid-template-columns: 1fr; } }
+  .table-scroll-hint { display: none; font-size: 0.78rem; color: #999; margin: 0 0 8px; align-items: center; gap: 4px; }
+  @media (max-width: 700px) { .table-scroll-hint { display: flex; } }
   .card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow); overflow: hidden; }
   .card-header { background: var(--ink); padding: 0.85rem 1.5rem; color: rgba(255,255,255,0.5); font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
   .card-body { padding: 1.5rem; }
@@ -555,7 +557,7 @@
   <h2 style="font-family:'DM Serif Display',serif;font-size:1.6rem;margin:0 0 1rem;letter-spacing:-0.02em;color:#1a1a1a;">Late Fee Laws by State</h2>
   <p style="font-size:0.95rem;line-height:1.8;color:#444;margin-bottom:1.5rem;">There is no single federal rule governing late fees for freelancers. Each state sets its own rules — or leaves it entirely to contract terms. Here's what you need to know for the most common states.</p>
 
-  <p style="font-size:0.78rem;color:#999;margin:0 0 0.5rem;display:flex;align-items:center;gap:4px;">
+  <p class="table-scroll-hint">
     <span aria-hidden="true">↔</span> Scroll sideways to see all columns
   </p>
   <div style="overflow-x:auto;margin-bottom:2rem;">

@@ -228,6 +228,8 @@
     .back-link { display: inline-block; margin-bottom: 32px; font-size: 0.85rem; color: var(--muted); text-decoration: none; }
     .back-link:hover { color: var(--ink); }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; min-width: 0; margin: 24px 0; }
+  .table-scroll-hint { display: none; font-size: 0.78rem; color: #999; margin: 0 0 8px; align-items: center; gap: 4px; }
+  @media (max-width: 700px) { .table-scroll-hint { display: flex; } }
 </style>
 
 <script type="application/ld+json">
@@ -296,7 +298,7 @@
       For shorter or lower-stakes projects, a detailed SOW with payment terms baked in can sometimes replace a separate contract. But for any project over a few hundred dollars, using both gives you the strongest protection.
     </p>
 
-    <p style="font-size:0.78rem;color:#999;margin:0 0 8px;display:flex;align-items:center;gap:4px;"><span aria-hidden="true">↔</span> Scroll sideways to see all columns</p>
+    <p class="table-scroll-hint"><span aria-hidden="true">↔</span> Scroll sideways to see all columns</p>
     <div class="table-scroll"><table class="compare-table">
       <thead>
         <tr>
