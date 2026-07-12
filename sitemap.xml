@@ -7,6 +7,7 @@
   </url>
   <url>
     <loc>https://getsolotools.com/receipt.html</loc>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -80,6 +81,7 @@
   </url>
   <url>
     <loc>https://getsolotools.com/contract-generator.html</loc>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -167,6 +169,7 @@
   </url>
   <url>
     <loc>https://getsolotools.com/client-proposal.html</loc>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -220,6 +223,7 @@
   </url>
   <url>
     <loc>https://getsolotools.com/milestone-calculator.html</loc>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -235,6 +239,7 @@
   </url>
   <url>
     <loc>https://getsolotools.com/savings-calculator.html</loc>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -255,11 +260,13 @@
   </url>
   <url>
     <loc>https://getsolotools.com/nda-generator.html</loc>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://getsolotools.com/client-intake-form.html</loc>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -283,6 +290,9 @@
   </url>
   <url>
     <loc>https://getsolotools.com/expense-report.html</loc>
+    <lastmod>2026-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://getsolotools.com/blog/how-to-write-a-freelance-expense-report.html</loc>
@@ -297,7 +307,7 @@
   </url>
   <url>
     <loc>https://getsolotools.com/scope-of-work.html</loc>
-    <lastmod>2026-06-22</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
