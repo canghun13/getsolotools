@@ -1,6 +1,6 @@
 # GetSoloTools 인수인계 문서 (handover.md)
 
-**최종 갱신**: 2026-07-12 (대기열 5개(budget-planner/invoice블로그/tax-estimator/time-tracker/invoice-tracker) 전부 완료 반영)
+**최종 갱신**: 2026-07-12 (18개 툴 전체 FAQPage 스키마 보강 완료 반영)
 **갱신 방식이 v12까지와 다름**: 이제부터 이 문서는 새 채팅에 붙여넣는 방식이 아니라, **저장소에 직접 보관하고 계속 업데이트**하는 방식으로 운영한다. 새 세션에서는 이 파일(`handover.md`)을 clone 직후 가장 먼저 읽을 것.
 
 ---
@@ -135,6 +135,9 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
     - `time-tracker.html`(노출 27, 순위 63 — 노출 대비 순위 특히 나쁨): FAQPage 스키마 신규 + FAQ 1건(localStorage 데이터 보존 여부, 실제 코드 확인 후 정확히 작성)
     - `invoice-tracker.html`(노출 25, 순위 27): FAQPage 스키마 신규 + FAQ 1건(localStorage 데이터 보존 여부)
     - **패턴 발견**: 툴 페이지들(계산기류) 상당수가 "화면엔 FAQ 있는데 FAQPage 스키마가 없는" 상태였음. 다음 세션에 아직 안 건드린 나머지 툴 페이지들(receipt.html, client-proposal.html, milestone-calculator.html, savings-calculator.html, nda-generator.html, client-intake-form.html, expense-report.html, scope-of-work.html, contract-generator.html)도 이 문제가 있는지 확인해볼 가치 있음.
+12. **나머지 툴 9개 전수 일괄 보강 완료** (같은 세션에 이어서 진행, 사용자가 "다 하라"고 명확히 지시): `receipt.html`, `client-proposal.html`, `milestone-calculator.html`, `savings-calculator.html`, `nda-generator.html`, `client-intake-form.html`, `expense-report.html`, `scope-of-work.html`, `contract-generator.html` — **9개 전부 화면 FAQ는 있는데 FAQPage 스키마가 없는 동일 결함 확인**. Python 스크립트로 화면 FAQ 텍스트를 그대로 파싱해서 FAQPage 스키마 자동 생성(내용 창작 아님, 기존 텍스트 그대로 구조화), dateModified 추가, "Last updated" 표기 추가, sitemap lastmod 일괄 갱신까지 처리. 부가로 `expense-report.html`의 sitemap 항목에 changefreq/priority 자체가 누락돼 있던 것도 발견해서 보완.
+   - **결과: 18개 툴 전체가 이제 FAQPage 스키마를 갖춤.** 이 구조적 결함은 완전히 해소된 상태.
+   - 반복 작업 자동화 시 사용한 스크립트 패턴(파일 목록 기반 정규식 추출 → JSON-LD 생성 → 삽입)은 `/tmp`에 있었고 세션 종료 시 사라짐 — 필요하면 동일 로직으로 재작성해서 blog/email-templates 쪽에도 같은 진단(화면 FAQ vs 스키마 유무)을 돌려볼 것.
 
 ---
 
@@ -185,6 +188,6 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 - 애드센스 3차 재심사 결과 대기 중
 - 미색인 페이지 존재 (GSC coverage: "발견됨-미색인" 3건 + "크롤링됨-미색인" 1건, 2026-07-10/12 데이터 동일하게 확인됨). 기존에 알려진 후보: `blog/how-to-write-a-freelance-proposal.html`, `blog/how-to-write-a-scope-of-work-for-freelance-projects.html`, `email-templates/quote-email.html`. Indiana/Wisconsin 신규 페이지도 아직 크롤링 초기 단계라 이 목록에 포함됐을 가능성 있음 — 다음 GSC 데이터에서 재확인 필요.
 - GSC coverage "중복 페이지 2건"은 `index.html` vs `/?ref=producthunt`로 확인 완료, 무해함, 추가 조치 불필요.
-- `late-payment-fee.html`(07-10) / `how-to-write-a-freelance-contract.html`(07-12) / `hourly-rate.html`(07-12) / `email-templates/payment-received.html`(07-12) / `quote.html`(07-12) / `project-profit.html`(07-12) / `budget-planner.html`(07-12) / `blog/how-to-write-a-freelance-invoice.html`(07-12) / `tax-estimator.html`(07-12) / `time-tracker.html`(07-12) / `invoice-tracker.html`(07-12) — 전부 순위 변화까지 시간이 걸릴 것. **다음 GSC 데이터 받으면 이 11개 페이지 순위 변화부터 확인할 것** (보강 효과 검증, 이게 최우선).
-- **다음 보강 후보 (2026-07-12 세션에서 새로 발견)**: "화면엔 FAQ가 있는데 FAQPage 스키마가 없는" 동일 패턴이 이번에 처리한 페이지 상당수(budget-planner, tax-estimator, time-tracker, invoice-tracker)에서 반복 발견됨. 아직 확인 안 한 나머지 툴 페이지들 — `receipt.html`, `client-proposal.html`, `milestone-calculator.html`, `savings-calculator.html`, `nda-generator.html`, `client-intake-form.html`, `expense-report.html`, `scope-of-work.html`, `contract-generator.html` — 도 같은 문제가 있는지 `grep -c "application/ld+json"` 및 FAQ 섹션 존재 여부로 빠르게 스캔해서 있으면 동일 패턴으로 일괄 보강할 것. GSC 노출량과 무관하게 이건 사이트 전체의 구조적 결함이라 우선순위 높음.
-- 이후엔 다시 GSC 노출·순위 기준으로 다음 대기열 산정.
+- `late-payment-fee.html`(07-10) 및 2026-07-12에 보강한 15개 페이지(`how-to-write-a-freelance-contract.html`, `hourly-rate.html`, `payment-received.html`, `quote.html`, `project-profit.html`, `budget-planner.html`, `blog/how-to-write-a-freelance-invoice.html`, `tax-estimator.html`, `time-tracker.html`, `invoice-tracker.html`, `receipt.html`, `client-proposal.html`, `milestone-calculator.html`, `savings-calculator.html`, `nda-generator.html`, `client-intake-form.html`, `expense-report.html`, `scope-of-work.html`, `contract-generator.html`) — 전부 순위 변화까지 시간이 걸릴 것. **다음 GSC 데이터 받으면 이 페이지들 순위 변화부터 확인할 것** (보강 효과 검증, 이게 최우선).
+- **"화면 FAQ / FAQPage 스키마 누락" 문제는 18개 툴 전체 기준으로는 완전히 해소됨** (2026-07-12). 다만 blog(41개)와 email-templates(24개) 쪽은 payment-received.html 1건만 확인했고 전수조사는 안 함 — 다음에 여유 있을 때 같은 방식(`grep -c 'application/ld+json'` + `grep -c 'Frequently Asked Questions'` 비교, 화면 FAQ는 있는데 스키마 블록 수가 부족하면 후보)으로 blog/email-templates 전체 스캔해볼 가치 있음.
+- 이후엔 다시 GSC 노출·순위 기준으로 다음 보강 대기열 산정 (신규 데이터 기다리는 중).
