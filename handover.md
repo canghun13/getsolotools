@@ -1,6 +1,6 @@
 # GetSoloTools 인수인계 문서 (handover.md)
 
-**최종 갱신**: 2026-07-12
+**최종 갱신**: 2026-07-12 (hourly-rate.html 보강까지 반영)
 **갱신 방식이 v12까지와 다름**: 이제부터 이 문서는 새 채팅에 붙여넣는 방식이 아니라, **저장소에 직접 보관하고 계속 업데이트**하는 방식으로 운영한다. 새 세션에서는 이 파일(`handover.md`)을 clone 직후 가장 먼저 읽을 것.
 
 ---
@@ -115,6 +115,11 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
    - meta description/JSON-LD description에 템플릿 언급 반영, dateModified 갱신.
 3. **버그 발견 및 수정**: `sitemap.xml`에 URL 3개(`how-to-write-a-freelance-contract.html`, `late-fee-laws-freelancers-ohio.html`, `freelance-rate-negotiation-guide.html`)가 중복 등록되어 있던 것 발견 → 구버전(lastmod 없는) 항목 제거, 최신 항목만 유지.
 4. 이 문서(`handover.md`)를 저장소에 신규 생성 — **이제부터 인수인계는 새 채팅에 문서를 붙여넣는 방식이 아니라 이 파일을 계속 갱신하는 방식으로 전환.**
+5. 신규 아이디어 재검토(사용자 요청): GSC 재확인 + "2026 프리랜서 추천 툴" 관련 웹 자료 스캔 → Notion/Trello/QuickBooks/Figma 등 범용 SaaS 카테고리만 나옴, 우리 니치(무료 단일목적 계산기/생성기, 회원가입 없음)와 카테고리 자체가 달라서 참고할 신규 아이디어 없음. **신규 제작은 이번에도 보류.**
+6. **`hourly-rate.html` 보강** (노출 87회, 순위 54위, GSC 3순위 보강 후보):
+   - 웹 검색으로 "self employed hourly rate calculator" 경쟁강도 확인 → Harvest/Hubstaff/Clockify/Upwork/Rize 등이 장악한 경쟁 영역. 다만 기존 콘텐츠가 이미 이들과 동등한 깊이(공식, 세율, 청구 가능 시간, 벤치마크 테이블)를 갖추고 있는 걸 확인함.
+   - FAQPage 스키마에 2개 Q&A 추가("좋은 시급이란", "초보 프리랜서 얼마 받아야 하나"), HowTo 스키마 신규 추가, dateModified + 화면상 "Last updated" 표기 추가.
+   - sitemap.xml lastmod 갱신.
 
 ---
 
@@ -165,5 +170,5 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 - 애드센스 3차 재심사 결과 대기 중
 - 미색인 페이지 존재 (GSC coverage: "발견됨-미색인" 3건 + "크롤링됨-미색인" 1건, 2026-07-10/12 데이터 동일하게 확인됨). 기존에 알려진 후보: `blog/how-to-write-a-freelance-proposal.html`, `blog/how-to-write-a-scope-of-work-for-freelance-projects.html`, `email-templates/quote-email.html`. Indiana/Wisconsin 신규 페이지도 아직 크롤링 초기 단계라 이 목록에 포함됐을 가능성 있음 — 다음 GSC 데이터에서 재확인 필요.
 - GSC coverage "중복 페이지 2건"은 `index.html` vs `/?ref=producthunt`로 확인 완료, 무해함, 추가 조치 불필요.
-- `late-payment-fee.html` (2026-07-10 보강) / `how-to-write-a-freelance-contract.html` (2026-07-12 보강) 둘 다 순위 변화까지 시간이 걸릴 것 — 다음 GSC 데이터에서 이 두 페이지 순위 변화를 우선 확인할 것 (보강 효과 검증).
-- 다음으로 순위 낮고 노출 큰 후보(순서대로): `hourly-rate.html`(노출 87, 순위 54), `email-templates/payment-received.html`(노출 61, 순위 69), `quote.html`(노출 58, 순위 45), `project-profit.html`(노출 54, 순위 46) — "한 작업 단위씩" 원칙에 따라 다음 세션에 순서대로 검토.
+- `late-payment-fee.html` (2026-07-10 보강) / `how-to-write-a-freelance-contract.html` (2026-07-12 보강) / `hourly-rate.html` (2026-07-12 보강) — 셋 다 순위 변화까지 시간이 걸릴 것. 다음 GSC 데이터에서 이 세 페이지 순위 변화를 우선 확인할 것 (보강 효과 검증).
+- 다음으로 순위 낮고 노출 큰 후보(순서대로): `email-templates/payment-received.html`(노출 61, 순위 69), `quote.html`(노출 58, 순위 45), `project-profit.html`(노출 54, 순위 46) — "한 작업 단위씩" 원칙에 따라 다음 세션에 순서대로 검토.
