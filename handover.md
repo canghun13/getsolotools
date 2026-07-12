@@ -1,6 +1,6 @@
 # GetSoloTools 인수인계 문서 (handover.md)
 
-**최종 갱신**: 2026-07-12 (hourly-rate.html 보강까지 반영)
+**최종 갱신**: 2026-07-12 (payment-received/quote/project-profit 보강까지 반영)
 **갱신 방식이 v12까지와 다름**: 이제부터 이 문서는 새 채팅에 붙여넣는 방식이 아니라, **저장소에 직접 보관하고 계속 업데이트**하는 방식으로 운영한다. 새 세션에서는 이 파일(`handover.md`)을 clone 직후 가장 먼저 읽을 것.
 
 ---
@@ -59,7 +59,8 @@
 - **(2026-07-11 변경)** Late fee 지역 추가는 예전엔 "12개 주로 완결, 추가 금지"였으나 사용자가 직접 취소함. 현재는 GSC에 노출 있고 매칭 없는 주가 나오면 다시 추가 검토 가능 (단, 이것도 매번 사용자 승인 필요).
 - 카테고리 확장(예: 금융이면 대출/은행/자산까지) 논의는 있었으나 **타겟(미국 프리랜서) 자체를 벗어나는 확장은 절대 금지**로 재확인됨 (2026-07-11). GSC 데이터 기반 판단 원칙은 유지.
 
-**작업 단위 원칙 (2026-07-11 확립)**: "한 페이지씩"이 아니라 **"한 작업 단위씩"**이 맞는 표현. 하나의 신규/보강 작업에 딸려오는 공통작업(내부링크, blog 목록, sitemap lastmod 등)은 같이 처리하되, 서로 무관한 여러 개선 작업을 한 세션에 몰아넣지 않는다. 이렇게 해야 다음 GSC 데이터에서 "이 보강이 실제로 효과 있었는지"를 명확히 추적할 수 있음.
+**작업 단위 원칙 (2026-07-11 확립, 2026-07-12 보완)**: "한 페이지씩"이 아니라 **"한 작업 단위씩"**이 맞는 표현. 하나의 신규/보강 작업에 딸려오는 공통작업(내부링크, blog 목록, sitemap lastmod 등)은 같이 처리하되, 서로 무관한 여러 개선 작업을 한 세션에 몰아넣지 않는다. 이렇게 해야 다음 GSC 데이터에서 "이 보강이 실제로 효과 있었는지"를 명확히 추적할 수 있음.
+**2026-07-12 보완**: 다만 이건 "매번 하나 하고 사용자에게 다시 물어봐야 한다"는 뜻이 아니다. 사용자가 우선순위 큐(예: 이 handover.md의 "다음 보강 대기열")를 이미 승인했다면, "진행해"라는 지시 한 번으로 큐 전체를 순서대로 이어서 처리하고, 각 항목마다 "다음 걸로 넘어갈까요?"라고 재확인하지 않는다. 확인 질문에 머뭇거려서 사용자를 답답하게 한 적 있음 — 승인된 큐가 있으면 바로 실행.
 
 ---
 
@@ -120,6 +121,13 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
    - 웹 검색으로 "self employed hourly rate calculator" 경쟁강도 확인 → Harvest/Hubstaff/Clockify/Upwork/Rize 등이 장악한 경쟁 영역. 다만 기존 콘텐츠가 이미 이들과 동등한 깊이(공식, 세율, 청구 가능 시간, 벤치마크 테이블)를 갖추고 있는 걸 확인함.
    - FAQPage 스키마에 2개 Q&A 추가("좋은 시급이란", "초보 프리랜서 얼마 받아야 하나"), HowTo 스키마 신규 추가, dateModified + 화면상 "Last updated" 표기 추가.
    - sitemap.xml lastmod 갱신.
+7. **`email-templates/payment-received.html` 보강** (노출 61회, 순위 69위, GSC 4순위):
+   - 핵심 발견: 화면에 FAQ 3개가 있는데 **FAQPage 스키마가 아예 없었음** (Article 스키마만 존재) — 기존 SEO 이력의 "FAQ 스키마 누락" 패턴과 동일. 신규 추가.
+   - GSC에 결제확인 관련 롱테일 변형 쿼리(confirmation of payment email, payment received with thanks 등)가 30개 넘게 이 페이지 하나로 몰리는 것 확인.
+   - FAQ 2건 추가(클라이언트가 "보냈다"고 했지만 미입금 시 대응, proof of payment와 confirmation email 차이), dateModified + Last updated 표기, sitemap lastmod 갱신.
+8. **`quote.html` 보강** (노출 58회, 순위 45위, GSC 5순위): HowTo 스키마 신규, FAQPage 2건 추가(무응답 시 대응, 견적 작성 비용 청구 여부), dateModified + Last updated 표기, sitemap lastmod 갱신.
+9. **`project-profit.html` 보강** (노출 54회, 순위 46위, GSC 6순위): HowTo 스키마 신규, FAQPage 2건 추가(적정 수익률 기준, 무급 수정시간 계상 여부), dateModified + Last updated 표기, sitemap lastmod 갱신.
+10. **07-12 세션에 확립된 보강 표준 패턴** (앞으로 계속 재사용): ①WebApplication/Article 스키마에 `dateModified` 추가 ②없으면 HowTo 스키마 신규 추가 ③화면에 FAQ 있는데 FAQPage 스키마 없으면 최우선으로 추가 ④GSC 노출은 있으나 미대응된 구체적 질문 1~2개를 FAQ에 추가(스키마+화면 동시) ⑤화면에 "Last updated" 텍스트 추가 ⑥sitemap.xml lastmod 갱신 + 중복 재확인.
 
 ---
 
@@ -170,5 +178,5 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 - 애드센스 3차 재심사 결과 대기 중
 - 미색인 페이지 존재 (GSC coverage: "발견됨-미색인" 3건 + "크롤링됨-미색인" 1건, 2026-07-10/12 데이터 동일하게 확인됨). 기존에 알려진 후보: `blog/how-to-write-a-freelance-proposal.html`, `blog/how-to-write-a-scope-of-work-for-freelance-projects.html`, `email-templates/quote-email.html`. Indiana/Wisconsin 신규 페이지도 아직 크롤링 초기 단계라 이 목록에 포함됐을 가능성 있음 — 다음 GSC 데이터에서 재확인 필요.
 - GSC coverage "중복 페이지 2건"은 `index.html` vs `/?ref=producthunt`로 확인 완료, 무해함, 추가 조치 불필요.
-- `late-payment-fee.html` (2026-07-10 보강) / `how-to-write-a-freelance-contract.html` (2026-07-12 보강) / `hourly-rate.html` (2026-07-12 보강) — 셋 다 순위 변화까지 시간이 걸릴 것. 다음 GSC 데이터에서 이 세 페이지 순위 변화를 우선 확인할 것 (보강 효과 검증).
-- 다음으로 순위 낮고 노출 큰 후보(순서대로): `email-templates/payment-received.html`(노출 61, 순위 69), `quote.html`(노출 58, 순위 45), `project-profit.html`(노출 54, 순위 46) — "한 작업 단위씩" 원칙에 따라 다음 세션에 순서대로 검토.
+- `late-payment-fee.html`(07-10) / `how-to-write-a-freelance-contract.html`(07-12) / `hourly-rate.html`(07-12) / `email-templates/payment-received.html`(07-12) / `quote.html`(07-12) / `project-profit.html`(07-12) — 전부 순위 변화까지 시간이 걸릴 것. 다음 GSC 데이터에서 이 페이지들 순위 변화를 우선 확인할 것 (보강 효과 검증).
+- 다음 보강 대기열(2026-07-12 GSC 페이지 데이터 기준, 노출·순위 순): `budget-planner.html`(노출 45, 순위 33), `blog/how-to-write-a-freelance-invoice.html`(노출 37, 순위 37), `tax-estimator.html`(노출 31, 순위 33), `time-tracker.html`(노출 27, 순위 63 — 노출은 적지만 순위가 특히 나쁨), `invoice-tracker.html`(노출 25, 순위 27). "한 작업 단위씩" 원칙에 따라 순서대로 진행. **사용자가 "신규/보강 진행해"라고 하면 확인 질문 없이 바로 이 순서대로 착수할 것** (2026-07-12에 재확인된 지침 — 승인 후 매번 다시 물어보지 말 것).
