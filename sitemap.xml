@@ -73,11 +73,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://getsolotools.com/blog/how-to-write-a-freelance-contract.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://getsolotools.com/contract-generator.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -100,11 +95,6 @@
   <url>
     <loc>https://getsolotools.com/blog/how-to-write-a-freelance-proposal.html</loc>
     <lastmod>2026-07-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://getsolotools.com/blog/freelance-rate-negotiation-guide.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -226,11 +216,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://getsolotools.com/blog/late-fee-laws-freelancers-ohio.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://getsolotools.com/blog/late-fee-laws-freelancers-georgia.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -316,7 +301,7 @@
   </url>
   <url>
     <loc>https://getsolotools.com/blog/how-to-write-a-freelance-contract.html</loc>
-    <lastmod>2026-06-22</lastmod>
+    <lastmod>2026-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
