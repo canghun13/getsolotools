@@ -1,6 +1,6 @@
 # GetSoloTools 인수인계 문서 (handover.md)
 
-**최종 갱신**: 2026-07-12 (payment-received/quote/project-profit 보강까지 반영)
+**최종 갱신**: 2026-07-12 (대기열 5개(budget-planner/invoice블로그/tax-estimator/time-tracker/invoice-tracker) 전부 완료 반영)
 **갱신 방식이 v12까지와 다름**: 이제부터 이 문서는 새 채팅에 붙여넣는 방식이 아니라, **저장소에 직접 보관하고 계속 업데이트**하는 방식으로 운영한다. 새 세션에서는 이 파일(`handover.md`)을 clone 직후 가장 먼저 읽을 것.
 
 ---
@@ -128,6 +128,13 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 8. **`quote.html` 보강** (노출 58회, 순위 45위, GSC 5순위): HowTo 스키마 신규, FAQPage 2건 추가(무응답 시 대응, 견적 작성 비용 청구 여부), dateModified + Last updated 표기, sitemap lastmod 갱신.
 9. **`project-profit.html` 보강** (노출 54회, 순위 46위, GSC 6순위): HowTo 스키마 신규, FAQPage 2건 추가(적정 수익률 기준, 무급 수정시간 계상 여부), dateModified + Last updated 표기, sitemap lastmod 갱신.
 10. **07-12 세션에 확립된 보강 표준 패턴** (앞으로 계속 재사용): ①WebApplication/Article 스키마에 `dateModified` 추가 ②없으면 HowTo 스키마 신규 추가 ③화면에 FAQ 있는데 FAQPage 스키마 없으면 최우선으로 추가 ④GSC 노출은 있으나 미대응된 구체적 질문 1~2개를 FAQ에 추가(스키마+화면 동시) ⑤화면에 "Last updated" 텍스트 추가 ⑥sitemap.xml lastmod 갱신 + 중복 재확인.
+11. **대기열 5개 전부 완료** (`budget-planner.html` → `blog/how-to-write-a-freelance-invoice.html` → `tax-estimator.html` → `time-tracker.html` → `invoice-tracker.html`), 사용자 지시 한 번으로 재확인 없이 순서대로 처리:
+    - `budget-planner.html`(노출 45, 순위 33): FAQPage 스키마 신규(화면엔 있었는데 스키마 없었음) + FAQ 1건 + HowTo 신규
+    - `blog/how-to-write-a-freelance-invoice.html`(노출 37, 순위 37): **FAQ 섹션 자체가 없었음** (다른 후보와 다른 패턴) → 5개 신규 작성(스키마+화면). 부가로 CSS 여분 중괄호 버그 발견 및 수정
+    - `tax-estimator.html`(노출 31, 순위 33): FAQPage 스키마 신규 + FAQ 1건
+    - `time-tracker.html`(노출 27, 순위 63 — 노출 대비 순위 특히 나쁨): FAQPage 스키마 신규 + FAQ 1건(localStorage 데이터 보존 여부, 실제 코드 확인 후 정확히 작성)
+    - `invoice-tracker.html`(노출 25, 순위 27): FAQPage 스키마 신규 + FAQ 1건(localStorage 데이터 보존 여부)
+    - **패턴 발견**: 툴 페이지들(계산기류) 상당수가 "화면엔 FAQ 있는데 FAQPage 스키마가 없는" 상태였음. 다음 세션에 아직 안 건드린 나머지 툴 페이지들(receipt.html, client-proposal.html, milestone-calculator.html, savings-calculator.html, nda-generator.html, client-intake-form.html, expense-report.html, scope-of-work.html, contract-generator.html)도 이 문제가 있는지 확인해볼 가치 있음.
 
 ---
 
@@ -178,5 +185,6 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 - 애드센스 3차 재심사 결과 대기 중
 - 미색인 페이지 존재 (GSC coverage: "발견됨-미색인" 3건 + "크롤링됨-미색인" 1건, 2026-07-10/12 데이터 동일하게 확인됨). 기존에 알려진 후보: `blog/how-to-write-a-freelance-proposal.html`, `blog/how-to-write-a-scope-of-work-for-freelance-projects.html`, `email-templates/quote-email.html`. Indiana/Wisconsin 신규 페이지도 아직 크롤링 초기 단계라 이 목록에 포함됐을 가능성 있음 — 다음 GSC 데이터에서 재확인 필요.
 - GSC coverage "중복 페이지 2건"은 `index.html` vs `/?ref=producthunt`로 확인 완료, 무해함, 추가 조치 불필요.
-- `late-payment-fee.html`(07-10) / `how-to-write-a-freelance-contract.html`(07-12) / `hourly-rate.html`(07-12) / `email-templates/payment-received.html`(07-12) / `quote.html`(07-12) / `project-profit.html`(07-12) — 전부 순위 변화까지 시간이 걸릴 것. 다음 GSC 데이터에서 이 페이지들 순위 변화를 우선 확인할 것 (보강 효과 검증).
-- 다음 보강 대기열(2026-07-12 GSC 페이지 데이터 기준, 노출·순위 순): `budget-planner.html`(노출 45, 순위 33), `blog/how-to-write-a-freelance-invoice.html`(노출 37, 순위 37), `tax-estimator.html`(노출 31, 순위 33), `time-tracker.html`(노출 27, 순위 63 — 노출은 적지만 순위가 특히 나쁨), `invoice-tracker.html`(노출 25, 순위 27). "한 작업 단위씩" 원칙에 따라 순서대로 진행. **사용자가 "신규/보강 진행해"라고 하면 확인 질문 없이 바로 이 순서대로 착수할 것** (2026-07-12에 재확인된 지침 — 승인 후 매번 다시 물어보지 말 것).
+- `late-payment-fee.html`(07-10) / `how-to-write-a-freelance-contract.html`(07-12) / `hourly-rate.html`(07-12) / `email-templates/payment-received.html`(07-12) / `quote.html`(07-12) / `project-profit.html`(07-12) / `budget-planner.html`(07-12) / `blog/how-to-write-a-freelance-invoice.html`(07-12) / `tax-estimator.html`(07-12) / `time-tracker.html`(07-12) / `invoice-tracker.html`(07-12) — 전부 순위 변화까지 시간이 걸릴 것. **다음 GSC 데이터 받으면 이 11개 페이지 순위 변화부터 확인할 것** (보강 효과 검증, 이게 최우선).
+- **다음 보강 후보 (2026-07-12 세션에서 새로 발견)**: "화면엔 FAQ가 있는데 FAQPage 스키마가 없는" 동일 패턴이 이번에 처리한 페이지 상당수(budget-planner, tax-estimator, time-tracker, invoice-tracker)에서 반복 발견됨. 아직 확인 안 한 나머지 툴 페이지들 — `receipt.html`, `client-proposal.html`, `milestone-calculator.html`, `savings-calculator.html`, `nda-generator.html`, `client-intake-form.html`, `expense-report.html`, `scope-of-work.html`, `contract-generator.html` — 도 같은 문제가 있는지 `grep -c "application/ld+json"` 및 FAQ 섹션 존재 여부로 빠르게 스캔해서 있으면 동일 패턴으로 일괄 보강할 것. GSC 노출량과 무관하게 이건 사이트 전체의 구조적 결함이라 우선순위 높음.
+- 이후엔 다시 GSC 노출·순위 기준으로 다음 대기열 산정.
