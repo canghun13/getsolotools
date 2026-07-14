@@ -135,7 +135,7 @@
     "name": "GetSoloTools",
     "url": "https://getsolotools.com"
   },
-  "dateModified": "2026-07-12",
+  "dateModified": "2026-07-14",
   "keywords": "project profit calculator, freelance profit calculator, project margin calculator"
 }
 </script>
@@ -469,6 +469,39 @@
 <script>
 function fmt(n) { return '$' + Math.round(n).toLocaleString(); }
 
+const DRAFT_KEY = 'gst_profit_draft';
+let draftRestoring = false;
+const PROFIT_FIELD_IDS = ['projectFee','hoursWorked','targetRate','directExpenses','overhead','taxRate'];
+
+function saveDraft() {
+  if (draftRestoring) return;
+  try {
+    const fields = {};
+    PROFIT_FIELD_IDS.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) fields[id] = el.value;
+    });
+    localStorage.setItem(DRAFT_KEY, JSON.stringify({ fields, savedAt: Date.now() }));
+  } catch (e) {}
+}
+
+function restoreDraft() {
+  let raw;
+  try { raw = localStorage.getItem(DRAFT_KEY); } catch (e) { return false; }
+  if (!raw) return false;
+  let draft;
+  try { draft = JSON.parse(raw); } catch (e) { return false; }
+  if (!draft || !draft.fields) return false;
+
+  draftRestoring = true;
+  Object.keys(draft.fields).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = draft.fields[id];
+  });
+  draftRestoring = false;
+  return true;
+}
+
 function calc() {
   const fee = parseFloat(document.getElementById('projectFee').value) || 0;
   const hours = parseFloat(document.getElementById('hoursWorked').value) || 1;
@@ -509,9 +542,13 @@ function calc() {
     bar.classList.add('bad');
     note.textContent = '🔴 Below target — reconsider pricing';
   }
+  saveDraft();
 }
 
-document.addEventListener('DOMContentLoaded', calc);
+document.addEventListener('DOMContentLoaded', () => {
+  restoreDraft();
+  calc();
+});
 
 function toggleNav() {
   const nav = document.getElementById('mainNav');
