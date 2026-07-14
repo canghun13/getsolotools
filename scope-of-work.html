@@ -415,7 +415,7 @@
     "name": "GetSoloTools",
     "url": "https://getsolotools.com"
   },
-  "dateModified": "2026-07-12",
+  "dateModified": "2026-07-14",
   "keywords": "scope of work generator, freelance scope of work, SOW template, freelance project scope, free scope of work"
 }
 </script>
@@ -470,6 +470,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Yes. This tool runs entirely in your browser. No data is sent to any server. Your project details, client information, and pricing never leave your device."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I save my scope of work and finish it later?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — this tool automatically saves your progress in your browser as you fill it in, with no account needed. Close the tab and come back later and your last draft will still be here. It remembers one draft at a time, and \"Clear Form\" erases it, so download a PDF of anything you want to keep."
       }
     }
   ]
@@ -672,6 +680,7 @@
         <button class="btn btn-lg" style="background:var(--paper);color:var(--ink);border:1px solid var(--border)" onclick="clearForm()">Clear Form</button>
         <button class="btn btn-success btn-lg" onclick="generatePDF()">⬇ Download SOW PDF</button>
       </div>
+      <p id="draftStatus" style="text-align:center;font-size:0.78rem;color:#8a8a8a;margin-top:10px;opacity:0;transition:opacity 0.3s;">Draft auto-saved in your browser</p>
 
     </div>
   </div>
@@ -768,6 +777,10 @@
       <summary>Is my data private? <span class="plus">+</span></summary>
       <p>Yes. This tool runs entirely in your browser. No data is sent to any server. Your project details, client information, and pricing never leave your device.</p>
     </details>
+    <details>
+      <summary>Can I save my scope of work and finish it later? <span class="plus">+</span></summary>
+      <p>Yes — this tool automatically saves your progress in your browser as you fill it in, with no account needed. Close the tab and come back later and your last draft will still be here. It remembers one draft at a time, and "Clear Form" erases it, so download a PDF of anything you want to keep.</p>
+    </details>
   </div>
 </div>
 
@@ -806,6 +819,83 @@
 </footer>
 
 <script>
+const DRAFT_KEY = 'gst_sow_draft';
+let draftRestoring = false;
+const SOW_FIELD_IDS = ['fromName','fromRole','fromEmail','toName','toContact','toEmail',
+   'projectTitle','projectSummary','projectType','revisions','revisionRate','revisionNotes',
+   'totalFee','deposit','paymentSchedule','lateFee','assumptions','additionalNotes',
+   'sowDate','startDate','endDate'];
+
+function collectDraft() {
+  const fields = {};
+  SOW_FIELD_IDS.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) fields[id] = el.value;
+  });
+  const deliverables = [...document.querySelectorAll('#deliverablesContainer textarea')].map(t => t.value);
+  const exclusions = [...document.querySelectorAll('#exclusionsContainer input[type="text"]')].map(i => i.value);
+  const milestones = [...document.querySelectorAll('#milestonesContainer .milestone-row')].map(row => {
+    const inputs = row.querySelectorAll('input');
+    return { label: inputs[0]?.value || '', date: inputs[1]?.value || '' };
+  });
+  return { fields, deliverables, exclusions, milestones, savedAt: Date.now() };
+}
+
+function saveDraft() {
+  if (draftRestoring) return;
+  try {
+    localStorage.setItem(DRAFT_KEY, JSON.stringify(collectDraft()));
+    showDraftStatus();
+  } catch (e) {}
+}
+
+function showDraftStatus() {
+  const el = document.getElementById('draftStatus');
+  if (!el) return;
+  el.style.opacity = '1';
+  clearTimeout(showDraftStatus._t);
+  showDraftStatus._t = setTimeout(() => { el.style.opacity = '0'; }, 2000);
+}
+
+function restoreDraft() {
+  let raw;
+  try { raw = localStorage.getItem(DRAFT_KEY); } catch (e) { return false; }
+  if (!raw) return false;
+  let draft;
+  try { draft = JSON.parse(raw); } catch (e) { return false; }
+  if (!draft || !draft.fields) return false;
+
+  draftRestoring = true;
+  Object.keys(draft.fields).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = draft.fields[id];
+  });
+
+  document.getElementById('deliverablesContainer').innerHTML = '';
+  document.getElementById('exclusionsContainer').innerHTML = '';
+  document.getElementById('milestonesContainer').innerHTML = '';
+  dCount = 0; eCount = 0; mCount = 0;
+
+  if (draft.deliverables && draft.deliverables.length) {
+    draft.deliverables.forEach(v => addDeliverable(v));
+  } else {
+    addDeliverable(''); addDeliverable('');
+  }
+  if (draft.exclusions && draft.exclusions.length) {
+    draft.exclusions.forEach(v => addExclusion(v));
+  } else {
+    addExclusion('');
+  }
+  if (draft.milestones && draft.milestones.length) {
+    draft.milestones.forEach(m => addMilestone(m.label, m.date));
+  } else {
+    addMilestone('', ''); addMilestone('', '');
+  }
+
+  draftRestoring = false;
+  return true;
+}
+
 // ─── Deliverables ───
 let dCount = 0;
 function addDeliverable(val = '') {
@@ -817,7 +907,7 @@ function addDeliverable(val = '') {
   row.id = 'd-' + id;
   row.innerHTML = `
     <textarea placeholder="Design and develop 5-page WordPress website — Home, About, Services, Blog, Contact. Mobile-responsive. Does not include copywriting.">${val}</textarea>
-    <button class="btn-remove" onclick="document.getElementById('d-${id}').remove()" title="Remove">×</button>
+    <button class="btn-remove" onclick="document.getElementById('d-${id}').remove(); saveDraft();" title="Remove">×</button>
   `;
   c.appendChild(row);
 }
@@ -833,7 +923,7 @@ function addExclusion(val = '') {
   row.id = 'e-' + id;
   row.innerHTML = `
     <input type="text" placeholder="Copywriting, photography, hosting setup, ongoing maintenance" value="${val}">
-    <button class="btn-remove" onclick="document.getElementById('e-${id}').remove()" title="Remove">×</button>
+    <button class="btn-remove" onclick="document.getElementById('e-${id}').remove(); saveDraft();" title="Remove">×</button>
   `;
   c.appendChild(row);
 }
@@ -850,7 +940,7 @@ function addMilestone(label = '', date = '') {
   row.innerHTML = `
     <input type="text" placeholder="First draft delivery" value="${label}">
     <input type="date" value="${date}">
-    <button class="btn-remove" onclick="document.getElementById('m-${id}').remove()" title="Remove">×</button>
+    <button class="btn-remove" onclick="document.getElementById('m-${id}').remove(); saveDraft();" title="Remove">×</button>
   `;
   c.appendChild(row);
 }
@@ -858,6 +948,7 @@ function addMilestone(label = '', date = '') {
 // ─── Clear ───
 function clearForm() {
   if (!confirm('Clear all fields?')) return;
+  try { localStorage.removeItem(DRAFT_KEY); } catch (e) {}
   ['fromName','fromRole','fromEmail','toName','toContact','toEmail',
    'projectTitle','projectSummary','revisions','revisionRate','revisionNotes',
    'totalFee','deposit','paymentSchedule','lateFee','assumptions','additionalNotes',
@@ -1148,7 +1239,14 @@ function initDefaults() {
   addMilestone('', '');
 }
 
-document.addEventListener('DOMContentLoaded', initDefaults);
+document.addEventListener('DOMContentLoaded', () => {
+  const restored = restoreDraft();
+  if (!restored) initDefaults();
+
+  const wrap = document.querySelector('.main-wrap') || document.body;
+  wrap.addEventListener('input', saveDraft);
+  wrap.addEventListener('change', saveDraft);
+});
 </script>
 
 </body>
