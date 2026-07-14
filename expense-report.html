@@ -146,7 +146,7 @@
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Any",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-  ,"dateModified": "2026-07-12"
+  ,"dateModified": "2026-07-14"
 }
 </script>
 <script type="application/ld+json">
@@ -309,6 +309,7 @@
         <button class="btn btn-ghost" style="background:var(--paper);color:var(--ink);border:1px solid var(--border);" onclick="clearAll()">Clear all</button>
         <button class="btn btn-primary btn-lg" onclick="generatePDF()">↓ Download PDF</button>
       </div>
+      <p id="draftStatus" style="text-align:center;font-size:0.78rem;color:#8a8a8a;margin-top:10px;opacity:0;transition:opacity 0.3s;">Draft auto-saved in your browser</p>
     </div>
   </div>
 
@@ -406,14 +407,74 @@
 const CURRENCIES = { USD:'$', EUR:'€', GBP:'£', CAD:'C$', AUD:'A$' };
 const CATEGORIES = ['Software & Tools', 'Travel', 'Meals', 'Equipment', 'Home Office', 'Professional Development', 'Marketing', 'Subcontractors', 'Other'];
 
+const DRAFT_KEY = 'gst_expense_draft';
+let draftRestoring = false;
+const EXPENSE_FIELD_IDS = ['fromName','fromEmail','reportTitle','periodStart','periodEnd','toName','toEmail','notes','currency'];
+
 function sym() { return CURRENCIES[document.getElementById('currency').value] || '$'; }
+
+function collectDraft() {
+  const fields = {};
+  EXPENSE_FIELD_IDS.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) fields[id] = el.value;
+  });
+  const rows = [];
+  document.querySelectorAll('.expense-row').forEach(row => {
+    const inputs = row.querySelectorAll('input, select');
+    rows.push({ date: inputs[0]?.value || '', desc: inputs[1]?.value || '', cat: inputs[2]?.value || '', amt: inputs[3]?.value || '' });
+  });
+  return { fields, rows, savedAt: Date.now() };
+}
+
+function saveDraft() {
+  if (draftRestoring) return;
+  try {
+    localStorage.setItem(DRAFT_KEY, JSON.stringify(collectDraft()));
+    showDraftStatus();
+  } catch (e) {}
+}
+
+function showDraftStatus() {
+  const el = document.getElementById('draftStatus');
+  if (!el) return;
+  el.style.opacity = '1';
+  clearTimeout(showDraftStatus._t);
+  showDraftStatus._t = setTimeout(() => { el.style.opacity = '0'; }, 2000);
+}
+
+function restoreDraft() {
+  let raw;
+  try { raw = localStorage.getItem(DRAFT_KEY); } catch (e) { return false; }
+  if (!raw) return false;
+  let draft;
+  try { draft = JSON.parse(raw); } catch (e) { return false; }
+  if (!draft || !draft.fields) return false;
+
+  draftRestoring = true;
+  Object.keys(draft.fields).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = draft.fields[id];
+  });
+
+  document.getElementById('expenseRows').innerHTML = '';
+  if (draft.rows && draft.rows.length) {
+    draft.rows.forEach(r => addRow(r.date, r.desc, r.cat, r.amt));
+  } else {
+    const today = new Date().toISOString().split('T')[0];
+    addRow(today, '', 'Software & Tools', '');
+    addRow(today, '', 'Travel', '');
+  }
+  draftRestoring = false;
+  return true;
+}
 
 function addRow(date='', desc='', cat='', amt='') {
   const div = document.createElement('div');
   div.className = 'expense-row';
   div.innerHTML = `
     <input type="date" value="${date}" oninput="recalc()" style="font-size:13px;padding:6px 8px;">
-    <input type="text" placeholder="Description" value="${desc}" style="font-size:13px;padding:6px 8px;">
+    <input type="text" placeholder="Description" value="${desc}" oninput="saveDraft()" style="font-size:13px;padding:6px 8px;">
     <select onchange="recalc()" style="font-size:13px;padding:6px 8px;">
       ${CATEGORIES.map(c => `<option${c===cat?' selected':''}>${c}</option>`).join('')}
     </select>
@@ -452,10 +513,12 @@ function recalc() {
         <div class="cat-bar-track"><div class="cat-bar-fill" style="width:${pct}%"></div></div>
       </div>`;
   });
+  saveDraft();
 }
 
 function clearAll() {
   if (!confirm('Clear all entries?')) return;
+  try { localStorage.removeItem(DRAFT_KEY); } catch (e) {}
   ['fromName','fromEmail','reportTitle','periodStart','periodEnd','toName','toEmail','notes'].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.value = '';
@@ -571,12 +634,19 @@ function generatePDF() {
 
 // Init
 document.addEventListener('DOMContentLoaded', () => {
-  const today = new Date().toISOString().split('T')[0];
-  const firstOfMonth = today.slice(0,8) + '01';
-  document.getElementById('periodStart').value = firstOfMonth;
-  document.getElementById('periodEnd').value = today;
-  addRow(today, '', 'Software & Tools', '');
-  addRow(today, '', 'Travel', '');
+  const restored = restoreDraft();
+  if (!restored) {
+    const today = new Date().toISOString().split('T')[0];
+    const firstOfMonth = today.slice(0,8) + '01';
+    document.getElementById('periodStart').value = firstOfMonth;
+    document.getElementById('periodEnd').value = today;
+    addRow(today, '', 'Software & Tools', '');
+    addRow(today, '', 'Travel', '');
+  }
+
+  const wrap = document.querySelector('.main-wrap') || document.body;
+  wrap.addEventListener('input', saveDraft);
+  wrap.addEventListener('change', saveDraft);
 });
 </script>
 </body>
