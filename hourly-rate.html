@@ -216,7 +216,7 @@
     "name": "GetSoloTools",
     "url": "https://getsolotools.com"
   },
-  "dateModified": "2026-07-12",
+  "dateModified": "2026-07-14",
   "keywords": "hourly rate calculator, freelance rate calculator, self employed hourly rate calculator"
 }
 </script>
@@ -446,6 +446,7 @@
         <div class="cta-note">
           Ready to invoice? <a href="/">Create a free invoice →</a>
         </div>
+        <p id="draftStatus" style="text-align:center;font-size:0.76rem;color:#8a8a8a;margin:8px 0 0;opacity:0;transition:opacity 0.3s;">Numbers auto-saved in your browser</p>
       </div>
     </div>
 
@@ -640,6 +641,48 @@ function fmt(n) {
   return '$' + Math.round(n).toLocaleString();
 }
 
+const DRAFT_KEY = 'gst_hourlyrate_draft';
+let draftRestoring = false;
+const RATE_FIELD_IDS = ['desiredIncome','expenses','taxRate','workWeeks','billableHours','profitMargin'];
+
+function saveDraft() {
+  if (draftRestoring) return;
+  try {
+    const fields = {};
+    RATE_FIELD_IDS.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) fields[id] = el.value;
+    });
+    localStorage.setItem(DRAFT_KEY, JSON.stringify({ fields, savedAt: Date.now() }));
+    showDraftStatus();
+  } catch (e) {}
+}
+
+function showDraftStatus() {
+  const el = document.getElementById('draftStatus');
+  if (!el) return;
+  el.style.opacity = '1';
+  clearTimeout(showDraftStatus._t);
+  showDraftStatus._t = setTimeout(() => { el.style.opacity = '0'; }, 2000);
+}
+
+function restoreDraft() {
+  let raw;
+  try { raw = localStorage.getItem(DRAFT_KEY); } catch (e) { return false; }
+  if (!raw) return false;
+  let draft;
+  try { draft = JSON.parse(raw); } catch (e) { return false; }
+  if (!draft || !draft.fields) return false;
+
+  draftRestoring = true;
+  Object.keys(draft.fields).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = draft.fields[id];
+  });
+  draftRestoring = false;
+  return true;
+}
+
 function calc() {
   const desiredIncome = parseFloat(document.getElementById('desiredIncome').value) || 0;
   const expenses = parseFloat(document.getElementById('expenses').value) || 0;
@@ -670,9 +713,13 @@ function calc() {
   document.getElementById('weeklyRate').textContent = fmt(recommendedHourly * billableHoursPerWeek);
   document.getElementById('monthlyRate').textContent = fmt(recommendedHourly * annualBillableHours / 12);
   document.getElementById('projectDay').textContent = fmt(recommendedHourly * 10);
+  saveDraft();
 }
 
-document.addEventListener('DOMContentLoaded', calc);
+document.addEventListener('DOMContentLoaded', () => {
+  restoreDraft();
+  calc();
+});
 
 function toggleNav() {
   const nav = document.getElementById('mainNav');
