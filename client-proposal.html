@@ -123,7 +123,7 @@
     "name": "GetSoloTools",
     "url": "https://getsolotools.com"
   },
-  "dateModified": "2026-07-12",
+  "dateModified": "2026-07-14",
   "keywords": "client proposal generator, freelance proposal template, project proposal generator"
 }
 </script>
@@ -179,6 +179,14 @@
         "@type": "Answer",
         "text": "Yes, if relevant. One or two brief examples of similar work you've done — with results if possible — significantly increases your credibility. Keep them concise and directly relevant to the client's situation."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I save my proposal and finish it later?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — this tool automatically saves your progress in your browser as you type, with no account needed. Close the tab and come back later and your last proposal will still be here. It remembers one draft at a time, and clicking \"Clear\" erases it, so download a PDF of anything you want to keep."
+      }
     }
   ]
 }
@@ -208,6 +216,7 @@
         <button class="btn btn-primary" onclick="downloadPDF()">⬇ Download PDF</button>
       </div>
     </div>
+    <p id="draftStatus" style="text-align:center;font-size:0.75rem;color:#8a8a8a;padding:6px 0 0;margin:0;opacity:0;transition:opacity 0.3s;background:var(--ink,#1a1a1a);">Draft auto-saved in your browser</p>
     <div class="proposal-body">
       <!-- FORM -->
       <div class="form-panel">
@@ -484,6 +493,10 @@
       <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">Should I include case studies or past work in my proposal? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
       <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Yes, if relevant. One or two brief examples of similar work you've done — with results if possible — significantly increases your credibility. Keep them concise and directly relevant to the client's situation.</p>
     </details>
+    <details style="border-bottom:1px solid #e8e4dd;padding:1rem 0;">
+      <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">Can I save my proposal and finish it later? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
+      <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Yes — this tool automatically saves your progress in your browser as you type, with no account needed. Close the tab and come back later and your last proposal will still be here. It remembers one draft at a time, and clicking "Clear" erases it, so download a PDF of anything you want to keep.</p>
+    </details>
 
   </div>
 </div>
@@ -499,10 +512,61 @@
 
 <script>
 let deliverables = [''];
+const DRAFT_KEY = 'gst_proposal_draft';
+let draftRestoring = false;
+
+const PROPOSAL_FIELD_IDS = ['fromName','fromEmail','fromWebsite','fromPhone','toName','toContact',
+  'projectTitle','projectOverview','proposalDate','startDate','duration','currency',
+  'totalAmount','depositPct','paymentTerms','revisions','notes'];
+
+function collectDraft() {
+  const fields = {};
+  PROPOSAL_FIELD_IDS.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) fields[id] = el.value;
+  });
+  return { fields, deliverables, savedAt: Date.now() };
+}
+
+function saveDraft() {
+  if (draftRestoring) return;
+  try {
+    localStorage.setItem(DRAFT_KEY, JSON.stringify(collectDraft()));
+    showDraftStatus();
+  } catch (e) {}
+}
+
+function showDraftStatus() {
+  const el = document.getElementById('draftStatus');
+  if (!el) return;
+  el.style.opacity = '1';
+  clearTimeout(showDraftStatus._t);
+  showDraftStatus._t = setTimeout(() => { el.style.opacity = '0'; }, 2000);
+}
+
+function restoreDraft() {
+  let raw;
+  try { raw = localStorage.getItem(DRAFT_KEY); } catch (e) { return false; }
+  if (!raw) return false;
+  let draft;
+  try { draft = JSON.parse(raw); } catch (e) { return false; }
+  if (!draft || !draft.fields) return false;
+
+  draftRestoring = true;
+  Object.keys(draft.fields).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = draft.fields[id];
+  });
+  deliverables = (draft.deliverables && draft.deliverables.length) ? draft.deliverables : [''];
+  renderDeliverables();
+  draftRestoring = false;
+  return true;
+}
 
 function addDeliverable() {
   deliverables.push('');
   renderDeliverables();
+  saveDraft();
 }
 
 function removeDeliverable(i) {
@@ -510,6 +574,7 @@ function removeDeliverable(i) {
   if (deliverables.length === 0) deliverables = [''];
   renderDeliverables();
   updatePreview();
+  saveDraft();
 }
 
 function renderDeliverables() {
@@ -517,10 +582,11 @@ function renderDeliverables() {
   container.innerHTML = deliverables.map((d, i) => `
     <div class="deliverable-row">
       <input type="text" value="${d}" placeholder="e.g. Homepage design (desktop + mobile)"
-        oninput="deliverables[${i}] = this.value; updatePreview()">
+        oninput="deliverables[${i}] = this.value; updatePreview(); saveDraft()">
       ${deliverables.length > 1 ? `<button class="remove-btn" onclick="removeDeliverable(${i})">×</button>` : ''}
     </div>
   `).join('');
+  updatePreview();
 }
 
 function fmt(n, sym) {
@@ -573,6 +639,7 @@ function updatePreview() {
 }
 
 function clearForm() {
+  try { localStorage.removeItem(DRAFT_KEY); } catch (e) {}
   ['fromName','fromEmail','fromWebsite','fromPhone','toName','toContact',
    'projectTitle','projectOverview','proposalDate','startDate','duration',
    'totalAmount','depositPct','paymentTerms','revisions','notes'].forEach(id => {
@@ -763,10 +830,17 @@ function downloadPDF() {
 
 // Init
 window.addEventListener('DOMContentLoaded', () => {
-  const today = new Date().toISOString().split('T')[0];
-  document.getElementById('proposalDate').value = today;
-  renderDeliverables();
+  const restored = restoreDraft();
+  if (!restored) {
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('proposalDate').value = today;
+    renderDeliverables();
+  }
   updatePreview();
+
+  const wrap = document.querySelector('.main-wrap') || document.body;
+  wrap.addEventListener('input', saveDraft);
+  wrap.addEventListener('change', saveDraft);
 });
 </script>
 </body>
