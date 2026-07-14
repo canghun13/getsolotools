@@ -1,6 +1,6 @@
 # GetSoloTools 인수인계 문서 (handover.md)
 
-**최종 갱신**: 2026-07-12 (18개 툴 전체 FAQPage 스키마 보강 완료 반영)
+**최종 갱신**: 2026-07-14 (GSC 데이터 기반 2개 페이지 보강 + 콘텐츠 품질 경각심 문구 추가)
 **갱신 방식이 v12까지와 다름**: 이제부터 이 문서는 새 채팅에 붙여넣는 방식이 아니라, **저장소에 직접 보관하고 계속 업데이트**하는 방식으로 운영한다. 새 세션에서는 이 파일(`handover.md`)을 clone 직후 가장 먼저 읽을 것.
 
 ---
@@ -37,7 +37,19 @@
 
 ---
 
-## 콘텐츠 원칙 (가장 중요)
+## ⚠️ 콘텐츠 품질 경각심 (2026-07-14 사용자가 명시적으로 강조, 최우선 원칙)
+
+**사용자가 이번 세션에 직접 경고함**: 유사 업종의 다른 사이트들이 애드센스 심사에서 저품질/가치없는 콘텐츠로 계속 반려되고 있고, **이 프로젝트도 이미 2차례 반려됨** (3차 재심사 대기 중). 이건 우연이 아니라 실제 리스크로 취급할 것.
+
+**따라서 앞으로 모든 세션에서 다음을 매 작업마다 자문할 것**:
+- 이 콘텐츠가 검색엔진에 이미 존재하는 정보를 재포장한 것에 불과한가, 아니면 실제로 다른 곳에 없는 구체적 가치(우리 사이트의 무료 툴, 실제 사용 가능한 템플릿 텍스트, 정확한 최신 수치)를 더하는가?
+- "노출이 있으니까 일단 보강" 이라는 이유만으로 얕은 내용을 늘리지 말 것 — 늘릴 가치가 없으면 손대지 않는 것도 정답임.
+- 신규 콘텐츠는 물론이고 **기존 페이지 보강도** 이 기준으로 자체 검열할 것. 스키마/FAQ를 기계적으로 추가하는 반복작업에 매몰되어 "얇은데 형식만 갖춘 콘텐츠"를 양산하지 않도록 매번 실제 콘텐츠 품질을 재확인.
+- 애드센스 재심사 결과가 나오면(승인이든 반려든) 그 피드백을 최우선으로 반영해서 이 문서와 원칙을 갱신할 것.
+
+---
+
+
 
 **"신규 툴/블로그/템플릿을 만들자"는 요청이 오면 반드시 먼저 GSC(서치콘솔) 데이터를 확인.**
 
@@ -141,6 +153,24 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 
 ---
 
+### 2026-07-14 세션
+1. **GSC 데이터 재확인** (Coverage + Performance zip, 지난 3개월 기준 쿼리 183개/페이지 67개 — 07-12와 동일 범위): 전체 쿼리를 기존 사이트 파일과 대조. **신규 제작 근거 없음** — 노출은 있으나 매칭 페이지가 아예 없는 유의미한 키워드를 찾지 못함 (모든 상위 쿼리가 기존 blog/tool/email-template 중 하나에 이미 매칭됨).
+2. **웹 검색으로 최상위 노출 키워드("freelance tax preparation guide", 95회 노출) 경쟁강도 확인** → TurboTax/NerdWallet/H&R Block 등 초대형 사이트가 장악한 영역으로 확인 (07-12에 확인한 "freelance contract template"과 동일한 패턴). 헤드텀 1페이지 진입 기대난.
+3. **`blog/freelance-tax-guide-for-beginners.html` 보강** (노출 203회, 순위 82.12 — 이 페이지는 이미 FAQPage 스키마 6개+HowTo 미해당+dateModified를 갖추고 있어 07-12 표준 패턴(스키마 누락 보완)이 적용 대상이 아니었음. 대신 **실제 콘텐츠 결함 발견**: SEP-IRA/Solo 401(k) 한도가 2024년 수치($69,000)로 방치되어 있었고, QBI 공제 구간도 2025년 수치를 2026년 것으로 잘못 표기하고 있었음. 웹 검색으로 2026년 정확한 수치 확인 후 갱신:
+   - SEP-IRA 한도 $69,000 → $72,000, Solo 401(k) 종업원 기여분 $23,000 → $24,500 (50-59/64+ 캐치업 $80,000, 60-63세 $83,250 신규 명시)
+   - QBI 공제 구간을 2025년 수치($197,300/$394,600)에서 2026년 실제 수치(시작 약 $201,750 단일/$403,500 부부합산, 완전 소멸 약 $276,750/$553,500)로 정정. OBBBA로 인한 영구화 및 신규 $400 최소 공제(저소득 프리랜서에 특히 유리 — 우리 타겟과 직결) 언급 추가.
+   - dateModified/화면 "Updated" 표기 2026-07-03 → 2026-07-14, sitemap lastmod 갱신.
+   - **이 발견은 "얇은 콘텐츠를 늘리는" 보강이 아니라 세금(YMYL) 페이지의 사실 오류를 바로잡은 것 — 이번 세션에 강조된 콘텐츠 품질 원칙에 부합하는 유형의 작업.**
+4. **`blog/freelance-rate-negotiation-guide.html` 보강** (노출 56회, **순위 7.88위로 이미 1페이지권인데 클릭 0** — late fee 주(州) 페이지들 다수에서도 비슷한 "고순위·저클릭" 패턴이 보이나 개별 페이지 노출량이 적어(9~27회) 통계적으로 유의미하다고 보기 어려움; 반면 이 페이지는 노출 56회에도 클릭 0이라 상대적으로 신뢰도 있는 신호로 판단해 이번 세션에 우선 처리):
+   - 페이지에 FAQPage 스키마 자체가 없었고(Article 스키마만 존재), 화면에도 FAQ 섹션이 없었음(07-12에 발견한 "화면 FAQ 있는데 스키마 없음" 패턴과 다른 케이스).
+   - 본문에 이미 있던 "How to Handle Every Type of Pushback" 시나리오 4개 + 재협상/인상 관련 내용을 그대로 재료 삼아 FAQ 4개 신규 작성(창작이 아니라 기존 본문 내용의 질문형 재구성) + FAQPage 스키마 신규 추가.
+   - dateModified 2026-06-22 → 2026-07-14, 화면 "Updated" 표기 갱신, sitemap lastmod 갱신.
+5. **관찰(조치 보류)**: late fee 주별 블로그 페이지 중 Illinois(순위 5.73), Texas(순위 7), New Jersey(순위 7.68), Colorado(순위 8.95) 등이 이미 1페이지권인데 클릭 0. 다만 개별 노출량이 9~27회로 적어 위치 대비 기대 클릭수 자체가 1 미만인 경우가 많아 이번엔 "실제 결함"이라 단정하지 않고 관찰만 기록. **다음 GSC 데이터에서 노출량이 누적되면(특히 Illinois/Texas처럼 순위 5~7위인데 여전히 클릭 0이면) 제목/메타 설명 재작성을 검토할 것.**
+6. **검증 및 배포**: 두 파일 모두 `html.parser` 파싱 검증 + JSON-LD `json.loads()` 검증 통과, `sitemap.xml`은 `ElementTree` 파싱 검증 + 중복 URL 없음 확인 후 commit & push.
+7. **이번 세션에 사용자가 명시적으로 요청**: 이 프로젝트가 애드센스 2차 반려를 받았고 유사 사이트들도 계속 저품질 콘텐츠로 걸리고 있다는 점을 강조 — 문서 상단에 "콘텐츠 품질 경각심" 섹션 신규 추가함 (내용은 위 참고).
+
+---
+
 ## 기술 주의사항
 
 ### nav.js
@@ -185,9 +215,12 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 
 ## 현재 열려있는 이슈 (다음에 확인할 것)
 
-- 애드센스 3차 재심사 결과 대기 중
-- 미색인 페이지 존재 (GSC coverage: "발견됨-미색인" 3건 + "크롤링됨-미색인" 1건, 2026-07-10/12 데이터 동일하게 확인됨). 기존에 알려진 후보: `blog/how-to-write-a-freelance-proposal.html`, `blog/how-to-write-a-scope-of-work-for-freelance-projects.html`, `email-templates/quote-email.html`. Indiana/Wisconsin 신규 페이지도 아직 크롤링 초기 단계라 이 목록에 포함됐을 가능성 있음 — 다음 GSC 데이터에서 재확인 필요.
-- GSC coverage "중복 페이지 2건"은 `index.html` vs `/?ref=producthunt`로 확인 완료, 무해함, 추가 조치 불필요.
-- `late-payment-fee.html`(07-10) 및 2026-07-12에 보강한 15개 페이지(`how-to-write-a-freelance-contract.html`, `hourly-rate.html`, `payment-received.html`, `quote.html`, `project-profit.html`, `budget-planner.html`, `blog/how-to-write-a-freelance-invoice.html`, `tax-estimator.html`, `time-tracker.html`, `invoice-tracker.html`, `receipt.html`, `client-proposal.html`, `milestone-calculator.html`, `savings-calculator.html`, `nda-generator.html`, `client-intake-form.html`, `expense-report.html`, `scope-of-work.html`, `contract-generator.html`) — 전부 순위 변화까지 시간이 걸릴 것. **다음 GSC 데이터 받으면 이 페이지들 순위 변화부터 확인할 것** (보강 효과 검증, 이게 최우선).
-- **"화면 FAQ / FAQPage 스키마 누락" 문제는 18개 툴 전체 기준으로는 완전히 해소됨** (2026-07-12). 다만 blog(41개)와 email-templates(24개) 쪽은 payment-received.html 1건만 확인했고 전수조사는 안 함 — 다음에 여유 있을 때 같은 방식(`grep -c 'application/ld+json'` + `grep -c 'Frequently Asked Questions'` 비교, 화면 FAQ는 있는데 스키마 블록 수가 부족하면 후보)으로 blog/email-templates 전체 스캔해볼 가치 있음.
+- 애드센스 3차 재심사 결과 대기 중. **(2026-07-14 추가)** 결과가 나오면 승인/반려 여부와 무관하게 그 피드백을 콘텐츠 원칙에 최우선 반영할 것 — 위 "콘텐츠 품질 경각심" 섹션 참고.
+- 미색인 페이지 존재 (GSC coverage: "발견됨-미색인" 3건 + "크롤링됨-미색인" 1건 — 2026-07-10/12/14 데이터 동일하게 확인됨, 3주째 그대로라 단순 크롤링 지연이 아닐 가능성도 있음). 기존에 알려진 후보: `blog/how-to-write-a-freelance-proposal.html`, `blog/how-to-write-a-scope-of-work-for-freelance-projects.html`, `email-templates/quote-email.html`. **다음에 여유 있으면 이 3개 URL을 실제로 하나씩 확인해서(내부링크 있는지, robots 차단 아닌지, 콘텐츠 얇지 않은지) 원인을 좁혀볼 것 — 색인 요청은 금지지만 원인 진단은 유효함.**
+- GSC coverage "중복 페이지 2건"은 `index.html` vs `/?ref=producthunt`로 확인 완료, 무해함, 추가 조치 불필요. "리디렉션이 포함된 페이지 3건"은 아직 원인 미확인 — 다음 세션에 어떤 URL인지 GSC에서 직접 확인 필요.
+- **다음 GSC 데이터 받으면 최우선으로 확인할 것 (보강 효과 검증)**: 07-10/07-12에 보강한 19개 페이지(`late-payment-fee.html` 포함 — 목록은 아래 참고) + 이번 07-14에 보강한 `blog/freelance-tax-guide-for-beginners.html`, `blog/freelance-rate-negotiation-guide.html` 2개까지 순위 변화 확인.
+  - 07-10/07-12 보강 19개: `how-to-write-a-freelance-contract.html`, `hourly-rate.html`, `payment-received.html`, `quote.html`, `project-profit.html`, `budget-planner.html`, `blog/how-to-write-a-freelance-invoice.html`, `tax-estimator.html`, `time-tracker.html`, `invoice-tracker.html`, `receipt.html`, `client-proposal.html`, `milestone-calculator.html`, `savings-calculator.html`, `nda-generator.html`, `client-intake-form.html`, `expense-report.html`, `scope-of-work.html`, `contract-generator.html`, `late-payment-fee.html`.
+- **"화면 FAQ / FAQPage 스키마 누락" 문제는 18개 툴 전체 기준으로는 완전히 해소됨** (2026-07-12). blog/email-templates 쪽은 지금까지 `payment-received.html`, `freelance-rate-negotiation-guide.html`(FAQ 신규 작성) 2건만 처리. 나머지 blog(39개)/email-templates(23개)는 전수조사 안 함 — 다음에 여유 있을 때 스캔 가치 있음. **다만 07-14에 강조된 콘텐츠 품질 원칙에 따라, 스캔 결과 스키마가 없는 페이지를 발견해도 기계적으로 FAQ를 끼워 넣지 말고 그 페이지 자체가 노출/클릭 관점에서 보강할 가치가 있는지부터 먼저 판단할 것.**
+- **(2026-07-14 신규 관찰, 조치 보류)** late fee 주(州)별 블로그 중 Illinois(순위 5.73), Texas(순위 7), New Jersey(순위 7.68), Colorado(순위 8.95), Michigan(순위 10.48), Georgia(순위 11), Washington(순위 16.55), Pennsylvania(순위 18.2)가 이미 1~2페이지권인데 클릭 0. 개별 노출량이 9~51회로 적어 이번엔 결함이라 단정하지 않았음. **다음 데이터에서 노출이 누적됐는데도(특히 Illinois/Texas처럼 순위 5~7위) 여전히 클릭 0이면 제목/메타 설명 재작성(CTR 개선) 검토할 것.** 이건 07-12까지 써온 "스키마/FAQ 보강" 패턴과는 다른 종류의 문제(콘텐츠 깊이가 아니라 클릭 유도력)라는 점 기억할 것.
 - 이후엔 다시 GSC 노출·순위 기준으로 다음 보강 대기열 산정 (신규 데이터 기다리는 중).
+
