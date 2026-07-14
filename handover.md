@@ -1,6 +1,6 @@
 # GetSoloTools 인수인계 문서 (handover.md)
 
-**최종 갱신**: 2026-07-14 (GSC 데이터 기반 2개 페이지 보강 + 콘텐츠 품질 경각심 문구 추가)
+**최종 갱신**: 2026-07-14 (GA4 트래픽 병목 논의 → 툴 기능 차별화로 방향 전환, Invoice Generator 자동저장 기능 추가)
 **갱신 방식이 v12까지와 다름**: 이제부터 이 문서는 새 채팅에 붙여넣는 방식이 아니라, **저장소에 직접 보관하고 계속 업데이트**하는 방식으로 운영한다. 새 세션에서는 이 파일(`handover.md`)을 clone 직후 가장 먼저 읽을 것.
 
 ---
@@ -169,10 +169,14 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 6. **검증 및 배포**: 두 파일 모두 `html.parser` 파싱 검증 + JSON-LD `json.loads()` 검증 통과, `sitemap.xml`은 `ElementTree` 파싱 검증 + 중복 URL 없음 확인 후 commit & push.
 7. **이번 세션에 사용자가 명시적으로 요청**: 이 프로젝트가 애드센스 2차 반려를 받았고 유사 사이트들도 계속 저품질 콘텐츠로 걸리고 있다는 점을 강조 — 문서 상단에 "콘텐츠 품질 경각심" 섹션 신규 추가함 (내용은 위 참고).
 8. **CTA 버튼 텍스트 안 보이는 CSS 버그 발견 및 수정** (사용자가 `freelance-rate-negotiation-guide.html` 스크린샷 제보로 발견): `.article-body a { color: var(--accent) }` 규칙이 `.cta-btn { color: #fff }`보다 CSS 명시도가 높아(class+tag(0,1,1) > class(0,1,0)) 파란 배경 버튼 위에 글자도 파란색이 되어 안 보이던 문제. `.article-body a.cta-btn { color: #fff }` 오버라이드로 수정. cta-btn을 쓰는 전체 70여개 파일을 이 패턴(`.article-body`/`.article-wrap`/`.content` + ` a {` 래퍼 규칙)으로 전수 재검사해서 `late-fee-laws-freelancers-ohio.html`에도 동일 버그가 있는 것을 추가로 발견해 같이 수정함. (toc/related-links/related-section/footer-links 클래스는 cta-box의 형제(sibling) div라 실제로는 중첩되지 않아 영향 없음 — 오탐 처리.)
+9. **방향 전환: 콘텐츠 보강 → 툴 기능 차별화** (사용자가 명시적으로 요청). 배경: GA4 4주 트래픽이 64명(활성 사용자)에 불과해 콘텐츠 미세 보강만으로는 근본적 트래픽 병목이 안 풀린다는 논의 끝에, "장기적으로 되는 것"의 하나로 툴 자체의 기능 차별화를 오늘 시작하기로 결정. (백링크 후보 리서치는 다음 후보로 남겨둠.)
+   - **`index.html`(Invoice Generator, 사이트 최대 트래픽 페이지) 보강**: 경쟁사 웹 검색 결과 무료 인보이스 생성기 상당수가 "새로고침하면 데이터 소실"을 명시하거나(InvoiceQuick), 임시저장 기능이 있는 곳은 전부 회원가입/로그인이 필요함(SmoothLedger, PineBill). 로그인 없이 브라우저 자동저장을 제공하는 경쟁사는 거의 없음(invoicemon 정도가 유일) → 회원가입 없는 사이트 철학과 맞아떨어지는 실질적 차별화 기능으로 판단, `localStorage` 기반 자동저장/복원 구현 (기존 invoice-tracker.html/time-tracker.html의 localStorage 패턴 재사용, 키: `gst_invoice_draft`). 입력 중 자동저장 + "Draft auto-saved" 표시, Clear Form 클릭 시 draft도 같이 삭제. **jsdom으로 저장→새로고침 시뮬레이션→초기화 전체 흐름을 실제로 실행해서 검증** (단순 문법 검사보다 한 단계 더 나아간 검증 — 앞으로 JS 로직이 복잡한 변경엔 이 방식 재사용 가치 있음).
+   - **부가로 콘텐츠-실제기능 불일치 2건 발견 및 수정** (같은 파일 작업 중 발견): FAQ "인보이스 저장 가능?" 답변이 옛날 그대로라 "저장 기능 없음"이라고 되어 있었음(지금은 있음, 갱신). FAQ "로고 추가 가능?" 답변도 "향후 추가 예정"이라고 되어 있었는데 **로고 업로드는 이미 구현되어 PDF에도 반영되고 있었음** — 콘텐츠가 실제 기능을 못 따라간 사례.
+   - **`index.html`에 FAQPage 스키마가 아예 없었던 것 발견** (2026-07-12에 18개 툴 전수 보강 때 index.html만 누락된 것으로 추정) — 신규 추가 + dateModified 추가.
+   - `sitemap.xml`: index.html(`/`) 항목에 `lastmod` 필드 자체가 없던 것 발견, 추가.
+   - **다음에 이어갈 것**: 나머지 17개 툴도 같은 방식(경쟁사 리서치 → 실제 기능 격차 확인 → 구현)으로 훑어볼 가치 있음. 특히 traffic이 있는 late-payment-fee.html(계산기), quote.html, receipt.html부터 우선순위.
 
 ---
-
-
 
 ## 기술 주의사항
 
@@ -227,7 +231,9 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 - GSC coverage "중복 페이지 2건"은 `index.html` vs `/?ref=producthunt`로 확인 완료, 무해함, 추가 조치 불필요. "리디렉션이 포함된 페이지 3건"은 아직 원인 미확인 — 다음 세션에 어떤 URL인지 GSC에서 직접 확인 필요.
 - **다음 GSC 데이터 받으면 최우선으로 확인할 것 (보강 효과 검증)**: 07-10/07-12에 보강한 19개 페이지(`late-payment-fee.html` 포함 — 목록은 아래 참고) + 이번 07-14에 보강한 `blog/freelance-tax-guide-for-beginners.html`, `blog/freelance-rate-negotiation-guide.html` 2개까지 순위 변화 확인.
   - 07-10/07-12 보강 19개: `how-to-write-a-freelance-contract.html`, `hourly-rate.html`, `payment-received.html`, `quote.html`, `project-profit.html`, `budget-planner.html`, `blog/how-to-write-a-freelance-invoice.html`, `tax-estimator.html`, `time-tracker.html`, `invoice-tracker.html`, `receipt.html`, `client-proposal.html`, `milestone-calculator.html`, `savings-calculator.html`, `nda-generator.html`, `client-intake-form.html`, `expense-report.html`, `scope-of-work.html`, `contract-generator.html`, `late-payment-fee.html`.
-- **"화면 FAQ / FAQPage 스키마 누락" 문제는 18개 툴 전체 기준으로는 완전히 해소됨** (2026-07-12). blog/email-templates 쪽은 지금까지 `payment-received.html`, `freelance-rate-negotiation-guide.html`(FAQ 신규 작성) 2건만 처리. 나머지 blog(39개)/email-templates(23개)는 전수조사 안 함 — 다음에 여유 있을 때 스캔 가치 있음. **다만 07-14에 강조된 콘텐츠 품질 원칙에 따라, 스캔 결과 스키마가 없는 페이지를 발견해도 기계적으로 FAQ를 끼워 넣지 말고 그 페이지 자체가 노출/클릭 관점에서 보강할 가치가 있는지부터 먼저 판단할 것.**
+- **"화면 FAQ / FAQPage 스키마 누락" 문제, 2026-07-12엔 "18개 툴 전체 해소"라고 기록했으나 부정확했음** — 2026-07-14에 `index.html`(Invoice Generator, 18개 중 하나)에서 정확히 같은 결함(화면 FAQ 있는데 스키마 없음)을 추가로 발견해 수정함. 07-12 전수조사 때 index.html이 "Invoice Generator = index.html"이라는 걸 놓쳐서 누락된 것으로 추정. **이제는 진짜로 18개 툴 전체 해소.** blog/email-templates 쪽은 지금까지 `payment-received.html`, `freelance-rate-negotiation-guide.html`(FAQ 신규 작성) 2건만 처리. 나머지 blog(39개)/email-templates(23개)는 전수조사 안 함 — 다음에 여유 있을 때 스캔 가치 있음. **다만 07-14에 강조된 콘텐츠 품질 원칙에 따라, 스캔 결과 스키마가 없는 페이지를 발견해도 기계적으로 FAQ를 끼워 넣지 말고 그 페이지 자체가 노출/클릭 관점에서 보강할 가치가 있는지부터 먼저 판단할 것.**
 - **(2026-07-14 신규 관찰, 조치 보류)** late fee 주(州)별 블로그 중 Illinois(순위 5.73), Texas(순위 7), New Jersey(순위 7.68), Colorado(순위 8.95), Michigan(순위 10.48), Georgia(순위 11), Washington(순위 16.55), Pennsylvania(순위 18.2)가 이미 1~2페이지권인데 클릭 0. 개별 노출량이 9~51회로 적어 이번엔 결함이라 단정하지 않았음. **다음 데이터에서 노출이 누적됐는데도(특히 Illinois/Texas처럼 순위 5~7위) 여전히 클릭 0이면 제목/메타 설명 재작성(CTR 개선) 검토할 것.** 이건 07-12까지 써온 "스키마/FAQ 보강" 패턴과는 다른 종류의 문제(콘텐츠 깊이가 아니라 클릭 유도력)라는 점 기억할 것.
+- **(2026-07-14 신규, GA4 트래픽 분석)** 지난 4주(6/16~7/13) 활성 사용자 64명, 재방문자 2명뿐. 유입 1위는 (direct)/(none) 47세션, 2위는 indiehackers.com 리퍼럴 15세션인데 신규 사용자는 1명뿐(한 명이 반복 방문). google/organic은 12세션, bing 4세션 — GSC 노출 수백~수천 건 대비 실제 검색 유입이 여전히 매우 작다는 걸 GA4로도 재확인. 도시 데이터는 국제적으로 흩어져 있고(파키스탄/나이지리아/베트남 등) 미국 도시가 거의 안 보임 — 타겟(미국 프리랜서)과 실제 유입원이 어긋나 있다는 신호.
+- **(2026-07-14 신규, 전략 방향 논의)** 절대 트래픽이 작아 콘텐츠 미세 보강만으로는 한계가 있다는 사용자와의 논의 끝에, **오늘부터 "툴 기능 차별화"를 새 작업 축으로 추가함** (콘텐츠 보강을 대체하는 게 아니라 병행). 백링크 후보 리서치는 논의는 됐으나 아직 착수 안 함 — 다음에 착수 여부 확인 필요. SNS 홍보/PH 재런칭 금지 원칙 자체는 유지(사용자가 "그럼 그거라도 하자"로 결론 내지 않음, 참고용 논의였음).
 - 이후엔 다시 GSC 노출·순위 기준으로 다음 보강 대기열 산정 (신규 데이터 기다리는 중).
 
