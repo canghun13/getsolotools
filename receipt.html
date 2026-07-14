@@ -454,7 +454,7 @@
     "name": "GetSoloTools",
     "url": "https://getsolotools.com"
   },
-  "dateModified": "2026-07-12",
+  "dateModified": "2026-07-14",
   "keywords": "receipt generator, payment receipt, freelance receipt"
 }
 </script>
@@ -509,6 +509,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "No watermarks. The downloaded PDF is clean and professional with only the information you provide."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I save my receipt and finish it later?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — this tool automatically saves your progress in your browser as you type, with no account needed. Close the tab and come back later and your last receipt will still be here. It remembers one draft at a time, and \"Clear Form\" erases it, so download a PDF of anything you want to keep."
       }
     }
   ]
@@ -672,6 +680,7 @@
         <button class="btn btn-ghost btn-lg" style="background:var(--paper);color:var(--ink);border:1px solid var(--border)" onclick="clearForm()">Clear Form</button>
         <button class="btn btn-success btn-lg" onclick="generatePDF()">⬇ Download PDF Receipt</button>
       </div>
+      <p id="draftStatus" style="text-align:center;font-size:0.78rem;color:#8a8a8a;margin-top:10px;opacity:0;transition:opacity 0.3s;">Draft auto-saved in your browser</p>
 
     </div>
   </div>
@@ -764,6 +773,10 @@
       <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">Will the receipt have any branding or watermarks? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
       <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">No watermarks. The downloaded PDF is clean and professional with only the information you provide.</p>
     </details>
+    <details style="border-bottom:1px solid #e8e4dd;padding:1rem 0;">
+      <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">Can I save my receipt and finish it later? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
+      <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Yes — this tool automatically saves your progress in your browser as you type, with no account needed. Close the tab and come back later and your last receipt will still be here. It remembers one draft at a time, and "Clear Form" erases it, so download a PDF of anything you want to keep.</p>
+    </details>
 
   </div>
 </div>
@@ -784,11 +797,14 @@ const CURRENCIES = {
 
 let itemCount = 0;
 let selectedPayment = 'Cash';
+const DRAFT_KEY = 'gst_receipt_draft';
+let draftRestoring = false;
 
 function selectPayment(el) {
   document.querySelectorAll('.payment-opt').forEach(o => o.classList.remove('selected'));
   el.classList.add('selected');
   selectedPayment = el.textContent;
+  saveDraft();
 }
 
 function getSymbol() {
@@ -797,6 +813,73 @@ function getSymbol() {
 
 function fmt(n) {
   return getSymbol() + parseFloat(n || 0).toFixed(2);
+}
+
+function collectDraft() {
+  const items = [];
+  document.querySelectorAll('.item-row').forEach(row => {
+    const inputs = row.querySelectorAll('input');
+    items.push({ desc: inputs[0]?.value || '', qty: inputs[1]?.value || '1', price: inputs[2]?.value || '' });
+  });
+  const fieldIds = ['fromName','fromAddress','fromEmail','fromPhone','toName','toAddress','toEmail','toPhone',
+    'receiptNumber','payDate','currency','taxRate','notes'];
+  const fields = {};
+  fieldIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) fields[id] = el.value;
+  });
+  return { fields, items, selectedPayment, savedAt: Date.now() };
+}
+
+function saveDraft() {
+  if (draftRestoring) return;
+  try {
+    localStorage.setItem(DRAFT_KEY, JSON.stringify(collectDraft()));
+    showDraftStatus();
+  } catch (e) {}
+}
+
+function showDraftStatus() {
+  const el = document.getElementById('draftStatus');
+  if (!el) return;
+  el.style.opacity = '1';
+  clearTimeout(showDraftStatus._t);
+  showDraftStatus._t = setTimeout(() => { el.style.opacity = '0'; }, 2000);
+}
+
+function restoreDraft() {
+  let raw;
+  try { raw = localStorage.getItem(DRAFT_KEY); } catch (e) { return false; }
+  if (!raw) return false;
+  let draft;
+  try { draft = JSON.parse(raw); } catch (e) { return false; }
+  if (!draft || !draft.fields) return false;
+
+  draftRestoring = true;
+  Object.keys(draft.fields).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = draft.fields[id];
+  });
+
+  document.getElementById('itemsContainer').innerHTML = '';
+  itemCount = 0;
+  if (draft.items && draft.items.length) {
+    draft.items.forEach(it => addItem(it.desc, it.qty, it.price));
+  } else {
+    addItem('', 1, '');
+    addItem('', 1, '');
+  }
+
+  if (draft.selectedPayment) {
+    selectedPayment = draft.selectedPayment;
+    document.querySelectorAll('.payment-opt').forEach(o => {
+      o.classList.toggle('selected', o.textContent === draft.selectedPayment);
+    });
+  }
+
+  recalc();
+  draftRestoring = false;
+  return true;
 }
 
 function addItem(desc='', qty=1, price='') {
@@ -821,6 +904,7 @@ function removeItem(id) {
   const el = document.getElementById('item-' + id);
   if (el) el.remove();
   recalc();
+  saveDraft();
 }
 
 function recalc() {
@@ -844,6 +928,7 @@ function recalc() {
 
 function clearForm() {
   if (!confirm('Clear all fields?')) return;
+  try { localStorage.removeItem(DRAFT_KEY); } catch (e) {}
   ['fromName','fromAddress','fromEmail','fromPhone','toName','toAddress','toEmail','toPhone','notes'].forEach(id => {
     document.getElementById(id).value = '';
   });
@@ -851,6 +936,10 @@ function clearForm() {
   document.getElementById('taxRate').value = '0';
   document.getElementById('itemsContainer').innerHTML = '';
   itemCount = 0;
+  selectedPayment = 'Cash';
+  document.querySelectorAll('.payment-opt').forEach((o, i) => o.classList.toggle('selected', i === 0));
+  addItem('', 1, '');
+  addItem('', 1, '');
   recalc();
 }
 
@@ -1047,11 +1136,18 @@ async function generatePDF() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const today = new Date();
-  document.getElementById('payDate').value = today.toISOString().split('T')[0];
-  addItem('', 1, '');
-  addItem('', 1, '');
+  const restored = restoreDraft();
+  if (!restored) {
+    const today = new Date();
+    document.getElementById('payDate').value = today.toISOString().split('T')[0];
+    addItem('', 1, '');
+    addItem('', 1, '');
+  }
   document.getElementById('currency').addEventListener('change', recalc);
+
+  const wrap = document.querySelector('.main-wrap') || document.body;
+  wrap.addEventListener('input', saveDraft);
+  wrap.addEventListener('change', saveDraft);
 });
 </script>
 </body>
