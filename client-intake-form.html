@@ -120,7 +120,7 @@
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Any",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-  ,"dateModified": "2026-07-12"
+  ,"dateModified": "2026-07-14"
 }
 </script>
 <script type="application/ld+json">
@@ -174,6 +174,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Detailed enough to write an accurate scope and proposal, but not so long that clients abandon it halfway through. This form covers the core bases for most freelance projects. For highly specialized work (large software builds, long-term consulting engagements), you may want to add fields specific to your niche. For simple one-off tasks, you can skip sections that aren't relevant."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I save my progress and finish the form later?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — this tool automatically saves your progress in your browser as you type, with no account needed. Close the tab and come back later and your entries will still be here. It remembers one draft at a time, and \"Clear Form\" erases it, so download a PDF of anything you want to keep."
       }
     }
   ]
@@ -412,6 +420,7 @@
     <button class="btn-download" onclick="downloadPDF()">⬇ Download PDF</button>
     <button class="btn-clear" onclick="clearForm()">Clear Form</button>
   </div>
+  <p id="draftStatus" style="text-align:center;font-size:0.78rem;color:#8a8a8a;margin-top:10px;opacity:0;transition:opacity 0.3s;">Draft auto-saved in your browser</p>
 
 </div>
 
@@ -467,6 +476,10 @@
       <summary>How detailed should the intake form be? <span class="plus">+</span></summary>
       <p>Detailed enough to write an accurate scope and proposal, but not so long that clients abandon it halfway through. This form covers the core bases for most freelance projects. For highly specialized work (large software builds, long-term consulting engagements), you may want to add fields specific to your niche. For simple one-off tasks, you can skip sections that aren't relevant.</p>
     </details>
+    <details>
+      <summary>Can I save my progress and finish the form later? <span class="plus">+</span></summary>
+      <p>Yes — this tool automatically saves your progress in your browser as you type, with no account needed. Close the tab and come back later and your entries will still be here. It remembers one draft at a time, and "Clear Form" erases it, so download a PDF of anything you want to keep.</p>
+    </details>
   </div>
 </div>
 
@@ -499,6 +512,52 @@
 
 <script>
 function g(id) { return document.getElementById(id) ? document.getElementById(id).value.trim() : ''; }
+
+const DRAFT_KEY = 'gst_intake_draft';
+let draftRestoring = false;
+const INTAKE_FIELD_IDS = ['freelancerName','freelancerEmail','freelancerWebsite','intakeDate',
+    'clientName','clientCompany','clientEmail','clientPhone','clientWebsite','clientIndustry',
+    'projectTitle','projectDescription','projectGoals','startDate','deadline','budget','paymentStructure',
+    'deliverables','outOfScope','revisions','clientAssets','references','avoidList',
+    'commChannel','responseTime','decisionMaker','stakeholders','additionalNotes'];
+
+function saveDraft() {
+  if (draftRestoring) return;
+  try {
+    const fields = {};
+    INTAKE_FIELD_IDS.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) fields[id] = el.value;
+    });
+    localStorage.setItem(DRAFT_KEY, JSON.stringify({ fields, savedAt: Date.now() }));
+    showDraftStatus();
+  } catch (e) {}
+}
+
+function showDraftStatus() {
+  const el = document.getElementById('draftStatus');
+  if (!el) return;
+  el.style.opacity = '1';
+  clearTimeout(showDraftStatus._t);
+  showDraftStatus._t = setTimeout(() => { el.style.opacity = '0'; }, 2000);
+}
+
+function restoreDraft() {
+  let raw;
+  try { raw = localStorage.getItem(DRAFT_KEY); } catch (e) { return false; }
+  if (!raw) return false;
+  let draft;
+  try { draft = JSON.parse(raw); } catch (e) { return false; }
+  if (!draft || !draft.fields) return false;
+
+  draftRestoring = true;
+  Object.keys(draft.fields).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = draft.fields[id];
+  });
+  draftRestoring = false;
+  return true;
+}
 
 function downloadPDF() {
   const { jsPDF } = window.jspdf;
@@ -619,16 +678,24 @@ function downloadPDF() {
 }
 
 function clearForm() {
+  try { localStorage.removeItem(DRAFT_KEY); } catch (e) {}
   const ids = ['freelancerName','freelancerEmail','freelancerWebsite','intakeDate',
     'clientName','clientCompany','clientEmail','clientPhone','clientWebsite','clientIndustry',
     'projectTitle','projectDescription','projectGoals','startDate','deadline','budget','paymentStructure',
     'deliverables','outOfScope','revisions','clientAssets','references','avoidList',
     'commChannel','responseTime','decisionMaker','stakeholders','additionalNotes'];
   ids.forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
+  document.getElementById('intakeDate').value = new Date().toISOString().split('T')[0];
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('intakeDate').value = new Date().toISOString().split('T')[0];
+  const restored = restoreDraft();
+  if (!restored) {
+    document.getElementById('intakeDate').value = new Date().toISOString().split('T')[0];
+  }
+  const wrap = document.querySelector('.main-wrap') || document.body;
+  wrap.addEventListener('input', saveDraft);
+  wrap.addEventListener('change', saveDraft);
 });
 </script>
 </body>
