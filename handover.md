@@ -175,6 +175,7 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
    - **`index.html`에 FAQPage 스키마가 아예 없었던 것 발견** (2026-07-12에 18개 툴 전수 보강 때 index.html만 누락된 것으로 추정) — 신규 추가 + dateModified 추가.
    - `sitemap.xml`: index.html(`/`) 항목에 `lastmod` 필드 자체가 없던 것 발견, 추가.
    - **다음에 이어갈 것**: 나머지 17개 툴도 같은 방식(경쟁사 리서치 → 실제 기능 격차 확인 → 구현)으로 훑어볼 가치 있음. 특히 traffic이 있는 late-payment-fee.html(계산기), quote.html, receipt.html부터 우선순위.
+10. **`index.html` 반응형 버그 수정** (사용자가 402px 폭 스크린샷으로 발견): 항목(Line Item)의 Description 입력칸이 좁은 화면에서 5열 그리드(1fr + qty/price/amount 고정폭 3개) 때문에 극도로 눌려 글자가 안 보이던 문제. 기존엔 380px/500px 두 단계로 컬럼 폭만 계속 줄이는 미봉책이었는데 근본 해결이 안 됐음 → 560px 이하에서 2행 구조(1행: Description 전체폭, 2행: Qty/Price/Amount/삭제버튼)로 CSS Grid만으로 재배치, HTML/JS는 안 건드림. **네트워크 제약으로 헤드리스 브라우저 렌더링 캡처는 못 했고, grid 폭을 402px 기준 직접 계산해서 검증함** — 다음에 이 방식대로 CSS만 고치는 작업이 또 생기면 가능하면 사용자에게 실제 화면 재확인을 요청할 것.
 
 ---
 
