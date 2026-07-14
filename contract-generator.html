@@ -124,7 +124,7 @@
     "name": "GetSoloTools",
     "url": "https://getsolotools.com"
   },
-  "dateModified": "2026-07-12",
+  "dateModified": "2026-07-14",
   "keywords": "freelance contract generator, freelance contract template, independent contractor contract"
 }
 </script>
@@ -179,6 +179,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "A kill fee is compensation you receive if a client cancels a project mid-way. A typical kill fee is 25–50% of the remaining project value. It protects you from losing income when clients change direction — well worth including."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I save my contract and finish it later?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — this tool automatically saves your progress in your browser as you fill it in, with no account needed. Close the tab and come back later; your last draft will still be here. It remembers one draft at a time, and \"Clear Form\" erases it, so download a PDF of anything you want to keep."
       }
     }
   ]
@@ -327,6 +335,7 @@
         <button class="btn btn-ghost btn-lg" style="background:var(--paper);color:var(--ink);border:1px solid var(--border)" onclick="clearForm()">Clear Form</button>
         <button class="btn btn-success btn-lg" onclick="generatePDF()">⬇ Download PDF Contract</button>
       </div>
+      <p id="draftStatus" style="text-align:center;font-size:0.78rem;color:#8a8a8a;margin-top:10px;opacity:0;transition:opacity 0.3s;">Draft auto-saved in your browser</p>
 
     </div>
   </div>
@@ -420,6 +429,10 @@
       <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">What's a kill fee and should I include one? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
       <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">A kill fee is compensation you receive if a client cancels a project mid-way. A typical kill fee is 25–50% of the remaining project value. It protects you from losing income when clients change direction — well worth including.</p>
     </details>
+    <details style="border-bottom:1px solid #e8e4dd;padding:1rem 0;">
+      <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">Can I save my contract and finish it later? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
+      <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Yes — this tool automatically saves your progress in your browser as you fill it in, with no account needed. Close the tab and come back later; your last draft will still be here. It remembers one draft at a time, and "Clear Form" erases it, so download a PDF of anything you want to keep.</p>
+    </details>
 
   </div>
 </div>
@@ -445,6 +458,77 @@
 
 <script>
 let scopeCount = 0;
+const DRAFT_KEY = 'gst_contract_draft';
+let draftRestoring = false;
+
+const TEXT_FIELD_IDS = ['freelancerName','freelancerAddress','freelancerEmail','clientName','clientAddress','clientEmail',
+  'projectName','startDate','endDate','projectFee','paymentStructure','paymentDue','lateFee','paymentMethod',
+  'revisions','killFee','governingLaw','notes'];
+const CHECKBOX_IDS = ['clauseIP','clausePortfolio','clauseConfidential','clauseGoverning'];
+
+function collectDraft() {
+  const fields = {};
+  TEXT_FIELD_IDS.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) fields[id] = el.value;
+  });
+  const checks = {};
+  CHECKBOX_IDS.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) checks[id] = el.checked;
+  });
+  const scopes = [];
+  document.querySelectorAll('#scopeContainer textarea').forEach(t => scopes.push(t.value));
+  return { fields, checks, scopes, savedAt: Date.now() };
+}
+
+function saveDraft() {
+  if (draftRestoring) return;
+  try {
+    localStorage.setItem(DRAFT_KEY, JSON.stringify(collectDraft()));
+    showDraftStatus();
+  } catch (e) {}
+}
+
+function showDraftStatus() {
+  const el = document.getElementById('draftStatus');
+  if (!el) return;
+  el.style.opacity = '1';
+  clearTimeout(showDraftStatus._t);
+  showDraftStatus._t = setTimeout(() => { el.style.opacity = '0'; }, 2000);
+}
+
+function restoreDraft() {
+  let raw;
+  try { raw = localStorage.getItem(DRAFT_KEY); } catch (e) { return false; }
+  if (!raw) return false;
+  let draft;
+  try { draft = JSON.parse(raw); } catch (e) { return false; }
+  if (!draft || !draft.fields) return false;
+
+  draftRestoring = true;
+  Object.keys(draft.fields).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = draft.fields[id];
+  });
+  if (draft.checks) {
+    Object.keys(draft.checks).forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.checked = draft.checks[id];
+    });
+  }
+
+  document.getElementById('scopeContainer').innerHTML = '';
+  scopeCount = 0;
+  if (draft.scopes && draft.scopes.length) {
+    draft.scopes.forEach(s => addScope(s));
+  } else {
+    addScope();
+    addScope();
+  }
+  draftRestoring = false;
+  return true;
+}
 
 function addScope(val = '') {
   scopeCount++;
@@ -453,17 +537,19 @@ function addScope(val = '') {
   const row = document.createElement('div');
   row.className = 'scope-row';
   row.id = 'scope-' + id;
-  row.innerHTML = `<textarea placeholder="e.g. Design and develop 5-page responsive website including Home, About, Services, Blog, Contact">${val}</textarea><button class="btn-remove" onclick="removeScope(${id})" title="Remove">×</button>`;
+  row.innerHTML = `<textarea placeholder="e.g. Design and develop 5-page responsive website including Home, About, Services, Blog, Contact" oninput="saveDraft()">${val}</textarea><button class="btn-remove" onclick="removeScope(${id})" title="Remove">×</button>`;
   container.appendChild(row);
 }
 
 function removeScope(id) {
   const el = document.getElementById('scope-' + id);
   if (el) el.remove();
+  saveDraft();
 }
 
 function clearForm() {
   if (!confirm('Clear all fields?')) return;
+  try { localStorage.removeItem(DRAFT_KEY); } catch (e) {}
   ['freelancerName','freelancerAddress','freelancerEmail','clientName','clientAddress','clientEmail',
    'projectName','projectFee','notes','governingLaw','paymentMethod','lateFee'].forEach(id => {
     const el = document.getElementById(id);
@@ -674,10 +760,17 @@ function generatePDF() {
 
 // Init
 document.addEventListener('DOMContentLoaded', () => {
-  addScope();
-  addScope();
-  const today = new Date().toISOString().split('T')[0];
-  document.getElementById('startDate').value = today;
+  const restored = restoreDraft();
+  if (!restored) {
+    addScope();
+    addScope();
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('startDate').value = today;
+  }
+
+  const form = document.querySelector('.main-wrap') || document.body;
+  form.addEventListener('input', saveDraft);
+  form.addEventListener('change', saveDraft);
 });
 </script>
 
