@@ -116,7 +116,7 @@
     "name": "GetSoloTools",
     "url": "https://getsolotools.com"
   },
-  "dateModified": "2026-07-12",
+  "dateModified": "2026-07-14",
   "keywords": "freelance NDA generator, non-disclosure agreement freelancer, NDA template, confidentiality agreement"
 }
 </script>
@@ -171,6 +171,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "A standard NDA shouldn't restrict future work. What you want to avoid is a non-compete clause buried in an NDA — these are different and can restrict who you work with. If you see non-compete language, negotiate or remove it before signing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I save my NDA and finish it later?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — this tool automatically saves your progress in your browser as you fill it in, with no account needed. Close the tab and come back later and your last draft will still be here. It remembers one draft at a time, and \"Clear Form\" erases it, so download a PDF of anything you want to keep."
       }
     }
   ]
@@ -285,6 +293,7 @@
         <button class="btn btn-ghost btn-lg" style="background:var(--paper);color:var(--ink);border:1px solid var(--border)" onclick="clearForm()">Clear Form</button>
         <button class="btn btn-success btn-lg" onclick="generatePDF()">⬇ Download PDF NDA</button>
       </div>
+      <p id="draftStatus" style="text-align:center;font-size:0.78rem;color:#8a8a8a;margin-top:10px;opacity:0;transition:opacity 0.3s;">Draft auto-saved in your browser</p>
 
     </div>
   </div>
@@ -381,6 +390,10 @@
       <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">Can an NDA prevent me from working with similar clients? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
       <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">A standard NDA shouldn't restrict future work. What you want to avoid is a non-compete clause buried in an NDA — these are different and can restrict who you work with. If you see non-compete language, negotiate or remove it before signing.</p>
     </details>
+    <details style="border-bottom:1px solid #e8e4dd;padding:1rem 0;">
+      <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">Can I save my NDA and finish it later? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
+      <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Yes — this tool automatically saves your progress in your browser as you fill it in, with no account needed. Close the tab and come back later and your last draft will still be here. It remembers one draft at a time, and "Clear Form" erases it, so download a PDF of anything you want to keep.</p>
+    </details>
 
   </div>
 </div>
@@ -395,8 +408,64 @@
 </footer>
 
 <script>
+const DRAFT_KEY = 'gst_nda_draft';
+let draftRestoring = false;
+const NDA_FIELD_IDS = ['freelancerName','freelancerAddress','freelancerEmail','clientName','clientAddress','clientEmail',
+   'projectName','governingLaw','notes','confInfo','effectiveDate','ndaType','ndaDuration'];
+const NDA_CHECKBOX_IDS = ['clauseReturn','clauseInjunctive','clauseGoverning','clauseNoSolicit'];
+
+function saveDraft() {
+  if (draftRestoring) return;
+  try {
+    const fields = {};
+    NDA_FIELD_IDS.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) fields[id] = el.value;
+    });
+    const checks = {};
+    NDA_CHECKBOX_IDS.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) checks[id] = el.checked;
+    });
+    localStorage.setItem(DRAFT_KEY, JSON.stringify({ fields, checks, savedAt: Date.now() }));
+    showDraftStatus();
+  } catch (e) {}
+}
+
+function showDraftStatus() {
+  const el = document.getElementById('draftStatus');
+  if (!el) return;
+  el.style.opacity = '1';
+  clearTimeout(showDraftStatus._t);
+  showDraftStatus._t = setTimeout(() => { el.style.opacity = '0'; }, 2000);
+}
+
+function restoreDraft() {
+  let raw;
+  try { raw = localStorage.getItem(DRAFT_KEY); } catch (e) { return false; }
+  if (!raw) return false;
+  let draft;
+  try { draft = JSON.parse(raw); } catch (e) { return false; }
+  if (!draft || !draft.fields) return false;
+
+  draftRestoring = true;
+  Object.keys(draft.fields).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = draft.fields[id];
+  });
+  if (draft.checks) {
+    Object.keys(draft.checks).forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.checked = draft.checks[id];
+    });
+  }
+  draftRestoring = false;
+  return true;
+}
+
 function clearForm() {
   if (!confirm('Clear all fields?')) return;
+  try { localStorage.removeItem(DRAFT_KEY); } catch (e) {}
   ['freelancerName','freelancerAddress','freelancerEmail','clientName','clientAddress','clientEmail',
    'projectName','governingLaw','notes','confInfo'].forEach(id => {
     const el = document.getElementById(id);
@@ -580,8 +649,14 @@ function generatePDF() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const today = new Date().toISOString().split('T')[0];
-  document.getElementById('effectiveDate').value = today;
+  const restored = restoreDraft();
+  if (!restored) {
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('effectiveDate').value = today;
+  }
+  const wrap = document.querySelector('.main-wrap') || document.body;
+  wrap.addEventListener('input', saveDraft);
+  wrap.addEventListener('change', saveDraft);
 });
 </script>
 
