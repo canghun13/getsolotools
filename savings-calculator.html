@@ -35,7 +35,7 @@
     "name": "GetSoloTools",
     "url": "https://getsolotools.com"
   },
-  "dateModified": "2026-07-12",
+  "dateModified": "2026-07-14",
   "keywords": "freelance savings calculator, self employed savings calculator, how much to save freelance, freelancer savings goal"
 }
 </script>
@@ -505,6 +505,41 @@
 const fmt = n => '$' + Math.max(0, n).toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0});
 const pct = (n, total) => total > 0 ? Math.round((n / total) * 100) : 0;
 
+const DRAFT_KEY = 'gst_savings_draft';
+let draftRestoring = false;
+const SAVINGS_FIELD_IDS = ['grossIncome','filingStatus','expSoftware','expEquipment','expMarketing',
+  'expProfessional','expOffice','expOther','expHousing','expFood','expTransport','expUtilities',
+  'expHealth','expPersonal','goalAmount','goalMonths'];
+
+function saveDraft() {
+  if (draftRestoring) return;
+  try {
+    const fields = {};
+    SAVINGS_FIELD_IDS.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) fields[id] = el.value;
+    });
+    localStorage.setItem(DRAFT_KEY, JSON.stringify({ fields, savedAt: Date.now() }));
+  } catch (e) {}
+}
+
+function restoreDraft() {
+  let raw;
+  try { raw = localStorage.getItem(DRAFT_KEY); } catch (e) { return false; }
+  if (!raw) return false;
+  let draft;
+  try { draft = JSON.parse(raw); } catch (e) { return false; }
+  if (!draft || !draft.fields) return false;
+
+  draftRestoring = true;
+  Object.keys(draft.fields).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = draft.fields[id];
+  });
+  draftRestoring = false;
+  return true;
+}
+
 function getTaxBrackets(status) {
   // 2024 federal income tax brackets
   const brackets = {
@@ -647,10 +682,14 @@ function calc() {
   } else {
     tipsCard.style.display = 'none';
   }
+  saveDraft();
 }
 
 // Init
-calc();
+document.addEventListener('DOMContentLoaded', () => {
+  restoreDraft();
+  calc();
+});
 </script>
 </body>
 </html>
