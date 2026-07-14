@@ -168,8 +168,11 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 5. **관찰(조치 보류)**: late fee 주별 블로그 페이지 중 Illinois(순위 5.73), Texas(순위 7), New Jersey(순위 7.68), Colorado(순위 8.95) 등이 이미 1페이지권인데 클릭 0. 다만 개별 노출량이 9~27회로 적어 위치 대비 기대 클릭수 자체가 1 미만인 경우가 많아 이번엔 "실제 결함"이라 단정하지 않고 관찰만 기록. **다음 GSC 데이터에서 노출량이 누적되면(특히 Illinois/Texas처럼 순위 5~7위인데 여전히 클릭 0이면) 제목/메타 설명 재작성을 검토할 것.**
 6. **검증 및 배포**: 두 파일 모두 `html.parser` 파싱 검증 + JSON-LD `json.loads()` 검증 통과, `sitemap.xml`은 `ElementTree` 파싱 검증 + 중복 URL 없음 확인 후 commit & push.
 7. **이번 세션에 사용자가 명시적으로 요청**: 이 프로젝트가 애드센스 2차 반려를 받았고 유사 사이트들도 계속 저품질 콘텐츠로 걸리고 있다는 점을 강조 — 문서 상단에 "콘텐츠 품질 경각심" 섹션 신규 추가함 (내용은 위 참고).
+8. **CTA 버튼 텍스트 안 보이는 CSS 버그 발견 및 수정** (사용자가 `freelance-rate-negotiation-guide.html` 스크린샷 제보로 발견): `.article-body a { color: var(--accent) }` 규칙이 `.cta-btn { color: #fff }`보다 CSS 명시도가 높아(class+tag(0,1,1) > class(0,1,0)) 파란 배경 버튼 위에 글자도 파란색이 되어 안 보이던 문제. `.article-body a.cta-btn { color: #fff }` 오버라이드로 수정. cta-btn을 쓰는 전체 70여개 파일을 이 패턴(`.article-body`/`.article-wrap`/`.content` + ` a {` 래퍼 규칙)으로 전수 재검사해서 `late-fee-laws-freelancers-ohio.html`에도 동일 버그가 있는 것을 추가로 발견해 같이 수정함. (toc/related-links/related-section/footer-links 클래스는 cta-box의 형제(sibling) div라 실제로는 중첩되지 않아 영향 없음 — 오탐 처리.)
 
 ---
+
+
 
 ## 기술 주의사항
 
@@ -181,6 +184,10 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 
 ### jsPDF
 - ASCII 문자만 지원. PDF 내 Subtotal/Tax/Total 정렬은 `totalsX`/`totalsRight`가 좌우 대칭 패딩(4mm)을 갖도록 맞춰져 있음 — 건드릴 때 대칭 깨지지 않게 주의.
+
+### `.cta-btn` 텍스트 안 보임 (CSS 명시도 충돌, 2026-07-14 발견)
+- 일부 blog 페이지에 `.article-body a { color: var(--accent) }` 같은 래퍼-레벨 링크 색상 규칙이 있는데, 이게 `.cta-btn { color: #fff }`(class 단독, 명시도 0,1,0)보다 명시도가 높아서(class+tag, 0,1,1) 파란 배경 버튼 위에 글자도 파란색으로 깔려 안 보이는 버그 발생. `late-fee-laws-freelancers-ohio.html`, `blog/freelance-rate-negotiation-guide.html` 2건에서 실제 발견 및 수정 완료(`.article-body a.cta-btn { color: #fff }` 오버라이드 추가).
+- 앞으로 새 페이지 작성/기존 페이지 CSS 수정 시: `.article-body`/`.article-wrap`/`.content` 등 콘텐츠 전체를 감싸는 래퍼 클래스에 `a { color: ... }` 규칙을 넣을 땐 반드시 `.cta-btn`도 같이 오버라이드했는지 확인할 것. `toc`/`related-links`/`related-section`/`footer-links` 같은 클래스는 보통 cta-box와 형제(sibling) 관계라 영향 없음(2026-07-14에 실제 확인) — 진짜 위험한 건 cta-box를 실제로 감싸는 상위 래퍼 클래스에 링크 색상 규칙이 있는 경우.
 
 ### flex + min-width 버그
 - `body`가 `display:flex`인 페이지에 폭 고정된 자식 요소를 넣을 땐 조상 flex item에 `width:100%; min-width:0;` 확인할 것. (`late-payment-fee.html`, `blog/*` 등 대부분의 신규 페이지는 `body`가 flex가 아니라서 해당 없음 — 작업 전에 먼저 `body { display:flex }` 여부부터 확인.)
