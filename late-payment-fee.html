@@ -192,7 +192,7 @@
     "name": "GetSoloTools",
     "url": "https://getsolotools.com"
   },
-  "dateModified": "2026-07-10",
+  "dateModified": "2026-07-14",
   "keywords": "late payment fee calculator, late fee calculator, overdue invoice calculator, freelance late fee"
 }
 </script>
@@ -704,6 +704,40 @@ function toggleFeeInputs() {
 
 function fmt(n) { return '$' + Math.abs(Math.round(n)).toLocaleString(); }
 
+const DRAFT_KEY = 'gst_latefee_draft';
+let draftRestoring = false;
+const LATEFEE_FIELD_IDS = ['invoiceAmount','dueDate','todayDate','feeType','interestRate','flatFee','gracePeriod'];
+
+function saveDraft() {
+  if (draftRestoring) return;
+  try {
+    const fields = {};
+    LATEFEE_FIELD_IDS.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) fields[id] = el.value;
+    });
+    localStorage.setItem(DRAFT_KEY, JSON.stringify({ fields, savedAt: Date.now() }));
+  } catch (e) {}
+}
+
+function restoreDraft() {
+  let raw;
+  try { raw = localStorage.getItem(DRAFT_KEY); } catch (e) { return false; }
+  if (!raw) return false;
+  let draft;
+  try { draft = JSON.parse(raw); } catch (e) { return false; }
+  if (!draft || !draft.fields) return false;
+
+  draftRestoring = true;
+  Object.keys(draft.fields).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = draft.fields[id];
+  });
+  toggleFeeInputs();
+  draftRestoring = false;
+  return true;
+}
+
 function calc() {
   const amount = parseFloat(document.getElementById('invoiceAmount').value) || 0;
   const dueDate = new Date(document.getElementById('dueDate').value);
@@ -743,15 +777,19 @@ function calc() {
   document.getElementById('flatAmt').textContent = fmt(flatAmt);
   document.getElementById('dailyRate').textContent = '$' + dailyAccrual.toFixed(2) + '/day';
   document.getElementById('totalDue').textContent = fmt(totalDue);
+  saveDraft();
 }
 
-// Set default dates
+// Set default dates, or restore saved draft
 window.addEventListener('DOMContentLoaded', () => {
-  const today = new Date();
-  const due = new Date(today);
-  due.setDate(due.getDate() - 30);
-  document.getElementById('todayDate').value = today.toISOString().split('T')[0];
-  document.getElementById('dueDate').value = due.toISOString().split('T')[0];
+  const restored = restoreDraft();
+  if (!restored) {
+    const today = new Date();
+    const due = new Date(today);
+    due.setDate(due.getDate() - 30);
+    document.getElementById('todayDate').value = today.toISOString().split('T')[0];
+    document.getElementById('dueDate').value = due.toISOString().split('T')[0];
+  }
   calc();
 });
 
