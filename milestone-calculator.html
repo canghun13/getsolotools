@@ -178,7 +178,7 @@
     "name": "GetSoloTools",
     "url": "https://getsolotools.com"
   },
-  "dateModified": "2026-07-12",
+  "dateModified": "2026-07-14",
   "keywords": "milestone payment calculator, freelance milestone payments, project payment schedule"
 }
 </script>
@@ -450,6 +450,44 @@
 let mode = 'pct'; // 'pct' or 'fixed'
 let milestones = [];
 let idCounter = 0;
+const DRAFT_KEY = 'gst_milestone_draft';
+let draftRestoring = false;
+
+function saveDraft() {
+  if (draftRestoring) return;
+  try {
+    const draft = {
+      projectName: document.getElementById('projectName').value,
+      totalValue: document.getElementById('totalValue').value,
+      currency: document.getElementById('currency').value,
+      mode,
+      milestones,
+      savedAt: Date.now()
+    };
+    localStorage.setItem(DRAFT_KEY, JSON.stringify(draft));
+  } catch (e) {}
+}
+
+function restoreDraft() {
+  let raw;
+  try { raw = localStorage.getItem(DRAFT_KEY); } catch (e) { return false; }
+  if (!raw) return false;
+  let draft;
+  try { draft = JSON.parse(raw); } catch (e) { return false; }
+  if (!draft) return false;
+
+  draftRestoring = true;
+  document.getElementById('projectName').value = draft.projectName || '';
+  document.getElementById('totalValue').value = draft.totalValue || '';
+  if (draft.currency) document.getElementById('currency').value = draft.currency;
+  mode = draft.mode || 'pct';
+  document.getElementById('btnPct').classList.toggle('active', mode === 'pct');
+  document.getElementById('btnFixed').classList.toggle('active', mode === 'fixed');
+  milestones = (draft.milestones && draft.milestones.length) ? draft.milestones : [];
+  idCounter = milestones.reduce((max, m) => Math.max(max, m.id || 0), 0);
+  draftRestoring = false;
+  return true;
+}
 
 function setMode(m) {
   mode = m;
@@ -551,6 +589,7 @@ function render() {
 
   // Schedule
   renderSchedule(total, sym, amounts);
+  saveDraft();
 }
 
 function renderSchedule(total, sym, amounts) {
@@ -682,6 +721,7 @@ function exportCSV() {
 
 function resetAll() {
   if (!confirm('Reset everything?')) return;
+  try { localStorage.removeItem(DRAFT_KEY); } catch (e) {}
   milestones = [];
   document.getElementById('projectName').value = '';
   document.getElementById('totalValue').value = '';
@@ -689,8 +729,15 @@ function resetAll() {
   render();
 }
 
-// Init with a default template
-applyTemplate('50-25-25');
+// Init: restore saved draft, or fall back to a default template
+document.addEventListener('DOMContentLoaded', () => {
+  if (!restoreDraft()) {
+    applyTemplate('50-25-25');
+  } else {
+    renderMilestoneList();
+    render();
+  }
+});
 </script>
 
 </body>
