@@ -549,6 +549,7 @@
   "description": "Create professional freelance invoices online for free. Fill in your details and download a PDF invoice instantly. No sign-up required.",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Web",
+  "dateModified": "2026-07-14",
   "offers": {
     "@type": "Offer",
     "price": "0",
@@ -560,6 +561,62 @@
     "url": "https://getsolotools.com"
   },
   "keywords": "invoice generator, freelance invoice, free invoice maker, invoice template"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this invoice generator really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, completely free. No account required, no watermarks on the PDF, no hidden fees. You fill in your details, click download, and get a professional PDF invoice instantly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I add my logo to the invoice?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Click the logo upload area near the top of the form and select an image file — it will appear on your invoice preview and in the downloaded PDF, next to your business name and contact details."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this work outside the US?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can set your currency, enter any address format, and adjust tax rates to match your country. The tool is designed to be flexible for freelancers worldwide."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I save my invoice and edit it later?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — this tool automatically saves your progress in your browser as you type, with no account or login needed. Come back later and your last invoice will still be here. It only remembers one draft at a time, and clicking \"Clear Form\" erases it, so download a PDF copy of anything you want to keep permanently."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What tax rate should I use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That depends on your location and tax type. In the US, most freelancers don't add sales tax to service invoices. If you're in a country with VAT or GST, enter the applicable rate in the tax field. When in doubt, consult a local accountant."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data private?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The invoice generator runs entirely in your browser. No data is sent to any server. Your client details, rates, and invoice content never leave your device."
+      }
+    }
+  ]
 }
 </script>
 </head>
@@ -728,6 +785,7 @@
         <button class="btn btn-ghost btn-lg" style="background:var(--paper);color:var(--ink);border:1px solid var(--border)" onclick="clearForm()">Clear Form</button>
         <button class="btn btn-success btn-lg" onclick="generatePDF()">⬇ Download PDF Invoice</button>
       </div>
+      <p id="draftStatus" style="text-align:center;font-size:0.78rem;color:#8a8a8a;margin-top:10px;opacity:0;transition:opacity 0.3s;">Draft auto-saved in your browser</p>
 
     </div>
   </div>
@@ -802,6 +860,7 @@
 <div class="seo-section" style="max-width:860px;margin:3rem auto 0;padding:0 1rem 4rem;border-top:1px solid var(--border, #e8e6e0);">
   <div style="max-width:720px;margin:0 auto;">
     <h2 style="font-family:'DM Serif Display',serif;font-size:1.6rem;margin:2.5rem 0 1rem;letter-spacing:-0.02em;color:var(--ink,#1a1a1a);">How to Use the Free Invoice Generator</h2>
+    <p style="font-size:0.82rem;color:#999;margin:-0.5rem 0 1.25rem;">Last updated: July 2026</p>
     <div style="font-size:1rem;line-height:1.8;color:var(--ink,#1a1a1a);">
       
         <p>Creating a professional invoice doesn't need to take more than a few minutes. This free invoice generator lets you build, preview, and download a PDF invoice directly in your browser — no account, no subscription, no watermarks.</p>
@@ -835,7 +894,7 @@
     </details>
     <details style="border-bottom:1px solid #e8e4dd;padding:1rem 0;">
       <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">Can I add my logo to the invoice? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
-      <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Currently the invoice generator uses a clean text-based layout optimized for freelancers. Logo support may be added in a future update. For now, your business name and contact details are prominently displayed at the top.</p>
+      <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Yes. Click the logo upload area near the top of the form and select an image file — it will appear on your invoice preview and in the downloaded PDF, next to your business name and contact details.</p>
     </details>
     <details style="border-bottom:1px solid #e8e4dd;padding:1rem 0;">
       <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">Does this work outside the US? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
@@ -843,7 +902,7 @@
     </details>
     <details style="border-bottom:1px solid #e8e4dd;padding:1rem 0;">
       <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">Can I save my invoice and edit it later? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
-      <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">The tool doesn't store your data — everything stays in your browser. To keep an editable copy, we recommend taking a screenshot of your filled form or saving the PDF and keeping your own records.</p>
+      <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Yes — this tool automatically saves your progress in your browser as you type, with no account or login needed. Come back later and your last invoice will still be here. It only remembers one draft at a time, and clicking "Clear Form" erases it, so download a PDF copy of anything you want to keep permanently.</p>
     </details>
     <details style="border-bottom:1px solid #e8e4dd;padding:1rem 0;">
       <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">What tax rate should I use? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
@@ -895,6 +954,92 @@ const CURRENCIES = {
 
 let logoDataUrl = null;
 let itemCount = 0;
+const DRAFT_KEY = 'gst_invoice_draft';
+let draftRestoring = false;
+
+function collectDraft() {
+  const items = [];
+  document.querySelectorAll('.item-row').forEach(row => {
+    const inputs = row.querySelectorAll('input');
+    items.push({
+      desc: inputs[0]?.value || '',
+      qty: inputs[1]?.value || '1',
+      price: inputs[2]?.value || ''
+    });
+  });
+  const fieldIds = ['fromName','fromAddress','fromEmail','fromPhone',
+    'toName','toAddress','toEmail','toPhone',
+    'invoiceNumber','issueDate','dueDate','currency','discount','taxRate','notes'];
+  const fields = {};
+  fieldIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) fields[id] = el.value;
+  });
+  return { fields, items, logoDataUrl, savedAt: Date.now() };
+}
+
+function saveDraft() {
+  if (draftRestoring) return;
+  try {
+    localStorage.setItem(DRAFT_KEY, JSON.stringify(collectDraft()));
+    showDraftStatus('Draft auto-saved in your browser');
+  } catch (e) {
+    // localStorage unavailable (private browsing, storage full) - fail silently, PDF download still works
+  }
+}
+
+function showDraftStatus(text) {
+  const el = document.getElementById('draftStatus');
+  if (!el) return;
+  el.textContent = text;
+  el.style.opacity = '1';
+  clearTimeout(showDraftStatus._t);
+  showDraftStatus._t = setTimeout(() => { el.style.opacity = '0'; }, 2000);
+}
+
+function restoreDraft() {
+  let raw;
+  try {
+    raw = localStorage.getItem(DRAFT_KEY);
+  } catch (e) {
+    return false;
+  }
+  if (!raw) return false;
+  let draft;
+  try {
+    draft = JSON.parse(raw);
+  } catch (e) {
+    return false;
+  }
+  if (!draft || !draft.fields) return false;
+
+  draftRestoring = true;
+  Object.keys(draft.fields).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = draft.fields[id];
+  });
+
+  document.getElementById('itemsContainer').innerHTML = '';
+  itemCount = 0;
+  if (draft.items && draft.items.length) {
+    draft.items.forEach(it => addItem(it.desc, it.qty, it.price));
+  } else {
+    addItem('', 1, '');
+    addItem('', 1, '');
+  }
+
+  if (draft.logoDataUrl) {
+    logoDataUrl = draft.logoDataUrl;
+    document.getElementById('logoText').style.display = 'none';
+    const img = document.getElementById('logoPreview');
+    img.src = logoDataUrl;
+    img.style.display = 'block';
+  }
+
+  recalc();
+  draftRestoring = false;
+  return true;
+}
 
 function getSymbol() {
   return CURRENCIES[document.getElementById('currency').value] || '$';
@@ -962,12 +1107,14 @@ function handleLogo(input) {
     const img = document.getElementById('logoPreview');
     img.src = logoDataUrl;
     img.style.display = 'block';
+    saveDraft();
   };
   reader.readAsDataURL(file);
 }
 
 function clearForm() {
   if (!confirm('Clear all fields?')) return;
+  try { localStorage.removeItem(DRAFT_KEY); } catch (e) {}
   ['fromName','fromAddress','fromEmail','fromPhone',
    'toName','toAddress','toEmail','toPhone','notes'].forEach(id => {
     document.getElementById(id).value = '';
@@ -980,6 +1127,8 @@ function clearForm() {
   document.getElementById('logoText').style.display = '';
   document.getElementById('logoPreview').style.display = 'none';
   itemCount = 0;
+  addItem('', 1, '');
+  addItem('', 1, '');
   recalc();
 }
 
@@ -1198,16 +1347,26 @@ function toggleNav() {
 
 // Init
 document.addEventListener('DOMContentLoaded', () => {
-  const today = new Date();
-  const due = new Date();
-  due.setDate(due.getDate() + 30);
-  document.getElementById('issueDate').value = today.toISOString().split('T')[0];
-  document.getElementById('dueDate').value = due.toISOString().split('T')[0];
+  const restored = restoreDraft();
 
-  addItem('', 1, '');
-  addItem('', 1, '');
+  if (!restored) {
+    const today = new Date();
+    const due = new Date();
+    due.setDate(due.getDate() + 30);
+    document.getElementById('issueDate').value = today.toISOString().split('T')[0];
+    document.getElementById('dueDate').value = due.toISOString().split('T')[0];
+
+    addItem('', 1, '');
+    addItem('', 1, '');
+  }
 
   document.getElementById('currency').addEventListener('change', recalc);
+
+  const body = document.querySelector('.invoice-body');
+  if (body) {
+    body.addEventListener('input', saveDraft);
+    body.addEventListener('change', saveDraft);
+  }
 });
 </script>
 
