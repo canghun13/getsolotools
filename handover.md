@@ -1,6 +1,6 @@
 # GetSoloTools 인수인계 문서 (handover.md)
 
-**최종 갱신**: 2026-07-16 (late fee 주(州) 8개 페이지에 인라인 미니 계산기 위젯 신규 추가 — GSC 계산기 의도 쿼리 대응, title/meta에 calculator 키워드 반영, 문장 깨짐 버그 3건 발견/수정)
+**최종 갱신**: 2026-07-16 (③ late fee 주(州) 시리즈 5개 신규 확장 14→19개 주 — **사용자 지시로 콘텐츠 전략을 "GSC 노출 대기"에서 "검증된 롱테일 축 선제 확장"으로 전환**. ② late fee 8개 주 페이지에 미니 계산기 위젯 신규 추가. ① title/meta calculator 키워드 반영, 문장 깨짐 버그 3건 수정)
 **갱신 방식이 v12까지와 다름**: 이제부터 이 문서는 새 채팅에 붙여넣는 방식이 아니라, **저장소에 직접 보관하고 계속 업데이트**하는 방식으로 운영한다. 새 세션에서는 이 파일(`handover.md`)을 clone 직후 가장 먼저 읽을 것.
 
 ---
@@ -57,6 +57,23 @@
 
 **주간 정규 작업**: GSC 데이터는 상위 10위까지만 받는 게 기본. 세션 여유가 있거나 특이 케이스일 때만 사용자가 50위 또는 전체 쿼리를 준다 — 이 경우 롱테일까지 전부 대조해서 확인할 것.
 
+---
+
+**⚠️ (2026-07-16) 콘텐츠 전략 전환 — 위 "GSC 노출 있어야만 신규" 원칙에 대한 예외가 생김.**
+
+사용자가 이번 세션에 명시적으로 지적함: "신규 진행 안 한 지 너무 오래됐다, 롱테일 키워드를 많이 보유해두지 않으면 위험하다, 이제부턴 진행하는 쪽으로 하라." 이는 위 "노출 있는데 매칭 페이지 없는 키워드만 신규 근거"라는 오래된 보수 원칙을 **명시적으로 완화/전환**하라는 지시임.
+
+**전환된 원칙**: late fee 주(州) 시리즈처럼 **이미 이 사이트에서 저경쟁·롱테일임이 실증된 콘텐츠 축**은, 개별 주마다 GSC 노출을 기다리지 않고 선제적으로 확장해도 됨. 근거: 2026-07-16 세션에 "[주] late fee calculator" 키워드를 웹 검색으로 확인한 결과 주(州) 수식어가 붙은 즉시 전용 경쟁자가 거의 사라지는 패턴을 반복 확인함(New York/Florida/Illinois/Pennsylvania/Georgia/Indiana/Wisconsin/Washington 8개 주 전부 동일 패턴, 이후 Massachusetts/North Carolina/Virginia/Arizona/Minnesota 5개 주 신규 제작 전에도 동일하게 재확인). 즉 "노출이 이미 있어야 신규 근거"가 아니라 **"이미 검증된 저경쟁 패턴이면 노출이 아직 안 잡혀도 선제 확장 가능"**으로 바뀜.
+
+**다만 다음은 그대로 유지**:
+- 신규 콘텐츠는 여전히 기존 파일과 중복 확인 필수 (같은 주를 두 번 만들지 않기 등)
+- 웹 검색으로 경쟁강도 확인은 계속 필수 (전용 경쟁자가 이미 있는 키워드라면 확장 근거 약해짐)
+- **콘텐츠 품질 경각심 원칙(아래 섹션)은 전환되지 않음** — 양을 늘리는 게 목적이 아니라 각 신규 페이지도 실제 법령 1차 자료 검증, 800단어 이상, FAQ, 실질적 정보 제공이라는 기존 품질 기준을 그대로 지킬 것. "많이 만들라"는 지시를 "대충 빨리 만들라"로 해석하지 말 것.
+- 타겟(미국 프리랜서) 밖으로 벗어나는 확장은 여전히 금지
+- 사용자 승인 원칙도 유지되나, "이 축으로 계속 확장해도 된다"는 승인은 이번 세션에 포괄적으로 받은 것으로 취급 — late fee 주 시리즈를 남은 31개 주로 계속 확장할 때 매번 재승인받을 필요는 없음(단, 세션당 5개 내외로 배치를 나누고 매 배치마다 법령 검증·품질 검증은 생략하지 말 것).
+
+**다음 후보 주(31개 남음, 우선순위 없음, 프리랜서/긱이코노미 인구·경제 규모 기준으로 다음 5개 정도 우선 검토 권장)**: Tennessee, Missouri, Maryland, Oregon, Nevada, Connecticut, Utah, South Carolina, Alabama, Kentucky 등. 다음 세션에 이어서 진행할 것.
+
 **신규 콘텐츠 작업 시 반드시 지킬 것 (2026-07-12부터 명문화)**:
 1. 기존 사이트 파일과 중복 여부 확인 (blog/email-templates/툴 전체 grep)
 2. 웹 검색으로 해당 키워드의 경쟁 강도 확인 (대형 사이트가 이미 장악한 키워드인지 — 예: "freelance contract template"은 Wise/LegalTemplates/PandaDoc/Jotform/Contractbook/TemplateLab 등이 장악한 고경쟁 키워드로 확인됨, 2026-07-12)
@@ -80,7 +97,7 @@
 
 - **툴**: 18개 (Invoice Generator = index.html 포함)
 - **이메일 템플릿**: 24개
-- **블로그 글**: 41개 (late fee 지역 시리즈 **14개 주**로 확장 완료 — California, New York, Florida, Illinois, Texas, Pennsylvania, Ohio, Colorado, Georgia, Michigan, New Jersey, Washington, **Indiana, Wisconsin**)
+- **블로그 글**: 47개 (late fee 지역 시리즈 **19개 주**로 확장 완료 — California, New York, Florida, Illinois, Texas, Pennsylvania, Ohio, Colorado, Georgia, Michigan, New Jersey, Washington, Indiana, Wisconsin, **Massachusetts, North Carolina, Virginia, Arizona, Minnesota**)
 
 ### 툴 목록 (18개, 경로는 v12 문서와 동일 — 변경 없음)
 Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Project Profit, Budget Planner, Contract Generator, Invoice Tracker, Client Proposal, Time Tracker, Milestone Calculator, Savings Calculator, NDA Generator, Client Intake Form, Expense Report, Scope of Work — **18개로 유지, 추가 없음**
@@ -204,6 +221,17 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 8. **작업 중 버그 자체 발견 및 수정 (자동화 스크립트의 부작용)**: FAQ 섹션을 삽입하는 python 스크립트가 처음엔 `article-body`를 닫는 `</div>`보다 앞에 FAQ를 넣어야 하는데 앵커 문자열을 잘못 잡아서 8개 파일 전부 `<div>` 여닫음이 어긋나는(13 close vs 12 open) 구조적 버그가 생겼었음. **`html.parser.HTMLParser`는 태그 짝이 안 맞아도 에러를 던지지 않아서 1차 검증에서 못 잡았음** — `html.count('<div')` vs `html.count('</div>')` 개수 비교로 뒤늦게 발견해 즉시 재수정함. **앞으로 자동화 스크립트로 div 등 블록 요소를 삽입/이동할 때는 HTMLParser 파싱 성공 여부만으로 안심하지 말고 반드시 여닫음 태그 개수 비교를 별도로 할 것.**
 9. **GSC Coverage 데이터 관찰(조치 보류)**: "발견됨 - 미색인" 4건(07-14엔 3건이었음, +1), "크롤링됨 - 미색인" 3건(동일), "리디렉션 포함 페이지" 3건(동일, 원인 미확인 상태 유지), "중복 페이지" 2건(기존에 index.html vs `?ref=producthunt`로 확인 완료, 무해). 색인 요청은 여전히 금지 — 다음 GSC 데이터에서 계속 미색인이면 어떤 URL인지 GSC UI에서 직접 확인 필요(사용자 액션).
 10. **처리하지 않은 것 (의도적 보류)**: Ohio는 "ohio late fee calculator" 단독 쿼리 노출이 2회로 미미하고 페이지 종합 순위(9.83위)·CTR도 이미 다른 8개보다 나은 편이라 이번 배치에서 제외. California/Texas/Colorado/Michigan/New Jersey는 이번 GSC 데이터에 "[주] late fee calculator" 형태의 명시적 쿼리가 없어서 제외(향후 노출 생기면 동일 패턴 적용 검토). `blog/index.html`의 각 글 목록 blurb(짧은 설명)는 title/meta와 별개로 손대지 않음 — canonical 메타가 아니라 우선순위 낮음.
+
+11. **(같은 세션, 후반) 사용자가 콘텐츠 확장 전략 전환을 명시적으로 지시** — "신규 진행 안 한 지 너무 오래됐다, 롱테일 키워드를 많이 보유 못해두면 위험하다, 이제부턴 진행하는 쪽으로 하라." 위 1~10번에서 확인한 "주(州) 수식어가 붙으면 전용 경쟁자가 사실상 없다"는 패턴을 근거로, GSC 노출을 기다리지 않고 **late fee 주 시리즈를 선제적으로 확장**하기로 방향 전환 (상세 원칙은 문서 상단 "콘텐츠 전략 전환" 섹션 참고).
+12. **Late fee 주 시리즈 14개 주 → 19개 주 신규 확장**: Massachusetts, North Carolina, Virginia, Arizona, Minnesota 5개 주 신규 작성.
+    - 선정 기준: 프리랜서/긱이코노미 인구가 크고 기존 19개(당시 14개)와 지역적으로 겹치지 않는 주.
+    - **전부 1차 법령 자료로 검증 후 작성** (law.lis.virginia.gov, malegislature.gov, azleg.gov, revisor.mn.gov, ncleg.gov 등 각 주 공식 법전/의회 사이트를 직접 web_fetch/검색). 실제로 조사 중 다음을 확인해 **잘못된 정보를 걸러냄**: (a) 매사추세츠의 "Fair Business Invoice Settlement Act"는 SEO 아그리게이터 사이트가 마치 현행법처럼 인용하고 있었으나 실제로는 2026년 기준 **아직 통과되지 않은 발의 법안(House Bill H297)**임을 malegislature.gov 원문 확인으로 발견 — 페이지에 포함하지 않음, 실제 제정된 M.G.L. c.231 §6C(계약 이자율 12%)와 c.93A(불공정거래)만 인용. (b) 미네소타의 "월 8% 연체료 상한"이라는 한 아그리게이터의 서술은 Minn. Stat. §334.01 원문 대조 결과 **연 8%(연간 상한)를 잘못 읽은 오류**로 확인 — 정정된 수치로 작성.
+    - 각 주 핵심 내용: Massachusetts(계약이자 12%/년 전미 최고 수준, 소액소송 $7,000, 계약시효 6년, Ch.93A 기업간 불공정거래 구제), North Carolina(법정이율 8%/년, 소액소송 $10,000 전국 상위권, 계약시효 3년로 단축 — 유의사항으로 강조), Virginia(법정이율 6%/년, **오픈계정 인보이스 60일 경과시 별도 조항 없이도 자동 이자 발생**하는 Va. Code §6.2-302(C) 특징 소개 — 이런 조항이 있는 주는 지금까지 없었음, 실질적 차별 정보), Arizona(기본이율 10%/년이나 서면합의 시 상한 자체가 없음 — A.R.S. §44-1201, 대신 소액소송 한도가 $3,500로 전국 최저권이라 Justice Court($10,000)로 안내), Minnesota(법정이율 6%/년·서면계약 상한 8%/년이나 사업자간 거래 예외조항 있음, Conciliation Court 소액소송 $15,000 전국 최상위권).
+    - **처음부터 미니 계산기 위젯 내장** (8개 기존 주 보강 때 검증한 동일 패턴 재사용) — "계산기" 검색 의도에 신규 페이지부터 바로 대응, 신규 페이지가 이번 세션 앞부분에서 발견한 "의도 불일치" 문제를 아예 안 겪도록 설계.
+    - FAQPage 스키마 3개 + 화면 FAQ, 본문 1,535~1,752단어 (품질 기준 800단어 대비 여유 확보, 07-14에 확립된 콘텐츠 품질 원칙 준수).
+    - `late-payment-fee.html` 비교표(19개 주로 확장) + 카드 그리드(5개 카드 추가) + dateModified 갱신, `blog/index.html` 최신순 5개 추가, `sitemap.xml` 5개 URL 추가.
+    - 검증: HTML 파싱 + JSON-LD + div 짝 맞음 + jsdom 계산 시뮬레이션(기본값 $1000/30일/1.5%→$15, 변경값 $3000/45일/1.5%→$67.50, 5개 파일 전부 일치) 전부 통과.
+13. **다음 배치 후보(31개 주 남음)**: Tennessee, Missouri, Maryland, Oregon, Nevada, Connecticut, Utah, South Carolina, Alabama, Kentucky 등 우선 검토 권장. 다음 세션에 "진행해"라는 지시만으로 5개 내외씩 이어서 확장 가능 (매 배치 법령 1차자료 검증 및 품질 검증은 생략 금지 — 위 콘텐츠 전략 전환 섹션 참고).
 
 ---
 
