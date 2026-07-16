@@ -1,6 +1,6 @@
 # GetSoloTools 인수인계 문서 (handover.md)
 
-**최종 갱신**: 2026-07-14 (애드센스 3차 재심사 제출 완료, 콘텐츠 분량 전수 감사로 "충분함" 확인, **18개 툴 전체 브라우저 자동저장 기능 적용 완료**, Invoice Generator 반응형 버그 수정, 백링크는 사용자 판단으로 종결)
+**최종 갱신**: 2026-07-16 (late fee 주(州) 8개 페이지에 인라인 미니 계산기 위젯 신규 추가 — GSC 계산기 의도 쿼리 대응, title/meta에 calculator 키워드 반영, 문장 깨짐 버그 3건 발견/수정)
 **갱신 방식이 v12까지와 다름**: 이제부터 이 문서는 새 채팅에 붙여넣는 방식이 아니라, **저장소에 직접 보관하고 계속 업데이트**하는 방식으로 운영한다. 새 세션에서는 이 파일(`handover.md`)을 clone 직후 가장 먼저 읽을 것.
 
 ---
@@ -188,6 +188,25 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 
 ---
 
+### 2026-07-16 세션
+
+1. **GSC 데이터 재확인** (Performance + Coverage zip, 지난 3개월 기준 쿼리 193개/페이지 66개 — 07-14와 거의 동일 범위, 소폭 변동). 전체 쿼리를 기존 사이트 파일과 재대조. **신규 페이지 제작 근거는 이번에도 없음** — 노출은 있으나 매칭 페이지가 아예 없는 키워드를 찾지 못함. 대신 **의도 불일치(intent mismatch)라는 새로운 유형의 갭을 발견**했음(아래 2번).
+2. **핵심 발견 — "[주] late fee calculator" 쿼리군의 콘텐츠-의도 불일치**: New York(55회 노출) / Florida(54) / Illinois(52) / Pennsylvania(43) / Georgia(17) / Indiana(15) / Wisconsin(11) / Washington(9) — 총 8개 주에서 "late fee calculator"라는 계산기 의도 쿼리가 검색되고 있는데, 매칭되는 페이지(`blog/late-fee-laws-freelancers-{주}.html`)는 법률 정보 글일 뿐 실제 계산기가 없었음. 페이지 자체의 종합 순위는 이미 5~10위로 나쁘지 않은데(예: NY 5.57위, Illinois 5.73위) 계산기 의도 쿼리 단독으로는 순위가 급락함(예: NY "new york late fee calculator" 쿼리 단독 87.93위) — 페이지가 정보 검색엔 걸리지만 계산기 검색엔 안 걸린다는 뜻으로 해석.
+3. **웹 검색으로 경쟁강도 확인**: 범용 "late fee calculator"는 freelancewithus.com, teamzlab, thedigizone, usfinancecalculators, everydaybudd 등 5개 이상의 전용 계산기 사이트가 이미 장악한 영역(예전에 확인한 "freelance contract template", "freelance tax preparation guide"와 같은 고경쟁 패턴). 반면 **주(州) 수식어가 붙은 롱테일 키워드("new york late fee calculator" 등)는 검색 결과에 주(州)별로 특화된 경쟁 콘텐츠가 전혀 없었음** — 이미 5~10위로 어느 정도 자리 잡은 우리 페이지에 실제 계산기 기능만 얹으면 승산이 있다고 판단, 신규 페이지 대신 **기존 8개 페이지 보강**으로 진행.
+4. **8개 주 페이지에 인라인 미니 계산기 위젯 신규 추가** (New York/Florida/Illinois/Pennsylvania/Georgia/Indiana/Wisconsin/Washington):
+   - 자체완결형 위젯(금액/연체일수/월이율 입력 → 즉시 연체료·총액 계산, 순수 JS, 외부 의존성 없음)을 각 페이지 인트로 바로 다음(첫 `<h2>` 앞)에 배치 — "계산기" 검색 의도로 들어온 사용자가 스크롤 없이 바로 사용 가능하도록.
+   - 기본값: 월 1.5%(연 18%, 업계 표준) — 각 페이지 본문에 이미 서술돼 있던 "표준 요율"과 일치시킴(신규 주장 없음). 위젯 하단에 grace period/compounding/PDF 등 고급 기능을 위한 전체 계산기(`late-payment-fee.html`)로 연결되는 링크 포함 — 카니발라이제이션이 아니라 퍼널 구조.
+   - **FAQPage 스키마 + 화면 FAQ 2개씩 신규 추가**(이 8개 페이지는 지금까지 Article 스키마만 있고 FAQ 자체가 없었음 — 07-12/07-14에 다른 페이지들에서 발견한 것과 같은 유형의 결함): "무료 [주] late fee 계산기가 있나요?" / "[주]에서 집행 가능한 연체료 요율은?" — 후자는 각 페이지에 이미 있던 주(州)법정 기본이율 서술을 질문형으로 재구성한 것.
+   - dateModified/화면 "Updated Jul 16, 2026" 표기/sitemap lastmod 전체 갱신.
+5. **부수적으로 발견한 콘텐츠 버그 3건 수정**: Florida/Illinois/Washington 3개 페이지에서 과거(07-10) 내부링크 강화 작업 때 CTA 링크가 문장 한가운데 잘못 삽입되어 문법이 깨져 있었음. 예: Florida 원문이 `"1.5% per month Run the numbers instantly with our [계산기 링크]. (18% annually) is the most common rate..."`처럼 읽혀서 실제로 문장이 성립하지 않았음. 링크를 문장 끝의 독립된 문장으로 재배치해 수정. (Georgia/Michigan/New Jersey/Ohio/Colorado/Indiana/Pennsylvania/Texas/Wisconsin은 같은 패턴으로 전수 검사했으나 이상 없음 확인.)
+6. **title/meta description 갱신**: 8개 페이지 모두 title에 "calculator"라는 단어가 전혀 없었음(예: "Late Fee Laws for Freelancers in New York" — 정작 쿼리는 "new york late fee calculator"). 위젯 추가로 실제 콘텐츠가 계산기를 포함하게 됐으므로 title/meta description/JSON-LD description에 "Calculator" 반영(과장 아님, 실제 기능과 일치). "{주} Late Fee Calculator + Laws for Freelancers – GetSoloTools" 형식으로 통일. H1과 JSON-LD headline은 기존 랭킹 시그널 보존을 위해 손대지 않음.
+7. **검증**: 8개 파일 모두 (1) `html.parser` 파싱 검증 (2) JSON-LD `json.loads()` 검증 — 스키마 2개(Article+FAQPage)씩 (3) 추출 JS `node --check` 문법 검증 (4) **jsdom으로 실제 브라우저 환경에서 계산 위젯 실행 — 기본값(1000/30일/1.5%→$15 수수료/$1015 총액)과 값 변경 후 재계산(5000/45일/2%→$150/$5150)까지 시뮬레이션해서 수식 정확성 확인**.
+8. **작업 중 버그 자체 발견 및 수정 (자동화 스크립트의 부작용)**: FAQ 섹션을 삽입하는 python 스크립트가 처음엔 `article-body`를 닫는 `</div>`보다 앞에 FAQ를 넣어야 하는데 앵커 문자열을 잘못 잡아서 8개 파일 전부 `<div>` 여닫음이 어긋나는(13 close vs 12 open) 구조적 버그가 생겼었음. **`html.parser.HTMLParser`는 태그 짝이 안 맞아도 에러를 던지지 않아서 1차 검증에서 못 잡았음** — `html.count('<div')` vs `html.count('</div>')` 개수 비교로 뒤늦게 발견해 즉시 재수정함. **앞으로 자동화 스크립트로 div 등 블록 요소를 삽입/이동할 때는 HTMLParser 파싱 성공 여부만으로 안심하지 말고 반드시 여닫음 태그 개수 비교를 별도로 할 것.**
+9. **GSC Coverage 데이터 관찰(조치 보류)**: "발견됨 - 미색인" 4건(07-14엔 3건이었음, +1), "크롤링됨 - 미색인" 3건(동일), "리디렉션 포함 페이지" 3건(동일, 원인 미확인 상태 유지), "중복 페이지" 2건(기존에 index.html vs `?ref=producthunt`로 확인 완료, 무해). 색인 요청은 여전히 금지 — 다음 GSC 데이터에서 계속 미색인이면 어떤 URL인지 GSC UI에서 직접 확인 필요(사용자 액션).
+10. **처리하지 않은 것 (의도적 보류)**: Ohio는 "ohio late fee calculator" 단독 쿼리 노출이 2회로 미미하고 페이지 종합 순위(9.83위)·CTR도 이미 다른 8개보다 나은 편이라 이번 배치에서 제외. California/Texas/Colorado/Michigan/New Jersey는 이번 GSC 데이터에 "[주] late fee calculator" 형태의 명시적 쿼리가 없어서 제외(향후 노출 생기면 동일 패턴 적용 검토). `blog/index.html`의 각 글 목록 blurb(짧은 설명)는 title/meta와 별개로 손대지 않음 — canonical 메타가 아니라 우선순위 낮음.
+
+---
+
 ## 기술 주의사항
 
 ### nav.js
@@ -239,6 +258,7 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 - 애드센스 3차 재심사 결과 대기 중. **(2026-07-14 추가)** 결과가 나오면 승인/반려 여부와 무관하게 그 피드백을 콘텐츠 원칙에 최우선 반영할 것 — 위 "콘텐츠 품질 경각심" 섹션 참고.
 - 미색인 페이지 존재 (GSC coverage: "발견됨-미색인" 3건 + "크롤링됨-미색인" 1건 — 2026-07-10/12/14 데이터 동일하게 확인됨, 3주째 그대로라 단순 크롤링 지연이 아닐 가능성도 있음). 기존 후보 3개(`blog/how-to-write-a-freelance-proposal.html`, `blog/how-to-write-a-scope-of-work-for-freelance-projects.html`, `email-templates/quote-email.html`) **2026-07-14에 직접 점검 완료**: robots noindex 없음, sitemap 포함됨, canonical 누락은 사이트 전체 공통이라 이 페이지들만의 특이사항 아님. 대신 콘텐츠 결함 2건 발견해 수정(quote-email.html FAQPage 스키마 누락, freelance-proposal.html FAQ 자체 없음+2개월간 dateModified 갱신 이력 없음+내부링크 보강). scope-of-work 블로그는 특이 결함 없음(canonical 있음, 내부링크 5건 정상) — **아직 미색인이면 순수 크롤링 시간/신규 도메인 문제일 가능성이 높다는 뜻.** 색인 요청은 여전히 금지, 다음 GSC 데이터에서 이 3개가 여전히 미색인인지만 재확인.
 - GSC coverage "중복 페이지 2건"은 `index.html` vs `/?ref=producthunt`로 확인 완료, 무해함, 추가 조치 불필요. "리디렉션이 포함된 페이지 3건"은 아직 원인 미확인 — 다음 세션에 어떤 URL인지 GSC에서 직접 확인 필요.
+- **(2026-07-16 추가, 다음 최우선 확인 대상)** 이번 세션에 미니 계산기 위젯 + title/meta 갱신한 8개 주 페이지(New York/Florida/Illinois/Pennsylvania/Georgia/Indiana/Wisconsin/Washington)의 "[주] late fee calculator" 쿼리별 순위 변화를 다음 GSC 데이터에서 최우선 확인할 것. 페이지 종합 순위(5~10위대)는 이미 나쁘지 않았으니, **쿼리 단독 순위(예: NY는 87.93위였음)가 좁혀지는지가 이 작업의 성공 여부를 가르는 핵심 지표.** 클릭 수도 함께 확인(현재 이 8개 페이지 전부 클릭 0에 가까움).
 - **다음 GSC 데이터 받으면 최우선으로 확인할 것 (보강 효과 검증)**: 07-10/07-12에 보강한 19개 페이지(`late-payment-fee.html` 포함 — 목록은 아래 참고) + 이번 07-14에 보강한 `blog/freelance-tax-guide-for-beginners.html`, `blog/freelance-rate-negotiation-guide.html` 2개까지 순위 변화 확인.
   - 07-10/07-12 보강 19개: `how-to-write-a-freelance-contract.html`, `hourly-rate.html`, `payment-received.html`, `quote.html`, `project-profit.html`, `budget-planner.html`, `blog/how-to-write-a-freelance-invoice.html`, `tax-estimator.html`, `time-tracker.html`, `invoice-tracker.html`, `receipt.html`, `client-proposal.html`, `milestone-calculator.html`, `savings-calculator.html`, `nda-generator.html`, `client-intake-form.html`, `expense-report.html`, `scope-of-work.html`, `contract-generator.html`, `late-payment-fee.html`.
 - **"화면 FAQ / FAQPage 스키마 누락" 문제, 2026-07-12엔 "18개 툴 전체 해소"라고 기록했으나 부정확했음** — 2026-07-14에 `index.html`(Invoice Generator, 18개 중 하나)에서 정확히 같은 결함(화면 FAQ 있는데 스키마 없음)을 추가로 발견해 수정함. 07-12 전수조사 때 index.html이 "Invoice Generator = index.html"이라는 걸 놓쳐서 누락된 것으로 추정. **이제는 진짜로 18개 툴 전체 해소.** blog/email-templates 쪽은 지금까지 `payment-received.html`, `freelance-rate-negotiation-guide.html`, `how-to-write-a-freelance-proposal.html`(전부 FAQ 신규 작성), `quote-email.html`(스키마만 추가) 4건 처리. 나머지 blog(38개)/email-templates(22개)는 전수조사 안 함 — 다음에 여유 있을 때 스캔 가치 있음. **다만 07-14에 강조된 콘텐츠 품질 원칙에 따라, 스캔 결과 스키마가 없는 페이지를 발견해도 기계적으로 FAQ를 끼워 넣지 말고 그 페이지 자체가 노출/클릭 관점에서 보강할 가치가 있는지부터 먼저 판단할 것.**
