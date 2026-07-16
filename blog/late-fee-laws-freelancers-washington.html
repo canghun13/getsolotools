@@ -47,6 +47,14 @@
     .footer-links a:hover { color: var(--ink); }
     .footer-links .footer-blog { color: var(--blog); font-weight: 600; }
     .footer-copy { font-size: 0.78rem; color: #aaa; }
+      .mini-calc { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--blog); border-radius: 8px; padding: 24px 28px; margin: 28px 0 40px; }
+    .mini-calc h2 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; margin: 0 0 8px; }
+    .mini-calc-sub { font-size: 0.9rem; color: #666; margin-bottom: 16px; }
+    .mini-calc-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+    .mini-calc-field label { display: block; font-size: 0.78rem; color: var(--muted); margin-bottom: 4px; font-weight: 600; }
+    .mini-calc-field input { width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.95rem; font-family: 'DM Sans', sans-serif; }
+    .mini-calc-result { font-size: 1rem; padding-top: 12px; border-top: 1px solid var(--border); }
+    @media (max-width: 500px) { .mini-calc-row { grid-template-columns: 1fr; } }
   </style>
 
 <script type="application/ld+json">
@@ -57,7 +65,7 @@
   "description": "Washington State has no cap on freelance late fees, but Seattle has its own freelancer protection law. Here's what Washington freelancers need to know about getting paid.",
   "url": "https://getsolotools.com/blog/late-fee-laws-freelancers-washington.html",
   "datePublished": "2026-05-19",
-  "dateModified": "2026-05-19",
+  "dateModified": "2026-07-16",
   "author": {
     "@type": "Organization",
     "name": "GetSoloTools",
@@ -70,6 +78,30 @@
   }
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is there a free Washington late fee calculator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — use the quick calculator above for an instant estimate at the standard 1.5% monthly rate, or GetSoloTools' full late fee calculator for grace periods, flat fees, compounding, and a downloadable PDF."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What late fee rate is enforceable in Washington?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Washington State sets no cap on commercial late fees — your written contract is what determines the enforceable rate. Most freelancers in Washington charge 1.5% per month (18% annually), which is enforceable as long as it's clearly stated in your contract and on your invoice before work begins."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
   <script src="/nav.js"></script>
@@ -77,15 +109,52 @@
     <a href="/blog/index.html" class="back-link">← Back to Blog</a>
     <span class="article-tag">Getting Paid</span>
     <h1>Late Fee Laws for Freelancers in Washington State</h1>
-    <p class="article-meta">May 19, 2026 · 6 min read</p>
+    <p class="article-meta">May 19, 2026 · Updated Jul 16, 2026 · 6 min read</p>
 
     <div class="article-body">
       <p>Washington State doesn't cap late fees on commercial invoices, which gives freelancers flexibility — but it also means your contract is the main thing protecting you. If you're based in Seattle, you have additional protections under a city ordinance that most freelancers don't know about. Here's the full picture.</p>
 
-      <h2>Washington State: No Cap on Commercial Late Fees</h2>
+            <div class="mini-calc" id="miniCalc">
+        <h2>Washington Late Fee Calculator</h2>
+        <p class="mini-calc-sub">Quick estimate at the standard 1.5%/month rate. For grace periods, flat fees, and a PDF invoice, use the <a href="/late-payment-fee.html" style="color:var(--accent);">full late fee calculator</a>.</p>
+        <div class="mini-calc-row">
+          <div class="mini-calc-field">
+            <label for="mcWAAmount">Invoice amount ($)</label>
+            <input type="number" id="mcWAAmount" value="1000" min="0" step="0.01">
+          </div>
+          <div class="mini-calc-field">
+            <label for="mcWADays">Days overdue</label>
+            <input type="number" id="mcWADays" value="30" min="0" step="1">
+          </div>
+          <div class="mini-calc-field">
+            <label for="mcWARate">Monthly rate (%)</label>
+            <input type="number" id="mcWARate" value="1.5" min="0" step="0.1">
+          </div>
+        </div>
+        <div class="mini-calc-result" id="mcWAResult">Late fee: <strong>$0.00</strong> · Total owed: <strong>$0.00</strong></div>
+      </div>
+      <script>
+      (function() {
+        function calc() {
+          var amt = parseFloat(document.getElementById('mcWAAmount').value) || 0;
+          var days = parseFloat(document.getElementById('mcWADays').value) || 0;
+          var rate = parseFloat(document.getElementById('mcWARate').value) || 0;
+          var dailyRate = (rate / 100) / 30;
+          var fee = amt * dailyRate * days;
+          var total = amt + fee;
+          document.getElementById('mcWAResult').innerHTML = 'Late fee: <strong>$' + fee.toFixed(2) + '</strong> · Total owed: <strong>$' + total.toFixed(2) + '</strong>';
+        }
+        ['mcWAAmount', 'mcWADays', 'mcWARate'].forEach(function(id) {
+          document.getElementById(id).addEventListener('input', calc);
+        });
+        calc();
+      })();
+      </script>
+
+<h2>Washington State: No Cap on Commercial Late Fees</h2>
       <p>Washington law does not specify a maximum late fee or grace period for overdue business invoices. That means you and your client are free to agree to any rate you put in writing. Courts will evaluate late fees under a reasonableness standard — if a fee is grossly disproportionate to the invoice amount or clearly punitive, it may not be fully enforced.</p>
 
-      <p>Legal practice in Washington generally treats <strong>1.5% per month Calculate the exact amount owed at any rate with our <a href="/late-payment-fee.html" style="color:var(--accent);">Late Payment Fee Calculator</a>. (18% annually)</strong> as a safe, standard rate. Going above 2% per month starts to invite scrutiny, though for business-to-business transactions there's more latitude than for consumer transactions.</p>
+      <p>Legal practice in Washington generally treats <strong>1.5% per month (18% annually)</strong> as a safe, standard rate. Going above 2% per month starts to invite scrutiny, though for business-to-business transactions there's more latitude than for consumer transactions. Calculate the exact amount owed at any rate with our <a href="/late-payment-fee.html" style="color:var(--accent);">Late Payment Fee Calculator</a>.</p>
 
       <div class="highlight-box">
         <p><strong>Note on residential storage:</strong> Washington does have a specific rule for self-storage rentals — late fees of $20 or 20% of monthly rent (whichever is greater) are deemed reasonable under RCW 19.150.150. This doesn't apply to freelance work, but it illustrates the state's general approach to what counts as "reasonable."</p>
@@ -150,6 +219,18 @@
       </ul>
 
       <p>Washington gives freelancers reasonable tools to enforce payment, and Seattle freelancers have more leverage than most. The key is setting up your contracts and invoices correctly from the start — that's where cases are won or lost before they ever reach a courtroom.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <div style="border-top:1px solid #e5e5e2;">
+        <details style="border-bottom:1px solid #e5e5e2;padding:1rem 0;">
+          <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">Is there a free Washington late fee calculator? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
+          <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Yes — use the quick calculator above for an instant estimate at the standard 1.5% monthly rate, or GetSoloTools' full late fee calculator for grace periods, flat fees, compounding, and a downloadable PDF.</p>
+        </details>
+        <details style="border-bottom:1px solid #e5e5e2;padding:1rem 0;">
+          <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">What late fee rate is enforceable in Washington? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
+          <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Washington State sets no cap on commercial late fees — your written contract is what determines the enforceable rate. Most freelancers in Washington charge 1.5% per month (18% annually), which is enforceable as long as it's clearly stated in your contract and on your invoice before work begins.</p>
+        </details>
+      </div>
     </div>
   </div>
 

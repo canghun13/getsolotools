@@ -46,6 +46,14 @@
     .footer-links a:hover { color: var(--ink); }
     .footer-links .footer-blog { color: var(--blog); font-weight: 600; }
     .footer-copy { font-size: 0.78rem; color: #aaa; }
+      .mini-calc { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--blog); border-radius: 8px; padding: 24px 28px; margin: 28px 0 40px; }
+    .mini-calc h2 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; margin: 0 0 8px; }
+    .mini-calc-sub { font-size: 0.9rem; color: #666; margin-bottom: 16px; }
+    .mini-calc-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+    .mini-calc-field label { display: block; font-size: 0.78rem; color: var(--muted); margin-bottom: 4px; font-weight: 600; }
+    .mini-calc-field input { width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.95rem; font-family: 'DM Sans', sans-serif; }
+    .mini-calc-result { font-size: 1rem; padding-top: 12px; border-top: 1px solid var(--border); }
+    @media (max-width: 500px) { .mini-calc-row { grid-template-columns: 1fr; } }
   </style>
 
 <script type="application/ld+json">
@@ -56,7 +64,7 @@
   "description": "Georgia law lets freelancers charge up to 18% annually on overdue invoices by default. Here's what Atlanta and statewide freelancers need to know about late fees and getting paid.",
   "url": "https://getsolotools.com/blog/late-fee-laws-freelancers-georgia.html",
   "datePublished": "2026-05-27",
-  "dateModified": "2026-05-27",
+  "dateModified": "2026-07-16",
   "author": {
     "@type": "Organization",
     "name": "GetSoloTools",
@@ -69,6 +77,30 @@
   }
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is there a free Georgia late fee calculator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — use the quick calculator above for an instant estimate at the standard 1.5% monthly rate, or GetSoloTools' full late fee calculator for grace periods, flat fees, compounding, and a downloadable PDF."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What late fee rate is enforceable in Georgia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If your contract doesn't specify a rate, Georgia defaults to 7% annually — below the 1.5%/month most freelancers charge. Most freelancers in Georgia charge 1.5% per month (18% annually), which is enforceable as long as it's clearly stated in your contract and on your invoice before work begins."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
   <script src="/nav.js"></script>
@@ -76,12 +108,49 @@
     <a href="/blog/index.html" class="back-link">← Back to Blog</a>
     <span class="article-tag">Getting Paid</span>
     <h1>Late Fee Laws for Freelancers in Georgia</h1>
-    <p class="article-meta">May 27, 2026 · 6 min read</p>
+    <p class="article-meta">May 27, 2026 · Updated Jul 16, 2026 · 6 min read</p>
 
     <div class="article-body">
       <p>Georgia has a more specific legal framework for interest on unpaid commercial debts than many states, which actually works in freelancers' favor. The state's legal interest rate applies as a default when no rate is specified in writing, and parties can agree to higher rates for business transactions. Here's what Georgia freelancers need to know about structuring and enforcing late fees.</p>
 
-      <h2>Georgia's Legal Interest Rate</h2>
+            <div class="mini-calc" id="miniCalc">
+        <h2>Georgia Late Fee Calculator</h2>
+        <p class="mini-calc-sub">Quick estimate at the standard 1.5%/month rate. For grace periods, flat fees, and a PDF invoice, use the <a href="/late-payment-fee.html" style="color:var(--accent);">full late fee calculator</a>.</p>
+        <div class="mini-calc-row">
+          <div class="mini-calc-field">
+            <label for="mcGAAmount">Invoice amount ($)</label>
+            <input type="number" id="mcGAAmount" value="1000" min="0" step="0.01">
+          </div>
+          <div class="mini-calc-field">
+            <label for="mcGADays">Days overdue</label>
+            <input type="number" id="mcGADays" value="30" min="0" step="1">
+          </div>
+          <div class="mini-calc-field">
+            <label for="mcGARate">Monthly rate (%)</label>
+            <input type="number" id="mcGARate" value="1.5" min="0" step="0.1">
+          </div>
+        </div>
+        <div class="mini-calc-result" id="mcGAResult">Late fee: <strong>$0.00</strong> · Total owed: <strong>$0.00</strong></div>
+      </div>
+      <script>
+      (function() {
+        function calc() {
+          var amt = parseFloat(document.getElementById('mcGAAmount').value) || 0;
+          var days = parseFloat(document.getElementById('mcGADays').value) || 0;
+          var rate = parseFloat(document.getElementById('mcGARate').value) || 0;
+          var dailyRate = (rate / 100) / 30;
+          var fee = amt * dailyRate * days;
+          var total = amt + fee;
+          document.getElementById('mcGAResult').innerHTML = 'Late fee: <strong>$' + fee.toFixed(2) + '</strong> · Total owed: <strong>$' + total.toFixed(2) + '</strong>';
+        }
+        ['mcGAAmount', 'mcGADays', 'mcGARate'].forEach(function(id) {
+          document.getElementById(id).addEventListener('input', calc);
+        });
+        calc();
+      })();
+      </script>
+
+<h2>Georgia's Legal Interest Rate</h2>
       <p>Under Georgia law (O.C.G.A. § 7-4-2), the legal rate of interest is <strong>7% per year</strong> when no other rate is specified in a contract. For commercial transactions — which includes most freelance work — parties can contractually agree to a higher rate. In practice, this means if you don't specify a late fee rate in your contract, Georgia courts will apply 7% annually as a default on overdue amounts.</p>
 
       <p>Seven percent annually (less than 0.6% per month) is a modest deterrent. Most freelancers charge more than this as a matter of practice, and Georgia law allows it — you just need to put it in writing. The standard commercial rate of <strong>1.5% per month (18% annually)</strong> is enforceable in Georgia. Use our <a href="/late-payment-fee.html" style="color:var(--accent);">Late Payment Fee Calculator</a> to get the updated total instantly with a clear contractual agreement. Rates above 18% annually are permissible for commercial transactions but should be disclosed prominently.</p>
@@ -141,6 +210,18 @@
       </ul>
 
       <p>Georgia's legal framework is freelancer-friendly in some ways — you can set a commercial late fee rate well above the legal default, and Magistrate Court gives you a practical, low-cost enforcement option. The missing piece is a dedicated freelancer protection statute with teeth. Until one exists, strong contracts and consistent follow-up are your best defense.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <div style="border-top:1px solid #e5e5e2;">
+        <details style="border-bottom:1px solid #e5e5e2;padding:1rem 0;">
+          <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">Is there a free Georgia late fee calculator? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
+          <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Yes — use the quick calculator above for an instant estimate at the standard 1.5% monthly rate, or GetSoloTools' full late fee calculator for grace periods, flat fees, compounding, and a downloadable PDF.</p>
+        </details>
+        <details style="border-bottom:1px solid #e5e5e2;padding:1rem 0;">
+          <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">What late fee rate is enforceable in Georgia? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
+          <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">If your contract doesn't specify a rate, Georgia defaults to 7% annually — below the 1.5%/month most freelancers charge. Most freelancers in Georgia charge 1.5% per month (18% annually), which is enforceable as long as it's clearly stated in your contract and on your invoice before work begins.</p>
+        </details>
+      </div>
     </div>
   </div>
 
