@@ -260,6 +260,8 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 
 **다음 배치 후보 (26개 주 남음)**: Connecticut, Utah, South Carolina, Alabama, Kentucky, Louisiana, Oklahoma, Kansas, Iowa, South Dakota, North Dakota, Nebraska, Idaho, Montana, Wyoming, New Mexico, West Virginia, Mississippi, Arkansas, Delaware, Rhode Island, New Hampshire, Vermont, Maine, Alaska, Hawaii. 다음 세션에 "진행해"라는 지시만으로 5개 내외씩 이어서 확장 가능 — 단 매 배치 법령 1차자료 검증 및 경쟁강도 확인은 생략 금지. **Nevada/Oregon과 접경한 Idaho, Missouri와 접경한 Kansas/Nebraska/Iowa/Kentucky/Arkansas, Maryland/Virginia와 접경한 West Virginia** 등은 이미 게시된 주들과 "인접 주 비교" 콘텐츠를 자연스럽게 이어갈 수 있는 지리적 이점이 있어 우선순위 검토 시 고려할 만함.
 
+**(같은 세션, 사용자 스크린샷 제보로 발견한 버그 수정)** 사용자가 8개 페이지를 직접 확인하다가 신규 5개 주(Tennessee/Missouri/Maryland/Oregon/Nevada)의 "How X Compares to Nearby States" 비교표가 모바일에서 반응형이 아닌 것을 지적함. 실제로 `.compare-table`이 `width:100%`만 있고 `min-width`가 없어서, 기존 8개 데이터 테이블(`.table-scroll`/`.table-scroll-hint` 패턴 적용된)과 다르게 좁은 화면에서 컬럼이 그냥 눌리는 구조였음 — 신규 페이지 작성 시 기존 테이블 반응형 패턴을 놓친 실수. 5개 파일 전부 `.table-scroll`(가로 스크롤 wrapper) + `.table-scroll-hint`(모바일 전용 안내 문구) CSS 추가하고 `.compare-table`에 `min-width:420px` 부여, `<table>`을 `<div class="table-scroll">`로 감싸는 방식으로 수정 — 사이트 전체 테이블 반응형 패턴과 완전히 통일시킴. div 짝/JSON-LD/파싱 전부 재검증 후 commit & push 완료. **앞으로 신규 페이지에 테이블을 넣을 때는 반드시 이 패턴(`/mnt` 문서 "반응형 테이블" 섹션 참고)을 처음부터 적용할 것 — 이번처럼 사후 수정하지 않도록.**
+
 ---
 
 ## 기술 주의사항
@@ -282,7 +284,7 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 
 ### 반응형 테이블 (`.table-scroll`)
 - 테이블이 있는 페이지는 반드시 `.table-scroll-hint` 클래스(모바일 전용, `@media (max-width:700px)`에서만 `display:flex`)를 테이블 바로 위에 넣을 것. 새로 테이블을 추가하는 경우 이 패턴을 그대로 재사용.
-- 2026-07-12 기준 테이블이 있는 파일 8개: `late-payment-fee.html`, `blog/freelance-invoice-vs-receipt.html`, `blog/freelance-tax-guide-for-beginners.html`, `blog/how-to-write-a-freelance-expense-report.html`, `blog/how-to-write-a-scope-of-work-for-freelance-projects.html`, `blog/late-fee-laws-freelancers-ohio.html`, `invoice-tracker.html`, `time-tracker.html`.
+- 2026-07-18 기준 테이블이 있는 파일 13개: `late-payment-fee.html`, `blog/freelance-invoice-vs-receipt.html`, `blog/freelance-tax-guide-for-beginners.html`, `blog/how-to-write-a-freelance-expense-report.html`, `blog/how-to-write-a-scope-of-work-for-freelance-projects.html`, `blog/late-fee-laws-freelancers-ohio.html`, `invoice-tracker.html`, `time-tracker.html`, `blog/late-fee-laws-freelancers-tennessee.html`, `blog/late-fee-laws-freelancers-missouri.html`, `blog/late-fee-laws-freelancers-maryland.html`, `blog/late-fee-laws-freelancers-oregon.html`, `blog/late-fee-laws-freelancers-nevada.html`.
 
 ### sitemap.xml
 - **중복 URL이 생기기 쉬움** (2026-07-12에 3건 발견/수정). 새 URL 추가 시 반드시 `grep -oP '(?<=<loc>)[^<]+' sitemap.xml | sort | uniq -d`로 중복 없는지 확인 후 push.
