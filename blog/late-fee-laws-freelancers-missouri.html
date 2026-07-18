@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Missouri Late Fee Calculator + Laws for Freelancers – GetSoloTools</title>
+  <meta name="description" content="Free Missouri late fee calculator, plus what MO freelancers need to know about the 9% default interest rate, the 5-year window to sue, and the $5,000 small claims limit." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-728DGKLSE6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-728DGKLSE6');
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #1a1a1a; --accent: #2d5be3; --blog: #1a9e6e; --paper: #fafaf8; --muted: #6b6b6b; --border: #e5e5e2; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; display: flex; flex-direction: column; }
+    .article-wrap { max-width: 720px; margin: 0 auto; padding: 56px 24px 80px; flex: 1; }
+    .article-tag { font-size: 0.75rem; font-weight: 600; color: var(--blog); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; display: block; }
+    .article-wrap h1 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem, 4vw, 2.4rem); line-height: 1.2; margin-bottom: 16px; }
+    .article-meta { font-size: 0.82rem; color: #aaa; margin-bottom: 40px; }
+    .article-body { font-size: 1rem; line-height: 1.8; color: var(--ink); }
+    .article-body h2 { font-family: 'DM Serif Display', serif; font-size: 1.4rem; margin: 40px 0 12px; }
+    .article-body p { margin-bottom: 20px; }
+    .article-body ul { margin: 0 0 20px 20px; }
+    .article-body ul li { margin-bottom: 8px; line-height: 1.7; }
+    .article-body strong { font-weight: 600; }
+    .highlight-box { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--blog); border-radius: 8px; padding: 20px 24px; margin: 28px 0; }
+    .highlight-box p { margin: 0; font-size: 0.95rem; }
+    .compare-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; }
+    .compare-table th, .compare-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+    .compare-table th { font-weight: 600; color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; }
+    .compare-table tr.this-state td { font-weight: 600; background: #f4f8f6; }
+    .cta-box { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 24px 28px; margin: 40px 0; }
+    .cta-box p { margin: 0 0 14px; font-size: 0.95rem; }
+    .cta-btn { display: inline-block; background: var(--accent); color: #fff; font-size: 0.875rem; font-weight: 600; padding: 10px 20px; border-radius: 6px; text-decoration: none; }
+    .cta-btn:hover { opacity: 0.88; }
+    .back-link { display: inline-block; margin-bottom: 32px; font-size: 0.85rem; color: var(--muted); text-decoration: none; }
+    .back-link:hover { color: var(--ink); }
+    footer { border-top: 1px solid var(--border); padding: 24px; text-align: center; margin-top: auto; }
+    .footer-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 10px; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.825rem; color: var(--muted); text-decoration: none; }
+    .footer-links a:hover { color: var(--ink); }
+    .footer-links .footer-blog { color: var(--blog); font-weight: 600; }
+    .footer-copy { font-size: 0.78rem; color: #aaa; }
+    .mini-calc { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--blog); border-radius: 8px; padding: 24px 28px; margin: 28px 0 40px; }
+    .mini-calc h2 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; margin: 0 0 8px; }
+    .mini-calc-sub { font-size: 0.9rem; color: #666; margin-bottom: 16px; }
+    .mini-calc-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+    .mini-calc-field label { display: block; font-size: 0.78rem; color: var(--muted); margin-bottom: 4px; font-weight: 600; }
+    .mini-calc-field input { width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.95rem; font-family: 'DM Sans', sans-serif; }
+    .mini-calc-result { font-size: 1rem; padding-top: 12px; border-top: 1px solid var(--border); }
+    @media (max-width: 500px) { .mini-calc-row { grid-template-columns: 1fr; } .compare-table { font-size: 0.8rem; } }
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Late Fee Laws for Freelancers in Missouri",
+  "description": "Free Missouri late fee calculator, plus what MO freelancers need to know about the 9% default interest rate, the 5-year window to sue, and the $5,000 small claims limit.",
+  "url": "https://getsolotools.com/blog/late-fee-laws-freelancers-missouri.html",
+  "datePublished": "2026-07-18",
+  "dateModified": "2026-07-18",
+  "author": { "@type": "Organization", "name": "GetSoloTools", "url": "https://getsolotools.com" },
+  "publisher": { "@type": "Organization", "name": "GetSoloTools", "url": "https://getsolotools.com" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is there a free Missouri late fee calculator?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — use the quick calculator above for an instant estimate at the standard 1.5% monthly rate, or GetSoloTools' full late fee calculator for grace periods, flat fees, compounding, and a downloadable PDF." }
+    },
+    {
+      "@type": "Question",
+      "name": "What late fee rate is enforceable in Missouri?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Missouri's default legal rate is 9% per year when a contract doesn't specify its own rate (Mo. Rev. Stat. § 408.020). If you write a different rate into your contract and invoices — such as the common 1.5% per month (18% annually) — that agreed rate applies instead, and courts will enforce it as long as it's reasonable." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Missouri's small claims limit lower than neighboring states?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Missouri's Small Claims Division caps claims at $5,000 (RSMo § 482.305), while neighboring Illinois allows up to $10,000. A Missouri freelancer owed more than $5,000 has to file in the regular Associate Circuit Court civil docket instead of the cheaper, more informal small claims process." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <script src="/nav.js"></script>
+  <div class="article-wrap">
+    <a href="/blog/index.html" class="back-link">← Back to Blog</a>
+    <span class="article-tag">Getting Paid</span>
+    <h1>Late Fee Laws for Freelancers in Missouri</h1>
+    <p class="article-meta">July 18, 2026 · 7 min read</p>
+
+    <div class="article-body">
+      <p>Missouri's default interest rate on unpaid invoices — 9% per year — is higher than most freelancers expect, but the state's small claims limit is one of the lowest in the region. Here's what Missouri freelancers need to know about late fees, from the statutory interest rate to collecting through the Associate Circuit Court.</p>
+
+      <div class="mini-calc" id="miniCalc">
+        <h2>Missouri Late Fee Calculator</h2>
+        <p class="mini-calc-sub">Quick estimate at the standard 1.5%/month rate. For grace periods, flat fees, and a PDF invoice, use the <a href="/late-payment-fee.html" style="color:var(--accent);">full late fee calculator</a>.</p>
+        <div class="mini-calc-row">
+          <div class="mini-calc-field">
+            <label for="mcMOAmount">Invoice amount ($)</label>
+            <input type="number" id="mcMOAmount" value="1000" min="0" step="0.01">
+          </div>
+          <div class="mini-calc-field">
+            <label for="mcMODays">Days overdue</label>
+            <input type="number" id="mcMODays" value="30" min="0" step="1">
+          </div>
+          <div class="mini-calc-field">
+            <label for="mcMORate">Monthly rate (%)</label>
+            <input type="number" id="mcMORate" value="1.5" min="0" step="0.1">
+          </div>
+        </div>
+        <div class="mini-calc-result" id="mcMOResult">Late fee: <strong>$0.00</strong> · Total owed: <strong>$0.00</strong></div>
+      </div>
+      <script>
+      (function() {
+        function calc() {
+          var amt = parseFloat(document.getElementById('mcMOAmount').value) || 0;
+          var days = parseFloat(document.getElementById('mcMODays').value) || 0;
+          var rate = parseFloat(document.getElementById('mcMORate').value) || 0;
+          var dailyRate = (rate / 100) / 30;
+          var fee = amt * dailyRate * days;
+          var total = amt + fee;
+          document.getElementById('mcMOResult').innerHTML = 'Late fee: <strong>$' + fee.toFixed(2) + '</strong> · Total owed: <strong>$' + total.toFixed(2) + '</strong>';
+        }
+        ['mcMOAmount', 'mcMODays', 'mcMORate'].forEach(function(id) {
+          document.getElementById(id).addEventListener('input', calc);
+        });
+        calc();
+      })();
+      </script>
+
+      <h2>Missouri's 9% Default Rate</h2>
+      <p>Under Mo. Rev. Stat. § 408.020, creditors — including freelancers — are entitled to <strong>9% annual interest</strong> on written contracts and accounts once payment is due and demand has been made, whenever the parties haven't agreed to a different rate. That 9% default is meaningfully higher than the 5–8% defaults used in several neighboring states, which gives Missouri freelancers a stronger fallback if they forget to write a specific rate into a contract. Most freelancers still write their own rate — typically <strong>1.5% per month (18% annually)</strong> — directly into contracts and invoices, since it's roughly double the statutory default and Missouri courts will enforce it as the agreed rate.</p>
+
+      <h2>How Missouri Compares to Nearby States</h2>
+      <p>Missouri borders eight states, more than any other in the country, but its small claims process is notably tighter than its most populous neighbor:</p>
+      <table class="compare-table">
+        <tr><th>State</th><th>Default rate</th><th>Small claims limit</th></tr>
+        <tr class="this-state"><td>Missouri</td><td>9%/year</td><td>$5,000</td></tr>
+        <tr><td>Illinois</td><td>5%/year</td><td>$10,000</td></tr>
+      </table>
+      <p>Illinois' statutory default rate is lower, but its Small Claims Court jurisdiction reaches twice as high, and Illinois freelancers get an added layer of protection through the Illinois Freelance Worker Protection Act's triple-damages provision. Missouri has no equivalent freelance-specific statute, so a written contract with a clear late fee clause does more of the work — and for balances over $5,000, Missouri freelancers need the regular Associate Circuit Court civil docket rather than small claims.</p>
+
+      <h2>Setting Up Enforceable Late Fees in Missouri</h2>
+      <ul>
+        <li><strong>Write your rate directly into the contract.</strong> "Invoices unpaid after 15 days accrue interest at 1.5% per month" both beats the 9% default and starts the clock on your own schedule.</li>
+        <li><strong>Repeat the rate on every invoice</strong> so it's visible to the client without needing to reference the original agreement.</li>
+        <li><strong>Keep it proportional.</strong> 1.5–2% per month is standard nationally and consistent with what Missouri courts expect from a reasonable late fee rather than a punitive one.</li>
+        <li><strong>Know your filing window.</strong> Missouri gives you <strong>5 years</strong> to sue on a written contract for payment of money (RSMo § 516.120), so keep dated invoices and contracts on file.</li>
+      </ul>
+
+      <div class="highlight-box">
+        <p><strong>Watch the $5,000 ceiling.</strong> If an unpaid balance (excluding interest, costs, and attorney fees) is likely to exceed $5,000, plan for the regular Associate Circuit Court civil docket from the start rather than assuming small claims will work — claim-splitting to stay under the limit is treated as an abuse of process in Missouri.</p>
+      </div>
+
+      <h2>Collecting in Missouri</h2>
+      <p>Missouri's Small Claims Division, part of the Associate Circuit Court, handles money disputes up to <strong>$5,000</strong> (RSMo § 482.305) with simplified procedures — no formal discovery, and either side can appear without a lawyer, though attorneys are permitted. Filing fees are notably low, typically $35–$45 depending on county.</p>
+      <ul>
+        <li>Missouri Small Claims Division: up to $5,000 (excluding interest, costs, and attorney fees)</li>
+        <li>Above $5,000: regular Associate Circuit Court civil docket, up to $25,000, or Circuit Court above that</li>
+        <li>Written contract statute of limitations: 5 years (RSMo § 516.120)</li>
+        <li>Post-judgment interest: prime rate plus 5% under RSMo § 408.040, roughly 12–13% in 2026</li>
+      </ul>
+
+      <div class="cta-box">
+        <p>Need to calculate exactly what your Missouri client owes with late fees included? Get the updated total instantly.</p>
+        <a href="/late-payment-fee.html" class="cta-btn">Calculate Late Fees →</a>
+      </div>
+
+      <p>Missouri's 9% statutory default is a solid fallback, but the $5,000 small claims ceiling means the real work happens upfront: write your own rate into every contract, invoice consistently, and know before a project starts whether a potential dispute would stay in small claims or move to the regular civil docket.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <div style="border-top:1px solid #e5e5e2;">
+        <details style="border-bottom:1px solid #e5e5e2;padding:1rem 0;">
+          <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">Is there a free Missouri late fee calculator? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
+          <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Yes — use the quick calculator above for an instant estimate at the standard 1.5% monthly rate, or GetSoloTools' full late fee calculator for grace periods, flat fees, compounding, and a downloadable PDF.</p>
+        </details>
+        <details style="border-bottom:1px solid #e5e5e2;padding:1rem 0;">
+          <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">What late fee rate is enforceable in Missouri? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
+          <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Missouri's default legal rate is 9% per year when a contract doesn't specify its own rate (Mo. Rev. Stat. § 408.020). If you write a different rate into your contract and invoices — such as the common 1.5% per month (18% annually) — that agreed rate applies instead, and courts will enforce it as long as it's reasonable.</p>
+        </details>
+        <details style="border-bottom:1px solid #e5e5e2;padding:1rem 0;">
+          <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">Is Missouri's small claims limit lower than neighboring states? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
+          <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Yes. Missouri's Small Claims Division caps claims at $5,000 (RSMo § 482.305), while neighboring Illinois allows up to $10,000. A Missouri freelancer owed more than $5,000 has to file in the regular Associate Circuit Court civil docket instead of the cheaper, more informal small claims process.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/blog/index.html" class="footer-blog">Blog</a>
+    </div>
+    <p class="footer-copy">© 2026 GetSoloTools. Free tools for freelancers.</p>
+  </footer>
+</body>
+</html>

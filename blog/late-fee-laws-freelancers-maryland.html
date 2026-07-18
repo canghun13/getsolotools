@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maryland Late Fee Calculator + Laws for Freelancers – GetSoloTools</title>
+  <meta name="description" content="Free Maryland late fee calculator, plus what MD freelancers need to know about the 6% legal interest rate, the unusually short 3-year window to sue, and the $5,000 small claims limit." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-728DGKLSE6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-728DGKLSE6');
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #1a1a1a; --accent: #2d5be3; --blog: #1a9e6e; --paper: #fafaf8; --muted: #6b6b6b; --border: #e5e5e2; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; display: flex; flex-direction: column; }
+    .article-wrap { max-width: 720px; margin: 0 auto; padding: 56px 24px 80px; flex: 1; }
+    .article-tag { font-size: 0.75rem; font-weight: 600; color: var(--blog); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; display: block; }
+    .article-wrap h1 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem, 4vw, 2.4rem); line-height: 1.2; margin-bottom: 16px; }
+    .article-meta { font-size: 0.82rem; color: #aaa; margin-bottom: 40px; }
+    .article-body { font-size: 1rem; line-height: 1.8; color: var(--ink); }
+    .article-body h2 { font-family: 'DM Serif Display', serif; font-size: 1.4rem; margin: 40px 0 12px; }
+    .article-body p { margin-bottom: 20px; }
+    .article-body ul { margin: 0 0 20px 20px; }
+    .article-body ul li { margin-bottom: 8px; line-height: 1.7; }
+    .article-body strong { font-weight: 600; }
+    .highlight-box { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--blog); border-radius: 8px; padding: 20px 24px; margin: 28px 0; }
+    .highlight-box p { margin: 0; font-size: 0.95rem; }
+    .compare-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; }
+    .compare-table th, .compare-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+    .compare-table th { font-weight: 600; color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; }
+    .compare-table tr.this-state td { font-weight: 600; background: #f4f8f6; }
+    .cta-box { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 24px 28px; margin: 40px 0; }
+    .cta-box p { margin: 0 0 14px; font-size: 0.95rem; }
+    .cta-btn { display: inline-block; background: var(--accent); color: #fff; font-size: 0.875rem; font-weight: 600; padding: 10px 20px; border-radius: 6px; text-decoration: none; }
+    .cta-btn:hover { opacity: 0.88; }
+    .back-link { display: inline-block; margin-bottom: 32px; font-size: 0.85rem; color: var(--muted); text-decoration: none; }
+    .back-link:hover { color: var(--ink); }
+    footer { border-top: 1px solid var(--border); padding: 24px; text-align: center; margin-top: auto; }
+    .footer-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 10px; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.825rem; color: var(--muted); text-decoration: none; }
+    .footer-links a:hover { color: var(--ink); }
+    .footer-links .footer-blog { color: var(--blog); font-weight: 600; }
+    .footer-copy { font-size: 0.78rem; color: #aaa; }
+    .mini-calc { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--blog); border-radius: 8px; padding: 24px 28px; margin: 28px 0 40px; }
+    .mini-calc h2 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; margin: 0 0 8px; }
+    .mini-calc-sub { font-size: 0.9rem; color: #666; margin-bottom: 16px; }
+    .mini-calc-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+    .mini-calc-field label { display: block; font-size: 0.78rem; color: var(--muted); margin-bottom: 4px; font-weight: 600; }
+    .mini-calc-field input { width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.95rem; font-family: 'DM Sans', sans-serif; }
+    .mini-calc-result { font-size: 1rem; padding-top: 12px; border-top: 1px solid var(--border); }
+    @media (max-width: 500px) { .mini-calc-row { grid-template-columns: 1fr; } .compare-table { font-size: 0.8rem; } }
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Late Fee Laws for Freelancers in Maryland",
+  "description": "Free Maryland late fee calculator, plus what MD freelancers need to know about the 6% legal interest rate, the unusually short 3-year window to sue, and the $5,000 small claims limit.",
+  "url": "https://getsolotools.com/blog/late-fee-laws-freelancers-maryland.html",
+  "datePublished": "2026-07-18",
+  "dateModified": "2026-07-18",
+  "author": { "@type": "Organization", "name": "GetSoloTools", "url": "https://getsolotools.com" },
+  "publisher": { "@type": "Organization", "name": "GetSoloTools", "url": "https://getsolotools.com" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is there a free Maryland late fee calculator?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — use the quick calculator above for an instant estimate at the standard 1.5% monthly rate, or GetSoloTools' full late fee calculator for grace periods, flat fees, compounding, and a downloadable PDF." }
+    },
+    {
+      "@type": "Question",
+      "name": "What late fee rate is enforceable in Maryland?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Maryland's constitutional legal rate is 6% per year (Md. Const. Art. III, § 57; Com. Law § 12-102), which applies when a contract doesn't specify its own rate. Freelancers can and typically do write a higher rate — commonly 1.5% per month (18% annually) — directly into their contract and invoices, since it's an agreed rate rather than the statutory fallback." }
+    },
+    {
+      "@type": "Question",
+      "name": "How long do I have to sue over an unpaid invoice in Maryland?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Only 3 years for most contracts, written or oral (Md. Cts. & Jud. Proc. § 5-101) — one of the shortest general statutes of limitations in the country. Contracts executed under seal get 12 years instead (§ 5-102), but that formality is rare in freelance work, so don't let an unpaid Maryland invoice sit for years before acting." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <script src="/nav.js"></script>
+  <div class="article-wrap">
+    <a href="/blog/index.html" class="back-link">← Back to Blog</a>
+    <span class="article-tag">Getting Paid</span>
+    <h1>Late Fee Laws for Freelancers in Maryland</h1>
+    <p class="article-meta">July 18, 2026 · 7 min read</p>
+
+    <div class="article-body">
+      <p>Maryland freelancers face a shorter deadline than almost anywhere else in the country to sue over an unpaid invoice — just 3 years, versus 5 or 6 years in most neighboring states. Here's what Maryland freelancers need to know about late fees, from the legal interest rate to collecting through the District Court.</p>
+
+      <div class="mini-calc" id="miniCalc">
+        <h2>Maryland Late Fee Calculator</h2>
+        <p class="mini-calc-sub">Quick estimate at the standard 1.5%/month rate. For grace periods, flat fees, and a PDF invoice, use the <a href="/late-payment-fee.html" style="color:var(--accent);">full late fee calculator</a>.</p>
+        <div class="mini-calc-row">
+          <div class="mini-calc-field">
+            <label for="mcMDAmount">Invoice amount ($)</label>
+            <input type="number" id="mcMDAmount" value="1000" min="0" step="0.01">
+          </div>
+          <div class="mini-calc-field">
+            <label for="mcMDDays">Days overdue</label>
+            <input type="number" id="mcMDDays" value="30" min="0" step="1">
+          </div>
+          <div class="mini-calc-field">
+            <label for="mcMDRate">Monthly rate (%)</label>
+            <input type="number" id="mcMDRate" value="1.5" min="0" step="0.1">
+          </div>
+        </div>
+        <div class="mini-calc-result" id="mcMDResult">Late fee: <strong>$0.00</strong> · Total owed: <strong>$0.00</strong></div>
+      </div>
+      <script>
+      (function() {
+        function calc() {
+          var amt = parseFloat(document.getElementById('mcMDAmount').value) || 0;
+          var days = parseFloat(document.getElementById('mcMDDays').value) || 0;
+          var rate = parseFloat(document.getElementById('mcMDRate').value) || 0;
+          var dailyRate = (rate / 100) / 30;
+          var fee = amt * dailyRate * days;
+          var total = amt + fee;
+          document.getElementById('mcMDResult').innerHTML = 'Late fee: <strong>$' + fee.toFixed(2) + '</strong> · Total owed: <strong>$' + total.toFixed(2) + '</strong>';
+        }
+        ['mcMDAmount', 'mcMDDays', 'mcMDRate'].forEach(function(id) {
+          document.getElementById(id).addEventListener('input', calc);
+        });
+        calc();
+      })();
+      </script>
+
+      <h2>Maryland's 6% Legal Rate — and a Short Clock to Collect</h2>
+      <p>Maryland's constitution fixes the legal rate of interest at <strong>6% per year</strong> unless the General Assembly provides otherwise (Md. Const. Art. III, § 57; Com. Law § 12-102). That's the rate that applies by default when a contract doesn't specify its own — most Maryland freelancers instead write <strong>1.5% per month (18% annually)</strong> directly into their contract and invoices, which courts treat as the agreed rate rather than the statutory fallback, as long as it's disclosed in writing and reasonable.</p>
+      <p>The bigger issue for Maryland freelancers isn't the rate — it's the clock. Maryland's general statute of limitations is just <strong>3 years</strong> for nearly all civil claims, including both written and oral contracts (Md. Cts. & Jud. Proc. § 5-101). That's shorter than the 5–6 year windows common in most other states, so a Maryland invoice that sits unpaid for a couple of years is closer to being time-barred than freelancers typically expect.</p>
+
+      <h2>How Maryland Compares to Nearby States</h2>
+      <table class="compare-table">
+        <tr><th>State</th><th>Default rate</th><th>Small claims limit</th></tr>
+        <tr class="this-state"><td>Maryland</td><td>6%/year</td><td>$5,000</td></tr>
+        <tr><td>Virginia</td><td>6%/year</td><td>$5,000</td></tr>
+        <tr><td>Pennsylvania</td><td>6%/year</td><td>$12,000</td></tr>
+      </table>
+      <p>Maryland and Virginia share both the same 6% default rate and the same $5,000 small claims cap, so a freelancer working across the DMV area sees no real difference in either number. Pennsylvania uses the same 6% default rate but allows small claims up to $12,000 — more than double Maryland's ceiling — which matters if you take on larger Pennsylvania-based clients. What sets Maryland apart from both neighbors isn't the rate or the small claims limit; it's the 3-year filing deadline, noticeably shorter than the windows typically available elsewhere in the region.</p>
+
+      <h2>Setting Up Enforceable Late Fees in Maryland</h2>
+      <ul>
+        <li><strong>Write your rate into the contract.</strong> "Invoices unpaid after 15 days accrue interest at 1.5% per month" is enforceable and clearer than defaulting to the 6% constitutional rate.</li>
+        <li><strong>Reference the rate on every invoice</strong> so it's visible without the client needing to dig through the original agreement.</li>
+        <li><strong>Don't let a balance sit.</strong> With only a 3-year window, follow up promptly on overdue invoices rather than letting them age — the clock starts running from the date payment was due.</li>
+        <li><strong>Keep dated records</strong> of every invoice and communication, since Maryland's shorter statute of limitations gives you less room for error if a dispute ends up in court.</li>
+      </ul>
+
+      <div class="highlight-box">
+        <p><strong>Maryland's 3-year deadline is one of the shortest in the country.</strong> If you have any unpaid Maryland invoices from more than two years ago, don't wait — get a demand letter out or file soon, since the filing window closes faster here than in almost any neighboring state.</p>
+      </div>
+
+      <h2>Collecting in Maryland</h2>
+      <p>Maryland's District Court Small Claims division handles money disputes up to <strong>$5,000</strong> (Md. Cts. & Jud. Proc. § 4-405), with a filing fee of just $11 — among the lowest in the country — plus a roughly $40 service-of-process surcharge. Claims between $5,000 and $30,000 go to the regular District or Circuit Court docket instead.</p>
+      <ul>
+        <li>Maryland District Court Small Claims: up to $5,000 (excluding interest, costs, and attorney fees)</li>
+        <li>District or Circuit Court (regular docket): up to $30,000</li>
+        <li>Statute of limitations: 3 years for most contracts (Md. Cts. & Jud. Proc. § 5-101); 12 years for contracts under seal (§ 5-102)</li>
+        <li>Post-judgment interest: 10% per year</li>
+      </ul>
+
+      <div class="cta-box">
+        <p>Need to calculate exactly what your Maryland client owes with late fees included? Get the updated total instantly.</p>
+        <a href="/late-payment-fee.html" class="cta-btn">Calculate Late Fees →</a>
+      </div>
+
+      <p>Maryland's 6% legal rate is unremarkable by national standards, but the 3-year statute of limitations is the detail that catches freelancers off guard. Write your own rate into every contract, invoice consistently, and don't let a Maryland balance go unaddressed for years — the filing window closes faster here than almost anywhere else.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <div style="border-top:1px solid #e5e5e2;">
+        <details style="border-bottom:1px solid #e5e5e2;padding:1rem 0;">
+          <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">Is there a free Maryland late fee calculator? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
+          <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Yes — use the quick calculator above for an instant estimate at the standard 1.5% monthly rate, or GetSoloTools' full late fee calculator for grace periods, flat fees, compounding, and a downloadable PDF.</p>
+        </details>
+        <details style="border-bottom:1px solid #e5e5e2;padding:1rem 0;">
+          <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">What late fee rate is enforceable in Maryland? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
+          <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Maryland's constitutional legal rate is 6% per year (Md. Const. Art. III, § 57; Com. Law § 12-102), which applies when a contract doesn't specify its own rate. Freelancers can and typically do write a higher rate — commonly 1.5% per month (18% annually) — directly into their contract and invoices, since it's an agreed rate rather than the statutory fallback.</p>
+        </details>
+        <details style="border-bottom:1px solid #e5e5e2;padding:1rem 0;">
+          <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">How long do I have to sue over an unpaid invoice in Maryland? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
+          <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Only 3 years for most contracts, written or oral (Md. Cts. & Jud. Proc. § 5-101) — one of the shortest general statutes of limitations in the country. Contracts executed under seal get 12 years instead (§ 5-102), but that formality is rare in freelance work, so don't let an unpaid Maryland invoice sit for years before acting.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/blog/index.html" class="footer-blog">Blog</a>
+    </div>
+    <p class="footer-copy">© 2026 GetSoloTools. Free tools for freelancers.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oregon Late Fee Calculator + Laws for Freelancers – GetSoloTools</title>
+  <meta name="description" content="Free Oregon late fee calculator, plus what OR freelancers need to know about the 9% default interest rate, the $10,000 small claims limit, and Oregon's unusual attorney restriction in small claims." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-728DGKLSE6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-728DGKLSE6');
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #1a1a1a; --accent: #2d5be3; --blog: #1a9e6e; --paper: #fafaf8; --muted: #6b6b6b; --border: #e5e5e2; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; display: flex; flex-direction: column; }
+    .article-wrap { max-width: 720px; margin: 0 auto; padding: 56px 24px 80px; flex: 1; }
+    .article-tag { font-size: 0.75rem; font-weight: 600; color: var(--blog); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; display: block; }
+    .article-wrap h1 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem, 4vw, 2.4rem); line-height: 1.2; margin-bottom: 16px; }
+    .article-meta { font-size: 0.82rem; color: #aaa; margin-bottom: 40px; }
+    .article-body { font-size: 1rem; line-height: 1.8; color: var(--ink); }
+    .article-body h2 { font-family: 'DM Serif Display', serif; font-size: 1.4rem; margin: 40px 0 12px; }
+    .article-body p { margin-bottom: 20px; }
+    .article-body ul { margin: 0 0 20px 20px; }
+    .article-body ul li { margin-bottom: 8px; line-height: 1.7; }
+    .article-body strong { font-weight: 600; }
+    .highlight-box { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--blog); border-radius: 8px; padding: 20px 24px; margin: 28px 0; }
+    .highlight-box p { margin: 0; font-size: 0.95rem; }
+    .compare-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; }
+    .compare-table th, .compare-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+    .compare-table th { font-weight: 600; color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; }
+    .compare-table tr.this-state td { font-weight: 600; background: #f4f8f6; }
+    .cta-box { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 24px 28px; margin: 40px 0; }
+    .cta-box p { margin: 0 0 14px; font-size: 0.95rem; }
+    .cta-btn { display: inline-block; background: var(--accent); color: #fff; font-size: 0.875rem; font-weight: 600; padding: 10px 20px; border-radius: 6px; text-decoration: none; }
+    .cta-btn:hover { opacity: 0.88; }
+    .back-link { display: inline-block; margin-bottom: 32px; font-size: 0.85rem; color: var(--muted); text-decoration: none; }
+    .back-link:hover { color: var(--ink); }
+    footer { border-top: 1px solid var(--border); padding: 24px; text-align: center; margin-top: auto; }
+    .footer-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 10px; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.825rem; color: var(--muted); text-decoration: none; }
+    .footer-links a:hover { color: var(--ink); }
+    .footer-links .footer-blog { color: var(--blog); font-weight: 600; }
+    .footer-copy { font-size: 0.78rem; color: #aaa; }
+    .mini-calc { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--blog); border-radius: 8px; padding: 24px 28px; margin: 28px 0 40px; }
+    .mini-calc h2 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; margin: 0 0 8px; }
+    .mini-calc-sub { font-size: 0.9rem; color: #666; margin-bottom: 16px; }
+    .mini-calc-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+    .mini-calc-field label { display: block; font-size: 0.78rem; color: var(--muted); margin-bottom: 4px; font-weight: 600; }
+    .mini-calc-field input { width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.95rem; font-family: 'DM Sans', sans-serif; }
+    .mini-calc-result { font-size: 1rem; padding-top: 12px; border-top: 1px solid var(--border); }
+    @media (max-width: 500px) { .mini-calc-row { grid-template-columns: 1fr; } .compare-table { font-size: 0.8rem; } }
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Late Fee Laws for Freelancers in Oregon",
+  "description": "Free Oregon late fee calculator, plus what OR freelancers need to know about the 9% default interest rate, the $10,000 small claims limit, and Oregon's unusual attorney restriction in small claims.",
+  "url": "https://getsolotools.com/blog/late-fee-laws-freelancers-oregon.html",
+  "datePublished": "2026-07-18",
+  "dateModified": "2026-07-18",
+  "author": { "@type": "Organization", "name": "GetSoloTools", "url": "https://getsolotools.com" },
+  "publisher": { "@type": "Organization", "name": "GetSoloTools", "url": "https://getsolotools.com" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is there a free Oregon late fee calculator?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — use the quick calculator above for an instant estimate at the standard 1.5% monthly rate, or GetSoloTools' full late fee calculator for grace periods, flat fees, compounding, and a downloadable PDF." }
+    },
+    {
+      "@type": "Question",
+      "name": "What late fee rate is enforceable in Oregon?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Oregon's default rate is 9% per year when a contract doesn't specify one (ORS 82.010(1)). Freelancers can write a different rate directly into their contract and invoices — commonly 1.5% per month (18% annually) — and courts will enforce that agreed rate instead, as long as it's disclosed in writing and reasonable." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I hire a lawyer for a small claims case in Oregon?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Only with the judge's permission. Under ORS 46.415, attorneys may not represent parties in Oregon's Small Claims Department without prior leave of court — an unusually restrictive rule most other states don't have. It's designed to keep the process accessible to freelancers representing themselves." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <script src="/nav.js"></script>
+  <div class="article-wrap">
+    <a href="/blog/index.html" class="back-link">← Back to Blog</a>
+    <span class="article-tag">Getting Paid</span>
+    <h1>Late Fee Laws for Freelancers in Oregon</h1>
+    <p class="article-meta">July 18, 2026 · 7 min read</p>
+
+    <div class="article-body">
+      <p>Oregon is one of the few states where attorneys generally can't represent either side in small claims court without a judge's permission — a rule built specifically to keep the process accessible to freelancers who file their own cases. Here's what Oregon freelancers need to know about late fees, from the default interest rate to collecting through the Circuit Court Small Claims Department.</p>
+
+      <div class="mini-calc" id="miniCalc">
+        <h2>Oregon Late Fee Calculator</h2>
+        <p class="mini-calc-sub">Quick estimate at the standard 1.5%/month rate. For grace periods, flat fees, and a PDF invoice, use the <a href="/late-payment-fee.html" style="color:var(--accent);">full late fee calculator</a>.</p>
+        <div class="mini-calc-row">
+          <div class="mini-calc-field">
+            <label for="mcORAmount">Invoice amount ($)</label>
+            <input type="number" id="mcORAmount" value="1000" min="0" step="0.01">
+          </div>
+          <div class="mini-calc-field">
+            <label for="mcORDays">Days overdue</label>
+            <input type="number" id="mcORDays" value="30" min="0" step="1">
+          </div>
+          <div class="mini-calc-field">
+            <label for="mcORRate">Monthly rate (%)</label>
+            <input type="number" id="mcORRate" value="1.5" min="0" step="0.1">
+          </div>
+        </div>
+        <div class="mini-calc-result" id="mcORResult">Late fee: <strong>$0.00</strong> · Total owed: <strong>$0.00</strong></div>
+      </div>
+      <script>
+      (function() {
+        function calc() {
+          var amt = parseFloat(document.getElementById('mcORAmount').value) || 0;
+          var days = parseFloat(document.getElementById('mcORDays').value) || 0;
+          var rate = parseFloat(document.getElementById('mcORRate').value) || 0;
+          var dailyRate = (rate / 100) / 30;
+          var fee = amt * dailyRate * days;
+          var total = amt + fee;
+          document.getElementById('mcORResult').innerHTML = 'Late fee: <strong>$' + fee.toFixed(2) + '</strong> · Total owed: <strong>$' + total.toFixed(2) + '</strong>';
+        }
+        ['mcORAmount', 'mcORDays', 'mcORRate'].forEach(function(id) {
+          document.getElementById(id).addEventListener('input', calc);
+        });
+        calc();
+      })();
+      </script>
+
+      <h2>Oregon's 9% Default Rate</h2>
+      <p>Under ORS 82.010(1), Oregon's default interest rate is <strong>9% per year</strong> whenever the parties haven't agreed to a rate — this applies to overdue accounts and unpaid contract balances alike. Most Oregon freelancers still write their own rate directly into contracts and invoices, typically <strong>1.5% per month (18% annually)</strong>, which is double the statutory default and enforceable as the agreed rate as long as it's disclosed and reasonable.</p>
+
+      <h2>The Attorney Restriction That Sets Oregon Apart</h2>
+      <p>Oregon's Small Claims Department has a feature almost no other state shares: under ORS 46.415, lawyers cannot appear on behalf of either party without first getting the judge's permission. Most states allow attorneys freely in small claims court (some, like California, bar them entirely instead). Oregon's middle path — permitted only with leave of court — is meant to keep the forum genuinely accessible to freelancers who can't afford legal representation, while still letting a judge allow it in unusual cases. If you're an Oregon freelancer filing your own small claims case, expect to be facing the other party directly rather than their lawyer.</p>
+
+      <h2>How Oregon Compares to Nearby States</h2>
+      <table class="compare-table">
+        <tr><th>State</th><th>Default rate</th><th>Small claims limit</th></tr>
+        <tr class="this-state"><td>Oregon</td><td>9%/year</td><td>$10,000</td></tr>
+        <tr><td>Washington</td><td>No statutory cap</td><td>—</td></tr>
+        <tr><td>California</td><td>10% cap (consumer contexts)</td><td>—</td></tr>
+      </table>
+      <p>Washington doesn't set a maximum late fee or default rate for commercial invoices at all — freelancers and clients are free to agree to any rate in writing, subject only to a reasonableness standard. California caps interest at 10% annually in most consumer-facing situations under its constitution. Oregon's fixed 9% default sits in between: higher than what many states default to, but still a hard number rather than Washington's open-ended approach. Oregon's $10,000 small claims ceiling (ORS 46.405) is also generous — double Washington's typical small claims limits in most counties.</p>
+
+      <h2>Setting Up Enforceable Late Fees in Oregon</h2>
+      <ul>
+        <li><strong>Put your rate in writing.</strong> "Invoices unpaid after 15 days accrue interest at 1.5% per month" beats the 9% statutory default and is clear evidence of what was agreed.</li>
+        <li><strong>Reference the rate on every invoice</strong> so the client sees it without needing to dig up the original contract.</li>
+        <li><strong>Know the mandatory threshold.</strong> Oregon requires that claims of $750 or less be filed in the Small Claims Department (ORS 46.405) — you can't choose regular Circuit Court for very small amounts.</li>
+        <li><strong>Track your filing window.</strong> Written contract claims must be filed within <strong>6 years</strong> (ORS 12.080), giving you a reasonably long runway to collect.</li>
+      </ul>
+
+      <div class="highlight-box">
+        <p><strong>Oregon's small claims cap may rise soon.</strong> A pending bill (SB 484, 2025 session) would raise the $10,000 limit to $20,000, but as of mid-2026 it hasn't been enacted. Check the current limit before filing a larger claim.</p>
+      </div>
+
+      <h2>Collecting in Oregon</h2>
+      <p>Oregon's Circuit Court Small Claims Department handles money disputes up to <strong>$10,000</strong> (ORS 46.405). Claims of $750 or less must be filed there; claims between $750 and $10,000 may go to Small Claims or the regular Circuit Court civil docket. Filing fees run $37–$50 depending on the claim amount.</p>
+      <ul>
+        <li>Oregon Small Claims Department: up to $10,000 — attorneys need the judge's permission to appear (ORS 46.415)</li>
+        <li>Written contract statute of limitations: 6 years (ORS 12.080(1))</li>
+        <li>Post-judgment interest: 9% per year (ORS 82.010(2))</li>
+        <li>Note: small claims judgments generally aren't appealable (ORS 46.485), except for narrow jurisdictional issues</li>
+      </ul>
+
+      <div class="cta-box">
+        <p>Need to calculate exactly what your Oregon client owes with late fees included? Get the updated total instantly.</p>
+        <a href="/late-payment-fee.html" class="cta-btn">Calculate Late Fees →</a>
+      </div>
+
+      <p>Oregon's 9% default rate and $10,000 small claims ceiling make it a reasonably freelancer-friendly state, and the attorney restriction in small claims keeps the playing field level if a client tries to lawyer up against you. Write your own rate into every contract, invoice consistently, and know that Small Claims Department is designed for you to handle without hiring anyone.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <div style="border-top:1px solid #e5e5e2;">
+        <details style="border-bottom:1px solid #e5e5e2;padding:1rem 0;">
+          <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">Is there a free Oregon late fee calculator? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
+          <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Yes — use the quick calculator above for an instant estimate at the standard 1.5% monthly rate, or GetSoloTools' full late fee calculator for grace periods, flat fees, compounding, and a downloadable PDF.</p>
+        </details>
+        <details style="border-bottom:1px solid #e5e5e2;padding:1rem 0;">
+          <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">What late fee rate is enforceable in Oregon? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
+          <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Oregon's default rate is 9% per year when a contract doesn't specify one (ORS 82.010(1)). Freelancers can write a different rate directly into their contract and invoices — commonly 1.5% per month (18% annually) — and courts will enforce that agreed rate instead, as long as it's disclosed in writing and reasonable.</p>
+        </details>
+        <details style="border-bottom:1px solid #e5e5e2;padding:1rem 0;">
+          <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">Can I hire a lawyer for a small claims case in Oregon? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
+          <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Only with the judge's permission. Under ORS 46.415, attorneys may not represent parties in Oregon's Small Claims Department without prior leave of court — an unusually restrictive rule most other states don't have. It's designed to keep the process accessible to freelancers representing themselves.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/blog/index.html" class="footer-blog">Blog</a>
+    </div>
+    <p class="footer-copy">© 2026 GetSoloTools. Free tools for freelancers.</p>
+  </footer>
+</body>
+</html>

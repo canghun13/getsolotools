@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nevada Late Fee Calculator + Laws for Freelancers – GetSoloTools</title>
+  <meta name="description" content="Free Nevada late fee calculator, plus what NV freelancers need to know about the floating prime-plus-2% default interest rate, the $10,000 small claims limit, and Nevada's strong wage garnishment protections." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-728DGKLSE6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-728DGKLSE6');
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #1a1a1a; --accent: #2d5be3; --blog: #1a9e6e; --paper: #fafaf8; --muted: #6b6b6b; --border: #e5e5e2; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; display: flex; flex-direction: column; }
+    .article-wrap { max-width: 720px; margin: 0 auto; padding: 56px 24px 80px; flex: 1; }
+    .article-tag { font-size: 0.75rem; font-weight: 600; color: var(--blog); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; display: block; }
+    .article-wrap h1 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem, 4vw, 2.4rem); line-height: 1.2; margin-bottom: 16px; }
+    .article-meta { font-size: 0.82rem; color: #aaa; margin-bottom: 40px; }
+    .article-body { font-size: 1rem; line-height: 1.8; color: var(--ink); }
+    .article-body h2 { font-family: 'DM Serif Display', serif; font-size: 1.4rem; margin: 40px 0 12px; }
+    .article-body p { margin-bottom: 20px; }
+    .article-body ul { margin: 0 0 20px 20px; }
+    .article-body ul li { margin-bottom: 8px; line-height: 1.7; }
+    .article-body strong { font-weight: 600; }
+    .highlight-box { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--blog); border-radius: 8px; padding: 20px 24px; margin: 28px 0; }
+    .highlight-box p { margin: 0; font-size: 0.95rem; }
+    .compare-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; }
+    .compare-table th, .compare-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+    .compare-table th { font-weight: 600; color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; }
+    .compare-table tr.this-state td { font-weight: 600; background: #f4f8f6; }
+    .cta-box { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 24px 28px; margin: 40px 0; }
+    .cta-box p { margin: 0 0 14px; font-size: 0.95rem; }
+    .cta-btn { display: inline-block; background: var(--accent); color: #fff; font-size: 0.875rem; font-weight: 600; padding: 10px 20px; border-radius: 6px; text-decoration: none; }
+    .cta-btn:hover { opacity: 0.88; }
+    .back-link { display: inline-block; margin-bottom: 32px; font-size: 0.85rem; color: var(--muted); text-decoration: none; }
+    .back-link:hover { color: var(--ink); }
+    footer { border-top: 1px solid var(--border); padding: 24px; text-align: center; margin-top: auto; }
+    .footer-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 10px; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.825rem; color: var(--muted); text-decoration: none; }
+    .footer-links a:hover { color: var(--ink); }
+    .footer-links .footer-blog { color: var(--blog); font-weight: 600; }
+    .footer-copy { font-size: 0.78rem; color: #aaa; }
+    .mini-calc { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--blog); border-radius: 8px; padding: 24px 28px; margin: 28px 0 40px; }
+    .mini-calc h2 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; margin: 0 0 8px; }
+    .mini-calc-sub { font-size: 0.9rem; color: #666; margin-bottom: 16px; }
+    .mini-calc-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+    .mini-calc-field label { display: block; font-size: 0.78rem; color: var(--muted); margin-bottom: 4px; font-weight: 600; }
+    .mini-calc-field input { width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.95rem; font-family: 'DM Sans', sans-serif; }
+    .mini-calc-result { font-size: 1rem; padding-top: 12px; border-top: 1px solid var(--border); }
+    @media (max-width: 500px) { .mini-calc-row { grid-template-columns: 1fr; } .compare-table { font-size: 0.8rem; } }
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Late Fee Laws for Freelancers in Nevada",
+  "description": "Free Nevada late fee calculator, plus what NV freelancers need to know about the floating prime-plus-2% default interest rate, the $10,000 small claims limit, and Nevada's strong wage garnishment protections.",
+  "url": "https://getsolotools.com/blog/late-fee-laws-freelancers-nevada.html",
+  "datePublished": "2026-07-18",
+  "dateModified": "2026-07-18",
+  "author": { "@type": "Organization", "name": "GetSoloTools", "url": "https://getsolotools.com" },
+  "publisher": { "@type": "Organization", "name": "GetSoloTools", "url": "https://getsolotools.com" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is there a free Nevada late fee calculator?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — use the quick calculator above for an instant estimate at the standard 1.5% monthly rate, or GetSoloTools' full late fee calculator for grace periods, flat fees, compounding, and a downloadable PDF." }
+    },
+    {
+      "@type": "Question",
+      "name": "What late fee rate is enforceable in Nevada?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Nevada's default rate isn't a fixed percentage — it floats at the prime rate of the largest bank in Nevada plus 2%, reset every January 1 and July 1 (NRS 99.040(1)). Most freelancers avoid tracking that floating rate and instead write a flat rate like 1.5% per month (18% annually) directly into their contract, which applies instead as the agreed rate." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it harder to collect a judgment in Nevada than other states?",
+      "acceptedAnswer": { "@type": "Answer", "text": "It can be. Nevada exempts 82% of a debtor's disposable wages from garnishment (NRS 21.090(1)(g)) — far more protective than the 75% most states allow under federal minimums. A judgment is still enforceable through bank levies and property liens, but wage garnishment alone reaches less of a nonpaying client's income in Nevada than in most other states." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <script src="/nav.js"></script>
+  <div class="article-wrap">
+    <a href="/blog/index.html" class="back-link">← Back to Blog</a>
+    <span class="article-tag">Getting Paid</span>
+    <h1>Late Fee Laws for Freelancers in Nevada</h1>
+    <p class="article-meta">July 18, 2026 · 7 min read</p>
+
+    <div class="article-body">
+      <p>Nevada is one of the only states where the default interest rate isn't a fixed number at all — it floats with the prime rate and resets twice a year. Here's what Nevada freelancers need to know about late fees, from the state's unusual default rate to collecting through Justice Court.</p>
+
+      <div class="mini-calc" id="miniCalc">
+        <h2>Nevada Late Fee Calculator</h2>
+        <p class="mini-calc-sub">Quick estimate at the standard 1.5%/month rate. For grace periods, flat fees, and a PDF invoice, use the <a href="/late-payment-fee.html" style="color:var(--accent);">full late fee calculator</a>.</p>
+        <div class="mini-calc-row">
+          <div class="mini-calc-field">
+            <label for="mcNVAmount">Invoice amount ($)</label>
+            <input type="number" id="mcNVAmount" value="1000" min="0" step="0.01">
+          </div>
+          <div class="mini-calc-field">
+            <label for="mcNVDays">Days overdue</label>
+            <input type="number" id="mcNVDays" value="30" min="0" step="1">
+          </div>
+          <div class="mini-calc-field">
+            <label for="mcNVRate">Monthly rate (%)</label>
+            <input type="number" id="mcNVRate" value="1.5" min="0" step="0.1">
+          </div>
+        </div>
+        <div class="mini-calc-result" id="mcNVResult">Late fee: <strong>$0.00</strong> · Total owed: <strong>$0.00</strong></div>
+      </div>
+      <script>
+      (function() {
+        function calc() {
+          var amt = parseFloat(document.getElementById('mcNVAmount').value) || 0;
+          var days = parseFloat(document.getElementById('mcNVDays').value) || 0;
+          var rate = parseFloat(document.getElementById('mcNVRate').value) || 0;
+          var dailyRate = (rate / 100) / 30;
+          var fee = amt * dailyRate * days;
+          var total = amt + fee;
+          document.getElementById('mcNVResult').innerHTML = 'Late fee: <strong>$' + fee.toFixed(2) + '</strong> · Total owed: <strong>$' + total.toFixed(2) + '</strong>';
+        }
+        ['mcNVAmount', 'mcNVDays', 'mcNVRate'].forEach(function(id) {
+          document.getElementById(id).addEventListener('input', calc);
+        });
+        calc();
+      })();
+      </script>
+
+      <h2>Nevada's Floating Default Rate</h2>
+      <p>Instead of a fixed percentage, Nevada's default interest rate under NRS 99.040(1) is tied to the <strong>prime rate at the largest bank in Nevada, plus 2%</strong>, recalculated every January 1 and July 1 until the debt is paid. As of 2026 that floating rate sits in the low double digits, but the exact figure shifts with the broader interest rate environment — which is exactly why most Nevada freelancers don't rely on it. Writing a flat, predictable rate like <strong>1.5% per month (18% annually)</strong> directly into your contract and invoices avoids the guesswork entirely and is fully enforceable as the agreed rate, since NRS 99.040 only applies "when there is no express contract in writing fixing a different rate."</p>
+
+      <h2>Collecting a Judgment Is a Separate Challenge in Nevada</h2>
+      <p>Winning a case is one thing; collecting on it is another, and Nevada is more debtor-protective than most states on this front. Under NRS 21.090(1)(g), a debtor keeps the greater of <strong>82% of disposable wages</strong> or 50 times the federal minimum wage — meaning wage garnishment can reach at most 18% of a nonpaying client's paycheck, compared to the 25% ceiling used as a baseline in most other states. Nevada judgments remain fully enforceable through bank account levies and property liens, so a win isn't hollow, but freelancers relying primarily on wage garnishment to collect should expect it to move more slowly here than elsewhere.</p>
+
+      <h2>How Nevada Compares to Nearby States</h2>
+      <table class="compare-table">
+        <tr><th>State</th><th>Default rate</th><th>Small claims limit</th></tr>
+        <tr class="this-state"><td>Nevada</td><td>Prime + 2% (floating)</td><td>$10,000</td></tr>
+        <tr><td>Arizona</td><td>10%/year, uncapped if written</td><td>$3,500</td></tr>
+        <tr><td>California</td><td>10% cap (consumer contexts)</td><td>—</td></tr>
+      </table>
+      <p>Nevada and Arizona share a border but differ sharply on small claims access: Nevada's $10,000 Justice Court limit is nearly three times Arizona's unusually low $3,500 cap, so a mid-sized unpaid invoice that requires Arizona's costlier Justice Court process can often stay in Nevada's cheaper small claims track. On rates, Arizona's 10% default is a fixed number freelancers can plan around, while Nevada's floating prime-plus-2% rate requires checking the current published figure — one more reason Nevada freelancers tend to specify their own flat rate in writing rather than rely on the statutory default.</p>
+
+      <h2>Setting Up Enforceable Late Fees in Nevada</h2>
+      <ul>
+        <li><strong>Write a flat rate into every contract.</strong> "Invoices unpaid after 15 days accrue interest at 1.5% per month" avoids the floating statutory rate entirely and is easy for both sides to calculate.</li>
+        <li><strong>Reference the rate on every invoice</strong> so the client sees it clearly, not just buried in the original agreement.</li>
+        <li><strong>Keep it reasonable.</strong> 1.5–2% per month is standard nationally and well within what Nevada courts expect from a legitimate late fee.</li>
+        <li><strong>File within 6 years.</strong> Nevada's statute of limitations for written contracts is 6 years (NRS 11.190(1)(b)), giving you a solid window to act.</li>
+      </ul>
+
+      <div class="highlight-box">
+        <p><strong>Nevada bars assigned debt claims from small claims court.</strong> If you ever sell or assign an unpaid invoice to a collection agency, that agency generally cannot pursue it in Nevada's small claims court — one of only a handful of states with this consumer-protective rule. It doesn't affect freelancers collecting their own invoices directly, but it's worth knowing if you ever consider selling a debt.</p>
+      </div>
+
+      <h2>Collecting in Nevada</h2>
+      <p>Nevada Justice Court handles small claims disputes up to <strong>$10,000</strong> (NRS 73.010), filed in the township where the defendant resides, does business, or is employed. Attorneys are permitted, unlike in some states, though most filers represent themselves.</p>
+      <ul>
+        <li>Nevada Justice Court (small claims): up to $10,000</li>
+        <li>Written contract statute of limitations: 6 years (NRS 11.190(1)(b))</li>
+        <li>Post-judgment interest: prime rate plus 2%, reset every January 1 and July 1 (NRS 17.130)</li>
+        <li>Appeal window: just 5 judicial days from Justice Court to District Court — one of the shortest in the country (NRS 73.040)</li>
+      </ul>
+
+      <div class="cta-box">
+        <p>Need to calculate exactly what your Nevada client owes with late fees included? Get the updated total instantly.</p>
+        <a href="/late-payment-fee.html" class="cta-btn">Calculate Late Fees →</a>
+      </div>
+
+      <p>Nevada's floating default rate is unusual, but it's also easy to sidestep: write a flat rate into every contract instead of relying on the statutory formula. Invoice consistently, and if a client doesn't pay, Nevada's $10,000 Justice Court limit covers most freelance disputes without needing a lawyer — just budget for slower wage-garnishment collection if it comes to that.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <div style="border-top:1px solid #e5e5e2;">
+        <details style="border-bottom:1px solid #e5e5e2;padding:1rem 0;">
+          <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">Is there a free Nevada late fee calculator? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
+          <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Yes — use the quick calculator above for an instant estimate at the standard 1.5% monthly rate, or GetSoloTools' full late fee calculator for grace periods, flat fees, compounding, and a downloadable PDF.</p>
+        </details>
+        <details style="border-bottom:1px solid #e5e5e2;padding:1rem 0;">
+          <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">What late fee rate is enforceable in Nevada? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
+          <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Nevada's default rate isn't a fixed percentage — it floats at the prime rate of the largest bank in Nevada plus 2%, reset every January 1 and July 1 (NRS 99.040(1)). Most freelancers avoid tracking that floating rate and instead write a flat rate like 1.5% per month (18% annually) directly into their contract, which applies instead as the agreed rate.</p>
+        </details>
+        <details style="border-bottom:1px solid #e5e5e2;padding:1rem 0;">
+          <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">Is it harder to collect a judgment in Nevada than other states? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
+          <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">It can be. Nevada exempts 82% of a debtor's disposable wages from garnishment (NRS 21.090(1)(g)) — far more protective than the 75% most states allow under federal minimums. A judgment is still enforceable through bank levies and property liens, but wage garnishment alone reaches less of a nonpaying client's income in Nevada than in most other states.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/blog/index.html" class="footer-blog">Blog</a>
+    </div>
+    <p class="footer-copy">© 2026 GetSoloTools. Free tools for freelancers.</p>
+  </footer>
+</body>
+</html>
