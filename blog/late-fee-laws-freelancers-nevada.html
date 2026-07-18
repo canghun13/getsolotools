@@ -33,7 +33,10 @@
     .article-body strong { font-weight: 600; }
     .highlight-box { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--blog); border-radius: 8px; padding: 20px 24px; margin: 28px 0; }
     .highlight-box p { margin: 0; font-size: 0.95rem; }
-    .compare-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; min-width: 0; margin: 20px 0; }
+    .table-scroll-hint { display: none; font-size: 0.78rem; color: #999; margin: 0 0 8px; align-items: center; gap: 4px; }
+    @media (max-width: 700px) { .table-scroll-hint { display: flex; } }
+    .compare-table { width: 100%; min-width: 420px; border-collapse: collapse; margin: 0; font-size: 0.9rem; }
     .compare-table th, .compare-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); }
     .compare-table th { font-weight: 600; color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; }
     .compare-table tr.this-state td { font-weight: 600; background: #f4f8f6; }
@@ -150,12 +153,13 @@
       <p>Winning a case is one thing; collecting on it is another, and Nevada is more debtor-protective than most states on this front. Under NRS 21.090(1)(g), a debtor keeps the greater of <strong>82% of disposable wages</strong> or 50 times the federal minimum wage — meaning wage garnishment can reach at most 18% of a nonpaying client's paycheck, compared to the 25% ceiling used as a baseline in most other states. Nevada judgments remain fully enforceable through bank account levies and property liens, so a win isn't hollow, but freelancers relying primarily on wage garnishment to collect should expect it to move more slowly here than elsewhere.</p>
 
       <h2>How Nevada Compares to Nearby States</h2>
-      <table class="compare-table">
+      <p class="table-scroll-hint"><span aria-hidden="true">↔</span> Scroll sideways to see all columns</p>
+      <div class="table-scroll"><table class="compare-table">
         <tr><th>State</th><th>Default rate</th><th>Small claims limit</th></tr>
         <tr class="this-state"><td>Nevada</td><td>Prime + 2% (floating)</td><td>$10,000</td></tr>
         <tr><td>Arizona</td><td>10%/year, uncapped if written</td><td>$3,500</td></tr>
         <tr><td>California</td><td>10% cap (consumer contexts)</td><td>—</td></tr>
-      </table>
+      </table></div>
       <p>Nevada and Arizona share a border but differ sharply on small claims access: Nevada's $10,000 Justice Court limit is nearly three times Arizona's unusually low $3,500 cap, so a mid-sized unpaid invoice that requires Arizona's costlier Justice Court process can often stay in Nevada's cheaper small claims track. On rates, Arizona's 10% default is a fixed number freelancers can plan around, while Nevada's floating prime-plus-2% rate requires checking the current published figure — one more reason Nevada freelancers tend to specify their own flat rate in writing rather than rely on the statutory default.</p>
 
       <h2>Setting Up Enforceable Late Fees in Nevada</h2>
