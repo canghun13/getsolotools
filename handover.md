@@ -1,6 +1,6 @@
 # GetSoloTools 인수인계 문서 (handover.md)
 
-**최종 갱신**: 2026-07-18 (① late fee 주(州) 시리즈 19→24개 주 신규 확장 — Tennessee/Missouri/Maryland/Oregon/Nevada, 전부 1차 법령자료 검증 + 계산기 위젯 + 인접주 비교 섹션 내장. ② 기존 19개 주 페이지 전수 보강: FAQ 자체가 없던 6개 주(California/Texas/Ohio/Colorado/Michigan/New Jersey) 신규 FAQ 추가, 나머지 13개 주에 "인접 주 비교" FAQ 1개씩 추가. ③ late-payment-fee.html 비교표/카드그리드 5개 주 추가, sitemap.xml 누락 lastmod 5건 추가 발견·수정)
+**최종 갱신**: 2026-07-20 (late fee 주(州) 시리즈 24→29개 주 신규 확장 — Kentucky/South Carolina/Alabama/Louisiana/Oklahoma, 전부 1차 법령자료 검증 + 계산기 위젯 + 인접주 비교 섹션 내장. 상세는 "2026-07-20 세션" 항목 참고)
 **갱신 방식이 v12까지와 다름**: 이제부터 이 문서는 새 채팅에 붙여넣는 방식이 아니라, **저장소에 직접 보관하고 계속 업데이트**하는 방식으로 운영한다. 새 세션에서는 이 파일(`handover.md`)을 clone 직후 가장 먼저 읽을 것.
 
 ---
@@ -93,11 +93,11 @@
 
 ---
 
-## 사이트 구조 (2026-07-18 기준 실제 수치)
+## 사이트 구조 (2026-07-20 기준 실제 수치)
 
 - **툴**: 18개 (Invoice Generator = index.html 포함)
 - **이메일 템플릿**: 24개 (25개 파일이나 sending-nda.html 등 포함, v12 이후 변경 없음)
-- **블로그 글**: 52개 (late fee 지역 시리즈 **24개 주**로 확장 완료 — California, New York, Florida, Illinois, Texas, Pennsylvania, Ohio, Colorado, Georgia, Michigan, New Jersey, Washington, Indiana, Wisconsin, Massachusetts, North Carolina, Virginia, Arizona, Minnesota, **Tennessee, Missouri, Maryland, Oregon, Nevada**). 24개 주 전부 미니 계산기 위젯 + FAQPage 스키마 보유. 이 중 19개(신규 5개 제외)에 "인접 주 비교" FAQ 추가 완료(2026-07-18).
+- **블로그 글**: 57개 (late fee 지역 시리즈 **29개 주**로 확장 완료 — California, New York, Florida, Illinois, Texas, Pennsylvania, Ohio, Colorado, Georgia, Michigan, New Jersey, Washington, Indiana, Wisconsin, Massachusetts, North Carolina, Virginia, Arizona, Minnesota, Tennessee, Missouri, Maryland, Oregon, Nevada, **Kentucky, South Carolina, Alabama, Louisiana, Oklahoma**). 29개 주 전부 미니 계산기 위젯 + FAQPage 스키마 + "인접 주 비교" 콘텐츠(본문 비교표 또는 FAQ) 보유.
 
 ### 툴 목록 (18개, 경로는 v12 문서와 동일 — 변경 없음)
 Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Project Profit, Budget Planner, Contract Generator, Invoice Tracker, Client Proposal, Time Tracker, Milestone Calculator, Savings Calculator, NDA Generator, Client Intake Form, Expense Report, Scope of Work — **18개로 유지, 추가 없음**
@@ -258,9 +258,30 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 6. **검증**: 신규 5개 + 수정 19개, 총 24개 파일 전부 (1) `html.parser` 파싱 (2) `<div>`/`</div>` 개수 일치 (3) JSON-LD `json.loads()` 유효성 (4) FAQPage 스키마 항목 수 = 화면 `<details>` 개수 일치 — 4중 검증 스크립트로 일괄 통과 확인. 신규 5개 페이지의 계산기 위젯은 추가로 jsdom으로 기본값(1000/30일/1.5%→$15/$1015)과 변경값(3000/45일/1.5%→$67.50/$3067.50) 실행 검증. `sitemap.xml`은 `ElementTree` 파싱 + 중복 URL 없음 + lastmod 누락 없음(오늘 건드린 파일 기준) 확인.
 7. **처리하지 않은 것 (의도적 보류)**: blog 47개 중 late-fee 시리즈 24개를 제외한 나머지 28개 blog와 정적 페이지(about/privacy/contact)의 sitemap lastmod 누락은 오늘 건드린 범위 밖이라 손대지 않음 — 다음에 여유 있을 때 전수 스캔 가치 있음. late-payment-fee.html 자체의 lastmod는 07-14로 방치돼 있던 것도 이번에 07-18로 갱신함(비교표/카드그리드를 실제로 수정했으므로).
 
-**다음 배치 후보 (26개 주 남음)**: Connecticut, Utah, South Carolina, Alabama, Kentucky, Louisiana, Oklahoma, Kansas, Iowa, South Dakota, North Dakota, Nebraska, Idaho, Montana, Wyoming, New Mexico, West Virginia, Mississippi, Arkansas, Delaware, Rhode Island, New Hampshire, Vermont, Maine, Alaska, Hawaii. 다음 세션에 "진행해"라는 지시만으로 5개 내외씩 이어서 확장 가능 — 단 매 배치 법령 1차자료 검증 및 경쟁강도 확인은 생략 금지. **Nevada/Oregon과 접경한 Idaho, Missouri와 접경한 Kansas/Nebraska/Iowa/Kentucky/Arkansas, Maryland/Virginia와 접경한 West Virginia** 등은 이미 게시된 주들과 "인접 주 비교" 콘텐츠를 자연스럽게 이어갈 수 있는 지리적 이점이 있어 우선순위 검토 시 고려할 만함.
+**다음 배치 후보 (21개 주 남음, 2026-07-20 기준)**: Connecticut, Utah, Kansas, Iowa, South Dakota, North Dakota, Nebraska, Idaho, Montana, Wyoming, New Mexico, West Virginia, Mississippi, Arkansas, Delaware, Rhode Island, New Hampshire, Vermont, Maine, Alaska, Hawaii — **Kentucky/South Carolina/Alabama/Louisiana/Oklahoma는 2026-07-20에 완료, 목록에서 제외.** 다음 세션에 "진행해"라는 지시만으로 5개 내외씩 이어서 확장 가능 — 단 매 배치 법령 1차자료 검증 및 경쟁강도 확인은 생략 금지. **West Virginia(Kentucky/Maryland/Virginia와 접경 — 이제 3개 주와 인접), Kansas/Arkansas(Missouri/Oklahoma와 접경 — 이제 2개 주와 인접), Mississippi(Alabama/Louisiana/Tennessee와 접경 — 3개 주와 인접)** 등은 이미 게시된 주들과 "인접 주 비교" 콘텐츠를 자연스럽게 이어갈 수 있는 지리적 이점이 갈수록 커지고 있어 다음 배치 우선순위로 특히 고려할 만함.
 
 **(같은 세션, 사용자 스크린샷 제보로 발견한 버그 수정)** 사용자가 8개 페이지를 직접 확인하다가 신규 5개 주(Tennessee/Missouri/Maryland/Oregon/Nevada)의 "How X Compares to Nearby States" 비교표가 모바일에서 반응형이 아닌 것을 지적함. 실제로 `.compare-table`이 `width:100%`만 있고 `min-width`가 없어서, 기존 8개 데이터 테이블(`.table-scroll`/`.table-scroll-hint` 패턴 적용된)과 다르게 좁은 화면에서 컬럼이 그냥 눌리는 구조였음 — 신규 페이지 작성 시 기존 테이블 반응형 패턴을 놓친 실수. 5개 파일 전부 `.table-scroll`(가로 스크롤 wrapper) + `.table-scroll-hint`(모바일 전용 안내 문구) CSS 추가하고 `.compare-table`에 `min-width:420px` 부여, `<table>`을 `<div class="table-scroll">`로 감싸는 방식으로 수정 — 사이트 전체 테이블 반응형 패턴과 완전히 통일시킴. div 짝/JSON-LD/파싱 전부 재검증 후 commit & push 완료. **앞으로 신규 페이지에 테이블을 넣을 때는 반드시 이 패턴(`/mnt` 문서 "반응형 테이블" 섹션 참고)을 처음부터 적용할 것 — 이번처럼 사후 수정하지 않도록.**
+
+---
+
+### 2026-07-20 세션 (일요일 주간 작업)
+
+**사용자가 이번 세션에 추가로 지시한 원칙 2가지**: ① AI 검색(ChatGPT/Perplexity 등)은 도메인 권위보다 콘텐츠 자체의 품질이 훨씬 중요해지고 있으므로, 페이지에 "문제해결/비교분석" 위주 콘텐츠를 넣는 것이 웹 검색과 AI 검색 양쪽에 유리하다는 점을 신규 작업에 반영할 것. ② 수익화(애드센스 트래픽/클릭) 관점에서 작업 우선순위를 판단할 것. 둘 다 이번 세션 작업에 반영함 — 아래 참고.
+
+1. **GSC 데이터 재확인** (Performance + Coverage zip, 쿼리 198개/페이지 74개, 지난 3개월 기준 — 07-18과 거의 동일 범위). 전체 쿼리를 기존 사이트 파일과 재대조. **신규 페이지 제작 근거는 이번에도 없음** — 노출은 있으나 매칭 페이지가 없는 키워드를 찾지 못함(전부 기존 blog/tool/email-template에 매칭됨, 재확인 완료).
+2. **07-16/07-18 작업분 효과 관찰 (조치 없음, 관찰만)**:
+   - 07-16에 위젯을 추가한 8개 주(NY/FL/IL/PA/GA/IN/WI/WA) 중 NY(2클릭/23노출/6.13위)·OH(1클릭/147노출/9.54위)·CA(1클릭/69노출/6.46위)·NJ(1클릭/20노출/7.4위)는 07-18과 거의 동일한 수치 유지 — 클릭이 늘지도 줄지도 않음. "[주] late fee calculator" 개별 쿼리 순위도 여전히 60~90위대로 정체(예: NY "new york late fee calculator" 88.31위, 07-18의 88.19위와 사실상 동일) — 2~4일 간격으로는 순위 변화를 판단하기엔 너무 이름. 계속 관찰 필요.
+   - 07-18에 신규 작성한 5개 주(Tennessee/Missouri/Maryland/Oregon/Nevada)는 이번 GSC 데이터에 **아직 전혀 노출되지 않음** (페이지 노출 0). Coverage의 "발견됨 - 현재 색인이 생성되지 않음"이 3건→4건으로 증가한 것과 일치 — 신규 페이지가 아직 크롤링/색인되지 않은 것으로 보임. 색인 요청은 금지 원칙 유지, 다음 세션에 재확인.
+3. **Late fee 주 시리즈 24개 주 → 29개 주 신규 확장**: Kentucky, South Carolina, Alabama, Louisiana, Oklahoma 5개 주 신규 작성.
+   - **선정 기준을 이번 세션에 조정함**: 기존엔 handover에 적힌 순서를 그대로 따랐으나, 이번엔 ① 프리랜서/긱이코노미 인구가 큰 주를 우선하고 ② 이미 게시된 주와 접경해서 "인접 주 비교" 콘텐츠의 밀도를 높일 수 있는 주를 함께 고려해 5개를 선정함. Kentucky(접경 6개 주 중 5개가 이미 게시됨: IL/IN/OH/VA/TN — 압도적으로 유리), South Carolina(NC/GA 접경, NC와 3년 시효가 정확히 일치해 비교 콘텐츠 밀도 높음), Alabama(FL/GA/TN 접경, 3개 중 3개 게시됨), Oklahoma(TX/MO/CO 접경, 3개 게시됨), Louisiana(TX만 실제 접경, 나머지 AR/MS는 미게시 — 유일하게 접경 이점이 약한 선택이었으나 민사법 체계 자체가 다른 주라는 독자적인 콘텐츠 가치가 있어 포함).
+   - **전부 1차 법령 자료로 검증** (law.justia.com, lawserver.com, 각 주 legislature 공식 사이트, docdraft.ai 등 교차검증). 웹 검색으로 "[주] late fee calculator" 경쟁강도도 5개 주 전부 재확인 — 기존 24개 주와 동일하게 임대(rent) 전용 계산기나 범용 다중 주 목록 사이트만 있을 뿐, 프리랜서/B2B 인보이스 전용 경쟁자는 5개 주 전부 없음을 확인.
+   - 각 주 핵심 내용(문제해결/비교분석 프레이밍 적용): **Kentucky**(KRS 360.010, 8% 기본이율이나 $15,000 이하 서면계약은 19% 또는 연준할인율+4%p 중 낮은 쪽까지 허용, $15,000 초과는 상한 없음 — **소액소송 한도 $2,500로 로드아일랜드와 함께 전미 최저**인데 서면계약 시효는 10~15년으로 전미 최장급이라는 극단적 대조가 핵심 콘텐츠), **South Carolina**(S.C. Code §34-31-20, 8.75%라는 이례적으로 정밀한 법정이율, 계약/불법행위 불문 3년 통일 시효 — North Carolina와 시효가 정확히 일치하는 점을 비교 콘텐츠로 활용), **Alabama**(Ala. Code §8-8-1, 서면 유무에 따라 6%/8% 이율이 갈리는 구조, $6,000 소액소송 한도로 Georgia($15,000)·Florida($8,000)보다 낮음), **Louisiana**(La. R.S. 9:3500, **미국에서 유일하게 민사법(civil law) 체계를 쓰는 주** — "statute of limitations" 대신 "prescription" 용어 사용, 계약이율 상한 12%/년으로 타 주 표준인 18%보다 낮아 프리랜서가 월 1%로 낮춰 써야 함, **$5,000 Small Claims Division 판결은 항소 자체가 불가능**하다는 독특한 규정), **Oklahoma**(15 O.S. §266, 기본 6%지만 서면계약 시 상한 없음, $10,000 소액소송 한도로 Missouri($5,000)와 Texas($20,000) 사이 정중앙).
+   - **처음부터 미니 계산기 위젯 + "How X Compares to Nearby States" 비교표(본문 H2 섹션) + FAQ 3개(계산기 여부/이율/인접주 비교) 내장** — 07-18 패턴 그대로 재사용. 비교 데이터는 전부 이미 게시된 인접 주 페이지에서 실제 인용된 수치를 재사용(신규 조사 아님, 예: Tennessee 10%/$25,000, Illinois 5%/$10,000, Virginia 6%/$5,000, Missouri 9%/$5,000, Georgia 7%/$15,000, Florida 소액소송 $8,000, Texas 18%/$20,000, North Carolina 3년 시효/$10,000).
+   - **Louisiana는 진짜 접경 주가 Texas 하나뿐**이라 비교표에 Texas 1개 행만 사용(07-18 원칙대로 허위로 접경 관계를 만들지 않음). 다만 민사법 체계라는 주제 자체가 독자적인 비교 콘텐츠 가치를 가지므로 콘텐츠 품질 기준(실제 가치 제공)은 충족한다고 판단.
+   - 본문 870~987단어(FAQ 제외, 품질 기준 800단어 이상 충족), FAQ 포함하면 전부 1,100단어 이상.
+   - `late-payment-fee.html` 비교표(29개 주로 확장) + 카드 그리드(5개 카드 추가) + dateModified 07-18→07-20 갱신, `blog/index.html` 최신순 5개 추가, `sitemap.xml` 5개 URL 신규 추가(lastmod 포함).
+4. **검증**: 신규 5개 파일 전부 (1) `html.parser` 파싱 (2) `<div>`/`</div>` 개수 일치(13/13, 5개 전부) (3) JSON-LD `json.loads()` 유효성(스키마 2개씩) (4) FAQPage 스키마 항목 수(3개) = 화면 `<details>` 개수(3개) 일치 (5) `node --check`로 계산기 위젯 JS 문법 검증 (6) **jsdom으로 실제 계산 실행 — 기본값(1000/30일)과 변경값(3000/45일) 둘 다 검증, Louisiana만 1%/월 기본값(월 1.5%가 아닌 12%/년 상한 반영)이라 $10.00/$1010.00 → $45.00/$3045.00로 다르게 나오는 것까지 확인**, 나머지 4개 주는 $15.00/$1015.00 → $67.50/$3067.50로 기존 패턴과 일치. `late-payment-fee.html`/`blog/index.html`은 파싱+div짝+JSON-LD 재검증, `sitemap.xml`은 `ElementTree` 파싱 + 중복 URL 없음 + lastmod 5건 모두 존재 확인. 전부 통과.
+5. **처리하지 않은 것 (의도적 보류)**: CTR 관찰 대상이었던 Washington(56노출/0클릭/16.57위)을 포함해 Illinois/Texas/Colorado/Georgia/Pennsylvania/Wisconsin 등 "고순위·저클릭" 주들은 이번에도 노출량이 크게 늘지 않아(대부분 5~30회) 제목/메타 재작성 근거로 보기엔 아직 이름 — 다음 세션에도 계속 관찰만. blog 57개 중 late-fee 시리즈 29개를 제외한 나머지 28개 blog와 정적 페이지의 sitemap lastmod 전수 스캔은 이번에도 범위 밖.
 
 ---
 
@@ -284,7 +305,7 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 
 ### 반응형 테이블 (`.table-scroll`)
 - 테이블이 있는 페이지는 반드시 `.table-scroll-hint` 클래스(모바일 전용, `@media (max-width:700px)`에서만 `display:flex`)를 테이블 바로 위에 넣을 것. 새로 테이블을 추가하는 경우 이 패턴을 그대로 재사용.
-- 2026-07-18 기준 테이블이 있는 파일 13개: `late-payment-fee.html`, `blog/freelance-invoice-vs-receipt.html`, `blog/freelance-tax-guide-for-beginners.html`, `blog/how-to-write-a-freelance-expense-report.html`, `blog/how-to-write-a-scope-of-work-for-freelance-projects.html`, `blog/late-fee-laws-freelancers-ohio.html`, `invoice-tracker.html`, `time-tracker.html`, `blog/late-fee-laws-freelancers-tennessee.html`, `blog/late-fee-laws-freelancers-missouri.html`, `blog/late-fee-laws-freelancers-maryland.html`, `blog/late-fee-laws-freelancers-oregon.html`, `blog/late-fee-laws-freelancers-nevada.html`.
+- 2026-07-20 기준 테이블이 있는 파일 18개: `late-payment-fee.html`, `blog/freelance-invoice-vs-receipt.html`, `blog/freelance-tax-guide-for-beginners.html`, `blog/how-to-write-a-freelance-expense-report.html`, `blog/how-to-write-a-scope-of-work-for-freelance-projects.html`, `blog/late-fee-laws-freelancers-ohio.html`, `invoice-tracker.html`, `time-tracker.html`, `blog/late-fee-laws-freelancers-tennessee.html`, `blog/late-fee-laws-freelancers-missouri.html`, `blog/late-fee-laws-freelancers-maryland.html`, `blog/late-fee-laws-freelancers-oregon.html`, `blog/late-fee-laws-freelancers-nevada.html`, `blog/late-fee-laws-freelancers-kentucky.html`, `blog/late-fee-laws-freelancers-south-carolina.html`, `blog/late-fee-laws-freelancers-alabama.html`, `blog/late-fee-laws-freelancers-louisiana.html`, `blog/late-fee-laws-freelancers-oklahoma.html`. **신규 5개는 처음부터 `.table-scroll`/`.table-scroll-hint`/`min-width:420px` 패턴을 적용해서 작성함 — 07-18에 겪었던 사후수정 실수를 반복하지 않음.**
 
 ### sitemap.xml
 - **중복 URL이 생기기 쉬움** (2026-07-12에 3건 발견/수정). 새 URL 추가 시 반드시 `grep -oP '(?<=<loc>)[^<]+' sitemap.xml | sort | uniq -d`로 중복 없는지 확인 후 push.
@@ -312,6 +333,7 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 
 ## 현재 열려있는 이슈 (다음에 확인할 것)
 
+- **(2026-07-20 추가, 다음 최우선 확인 대상)** 이번 세션에 신규 작성한 5개 주(Kentucky/South Carolina/Alabama/Louisiana/Oklahoma)는 아직 GSC에 전혀 노출되지 않음 — 다음 세션에서 색인 여부부터 확인. 07-16 위젯 8개 주(NY/OH/CA/NJ 등)는 07-18 대비 클릭/순위에 유의미한 변화 없음(2~4일 간격은 여전히 판단하기엔 이름) — 계속 관찰. 07-18 신규 5개 주(TN/MO/MD/OR/NV)도 이번 세션까지 노출 0으로 아직 색인 전 단계로 추정.
 - **(2026-07-18 추가, 다음 최우선 확인 대상)** 07-16에 위젯을 추가한 8개 주(NY/FL/IL/PA/GA/IN/WI/WA) 중 NY/OH/CA/NJ 4개 페이지에서 이번 세션 GSC 데이터에 처음으로 실제 클릭이 잡혔음(각 1~2클릭). 다음 GSC 데이터에서 이 클릭이 늘어나는지, 그리고 "[주] late fee calculator" 개별 쿼리 순위(07-18 기준 여전히 60~90위대)가 좁혀지는지 최우선 확인. 이번 세션에 신규 작성한 5개 주(TN/MO/MD/OR/NV)와 인접주 비교 FAQ를 추가한 19개 기존 페이지도 다음 GSC 데이터에서 순위/클릭 변화가 있는지 함께 확인할 것 — 특히 "인접 주 비교" FAQ가 AI 검색(예: ChatGPT/Perplexity 답변에 인용되는지)에서 효과가 있는지는 GSC만으로는 안 보이므로, 사용자가 별도로 체감하는 바가 있으면 다음 세션에 공유받을 것.
 
 - 애드센스 3차 재심사 결과 대기 중. **(2026-07-14 추가)** 결과가 나오면 승인/반려 여부와 무관하게 그 피드백을 콘텐츠 원칙에 최우선 반영할 것 — 위 "콘텐츠 품질 경각심" 섹션 참고.
