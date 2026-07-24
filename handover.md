@@ -95,7 +95,7 @@
 
 ## 사이트 구조 (2026-07-20 기준 실제 수치)
 
-- **툴**: 18개 (Invoice Generator = index.html 포함)
+- **툴**: 19개 (Invoice Generator = index.html 포함, 2026-07-24에 Kill Fee Calculator 신규 추가 — late-fee 시리즈 밖 첫 클러스터에서 처음으로 블로그 위젯이 아닌 완전한 독립 툴 페이지 제작)
 - **이메일 템플릿**: 24개 (25개 파일이나 sending-nda.html 등 포함, v12 이후 변경 없음)
 - **블로그 글**: 58개 (late fee 지역 시리즈 29개 주 + 그 외 29개 — 이번 세션에 late-fee 시리즈 밖 첫 신규 클러스터 2건 추가: `blog/freelance-isnt-free-act-states-guide.html`, `blog/freelance-kill-fee-clause.html`). 29개 주 전부 미니 계산기 위젯 + FAQPage 스키마 + "인접 주 비교" 콘텐츠 보유.
 
@@ -304,6 +304,7 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 5. **검증**: 신규 2개 + 수정 3개, 총 5개 blog 파일 + `blog/index.html` 전부 (1) `html.parser` 파싱 (2) `<div>`/`</div>` 개수 일치 (3) JSON-LD `json.loads()` 유효성 — 스크립트로 일괄 통과 확인. `blog/index.html`은 추가로 `node --check`로 posts 배열 JS 문법 검증. `sitemap.xml`은 `ElementTree` 파싱 + 중복 URL 없음 확인, 총 URL 105개.
 6. **다음 배치 후보로 고려할 만한 것 (이번엔 진행 안 함)**: 이번 세션에 보류한 3개 클러스터(직업별 인보이스 템플릿/주별 소득세 계산기/플랫폼 수수료 계산기)는 경쟁이 매우 강하지만 "중요기능은 경쟁이 강해도 결국 해야된다"는 원칙에 따라 롱테일 진입 전략(예: 특정 소득 구간·특정 주 조합처럼 아주 좁힌 키워드)을 다시 설계해서 재검토할 가치가 있음 — 다음에 시간 여유 있을 때 논의.
 7. **(같은 세션, 사용자 지적으로 보완)** 신규 2개 페이지가 처음엔 late-fee 시리즈와 달리 계산기/위젯 없이 콘텐츠+기존 툴 링크만 있었음 — 사용자가 "클러스터에 툴은 없어?"라고 지적해서 즉시 보완: `freelance-kill-fee-clause.html`에 **Kill Fee Calculator**(프로젝트 총액 + 취소 시점 단계 선택 → 킬피 금액/비율 계산) 추가, `freelance-isnt-free-act-states-guide.html`에 **"Am I Covered?" 체커**(주 선택 + 계약금액 입력 → IL/NY/CA 커버 여부·핵심보호내용 실시간 안내, 문턱 미달 시 120일 합산규칙 안내, 대상 외 주는 도시조례 안내로 대체) 추가. jsdom으로 4가지 케이스(킬피 기본값/변경값, FIFA 커버됨/문턱미달/비대상주) 전부 실행 검증 완료. **앞으로 새 클러스터/페이지를 만들 때는 처음부터 "이 페이지에 어울리는 간단한 인터랙티브 위젯이 있는가"를 기획 단계에서 먼저 자문할 것** — 콘텐츠만 쓰고 나중에 추가하는 것보다 처음부터 설계하는 게 효율적.
+8. **(같은 세션, 사용자가 한 번 더 지적: "툴까지 클러스터 되는게 있으면 더욱 좋겠다")** 블로그 임베드 위젯과 `late-payment-fee.html` 같은 완전한 독립 툴 페이지는 다른 급이라는 지적. "kill fee calculator" 자체를 재검색해보니 emergencytoolbox.com 정도의 소규모 경쟁자만 있고 큰 플레이어가 없어 독립 툴로 만들 가치가 있다고 판단해 **`kill-fee-calculator.html` 신규 제작 — 19번째 툴**. `late-payment-fee.html`과 동일한 스캐폴드(헤더/계산기그리드/결과카드) 재사용: 프로젝트 총액 + 취소 단계(custom % 옵션 포함) + 기지급액 입력 → 킬피 금액/비율/총액 계산 + **단계에 맞춘 계약서 조항을 자동생성하고 클립보드 복사 버튼까지 제공**(단순 숫자 계산기보다 한 단계 더 실용적인 기능). 브라우저 자동저장(localStorage) 적용 — 기존 18개 툴과 동일 패턴 유지. `nav.js` 툴 배열에 추가, `contract-generator.html`의 "What to Use Next"에 카드 추가, blog 미니위젯에서 전체 툴로 가는 링크 추가, `sitemap.xml`에 URL 추가. jsdom 시뮬레이션 중 `DOMContentLoaded` 이벤트 타이밍 때문에 첫 테스트에서 오탐(false negative)이 나온 것을 발견 — 비동기 대기(`setTimeout`)를 넣어 재검증 후 정상 동작 확인. **앞으로 `DOMContentLoaded` 리스너를 쓰는 툴 페이지를 jsdom으로 검증할 때는 반드시 이벤트가 실제로 발생할 시간을 비동기로 기다린 뒤에 결과를 읽을 것 — 즉시 동기적으로 읽으면 초기 플레이스홀더 값만 보고 "버그"로 오판할 수 있음.** 이번 발견을 계기로, **다음에 late-fee 시리즈 밖 새 클러스터를 기획할 때는 처음부터 "블로그 콘텐츠 + 임베드 위젯"뿐 아니라 "이 주제가 독립 툴(nav.js 등재, 자체 URL, PDF/복사 등 실용 기능)로 승격할 가치가 있는가"까지 기획 단계에서 함께 판단할 것.**
 
 ---
 
