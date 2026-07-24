@@ -18,6 +18,7 @@
     { label: 'Client Intake Form', href: '/client-intake-form.html' },
     { label: 'Expense Report', href: '/expense-report.html' },
     { label: 'Scope of Work', href: '/scope-of-work.html' },
+    { label: 'Kill Fee', href: '/kill-fee-calculator.html' },
   ];
 
   var currentPath = window.location.pathname;

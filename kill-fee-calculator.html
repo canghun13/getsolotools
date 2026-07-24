@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kill Fee Calculator – Calculate a Fair Cancellation Fee for Freelance Projects</title>
+<meta name="description" content="Free kill fee calculator for freelancers. Enter your project value and cancellation stage to get a fair kill fee amount, plus ready-to-use contract clause language. No sign-up required.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-728DGKLSE6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-728DGKLSE6');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #1a1a1a; --ink-2: #555; --ink-3: #999;
+    --paper: #fafaf8; --white: #ffffff;
+    --accent: #2d5be3; --accent-light: #eef1fd;
+    --border: #e8e6e0;
+    --danger: #dc2626; --danger-light: #fef2f2;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
+    --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; font-size: 15px; line-height: 1.6; }
+  header { background: var(--white); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; position: sticky; top: 0; z-index: 100; }
+  .logo { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--ink); text-decoration: none; letter-spacing: -0.02em; }
+  .logo span { color: var(--accent); }
+  .hero { text-align: center; padding: 3.5rem 1rem 2.5rem; max-width: 640px; margin: 0 auto; }
+  .hero-badge { display: inline-block; background: var(--accent-light); color: var(--accent); font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem; }
+  .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
+  .hero p { color: var(--ink-2); font-size: 1rem; max-width: 480px; margin: 0 auto; }
+  .main-wrap { max-width: 860px; margin: 0 auto; padding: 0 1rem 4rem; }
+  .calculator-grid { display: grid; grid-template-columns: 1fr 320px; gap: 1.5rem; align-items: start; margin-top: 2rem; }
+  @media (max-width: 700px) { .calculator-grid { grid-template-columns: 1fr; } }
+  .card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow); overflow: hidden; }
+  .card-header { background: var(--ink); padding: 0.85rem 1.5rem; color: rgba(255,255,255,0.5); font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+  .card-body { padding: 1.5rem; }
+  .field-group { margin-bottom: 1.4rem; }
+  .field-group:last-child { margin-bottom: 0; }
+  .section-divider { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); margin: 1.5rem 0 1rem; }
+  .section-divider:first-child { margin-top: 0; }
+  label { font-size: 12px; font-weight: 500; color: var(--ink-2); display: block; margin-bottom: 4px; }
+  .input-wrap { position: relative; }
+  .input-prefix, .input-suffix { position: absolute; top: 50%; transform: translateY(-50%); font-size: 14px; color: var(--ink-3); pointer-events: none; }
+  .input-prefix { left: 10px; }
+  .input-suffix { right: 10px; }
+  input[type="number"], select { width: 100%; padding: 9px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 14px; font-family: 'DM Sans', sans-serif; color: var(--ink); background: var(--white); transition: border-color 0.15s, box-shadow 0.15s; outline: none; appearance: none; }
+  .has-prefix input { padding-left: 26px; }
+  .has-suffix input { padding-right: 26px; }
+  input:focus, select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(45,91,227,0.1); }
+  .hint { font-size: 11px; color: var(--ink-3); margin-top: 3px; }
+  .result-panel { position: sticky; top: 80px; display: flex; flex-direction: column; gap: 1rem; }
+  .result-card { background: var(--ink); border-radius: 16px; padding: 1.75rem; color: white; }
+  .result-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 0.35rem; }
+  .result-rate { font-family: 'DM Serif Display', serif; font-size: 3.2rem; line-height: 1; letter-spacing: -0.03em; color: white; margin-bottom: 0.25rem; }
+  .result-unit { font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 1.5rem; }
+  .result-breakdown { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.25rem; display: flex; flex-direction: column; gap: 0.75rem; }
+  .breakdown-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
+  .breakdown-row .blabel { color: rgba(255,255,255,0.55); }
+  .breakdown-row .bval { color: white; font-weight: 600; }
+  .cta-note { margin-top: 1.25rem; font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.5; }
+  .cta-note a { color: rgba(255,255,255,0.7); }
+  .clause-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 1.25rem 1.5rem; }
+  .clause-card-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.6rem; }
+  .clause-text { font-size: 12.5px; line-height: 1.7; color: var(--ink-2); background: var(--paper); border-radius: 8px; padding: 0.85rem 1rem; margin-bottom: 0.75rem; }
+  .copy-btn { width: 100%; padding: 8px; border-radius: 8px; border: 1px solid var(--border); background: var(--white); color: var(--ink); font-size: 12.5px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: background 0.15s; }
+  .copy-btn:hover { background: var(--paper); }
+  .info-section { margin-top: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+  .info-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; }
+  .info-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.05rem; margin-bottom: 0.5rem; }
+  .info-card p { font-size: 13px; color: var(--ink-2); line-height: 1.6; }
+  .related-tools-section a { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 1.1rem 1.25rem; text-decoration: none; color: inherit; display: block; transition: box-shadow 0.2s, border-color 0.2s; }
+  .related-tools-section a:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); border-color: var(--accent); }
+  footer { border-top: 1px solid var(--border); text-align: center; padding: 2rem; font-size: 13px; color: var(--ink-3); margin-top: 2rem; }
+  footer a { color: var(--ink-2); text-decoration: none; margin: 0 0.4rem; }
+  footer a:hover { color: var(--accent); }
+
+  /* HAMBURGER MENU */
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; transition: all 0.2s; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .nav-right { display: none !important; }
+    .nav-blog-mobile { color: #1a9e6e !important; font-weight: 600 !important; }
+  }
+
+  /* DROPDOWN */
+  #mainNav { display: none; }
+  .nav-right { display: flex; align-items: center; }
+  .nav-tools { position: relative; }
+  .nav-tools-btn { color: var(--ink-2); font-size: 14px; font-weight: 500; background: none; border: none; cursor: pointer; font-family: inherit; padding: 0; display: flex; align-items: center; gap: 4px; transition: color 0.15s; }
+  .nav-tools-btn:hover { color: var(--accent); }
+  .nav-tools-btn svg { width: 10px; height: 10px; transition: transform 0.15s; }
+  .nav-tools.open .nav-tools-btn svg { transform: rotate(180deg); }
+  .nav-dropdown { display: none; position: absolute; top: calc(100% + 12px); left: 0; background: var(--white); border: 1px solid var(--border); border-radius: 8px; box-shadow: var(--shadow-lg); padding: 8px 0; min-width: 160px; z-index: 200; }
+  .nav-tools.open .nav-dropdown { display: block; }
+  .nav-dropdown a { display: block; padding: 8px 16px; color: var(--ink-2); text-decoration: none; font-size: 14px; font-weight: 500; transition: background 0.1s, color 0.1s; }
+  .nav-dropdown a:hover { background: var(--paper); color: var(--accent); }
+  .nav-dropdown a.active { color: var(--accent); font-weight: 600; }
+  .nav-blog-link { color: #1a9e6e; font-weight: 600; text-decoration: none; font-size: 14px; margin-left: 1.5rem; transition: opacity 0.15s; }
+  .nav-blog-link:hover { opacity: 0.8; }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Kill Fee Calculator",
+  "url": "https://getsolotools.com/kill-fee-calculator.html",
+  "description": "Calculate a fair kill fee (cancellation fee) for a freelance project based on project value and how far along the work was when it was canceled. Free for freelancers.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "provider": { "@type": "Organization", "name": "GetSoloTools", "url": "https://getsolotools.com" },
+  "dateModified": "2026-07-24",
+  "keywords": "kill fee calculator, cancellation fee calculator, freelance kill fee, project cancellation fee"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a kill fee?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A kill fee is a payment a client owes a freelancer if they cancel a project after work has started. It's usually a percentage of the total project value, scaled to how much work was completed before cancellation." }
+    },
+    {
+      "@type": "Question",
+      "name": "How is a kill fee calculated?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Multiply the total project value by a percentage tied to the project stage at cancellation — commonly 25% for early-stage work, 50% for mid-project cancellations, and 75-100% if canceled near or after completion. This calculator does that math automatically and also generates contract clause language you can use." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a kill fee the same as a deposit?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. A non-refundable deposit (typically 25-50% upfront) secures your time before work begins and is kept regardless of what happens later. A kill fee compensates you for work already completed once the project is underway. Many freelancers use both together." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I legally collect a kill fee if a client refuses to pay?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, as long as the kill fee is written into a signed contract with a specific trigger, percentage, and payment timeline. Most freelance kill fee disputes are small enough to resolve in small claims court without a lawyer." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<script src="/nav.js"></script>
+
+<div class="hero">
+  <div class="hero-badge">Project Cancellation</div>
+  <h1>Kill Fee Calculator</h1>
+  <p>Enter your project value and how far along the work was when the client canceled. We'll calculate a fair kill fee and generate contract language you can use.</p>
+</div>
+
+<div class="main-wrap">
+  <div class="calculator-grid">
+    <div class="card">
+      <div class="card-header">Project Details</div>
+      <div class="card-body">
+
+        <div class="field-group">
+          <label>Total Project Value</label>
+          <div class="input-wrap has-prefix">
+            <span class="input-prefix">$</span>
+            <input type="number" id="projectValue" value="3000" min="0" step="50" oninput="calc()">
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label>Stage at Cancellation</label>
+          <select id="stage" onchange="toggleCustom(); calc();">
+            <option value="0">Before work begins</option>
+            <option value="25" selected>Early stage (concepts, first draft)</option>
+            <option value="50">Mid-project (revisions underway)</option>
+            <option value="75">Near completion</option>
+            <option value="100">After final delivery</option>
+            <option value="custom">Custom percentage</option>
+          </select>
+        </div>
+
+        <div class="field-group" id="customGroup" style="display:none;">
+          <label>Custom Kill Fee (%)</label>
+          <div class="input-wrap has-suffix">
+            <input type="number" id="customPct" value="40" min="0" max="100" step="5" oninput="calc()">
+            <span class="input-suffix">%</span>
+          </div>
+        </div>
+
+        <div class="section-divider">Already Invoiced</div>
+
+        <div class="field-group">
+          <label>Amount Already Paid or Invoiced</label>
+          <div class="input-wrap has-prefix">
+            <span class="input-prefix">$</span>
+            <input type="number" id="alreadyPaid" value="0" min="0" step="50" oninput="calc()">
+          </div>
+          <div class="hint">A kill fee is typically owed in addition to work already invoiced</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="result-panel">
+      <div class="result-card">
+        <div class="result-label">Suggested Kill Fee</div>
+        <div class="result-rate" id="killFee">$0</div>
+        <div class="result-unit" id="killFeePct">0% of project value</div>
+        <div class="result-breakdown">
+          <div class="breakdown-row">
+            <span class="blabel">Already invoiced</span>
+            <span class="bval" id="alreadyPaidOut">$0</span>
+          </div>
+          <div class="breakdown-row">
+            <span class="blabel">Kill fee owed</span>
+            <span class="bval" id="killFeeOut">$0</span>
+          </div>
+          <div class="breakdown-row">
+            <span class="blabel">Total client owes</span>
+            <span class="bval" id="totalOwedOut">$0</span>
+          </div>
+        </div>
+        <div class="cta-note">
+          Need to calculate late fees instead? <a href="/late-payment-fee.html">Late Fee Calculator →</a>
+        </div>
+      </div>
+
+      <div class="clause-card">
+        <div class="clause-card-label">Contract Clause</div>
+        <div class="clause-text" id="clauseText"></div>
+        <button class="copy-btn" onclick="copyClause()" id="copyBtn">Copy Clause</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="related-tools-section" style="max-width:860px;margin:2.5rem auto 0;padding:0;">
+    <h2 style="font-family:'DM Serif Display',serif;font-size:1.4rem;margin:0 0 1rem;letter-spacing:-0.02em;color:var(--ink);">What to Use Next</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;">
+      <a href="/contract-generator.html">
+        <div style="font-weight:700;font-size:0.98rem;color:var(--ink);margin-bottom:4px;">Contract Generator →</div>
+        <div style="font-size:0.85rem;color:var(--ink-2);line-height:1.5;">Add this kill fee clause to a full freelance contract</div>
+      </a>
+      <a href="/late-payment-fee.html">
+        <div style="font-weight:700;font-size:0.98rem;color:var(--ink);margin-bottom:4px;">Late Fee Calculator →</div>
+        <div style="font-size:0.85rem;color:var(--ink-2);line-height:1.5;">Calculate late fees on overdue invoices</div>
+      </a>
+      <a href="/blog/freelance-kill-fee-clause.html">
+        <div style="font-weight:700;font-size:0.98rem;color:var(--ink);margin-bottom:4px;">Kill Fee Clause Guide →</div>
+        <div style="font-size:0.85rem;color:var(--ink-2);line-height:1.5;">Full guide: how much to charge and how to collect</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="info-section">
+    <div class="info-card">
+      <h3>How much should a kill fee be?</h3>
+      <p>Most freelance kill fees range from 25% to 50% of the total project value, scaled to how much work was completed. Writers, designers, and consultants commonly use 25% for early cancellations and 50% for mid-project cancellations.</p>
+    </div>
+    <div class="info-card">
+      <h3>Kill fee vs. deposit</h3>
+      <p>A deposit secures your time before work begins and is non-refundable regardless of what happens later. A kill fee compensates you once work is underway. Many freelancers use both — they protect different phases of the project.</p>
+    </div>
+    <div class="info-card">
+      <h3>Making it enforceable</h3>
+      <p>Put the specific percentage and trigger in a signed contract before work begins. Vague language like "a reasonable cancellation fee" is hard to enforce — a specific number tied to a specific stage holds up far better if a client disputes it.</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <a href="/about.html">About</a> · <a href="/privacy.html">Privacy</a> · <a href="/contact.html">Contact</a> · <a href="/blog/index.html" style="color:#1a9e6e;font-weight:600;">Blog</a>
+  <div style="margin-top:0.5rem;">© 2026 GetSoloTools. Free tools for freelancers.</div>
+</footer>
+
+<script>
+function fmt(n) { return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+
+function toggleCustom() {
+  const stage = document.getElementById('stage').value;
+  document.getElementById('customGroup').style.display = (stage === 'custom') ? 'block' : 'none';
+}
+
+const STAGE_LABELS = {
+  '0': 'before work begins',
+  '25': 'before delivery of the first draft or milestone',
+  '50': 'after the first draft or milestone but before final delivery',
+  '75': 'near completion of the project',
+  '100': 'after final delivery',
+  'custom': 'at the agreed cancellation point'
+};
+
+function calc() {
+  const projectValue = parseFloat(document.getElementById('projectValue').value) || 0;
+  const stageSel = document.getElementById('stage').value;
+  const alreadyPaid = parseFloat(document.getElementById('alreadyPaid').value) || 0;
+
+  let pct;
+  if (stageSel === 'custom') {
+    pct = parseFloat(document.getElementById('customPct').value) || 0;
+  } else {
+    pct = parseFloat(stageSel);
+  }
+
+  const killFeeAmt = projectValue * (pct / 100);
+  const totalOwed = killFeeAmt + alreadyPaid;
+
+  document.getElementById('killFee').textContent = fmt(killFeeAmt);
+  document.getElementById('killFeePct').textContent = pct + '% of project value';
+  document.getElementById('alreadyPaidOut').textContent = fmt(alreadyPaid);
+  document.getElementById('killFeeOut').textContent = fmt(killFeeAmt);
+  document.getElementById('totalOwedOut').textContent = fmt(totalOwed);
+
+  const stageLabel = STAGE_LABELS[stageSel] || STAGE_LABELS['custom'];
+  const clause = 'If Client cancels or terminates this Agreement ' + stageLabel + ', Client shall pay Freelancer a cancellation fee of ' + pct + '% of the total Project Fee ($' + killFeeAmt.toFixed(2) + ' based on a project value of $' + projectValue.toFixed(2) + '). This cancellation fee is due within 14 days of the cancellation notice and is in addition to payment for any hours or milestones already invoiced.';
+  document.getElementById('clauseText').textContent = clause;
+
+  saveDraft();
+}
+
+function copyClause() {
+  const text = document.getElementById('clauseText').textContent;
+  const btn = document.getElementById('copyBtn');
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(function() {
+      btn.textContent = 'Copied!';
+      setTimeout(function() { btn.textContent = 'Copy Clause'; }, 1800);
+    });
+  }
+}
+
+const DRAFT_KEY = 'killFeeCalcDraft';
+function saveDraft() {
+  try {
+    const fields = {
+      projectValue: document.getElementById('projectValue').value,
+      stage: document.getElementById('stage').value,
+      customPct: document.getElementById('customPct').value,
+      alreadyPaid: document.getElementById('alreadyPaid').value
+    };
+    localStorage.setItem(DRAFT_KEY, JSON.stringify({ fields: fields, savedAt: Date.now() }));
+  } catch (e) {}
+}
+function restoreDraft() {
+  let raw;
+  try { raw = localStorage.getItem(DRAFT_KEY); } catch (e) { return false; }
+  if (!raw) return false;
+  try {
+    const data = JSON.parse(raw);
+    const f = data.fields;
+    if (!f) return false;
+    document.getElementById('projectValue').value = f.projectValue;
+    document.getElementById('stage').value = f.stage;
+    document.getElementById('customPct').value = f.customPct;
+    document.getElementById('alreadyPaid').value = f.alreadyPaid;
+    toggleCustom();
+    return true;
+  } catch (e) { return false; }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  restoreDraft();
+  calc();
+});
+
+function toggleNav() {
+  const nav = document.getElementById('mainNav');
+  const btn = document.getElementById('hamburger');
+  nav.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+function toggleTools() {
+  document.getElementById('navTools').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  const tools = document.getElementById('navTools');
+  if (tools && !tools.contains(e.target)) tools.classList.remove('open');
+});
+</script>
+</body>
+</html>
