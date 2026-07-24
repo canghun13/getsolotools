@@ -1,6 +1,6 @@
 # GetSoloTools 인수인계 문서 (handover.md)
 
-**최종 갱신**: 2026-07-20 (late fee 주(州) 시리즈 24→29개 주 신규 확장 — Kentucky/South Carolina/Alabama/Louisiana/Oklahoma, 전부 1차 법령자료 검증 + 계산기 위젯 + 인접주 비교 섹션 내장. 상세는 "2026-07-20 세션" 항목 참고)
+**최종 갱신**: 2026-07-24 (late-fee 주(州) 시리즈 밖으로 첫 확장 — "Freelance Isn't Free Act" 주법 클러스터 + Kill Fee Clause 신규 콘텐츠. 상세는 "2026-07-24 세션" 항목 참고)
 **갱신 방식이 v12까지와 다름**: 이제부터 이 문서는 새 채팅에 붙여넣는 방식이 아니라, **저장소에 직접 보관하고 계속 업데이트**하는 방식으로 운영한다. 새 세션에서는 이 파일(`handover.md`)을 clone 직후 가장 먼저 읽을 것.
 
 ---
@@ -97,7 +97,7 @@
 
 - **툴**: 18개 (Invoice Generator = index.html 포함)
 - **이메일 템플릿**: 24개 (25개 파일이나 sending-nda.html 등 포함, v12 이후 변경 없음)
-- **블로그 글**: 57개 (late fee 지역 시리즈 **29개 주**로 확장 완료 — California, New York, Florida, Illinois, Texas, Pennsylvania, Ohio, Colorado, Georgia, Michigan, New Jersey, Washington, Indiana, Wisconsin, Massachusetts, North Carolina, Virginia, Arizona, Minnesota, Tennessee, Missouri, Maryland, Oregon, Nevada, **Kentucky, South Carolina, Alabama, Louisiana, Oklahoma**). 29개 주 전부 미니 계산기 위젯 + FAQPage 스키마 + "인접 주 비교" 콘텐츠(본문 비교표 또는 FAQ) 보유.
+- **블로그 글**: 58개 (late fee 지역 시리즈 29개 주 + 그 외 29개 — 이번 세션에 late-fee 시리즈 밖 첫 신규 클러스터 2건 추가: `blog/freelance-isnt-free-act-states-guide.html`, `blog/freelance-kill-fee-clause.html`). 29개 주 전부 미니 계산기 위젯 + FAQPage 스키마 + "인접 주 비교" 콘텐츠 보유.
 
 ### 툴 목록 (18개, 경로는 v12 문서와 동일 — 변경 없음)
 Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Project Profit, Budget Planner, Contract Generator, Invoice Tracker, Client Proposal, Time Tracker, Milestone Calculator, Savings Calculator, NDA Generator, Client Intake Form, Expense Report, Scope of Work — **18개로 유지, 추가 없음**
@@ -285,6 +285,27 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 
 ---
 
+### 2026-07-24 세션 (late-fee 주 시리즈 밖으로 첫 확장)
+
+**사용자 지시**: "키워드를 다양하게 해서 폭넓게 찾아봐라. 리스트 뽑고 경쟁강도 체크하고, 강하면 롱테일로, 가장 좋은 건 클러스터로 뚫는 거다. 중요기능은 경쟁이 강해도 결국 해야된다." — late-fee 주 시리즈(24→29개 주까지 확장 완료)를 벗어나 처음으로 다른 축의 키워드를 탐색한 세션.
+
+1. **광범위 키워드 리서치 + 경쟁강도 체크** (웹서치로 5개 이상 클러스터 후보 조사):
+   - **보류 (경쟁 매우 강함)**: 직업별 인보이스 템플릿(freelance graphic designer/writer invoice template — Canva/QuickBooks/Template.net/Plutio가 이미 직업별로 촘촘히 커버), 프리랜서 주별 소득세 계산기(setaxcalculator.com/countrytaxcalc.com이 이미 50개 주 전용 계산기 보유, YMYL 영역이라 신뢰도 검증도 까다로움), Upwork/Fiverr 수수료 계산기(Upwork 공식 계산기가 1위, Indy/Corcava 등도 이미 포화).
+   - **진행 — Kill fee clause**: SitePoint/WorkContractReview/HostDevHub 등 소수 경쟁자만 있고 대형 플레이어 없음, contract-generator.html 툴과 바로 연결 가능해 채택.
+   - **진행 — Freelance Isn't Free Act 주법**: late-fee 시리즈와 똑같은 "주별 법률 차이" 패턴인데 아무도 프리랜서 실용가이드 관점으로 안 판 완전한 빈틈 발견. 경쟁자 검색 결과가 전부 로펌 client-alert(Jackson Lewis/Nixon Peabody/Vedder Price/Littler 등)나 주정부 공식 페이지뿐 — "기업이 컴플라이언스 지켜야 할 것" 관점만 있고 "프리랜서가 이 법으로 뭘 할 수 있는지" 관점은 전무. 사용자에게 이 발견을 보고하고 진행 승인받음("찾으면 그때 하는게 맞다 다하자").
+2. **Freelance Isn't Free Act 클러스터 실행**:
+   - 1차 자료 교차검증(Illinois labor.illinois.gov, NY dol.ny.gov + Venable/KMM/Sova Law 등 로펌 알림, CA leginfo.legislature.ca.gov SB988 원문 + LCW/Fenton&Keller 등)으로 3개 주 정확한 수치 확보: **Illinois**(FWPA, 2024.7.1 시행, $500 문턱, 30일 지급, 3배 배상), **New York**(FIFA 주법, 2024.8.28 시행, $800 문턱, 30일 지급, 2배 배상+AG 벌금 최대 $25,000), **California**(SB 988/FWPA, 2025.1.1 시행, $250 문턱 — 셋 중 가장 낮음, 30일 지급, 2배 배상, **단 Labor Code §2778(b)(2)에 열거된 특정 "professional services" 직종에만 적용**되는 게 IL/NY보다 좁은 핵심 차이점).
+   - 신규 허브 페이지 `blog/freelance-isnt-free-act-states-guide.html` 작성(970단어) — IL/NY/CA 3개 주법 + NYC(2017 원조)/LA(2023)/미니애폴리스/시애틀/콜럼버스(OH) 도시조례까지 비교표에 포함, "내가 해당되는지" 판단 기준(위치/금액/직종) 및 "클라이언트가 안 줄 때 뭘 해야하는지" 실행 단계까지 다룸. contract-generator.html·late-payment-fee.html·기존 3개 주 페이지로 상호링크.
+   - **기존 New York 페이지에서 팩트 오류 발견 및 수정**: 기존 문구가 "FIFA는 NYC에만 적용, 뉴욕주 나머지 지역은 2배 배상 없음"이라고 돼있었는데 이는 2024.8.28 뉴욕주 전체 확대 이전 기준의 오래된 서술이었음. highlight-box로 "이전에 봤을 수 있는 오래된 안내를 정정한다"고 명시적으로 설명, FAQ 3개→4개(주 확대 관련 질문 추가), dateModified 07-24 갱신.
+   - **기존 California 페이지에 SB 988 섹션 완전히 누락돼있던 것 발견 및 신규 추가**: 기존엔 AB5(근로자 분류 테스트)만 다루고 있었는데, SB988은 AB5와 별개의 법(계약/지급 요건)이라 혼동하기 쉬운 지점을 명시적으로 구분해서 설명, 직종 제한 목록도 highlight-box로 강조. FAQ 2개→3개, dateModified 07-24 갱신.
+   - Illinois 페이지는 기존에 이미 정확하고 상세했으므로 내용 수정 없이 허브 페이지로의 상호링크 한 줄만 추가.
+3. **Kill Fee Clause 클러스터 실행**: 신규 페이지 `blog/freelance-kill-fee-clause.html` 작성(933단어) — 킬피 개념(잡지/출판업계 용어 기원 설명), 단계별 요율 비교표(착수 전 없음/초기 25%/중반 50%/완료 후 75~100%), 보증금(deposit)과의 차이 설명, 실제 계약서에 바로 쓸 수 있는 조항 문구(clause-box), 클라이언트가 거부할 때의 대응 절차(Freelance Isn't Free 언급 → 소액소송 → 변호사 서면통지). contract-generator.html·late-payment-fee.html·신규 허브 페이지로 상호링크.
+4. **연동**: `blog/index.html` 최신순 2개 추가(신규 허브 페이지가 최상단), 총 blog 파일 58개 = index.html 항목 58개 정확히 일치 확인. `sitemap.xml`에 신규 URL 2개 추가 + 수정된 IL/NY/CA 3개 페이지 lastmod를 07-18→07-24로 갱신.
+5. **검증**: 신규 2개 + 수정 3개, 총 5개 blog 파일 + `blog/index.html` 전부 (1) `html.parser` 파싱 (2) `<div>`/`</div>` 개수 일치 (3) JSON-LD `json.loads()` 유효성 — 스크립트로 일괄 통과 확인. `blog/index.html`은 추가로 `node --check`로 posts 배열 JS 문법 검증. `sitemap.xml`은 `ElementTree` 파싱 + 중복 URL 없음 확인, 총 URL 105개.
+6. **다음 배치 후보로 고려할 만한 것 (이번엔 진행 안 함)**: 이번 세션에 보류한 3개 클러스터(직업별 인보이스 템플릿/주별 소득세 계산기/플랫폼 수수료 계산기)는 경쟁이 매우 강하지만 "중요기능은 경쟁이 강해도 결국 해야된다"는 원칙에 따라 롱테일 진입 전략(예: 특정 소득 구간·특정 주 조합처럼 아주 좁힌 키워드)을 다시 설계해서 재검토할 가치가 있음 — 다음에 시간 여유 있을 때 논의.
+
+---
+
 ## 기술 주의사항
 
 ### nav.js
@@ -333,6 +354,7 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 
 ## 현재 열려있는 이슈 (다음에 확인할 것)
 
+- **(2026-07-24 추가, 다음 최우선 확인 대상)** 이번 세션에 신규 작성한 2개 페이지(`freelance-isnt-free-act-states-guide.html`, `freelance-kill-fee-clause.html`)는 late-fee 시리즈와 다른 새로운 키워드 축이라 GSC에 어떤 쿼리로 잡히는지 지금까지의 late-fee 패턴과 다를 수 있음 — 다음 GSC 데이터에서 "freelance isn't free act", "kill fee clause" 계열 쿼리 노출 여부부터 확인. 기존 New York/California 페이지 팩트 수정(NY주 전체 확대, CA SB988 추가)이 순위나 클릭에 영향을 주는지도 함께 관찰. 보류한 3개 클러스터(직업별 인보이스 템플릿/주별 소득세 계산기/플랫폼 수수료 계산기)는 롱테일로 좁혀서 재검토할 가치가 있다고 판단했으니, 사용자가 이어가길 원하면 그 방향으로 키워드를 다시 좁혀서 설계할 것.
 - **(2026-07-20 추가, 다음 최우선 확인 대상)** 이번 세션에 신규 작성한 5개 주(Kentucky/South Carolina/Alabama/Louisiana/Oklahoma)는 아직 GSC에 전혀 노출되지 않음 — 다음 세션에서 색인 여부부터 확인. 07-16 위젯 8개 주(NY/OH/CA/NJ 등)는 07-18 대비 클릭/순위에 유의미한 변화 없음(2~4일 간격은 여전히 판단하기엔 이름) — 계속 관찰. 07-18 신규 5개 주(TN/MO/MD/OR/NV)도 이번 세션까지 노출 0으로 아직 색인 전 단계로 추정.
 - **(2026-07-20 추가, 중요한 착시 정정 — 다음 세션에서 같은 실수 반복하지 말 것)** 페이지 단위 GSC 데이터만 보면 Illinois(평균 5.73위)/Texas(7.3위)/Colorado(10.04위)/Georgia(12.86위) 등이 "순위는 좋은데 클릭 0"으로 보여서 제목/메타(CTR) 문제로 오판하기 쉬움. 그러나 **쿼리 단위로 재확인하면 전혀 다름** — 실제 헤드키워드 "[주] late fee calculator"의 순위는 Illinois 71.12위, Pennsylvania 75.52위, Georgia 73.59위, Wisconsin 74위, Washington("washington state late fee") 36.7위로 전부 페이지 5~7 밖. 페이지 단위 평균 순위가 좋아 보이는 건 노출량이 거의 없는 롱테일 변형 쿼리들이 섞여 평균을 끌어올린 착시이고, 실질적으로는 **여전히 순위(경쟁) 문제이지 CTR 문제가 아님** — 제목/메타를 손봐도 소용없는 위치. **다음에 "고순위·저클릭" 페이지를 볼 때는 반드시 페이지 단위 평균 순위가 아니라 실제 타겟 헤드키워드의 쿼리 단위 순위를 확인한 뒤에 CTR 재작성 여부를 판단할 것.**
 - **(2026-07-18 추가, 다음 최우선 확인 대상)** 07-16에 위젯을 추가한 8개 주(NY/FL/IL/PA/GA/IN/WI/WA) 중 NY/OH/CA/NJ 4개 페이지에서 이번 세션 GSC 데이터에 처음으로 실제 클릭이 잡혔음(각 1~2클릭). 다음 GSC 데이터에서 이 클릭이 늘어나는지, 그리고 "[주] late fee calculator" 개별 쿼리 순위(07-18 기준 여전히 60~90위대)가 좁혀지는지 최우선 확인. 이번 세션에 신규 작성한 5개 주(TN/MO/MD/OR/NV)와 인접주 비교 FAQ를 추가한 19개 기존 페이지도 다음 GSC 데이터에서 순위/클릭 변화가 있는지 함께 확인할 것 — 특히 "인접 주 비교" FAQ가 AI 검색(예: ChatGPT/Perplexity 답변에 인용되는지)에서 효과가 있는지는 GSC만으로는 안 보이므로, 사용자가 별도로 체감하는 바가 있으면 다음 세션에 공유받을 것.
