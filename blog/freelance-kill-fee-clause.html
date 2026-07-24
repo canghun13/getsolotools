@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kill Fee Clause for Freelancers: What It Is & How Much to Charge – GetSoloTools</title>
-  <meta name="description" content="A kill fee clause pays you when a client cancels a project after work has started. Here's what a fair kill fee looks like, exact contract language to use, and how to collect if a client refuses." />
+  <title>Kill Fee Calculator + Clause for Freelancers: How Much to Charge – GetSoloTools</title>
+  <meta name="description" content="Free kill fee calculator, plus what a kill fee clause is, exact contract language to use, and how to collect if a client cancels and refuses to pay." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -44,6 +44,14 @@
     .cta-box p { margin: 0 0 14px; font-size: 0.95rem; }
     .cta-btn { display: inline-block; background: var(--accent); color: #fff; font-size: 0.875rem; font-weight: 600; padding: 10px 20px; border-radius: 6px; text-decoration: none; }
     .cta-btn:hover { opacity: 0.88; }
+    .mini-calc { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--blog); border-radius: 8px; padding: 24px 28px; margin: 28px 0 40px; }
+    .mini-calc h2 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; margin: 0 0 8px; }
+    .mini-calc-sub { font-size: 0.9rem; color: #666; margin-bottom: 16px; }
+    .mini-calc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+    .mini-calc-field label { display: block; font-size: 0.78rem; color: var(--muted); margin-bottom: 4px; font-weight: 600; }
+    .mini-calc-field input, .mini-calc-field select { width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.95rem; font-family: 'DM Sans', sans-serif; background: #fff; }
+    .mini-calc-result { font-size: 1rem; padding-top: 12px; border-top: 1px solid var(--border); }
+    @media (max-width: 500px) { .mini-calc-row { grid-template-columns: 1fr; } }
     .back-link { display: inline-block; margin-bottom: 32px; font-size: 0.85rem; color: var(--muted); text-decoration: none; }
     .back-link:hover { color: var(--ink); }
     footer { border-top: 1px solid var(--border); padding: 24px; text-align: center; margin-top: auto; }
@@ -103,6 +111,41 @@
       <p>You've blocked out three weeks for a client's project. You've turned down two other inquiries because your calendar was full. A week in, the client emails: "Actually, we're going in a different direction — thanks anyway." Without a kill fee clause, you have no contractual basis to collect anything beyond what you've already invoiced. With one, you have a specific, enforceable number to point to.</p>
 
       <p>A kill fee — sometimes called a cancellation fee — is one of the most underused protections in freelance contracts. Here's what it is, how much is standard, and exact language you can drop into your next agreement.</p>
+
+      <div class="mini-calc" id="miniCalc">
+        <h2>Kill Fee Calculator</h2>
+        <p class="mini-calc-sub">Estimate a fair kill fee based on the total project value and how far along the work was when it got canceled.</p>
+        <div class="mini-calc-row">
+          <div class="mini-calc-field">
+            <label for="kfAmount">Total project value ($)</label>
+            <input type="number" id="kfAmount" value="3000" min="0" step="0.01">
+          </div>
+          <div class="mini-calc-field">
+            <label for="kfStage">Stage at cancellation</label>
+            <select id="kfStage">
+              <option value="0">Before work begins</option>
+              <option value="25" selected>Early stage (concepts, first draft)</option>
+              <option value="50">Mid-project (revisions underway)</option>
+              <option value="75">Near completion</option>
+              <option value="100">After final delivery</option>
+            </select>
+          </div>
+        </div>
+        <div class="mini-calc-result" id="kfResult">Suggested kill fee: <strong>$0.00</strong> (0% of project value)</div>
+      </div>
+      <script>
+      (function() {
+        function calc() {
+          var amt = parseFloat(document.getElementById('kfAmount').value) || 0;
+          var pct = parseFloat(document.getElementById('kfStage').value) || 0;
+          var fee = amt * (pct / 100);
+          document.getElementById('kfResult').innerHTML = 'Suggested kill fee: <strong>$' + fee.toFixed(2) + '</strong> (' + pct + '% of project value)';
+        }
+        document.getElementById('kfAmount').addEventListener('input', calc);
+        document.getElementById('kfStage').addEventListener('change', calc);
+        calc();
+      })();
+      </script>
 
       <h2>What a Kill Fee Actually Covers</h2>
       <p>A kill fee compensates you for two things that a simple "pay for hours worked" clause doesn't: the time you blocked off that you can't get back, and the other work you turned down to take this project. If a client cancels after you've started, your unbilled hours aren't the only loss — your opportunity cost is real too, and a kill fee is how you recover some of it.</p>

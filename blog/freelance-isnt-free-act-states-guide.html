@@ -43,6 +43,14 @@
     .cta-box p { margin: 0 0 14px; font-size: 0.95rem; }
     .cta-btn { display: inline-block; background: var(--accent); color: #fff; font-size: 0.875rem; font-weight: 600; padding: 10px 20px; border-radius: 6px; text-decoration: none; }
     .cta-btn:hover { opacity: 0.88; }
+    .mini-calc { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--blog); border-radius: 8px; padding: 24px 28px; margin: 28px 0 40px; }
+    .mini-calc h2 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; margin: 0 0 8px; }
+    .mini-calc-sub { font-size: 0.9rem; color: #666; margin-bottom: 16px; }
+    .mini-calc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+    .mini-calc-field label { display: block; font-size: 0.78rem; color: var(--muted); margin-bottom: 4px; font-weight: 600; }
+    .mini-calc-field input, .mini-calc-field select { width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.95rem; font-family: 'DM Sans', sans-serif; background: #fff; }
+    .mini-calc-result { font-size: 0.92rem; padding-top: 12px; border-top: 1px solid var(--border); line-height: 1.6; }
+    @media (max-width: 500px) { .mini-calc-row { grid-template-columns: 1fr; } }
     .back-link { display: inline-block; margin-bottom: 32px; font-size: 0.85rem; color: var(--muted); text-decoration: none; }
     .back-link:hover { color: var(--ink); }
     footer { border-top: 1px solid var(--border); padding: 24px; text-align: center; margin-top: auto; }
@@ -102,6 +110,54 @@
       <p>If you've ever had a client go quiet on an invoice, you've probably wished there was a law that actually had teeth — something beyond "well, I guess I could sue in small claims." In a handful of places, there now is. Illinois, New York, and California have all passed statewide "Freelance Isn't Free" laws that require written contracts and fast payment, backed by double or triple damages if a client doesn't comply. Several cities have their own versions too.</p>
 
       <p>Most of what's written about these laws is aimed at the businesses that have to comply with them — law firm alerts explaining "here's how to update your contracts to avoid liability." This guide is aimed at you, the freelancer: what these laws actually give you, whether you're covered, and what to do if a client isn't paying.</p>
+
+      <div class="mini-calc" id="miniCalc">
+        <h2>Am I Covered?</h2>
+        <p class="mini-calc-sub">A quick check based on your state and contract value. This is a simplified guide, not legal advice — see the state-specific sections below for the full picture, including California's narrower work-type rules.</p>
+        <div class="mini-calc-row">
+          <div class="mini-calc-field">
+            <label for="fifaState">Your state</label>
+            <select id="fifaState">
+              <option value="IL">Illinois</option>
+              <option value="NY">New York</option>
+              <option value="CA">California</option>
+              <option value="other">Somewhere else</option>
+            </select>
+          </div>
+          <div class="mini-calc-field">
+            <label for="fifaAmount">Contract value ($)</label>
+            <input type="number" id="fifaAmount" value="1000" min="0" step="1">
+          </div>
+        </div>
+        <div class="mini-calc-result" id="fifaResult"></div>
+      </div>
+      <script>
+      (function() {
+        var rules = {
+          IL: { threshold: 500, name: 'Illinois Freelance Worker Protection Act', damages: 'triple damages' },
+          NY: { threshold: 800, name: 'New York Freelance Isn\'t Free Act (statewide)', damages: 'double damages plus possible AG fines up to $25,000' },
+          CA: { threshold: 250, name: 'California Freelance Worker Protection Act (SB 988)', damages: 'double damages' }
+        };
+        function calc() {
+          var state = document.getElementById('fifaState').value;
+          var amt = parseFloat(document.getElementById('fifaAmount').value) || 0;
+          var el = document.getElementById('fifaResult');
+          if (state === 'other') {
+            el.innerHTML = 'No statewide "Freelance Isn\'t Free" law currently applies where you are — but check if your city has a local ordinance (e.g. Los Angeles, Minneapolis, Seattle, Columbus OH), and remember a written contract with a late fee clause is enforceable everywhere regardless.';
+            return;
+          }
+          var r = rules[state];
+          if (amt >= r.threshold) {
+            el.innerHTML = 'Likely covered by the <strong>' + r.name + '</strong> — your contract must be in writing, payment is due within 30 days by default, and violations can bring ' + r.damages + '. (California also requires your work to fall under a specific "professional services" category — see the CA section below.)';
+          } else {
+            el.innerHTML = 'This contract is below the $' + r.threshold + ' threshold for the ' + r.name + ', so it likely isn\'t covered on its own — but contracts with the same client can add up within a 120-day window to cross the threshold. Ordinary contract law still protects you either way.';
+          }
+        }
+        document.getElementById('fifaState').addEventListener('change', calc);
+        document.getElementById('fifaAmount').addEventListener('input', calc);
+        calc();
+      })();
+      </script>
 
       <h2>Where "Freelance Isn't Free" Laws Currently Exist</h2>
       <p class="table-scroll-hint"><span aria-hidden="true">↔</span> Scroll sideways to see all columns</p>
