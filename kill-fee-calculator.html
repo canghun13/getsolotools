@@ -76,6 +76,18 @@
   .info-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; }
   .info-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.05rem; margin-bottom: 0.5rem; }
   .info-card p { font-size: 13px; color: var(--ink-2); line-height: 1.6; }
+  .content-section { max-width: 720px; margin: 3rem auto 0; padding: 0 1rem; }
+  .content-section h2 { font-family: 'DM Serif Display', serif; font-size: 1.5rem; margin: 0 0 1rem; letter-spacing: -0.02em; color: var(--ink); }
+  .content-section p { font-size: 14px; color: var(--ink-2); line-height: 1.75; margin-bottom: 1rem; }
+  .content-section ol, .content-section ul { margin: 0 0 1rem 1.25rem; }
+  .content-section li { font-size: 14px; color: var(--ink-2); line-height: 1.7; margin-bottom: 0.5rem; }
+  .content-section strong { color: var(--ink); font-weight: 600; }
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; min-width: 0; margin: 1rem 0; }
+  .table-scroll-hint { display: none; font-size: 12px; color: var(--ink-3); margin: 0 0 8px; align-items: center; gap: 4px; }
+  @media (max-width: 700px) { .table-scroll-hint { display: flex; } }
+  .kf-table { width: 100%; min-width: 480px; border-collapse: collapse; font-size: 13.5px; }
+  .kf-table th, .kf-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+  .kf-table th { font-weight: 600; color: var(--ink-3); font-size: 11px; text-transform: uppercase; letter-spacing: 0.03em; }
   .related-tools-section a { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 1.1rem 1.25rem; text-decoration: none; color: inherit; display: block; transition: box-shadow 0.2s, border-color 0.2s; }
   .related-tools-section a:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); border-color: var(--accent); }
   footer { border-top: 1px solid var(--border); text-align: center; padding: 2rem; font-size: 13px; color: var(--ink-3); margin-top: 2rem; }
@@ -273,6 +285,62 @@
     <div class="info-card">
       <h3>Making it enforceable</h3>
       <p>Put the specific percentage and trigger in a signed contract before work begins. Vague language like "a reasonable cancellation fee" is hard to enforce — a specific number tied to a specific stage holds up far better if a client disputes it.</p>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h2>Kill Fee Norms by Project Type</h2>
+    <p>There's no legal standard for kill fees — they're purely a matter of what you negotiate into your contract. That said, typical percentages vary somewhat by field, based on how much upfront work (concepting, research, discovery) happens before the client sees deliverables:</p>
+    <p class="table-scroll-hint"><span aria-hidden="true">↔</span> Scroll sideways to see all columns</p>
+    <div class="table-scroll"><table class="kf-table">
+      <tr><th>Field</th><th>Typical early-stage kill fee</th><th>Typical mid-project kill fee</th></tr>
+      <tr><td>Freelance writing</td><td>25–33%</td><td>50%</td></tr>
+      <tr><td>Graphic design / branding</td><td>25–30%</td><td>50%</td></tr>
+      <tr><td>Web / software development</td><td>20–25%</td><td>40–50%</td></tr>
+      <tr><td>Consulting / strategy</td><td>25%</td><td>50–75%</td></tr>
+      <tr><td>Photography / video</td><td>25–50%</td><td>75%</td></tr>
+    </table></div>
+    <p>Consulting and photography tend to sit at the higher end because a large share of the value — advice given, or a shoot day already booked — is delivered very early, unlike a multi-week design or dev project where value accumulates gradually.</p>
+
+    <h2>How to Bring Up a Kill Fee Without Scaring Off a Client</h2>
+    <p>The kill fee clause is one of the parts of a contract that makes new freelancers nervous to include — it can feel like assuming the worst about a client before you've even started. In practice, most clients don't blink at it, because they've seen it before or understand the logic once it's explained. A few things that help:</p>
+    <ul>
+      <li><strong>Frame it around your time, not their trustworthiness.</strong> "I block out dedicated time for every project and turn down other work to do it — this clause just reflects that" lands better than not explaining it at all.</li>
+      <li><strong>Scale it to project phase, not a single flat number.</strong> A client is far more comfortable seeing "25% if we're still in the concept phase, 50% once revisions are underway" than a single intimidating "50% no matter what."</li>
+      <li><strong>Present it as standard practice, because it is.</strong> Kill fees are common in design, writing, development, and consulting — you're not inventing a new hurdle, you're using an industry-normal clause.</li>
+      <li><strong>Don't over-explain or apologize for it.</strong> Include it matter-of-factly alongside your other standard terms (payment schedule, revisions, scope) rather than singling it out as a special ask.</li>
+    </ul>
+
+    <h2>What to Do If a Client Refuses to Pay</h2>
+    <p>A specific, written kill fee clause is enforceable the same way any other contract term is. If a client cancels and won't pay:</p>
+    <ol>
+      <li>Send a written demand that references the specific clause, the percentage, and the dollar amount due.</li>
+      <li>If your state has a "Freelance Isn't Free"-style law, mention it by name — see our <a href="/blog/freelance-isnt-free-act-states-guide.html" style="color:var(--accent);">Freelance Isn't Free Act guide</a> for Illinois, New York, and California, where non-payment can trigger double or triple damages.</li>
+      <li>For most kill fee amounts, small claims court is fast, inexpensive, and doesn't require a lawyer — check your state's limit in our <a href="/blog/late-fee-laws-freelancers-california.html" style="color:var(--accent);">state-by-state late fee guides</a>.</li>
+      <li>For larger amounts, a flat-fee demand letter from an attorney often resolves the dispute before it reaches court.</li>
+    </ol>
+    <p>For the full walkthrough — including exact contract language and what makes a kill fee clause hold up versus fall apart — see the complete <a href="/blog/freelance-kill-fee-clause.html" style="color:var(--accent);">Kill Fee Clause guide</a>.</p>
+  </div>
+
+  <div class="content-section" style="margin-top:2.5rem;">
+    <h2>Frequently Asked Questions</h2>
+    <div style="border-top:1px solid var(--border);">
+      <details style="border-bottom:1px solid var(--border);padding:1rem 0;">
+        <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:var(--ink);list-style:none;display:flex;justify-content:space-between;align-items:center;">What is a kill fee? <span style="color:var(--accent);font-size:1.2rem;">+</span></summary>
+        <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">A kill fee is a payment a client owes a freelancer if they cancel a project after work has started. It's usually a percentage of the total project value, scaled to how much work was completed before cancellation.</p>
+      </details>
+      <details style="border-bottom:1px solid var(--border);padding:1rem 0;">
+        <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:var(--ink);list-style:none;display:flex;justify-content:space-between;align-items:center;">How is a kill fee calculated? <span style="color:var(--accent);font-size:1.2rem;">+</span></summary>
+        <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Multiply the total project value by a percentage tied to the project stage at cancellation — commonly 25% for early-stage work, 50% for mid-project cancellations, and 75-100% if canceled near or after completion. This calculator does that math automatically and also generates contract clause language you can use.</p>
+      </details>
+      <details style="border-bottom:1px solid var(--border);padding:1rem 0;">
+        <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:var(--ink);list-style:none;display:flex;justify-content:space-between;align-items:center;">Is a kill fee the same as a deposit? <span style="color:var(--accent);font-size:1.2rem;">+</span></summary>
+        <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">No. A non-refundable deposit (typically 25-50% upfront) secures your time before work begins and is kept regardless of what happens later. A kill fee compensates you for work already completed once the project is underway. Many freelancers use both together.</p>
+      </details>
+      <details style="border-bottom:1px solid var(--border);padding:1rem 0;">
+        <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:var(--ink);list-style:none;display:flex;justify-content:space-between;align-items:center;">Can I legally collect a kill fee if a client refuses to pay? <span style="color:var(--accent);font-size:1.2rem;">+</span></summary>
+        <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Yes, as long as the kill fee is written into a signed contract with a specific trigger, percentage, and payment timeline. Most freelance kill fee disputes are small enough to resolve in small claims court without a lawyer.</p>
+      </details>
     </div>
   </div>
 
