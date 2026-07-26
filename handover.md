@@ -1,6 +1,6 @@
 # GetSoloTools 인수인계 문서 (handover.md)
 
-**최종 갱신**: 2026-07-24 (late-fee 주(州) 시리즈 밖으로 첫 확장 — "Freelance Isn't Free Act" 주법 클러스터 + Kill Fee Clause 신규 콘텐츠. 상세는 "2026-07-24 세션" 항목 참고)
+**최종 갱신**: 2026-07-27 (일요일 주간 작업을 앞당겨 진행 — late-fee 주 시리즈 29개→34개 주로 확장(West Virginia/Arkansas/Iowa/New Mexico/Delaware), AI검색 대응 "문제해결/비교분석" 프레이밍 강화. 상세는 "2026-07-27 세션" 항목 참고)
 **갱신 방식이 v12까지와 다름**: 이제부터 이 문서는 새 채팅에 붙여넣는 방식이 아니라, **저장소에 직접 보관하고 계속 업데이트**하는 방식으로 운영한다. 새 세션에서는 이 파일(`handover.md`)을 clone 직후 가장 먼저 읽을 것.
 
 ---
@@ -97,7 +97,7 @@
 
 - **툴**: 19개 (Invoice Generator = index.html 포함, 2026-07-24에 Kill Fee Calculator 신규 추가 — late-fee 시리즈 밖 첫 클러스터에서 처음으로 블로그 위젯이 아닌 완전한 독립 툴 페이지 제작)
 - **이메일 템플릿**: 24개 (25개 파일이나 sending-nda.html 등 포함, v12 이후 변경 없음)
-- **블로그 글**: 58개 (late fee 지역 시리즈 29개 주 + 그 외 29개 — 이번 세션에 late-fee 시리즈 밖 첫 신규 클러스터 2건 추가: `blog/freelance-isnt-free-act-states-guide.html`, `blog/freelance-kill-fee-clause.html`). 29개 주 전부 미니 계산기 위젯 + FAQPage 스키마 + "인접 주 비교" 콘텐츠 보유.
+- **블로그 글**: 63개 (late fee 지역 시리즈 34개 주 — 2026-07-27에 West Virginia/Arkansas/Iowa/New Mexico/Delaware 5개 추가 — + 그 외 29개, 그 중 `blog/freelance-isnt-free-act-states-guide.html`, `blog/freelance-kill-fee-clause.html`은 late-fee 시리즈 밖 첫 클러스터). 34개 주 전부 미니 계산기 위젯 + FAQPage 스키마 + "인접 주 비교" 콘텐츠 보유.
 
 ### 툴 목록 (18개, 경로는 v12 문서와 동일 — 변경 없음)
 Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Project Profit, Budget Planner, Contract Generator, Invoice Tracker, Client Proposal, Time Tracker, Milestone Calculator, Savings Calculator, NDA Generator, Client Intake Form, Expense Report, Scope of Work — **18개로 유지, 추가 없음**
@@ -306,6 +306,32 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 7. **(같은 세션, 사용자 지적으로 보완)** 신규 2개 페이지가 처음엔 late-fee 시리즈와 달리 계산기/위젯 없이 콘텐츠+기존 툴 링크만 있었음 — 사용자가 "클러스터에 툴은 없어?"라고 지적해서 즉시 보완: `freelance-kill-fee-clause.html`에 **Kill Fee Calculator**(프로젝트 총액 + 취소 시점 단계 선택 → 킬피 금액/비율 계산) 추가, `freelance-isnt-free-act-states-guide.html`에 **"Am I Covered?" 체커**(주 선택 + 계약금액 입력 → IL/NY/CA 커버 여부·핵심보호내용 실시간 안내, 문턱 미달 시 120일 합산규칙 안내, 대상 외 주는 도시조례 안내로 대체) 추가. jsdom으로 4가지 케이스(킬피 기본값/변경값, FIFA 커버됨/문턱미달/비대상주) 전부 실행 검증 완료. **앞으로 새 클러스터/페이지를 만들 때는 처음부터 "이 페이지에 어울리는 간단한 인터랙티브 위젯이 있는가"를 기획 단계에서 먼저 자문할 것** — 콘텐츠만 쓰고 나중에 추가하는 것보다 처음부터 설계하는 게 효율적.
 8. **(같은 세션, 사용자가 한 번 더 지적: "툴까지 클러스터 되는게 있으면 더욱 좋겠다")** 블로그 임베드 위젯과 `late-payment-fee.html` 같은 완전한 독립 툴 페이지는 다른 급이라는 지적. "kill fee calculator" 자체를 재검색해보니 emergencytoolbox.com 정도의 소규모 경쟁자만 있고 큰 플레이어가 없어 독립 툴로 만들 가치가 있다고 판단해 **`kill-fee-calculator.html` 신규 제작 — 19번째 툴**. `late-payment-fee.html`과 동일한 스캐폴드(헤더/계산기그리드/결과카드) 재사용: 프로젝트 총액 + 취소 단계(custom % 옵션 포함) + 기지급액 입력 → 킬피 금액/비율/총액 계산 + **단계에 맞춘 계약서 조항을 자동생성하고 클립보드 복사 버튼까지 제공**(단순 숫자 계산기보다 한 단계 더 실용적인 기능). 브라우저 자동저장(localStorage) 적용 — 기존 18개 툴과 동일 패턴 유지. `nav.js` 툴 배열에 추가, `contract-generator.html`의 "What to Use Next"에 카드 추가, blog 미니위젯에서 전체 툴로 가는 링크 추가, `sitemap.xml`에 URL 추가. jsdom 시뮬레이션 중 `DOMContentLoaded` 이벤트 타이밍 때문에 첫 테스트에서 오탐(false negative)이 나온 것을 발견 — 비동기 대기(`setTimeout`)를 넣어 재검증 후 정상 동작 확인. **앞으로 `DOMContentLoaded` 리스너를 쓰는 툴 페이지를 jsdom으로 검증할 때는 반드시 이벤트가 실제로 발생할 시간을 비동기로 기다린 뒤에 결과를 읽을 것 — 즉시 동기적으로 읽으면 초기 플레이스홀더 값만 보고 "버그"로 오판할 수 있음.** 이번 발견을 계기로, **다음에 late-fee 시리즈 밖 새 클러스터를 기획할 때는 처음부터 "블로그 콘텐츠 + 임베드 위젯"뿐 아니라 "이 주제가 독립 툴(nav.js 등재, 자체 URL, PDF/복사 등 실용 기능)로 승격할 가치가 있는가"까지 기획 단계에서 함께 판단할 것.**
 9. **(같은 세션, 사용자가 세 번째로 지적: "다른 툴처럼 밑에 내용 좀 넣지 문제해결 위주로")** 처음 만든 `kill-fee-calculator.html`이 계산기+짧은 정보카드 3개뿐이라 `late-payment-fee.html`(How to Use 섹션 + FAQ 9개 + 주별 비교표까지 있는) 같은 다른 툴 대비 콘텐츠가 얕았음. 약 700단어 신규 추가: **분야별(글쓰기/디자인/개발/컨설팅/사진) 초기·중반 단계 요율 비교표**, **"클라이언트에게 킬피를 어떻게 설명할지" 협상 문제해결 섹션**, **"클라이언트가 거부할 때 실행 단계"**(서면통지→Freelance Isn't Free 언급→소액소송→변호사 서면통지, 관련 블로그 3개 상호링크). 이 과정에서 **FAQPage 스키마는 있는데 화면에 보이는 아코디언이 없었던 구조적 결함도 함께 발견해 수정**(4개 항목으로 신규 추가, 스키마=화면 개수 일치). **앞으로 신규 독립 툴 페이지를 만들 때는 계산기 자체보다 그 아래 콘텐츠 깊이(How to Use/문제해결 섹션/화면 FAQ)를 기존 18개 툴과 동일한 수준으로 처음부터 기획할 것 — 계산기만 만들고 나중에 콘텐츠를 채우는 패턴을 반복하지 말 것.**
+
+---
+
+### 2026-07-27 세션 (일요일 주간 작업을 앞당겨 진행)
+
+**사용자가 이번 세션에 추가로 강조한 원칙**: ① 신규 콘텐츠는 기존 파일과 반드시 중복 확인 + 웹 검색으로 경쟁 강도 확인해서 롱테일 키워드 전략을 활용할 것. ② AI 검색(ChatGPT/Perplexity 등)은 도메인 권위보다 콘텐츠 자체 품질이 훨씬 중요해지고 있으므로, 페이지에 "문제해결/비교분석" 위주 콘텐츠를 넣으면 웹 검색과 AI 검색 양쪽에 유리하다는 원칙을 신규 작업에 더 적극적으로 반영할 것. ③ 수익화(애드센스 트래픽/클릭) 관점에서 우선순위 판단. ④ 대시보드/시각화 자료 대신 텍스트 분석으로 보고. 전부 이번 세션 작업에 반영함.
+
+1. **GSC 데이터 재확인** (Performance + Coverage zip, 지난 3개월 기준 쿼리 198개/페이지 74개 — 07-20과 거의 동일 범위) + **GA4 데이터 신규 확인** (06-29~07-26, 활성 사용자 56명). 전체 쿼리를 기존 사이트 파일과 재대조. **신규 페이지 제작 근거는 이번에도 없음** — 노출은 있으나 매칭 페이지가 없는 키워드를 찾지 못함(전부 기존 blog/tool/email-template에 매칭 확인 완료).
+2. **07-16/07-18/07-20 작업분 효과 관찰**: `late-payment-fee.html`은 여전히 사이트 최대 노출 페이지(623회)인데 클릭 0, 순위 69.14위 — "late fee calculator" 단독 쿼리도 87회 노출에 순위 79.1위로, 과거 세션에 이미 결론 내린 대로 전국구 헤드키워드는 CTR이 아니라 순수 경쟁(순위) 문제라는 진단이 재확인됨. 07-20에 신규 작성한 5개 주(Kentucky/South Carolina/Alabama/Louisiana/Oklahoma) 중 Alabama(2회)/Oklahoma(1회)/South Carolina(1회)는 이번에 처음 노출이 잡히기 시작함(색인 진행 중으로 추정) — Kentucky/Louisiana는 아직 노출 0. 07-24 신규 클러스터(`freelance-isnt-free-act-states-guide.html`, `freelance-kill-fee-clause.html`, `kill-fee-calculator.html`)는 작성 후 3일밖에 안 지나 이번 데이터에도 전혀 노출되지 않음 — 정상적인 색인 지연으로 판단, 다음 세션에 재확인.
+3. **Late fee 주 시리즈 29개 주 → 34개 주 신규 확장**: West Virginia, Arkansas, Iowa, New Mexico, Delaware 5개 주 신규 작성.
+   - **선정 기준**: 이번엔 특히 "이미 게시된 주와의 접경 밀도"를 최우선으로 고려함 — West Virginia(접경 5개 주 중 5개 전부 게시됨: OH/VA/MD/PA/KY, 시리즈 최고 밀도), Arkansas(접경 6개 중 5개 게시: MO/TN/OK/TX/LA), Delaware(접경 3개 주 전부 게시: MD/PA/NJ), New Mexico(접경 5개 중 4개 게시: TX/OK/AZ/CO), Iowa(접경 6개 중 4개 게시: IL/WI/MN/MO). 접경 밀도가 높을수록 "인접 주 비교" 콘텐츠의 실질적 깊이가 나온다는 점에서 프리랜서 인구 규모보다 이번엔 이 기준을 우선함.
+   - **전부 1차 법령 자료로 교차검증** (code.wvlegislature.gov, law.justia.com, delcode.delaware.gov, legis.iowa.gov, 각 주 공식 법전 + docdraft.ai/nolo.com 등 2차 소스 교차 대조). 조사 과정에서 다음을 확인함:
+     - **West Virginia**: 겉보기엔 6%/8%로 낮아 보이는 사용료 상한(W. Va. Code §47-6-5)이지만, §47-6-11이 "사업목적" 대출/할부판매를 사용료 규제에서 아예 면제 — 프리랜서의 B2B 인보이스는 사실상 이 상한 밖에 있을 가능성이 높음(Oklahoma 등에서 봤던 "서면화하면 상한 없음" 패턴과 유사). 소액소송 한도는 2025년 7월 HB 2761로 $10,000→$20,000 상향됐는데, 온라인에 아직도 구버전($10,000)을 인용하는 자료가 많다는 것도 확인(freshness 신호로 본문에 명시).
+     - **Arkansas**: 서면계약 상한이 정확히 **17%/년**(Ark. Const. Amendment 89) — 프리랜서 표준인 18%(월 1.5%)보다 낮아서, 표준 문구를 그대로 쓰면 헌법상 상한을 초과할 수 있다는 실질적 문제를 발견. 콘텐츠에서 "1.4%/월"로 조정 권고. 소액소송(§16-17-606)에서 변호사가 아예 출석 금지라는 특이 조항도 확인.
+     - **Iowa**: 일반 사용료 상한(Iowa Code §535.2(3))이 매달 10년물 국채 평균금리+2%p로 **변동**하는 특이 구조 — 그러나 §535.2(2)가 "사업목적" 신용공여를 이 변동상한에서 면제하므로, B2B 인보이스는 사실상 무관함. 소액소송 신청비가 카운티 상관없이 **$95 균일**이라는 점도 다른 주와 차별화되는 특징으로 확인.
+     - **New Mexico**: 무약정 시 기본이율이 **15%/년**(NMSA §56-8-3)으로 시리즈 중 최고 — 오히려 프리랜서에게 유리한 방향(계약서를 깜빡해도 기본값이 높음). 상업거래용 일반 사용료 규제(구 §56-8-11.1)가 1991년에 사실상 폐지됐고 법인은 사용료 항변 자체가 금지(§56-8-9(B))라는 점도 확인.
+     - **Delaware**: 법정이율이 **연준 할인율+5%p**로 변동(6 Del. C. §2301, 현재 할인율 3.75% 기준 약 8.75%/년). 다만 §2306이 법인/LLC 등 사업체는 사용료 항변을 아예 제기할 수 없다고 명시 — 프리랜서 클라이언트 대부분이 법인/LLC라는 점에서 실질적으로 유리한 조항으로 확인. 소액소송(Justice of the Peace Court) 한도 $25,000는 복수 소스로 교차확인한 결과 전미 최고.
+   - **이번 세션에 "문제해결/비교분석" 프레이밍을 이전보다 한 단계 더 명시적으로 강화**: 각 페이지 도입부에 "The Problem: ~"이라는 H2를 넣어 실제 프리랜서가 부딪히는 구체적 딜레마(예: "Arkansas's 17% cap sits just below the national standard", "Iowa's usury cap is a moving target")를 먼저 제시하고 해법을 서술하는 구조로 작성 — 기존 8·9번째 배치보다 도입-문제-해법 구조를 더 뚜렷하게 분리함. AI 검색이 이런 명시적 문제-해법 프레이밍을 답변에 인용하기 좋아한다는 사용자 관찰과 일치하는 방향.
+   - **처음부터 미니 계산기 위젯 + "How X Compares to Nearby States" 비교표 + FAQ 3개** — 07-18/07-20 패턴 재사용. 비교 데이터는 전부 이미 게시된 인접 주 페이지에서 실제 인용(신규 조사 아님, 예: West Virginia↔Ohio/Virginia/Maryland/Kentucky, Arkansas↔Missouri/Tennessee/Oklahoma/Texas/Louisiana, Iowa↔Illinois/Wisconsin/Minnesota/Missouri, New Mexico↔Texas/Oklahoma/Arizona/Colorado, Delaware↔Maryland/Pennsylvania/New Jersey/West Virginia).
+   - Arkansas는 계약서 문구 자체를 조정해야 하는 유일한 케이스라 미니 계산기 기본값을 1.5%가 아닌 **1.4%**로 설정(다른 4개 주는 표준 1.5% 유지) — jsdom 검증 시 이 차이를 반영해 확인함.
+   - 본문 2,000단어 이상(FAQ 포함) 전부 — 품질 기준(800단어) 대비 충분히 여유 있음.
+   - `late-payment-fee.html` 비교표(34개 주로 확장) + 카드 그리드(5개 카드 추가) + dateModified 07-20→07-27 갱신, `blog/index.html` 최신순 5개 추가(63개 항목 = blog 63개 파일과 일치 확인), `sitemap.xml` 5개 URL 신규 추가 + `late-payment-fee.html` 자체 lastmod도 07-27로 갱신.
+4. **검증**: 신규 5개 파일 전부 (1) `html.parser` 파싱 (2) `<div>`/`</div>` 개수 일치(13/13, 5개 전부) (3) JSON-LD `json.loads()` 유효성(스키마 2개씩, 총 10개) (4) FAQPage 스키마 항목 수(3개) = 화면 `<details>` 개수(3개) 일치, 5개 전부 (5) `node --check`로 계산기 위젯 JS 문법 검증, 5개 전부 통과 (6) **jsdom으로 실제 계산 실행 — 기본값과 변경값(3000/45일) 둘 다 검증**: West Virginia/Iowa/New Mexico/Delaware는 표준 1.5%로 $15.00/$1015.00 → $67.50/$3067.50, Arkansas만 1.4% 기본값이라 $14.00/$1014.00 → $63.00/$3063.00으로 다르게 나오는 것까지 확인. `late-payment-fee.html`/`blog/index.html`은 파싱+div짝+JSON-LD 재검증(각각 div 97/97, JSON-LD 3개 정상), posts 배열 63개 항목 = blog 파일 63개 일치 확인. `sitemap.xml`은 `ElementTree` 파싱 + 총 URL 111개 + 중복 없음 + 5개 신규 URL 존재 확인. 전부 통과.
+5. **처리하지 않은 것 (의도적 보류)**: 이번 세션은 신규 주 5개 확장에 집중했고, 기존 페이지 재보강(FAQ/스키마 재점검 등)은 이번엔 진행하지 않음 — 가장 트래픽이 큰 페이지들(late-payment-fee.html, freelance-tax-guide-for-beginners.html, how-to-write-a-freelance-contract.html)은 이미 여러 세션에 걸쳐 반복 보강했고 여전히 0클릭인 것으로 볼 때 추가 미세조정보다 근본적으로 헤드키워드 경쟁 문제로 재확인됨 — 다음에 이 3개 페이지를 다시 건드릴 땐 스키마/FAQ 보강이 아니라 다른 종류의 개입(예: 완전히 새로운 각도의 서브토픽 분할)을 검토할 가치가 있음.
+
+**다음 배치 후보 (16개 주 남음, 2026-07-27 기준)**: Kansas, South Dakota, North Dakota, Nebraska, Idaho, Montana, Wyoming, Utah, Connecticut, Mississippi, Rhode Island, New Hampshire, Vermont, Maine, Alaska, Hawaii. **Mississippi(AL/TN/LA 3개 주 전부 게시 — 접경 밀도 최고), Kansas(MO/OK 2개 게시)**가 다음 배치 우선순위로 특히 고려할 만함. 다음 세션에 "진행해"라는 지시만으로 5개 내외씩 이어서 확장 가능 — 단 매 배치 법령 1차자료 검증 및 경쟁강도 확인은 생략 금지.
 
 ---
 
