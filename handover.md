@@ -1,6 +1,6 @@
 # GetSoloTools 인수인계 문서 (handover.md)
 
-**최종 갱신**: 2026-08-03 (**수익화 정책 전면 개정 — "제휴 우선, 애드센스 부수적"으로 전환**. GSC/GA 분석 결과 Bing 유입이 구글의 4배라는 사실 최초 확인. 주 시리즈 확장은 한계효용 감소로 우선순위 강등, 다음 축은 "상업적 의도 키워드 × 우리만의 법령 리서치" 교차 지점. 상세는 "2026-08-03 세션" 및 "수익화 정책" 섹션 참고)
+**최종 갱신**: 2026-08-03 (2차 — **수익화 정책 전환을 실제로 실행한 첫 사례**: "상업적 의도 키워드 × 34개 주 법령 리서치" 교차 지점으로 신규 페이지 `blog/invoicing-software-automatic-late-fees.html` 제작. 10개 인보이싱 툴 자동연체료 기능 전수 재검증 과정에서 참고했던 2차 소스의 오류 2건 직접 발견/정정(Xero/QuickBooks). 상세는 "2026-08-03 세션 (2)" 참고)
 **갱신 방식이 v12까지와 다름**: 이제부터 이 문서는 새 채팅에 붙여넣는 방식이 아니라, **저장소에 직접 보관하고 계속 업데이트**하는 방식으로 운영한다. 새 세션에서는 이 파일(`handover.md`)을 clone 직후 가장 먼저 읽을 것.
 
 ---
@@ -97,7 +97,7 @@
 
 - **툴**: 19개 (Invoice Generator = index.html 포함, 2026-07-24에 Kill Fee Calculator 신규 추가 — late-fee 시리즈 밖 첫 클러스터에서 처음으로 블로그 위젯이 아닌 완전한 독립 툴 페이지 제작)
 - **이메일 템플릿**: 24개 (25개 파일이나 sending-nda.html 등 포함, v12 이후 변경 없음)
-- **블로그 글**: 63개 (late fee 지역 시리즈 34개 주 — 2026-07-27에 West Virginia/Arkansas/Iowa/New Mexico/Delaware 5개 추가 — + 그 외 29개, 그 중 `blog/freelance-isnt-free-act-states-guide.html`, `blog/freelance-kill-fee-clause.html`은 late-fee 시리즈 밖 첫 클러스터). 34개 주 전부 미니 계산기 위젯 + FAQPage 스키마 + "인접 주 비교" 콘텐츠 보유.
+- **블로그 글**: 64개 (late fee 지역 시리즈 34개 주 — 2026-07-27에 West Virginia/Arkansas/Iowa/New Mexico/Delaware 5개 추가 — + 그 외 30개, 그 중 `blog/freelance-isnt-free-act-states-guide.html`, `blog/freelance-kill-fee-clause.html`은 late-fee 시리즈 밖 첫 클러스터, `blog/invoicing-software-automatic-late-fees.html`(2026-08-03)은 "상업적 의도 키워드 × 주별 법령 리서치" 교차 축의 첫 페이지). 34개 주 전부 미니 계산기 위젯 + FAQPage 스키마 + "인접 주 비교" 콘텐츠 보유.
 
 ### 툴 목록 (18개, 경로는 v12 문서와 동일 — 변경 없음)
 Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Project Profit, Budget Planner, Contract Generator, Invoice Tracker, Client Proposal, Time Tracker, Milestone Calculator, Savings Calculator, NDA Generator, Client Intake Form, Expense Report, Scope of Work — **18개로 유지, 추가 없음**
@@ -385,6 +385,30 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 1. **주(州) 시리즈 추가 확장의 한계효용이 확실히 떨어졌다.** 34개 주가 이미 있고 개별 노출이 1~4회이므로, 5개를 더 만들어도 월 노출 증가분은 10~20회 수준으로 추정 — 수익 관점에서 사실상 의미 없음. **남은 16개 주는 "하면 좋지만 우선순위 낮음"으로 강등.** 단, 색인 속도가 빨라졌고 순위도 잘 나오므로 시리즈 자체를 폐기할 이유는 없음(저비용 유지 작업으로 취급).
 2. **다음 콘텐츠 축은 "상업적 의도(commercial intent) 키워드"여야 한다.** 지금까지의 콘텐츠는 전부 정보성(법률/계산기)이라 제휴 전환이 구조적으로 일어날 수 없는 형태였음. 제휴 수익을 내려면 "무엇을 살까/어떤 툴을 쓸까"를 묻는 트래픽이 필요함.
 3. **다만 "best invoicing software for freelancers" 같은 헤드 상업 키워드는 이미 포화**(Agiled, Taskip, Plutio, NerdWallet, Bloom 등 제휴 콘텐츠 팜이 장악, 2026-08-03 웹검색으로 확인). 우리가 이길 수 있는 건 **우리만 가진 자산(34개 주 사용료 상한 1차 법령 리서치)과 상업 키워드를 교차시킨 좁은 각도**뿐임 — 예: "어떤 인보이싱 툴이 연체료를 자동 부과하는가 + 각 주 법정 상한에 맞춰 몇 %로 설정해야 하는가". 이건 경쟁 콘텐츠 팜이 절대 못 쓰는 내용이고, 기존 34개 주 페이지 전체에서 내부링크를 걸 수 있는 허브가 됨.
+
+---
+
+### 2026-08-03 세션 (2) — 실행 (같은 날, Opus 프롬프트로 Sonnet 역할 실행)
+
+바로 위 "Opus의 전략 판단" 3번 항목을 실제로 실행. 신규 페이지 1개 제작 + 관련 페이지 6개 보강.
+
+**신규 제작**: `blog/invoicing-software-automatic-late-fees.html` — "Which Invoicing Tools Actually Auto-Apply Late Fees (And What Rate to Set in Your State)"
+
+1. **10개 인보이싱 툴을 전부 공식 문서/헬프센터 기준으로 직접 재검증** (FreshBooks, Bonsai, HoneyBook, Invoice Ninja, QuickBooks Online, Zoho Invoice, Wave, Xero, Stripe Invoicing, PayPal). **자동 적용 5개**(FreshBooks/Bonsai/HoneyBook/Invoice Ninja/QuickBooks Online), **수동만 가능 2개**(Wave — 공식 서포트 문서로 확인, Zoho Invoice 무료판 — Zoho Books/Billing이라는 유료 자매 제품과 혼동하기 쉬운 부분을 명확히 구분), **완전히 기능 자체가 없음 1개**(Xero — 10년 넘게 방치된 자체 제품 요청 게시판 확인, Paidnice 같은 서드파티 앱 필요), **리마인더만 있고 연체료 로직 없음 2개**(Stripe Invoicing, PayPal).
+2. **1차 조사에 참고한 Agiled 블로그 글이 최소 2곳에서 틀렸다는 걸 재검증 과정에서 직접 발견함** — QuickBooks를 "수동만"으로, Xero를 "자동 적용"으로 잘못 분류하고 있었음(실제로는 정반대: QuickBooks는 자동 있음, Xero는 아예 없음). **콘텐츠 팜/2차 소스 하나만 보고 베끼지 않고 툴 공식 문서·커뮤니티로 재검증한 게 이번 작업에서 가장 중요했던 단계** — 다음에 비슷한 소프트웨어 비교 콘텐츠를 만들 때도 이 원칙 유지할 것.
+3. 이 결과를 우리 사이트의 34개 주 법령 리서치와 교차 연결 — Arkansas(17%→1.4%/월 조정 필요), West Virginia/Iowa(사업목적 면제로 표준 요율 사용 가능), Delaware(법인 고객은 사용료 항변 자체가 봉쇄) 4개 주를 예시로 넣고 각 주 페이지로 링크.
+4. **제휴 링크 전혀 없음** — 아직 어떤 제휴 프로그램도 승인 전이라 전부 일반 링크. 특정 툴을 홍보하지 않고 "자동/수동/아예 없음"이라는 사실 구분만 다룸(무료 옵션인 Zoho/Wave도 공정하게 취급). 우리 사이트 자체 무료 툴(`/late-payment-fee.html`)도 "구독 없이 일회성 계산만 필요한 경우"로 자연스럽게 포함.
+5. 본문 약 2,700단어(요구 1,500단어 대비 충분), FAQ 4개(스키마=화면 `<details>` 개수 일치 확인), `.compare-table`은 4열이라 기존 주 페이지 패턴대로 `min-width:640px` 적용.
+
+**연동/보강 작업**:
+- `blog/how-to-calculate-late-fees-on-invoices.html`: 신규 페이지 링크 추가하는 과정에서 **기존 문장의 실제 오류를 발견해 수정** — "1.5%/월은 미국 전 주에서 법적으로 문제없다"는 기존 서술이 이번에 확인한 Arkansas 17% 상한과 정면으로 모순됨. "대부분의 주에서"로 정정하고 `/late-payment-fee.html` 주별 비교표로 유도하는 문장 추가. dateModified 06-13→08-03.
+- `blog/how-to-handle-late-payments-as-a-freelancer.html`: Step 3(연체료 적용) 섹션에 신규 페이지 상호링크. dateModified 04-28→08-03.
+- `late-payment-fee.html`: Related guides 목록에 신규 페이지 추가. dateModified 07-27→08-03.
+- **트래픽 상위 5개 주 페이지**(Ohio/New York/California/Illinois/Texas)의 cta-box 바로 아래에 신규 페이지로 가는 한 줄 링크 추가 — 지시받은 대로 34개 전체가 아니라 5개만. 5개 전부 dateModified 08-03으로 갱신.
+- `blog/index.html` 최신순 맨 앞에 추가(64개 항목 = blog 65개 파일 중 index.html 자신을 뺀 개수와 일치 확인), `sitemap.xml` 신규 URL 1개 추가 + 이번에 수정한 8개 파일 중 lastmod 필드가 원래 있던 6개는 08-03으로 갱신(`how-to-handle-late-payments-as-a-freelancer.html`, `how-to-calculate-late-fees-on-invoices.html` 2개는 원래부터 sitemap에 lastmod 필드 자체가 없는 페이지라 새로 추가하지 않고 기존 패턴 유지).
+6. **검증**: 신규 파일 html.parser 파싱/div짝(8/8)/JSON-LD 2개 유효/FAQ 4=details 4/단어수 2693 — 전부 통과. 수정한 8개 파일도 각각 파싱+div짝+JSON-LD 재검증 통과. `sitemap.xml`은 `ElementTree` 파싱 + 총 URL 112개 + 중복 없음 확인.
+
+**다음에 확인할 것**: 이 페이지는 지금까지의 법률/계산기 콘텐츠와 성격이 다른 "상업적 의도" 첫 시도이므로, 다음 GSC 데이터에서 색인 여부와 (더 중요하게는) 어떤 쿼리로 노출되는지 확인할 것 — "invoicing software late fee" 계열인지 "[툴 이름] late fee" 계열인지에 따라 다음 확장 방향이 갈림. 사용자가 FreshBooks 등 제휴 신청을 완료하면, 이 페이지의 일반 링크를 제휴 링크로 교체하는 작업을 우선순위로 진행할 것(신규 콘텐츠보다 이미 있는 페이지의 링크 교체가 더 빠른 수익화 경로).
 
 ---
 
