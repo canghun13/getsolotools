@@ -1,6 +1,6 @@
 # GetSoloTools 인수인계 문서 (handover.md)
 
-**최종 갱신**: 2026-08-03 (2차 — **수익화 정책 전환을 실제로 실행한 첫 사례**: "상업적 의도 키워드 × 34개 주 법령 리서치" 교차 지점으로 신규 페이지 `blog/invoicing-software-automatic-late-fees.html` 제작. 10개 인보이싱 툴 자동연체료 기능 전수 재검증 과정에서 참고했던 2차 소스의 오류 2건 직접 발견/정정(Xero/QuickBooks). 상세는 "2026-08-03 세션 (2)" 참고)
+**최종 갱신**: 2026-08-11 (일요일 주간 작업. **미매칭 쿼리 클러스터를 근거로 한 신규 페이지 1개 제작** `blog/how-to-negotiate-a-freelance-contract.html` — "클라이언트가 보낸 계약서를 협상/레드라인하는" 축을 34개 주 법령 자산과 교차. 이번 세션 최대 발견은 **GA4 Bing 유입이 Google의 5배이고, GSC 노출 0인 페이지가 GA에서는 2위 트래픽 페이지라는 사실** — 상세는 "2026-08-11 세션" 참고)
 **갱신 방식이 v12까지와 다름**: 이제부터 이 문서는 새 채팅에 붙여넣는 방식이 아니라, **저장소에 직접 보관하고 계속 업데이트**하는 방식으로 운영한다. 새 세션에서는 이 파일(`handover.md`)을 clone 직후 가장 먼저 읽을 것.
 
 ---
@@ -93,11 +93,11 @@
 
 ---
 
-## 사이트 구조 (2026-07-20 기준 실제 수치)
+## 사이트 구조 (2026-08-11 기준 실제 수치)
 
 - **툴**: 19개 (Invoice Generator = index.html 포함, 2026-07-24에 Kill Fee Calculator 신규 추가 — late-fee 시리즈 밖 첫 클러스터에서 처음으로 블로그 위젯이 아닌 완전한 독립 툴 페이지 제작)
 - **이메일 템플릿**: 24개 (25개 파일이나 sending-nda.html 등 포함, v12 이후 변경 없음)
-- **블로그 글**: 64개 (late fee 지역 시리즈 34개 주 — 2026-07-27에 West Virginia/Arkansas/Iowa/New Mexico/Delaware 5개 추가 — + 그 외 30개, 그 중 `blog/freelance-isnt-free-act-states-guide.html`, `blog/freelance-kill-fee-clause.html`은 late-fee 시리즈 밖 첫 클러스터, `blog/invoicing-software-automatic-late-fees.html`(2026-08-03)은 "상업적 의도 키워드 × 주별 법령 리서치" 교차 축의 첫 페이지). 34개 주 전부 미니 계산기 위젯 + FAQPage 스키마 + "인접 주 비교" 콘텐츠 보유.
+- **블로그 글**: 65개 (2026-08-11에 `blog/how-to-negotiate-a-freelance-contract.html` 추가 — "계약서 조항 협상 × 34개 주 법령" 축의 첫 페이지, 34개 주 데이터를 재사용하는 Contract Clause Checker 위젯 내장). late fee 지역 시리즈 34개 주 + 그 외 31개. 그 중 `blog/freelance-isnt-free-act-states-guide.html`, `blog/freelance-kill-fee-clause.html`은 late-fee 시리즈 밖 첫 클러스터, `blog/invoicing-software-automatic-late-fees.html`(2026-08-03)은 "상업적 의도 키워드 × 주별 법령 리서치" 교차 축의 첫 페이지. 34개 주 전부 미니 계산기 위젯 + FAQPage 스키마 + "인접 주 비교" 콘텐츠 보유.
 
 ### 툴 목록 (18개, 경로는 v12 문서와 동일 — 변경 없음)
 Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Project Profit, Budget Planner, Contract Generator, Invoice Tracker, Client Proposal, Time Tracker, Milestone Calculator, Savings Calculator, NDA Generator, Client Intake Form, Expense Report, Scope of Work — **18개로 유지, 추가 없음**
@@ -386,8 +386,6 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 2. **다음 콘텐츠 축은 "상업적 의도(commercial intent) 키워드"여야 한다.** 지금까지의 콘텐츠는 전부 정보성(법률/계산기)이라 제휴 전환이 구조적으로 일어날 수 없는 형태였음. 제휴 수익을 내려면 "무엇을 살까/어떤 툴을 쓸까"를 묻는 트래픽이 필요함.
 3. **다만 "best invoicing software for freelancers" 같은 헤드 상업 키워드는 이미 포화**(Agiled, Taskip, Plutio, NerdWallet, Bloom 등 제휴 콘텐츠 팜이 장악, 2026-08-03 웹검색으로 확인). 우리가 이길 수 있는 건 **우리만 가진 자산(34개 주 사용료 상한 1차 법령 리서치)과 상업 키워드를 교차시킨 좁은 각도**뿐임 — 예: "어떤 인보이싱 툴이 연체료를 자동 부과하는가 + 각 주 법정 상한에 맞춰 몇 %로 설정해야 하는가". 이건 경쟁 콘텐츠 팜이 절대 못 쓰는 내용이고, 기존 34개 주 페이지 전체에서 내부링크를 걸 수 있는 허브가 됨.
 
----
-
 ### 2026-08-03 세션 (2) — 실행 (같은 날, Opus 프롬프트로 Sonnet 역할 실행)
 
 바로 위 "Opus의 전략 판단" 3번 항목을 실제로 실행. 신규 페이지 1개 제작 + 관련 페이지 6개 보강.
@@ -409,6 +407,51 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 6. **검증**: 신규 파일 html.parser 파싱/div짝(8/8)/JSON-LD 2개 유효/FAQ 4=details 4/단어수 2693 — 전부 통과. 수정한 8개 파일도 각각 파싱+div짝+JSON-LD 재검증 통과. `sitemap.xml`은 `ElementTree` 파싱 + 총 URL 112개 + 중복 없음 확인.
 
 **다음에 확인할 것**: 이 페이지는 지금까지의 법률/계산기 콘텐츠와 성격이 다른 "상업적 의도" 첫 시도이므로, 다음 GSC 데이터에서 색인 여부와 (더 중요하게는) 어떤 쿼리로 노출되는지 확인할 것 — "invoicing software late fee" 계열인지 "[툴 이름] late fee" 계열인지에 따라 다음 확장 방향이 갈림. 사용자가 FreshBooks 등 제휴 신청을 완료하면, 이 페이지의 일반 링크를 제휴 링크로 교체하는 작업을 우선순위로 진행할 것(신규 콘텐츠보다 이미 있는 페이지의 링크 교체가 더 빠른 수익화 경로).
+
+---
+
+### 2026-08-11 세션 (일요일 주간 작업)
+
+**사용자 지시**: 서치콘솔+애널리틱스 확인 → 신규/보강 정리, 색인은 준 자료로만 판단, 신규 콘텐츠는 기존 파일과 중복 확인 + 웹검색 경쟁강도 확인 + 롱테일 전략 활용, 수익화 관점 우선순위, 대시보드/시각화 금지(텍스트 보고).
+
+**1. GSC 데이터 (2026-05-09~08-08, 3개월)**
+- 노출 3,597 / 클릭 15 / 쿼리 248개 / 페이지 97개 (08-03 대비 노출 +458, 쿼리 238→248, 페이지 94→97). 완만한 우상향 유지.
+- **08-03 신규 페이지 `invoicing-software-automatic-late-fees.html`이 8일 만에 색인됨** (4노출, 25.25위). 색인 속도가 빨라졌다는 07-27/08-03 관찰 재확인. 다만 노출이 적어 어떤 쿼리로 잡히는지는 아직 특정 불가 — **다음 세션 최우선 확인 대상**.
+- **헤드키워드 진단 4회 연속 동일**: `late-payment-fee.html` 745노출 71.43위 클릭 0, `how-to-write-a-freelance-contract.html` 429노출 84.36위, `freelance-tax-guide-for-beginners.html` 385노출 79.19위. 노출 대부분이 60~90위 구간.
+- **클릭 15건은 전부 좁은 페이지**: sending-nda 2(9.91위), NY주 2(8.97위), receipt 2(11.57위), OH/CA/MI/IL/TX/PA/NJ 각 1. 롱테일 전략 유효성 3회 연속 실증.
+- **신규 발견 — GSC 노출 3개월간 0인 blog 9개**: `common-freelance-tax-mistakes`, `freelance-contract-red-flags`, `freelance-invoice-vs-receipt`, `freelance-work-life-balance`, `how-to-create-a-freelance-portfolio`, `how-to-get-freelance-retainer-clients`, `how-to-set-your-freelance-hourly-rate`, `how-to-write-a-freelance-proposal`, `late-fee-laws-freelancers-kentucky`. (email-templates 쪽은 `deadline-extension-request`, `out-of-office`, `quote-email`, `sending-scope-of-work`, `testimonial-request`, `index` 6개.) 지금까지 handover에 기록된 적 없음.
+
+**2. GA4 데이터 (2026-07-14~08-10, 활성 62명/신규 60) — 이번 세션 최대 발견**
+- **Bing organic 25명 vs Google organic 5명 — Bing이 구글의 5배** (08-03엔 4배였음). 직접유입 30명. **08-03의 관찰이 우연이 아니라 구조적임이 확정됨.**
+- **`blog/common-freelance-tax-mistakes.html`이 GA 2위 페이지(25조회/25사용자, 이탈률 80%)인데 GSC 노출은 0.** Bing 사용자 25명과 숫자가 정확히 겹침. **즉 GSC만 보고 "이 페이지는 죽었다"고 판단하면 완전히 틀린다.** GA 1위는 여전히 Invoice Generator(`index.html`) 90조회/22사용자.
+- 레퍼럴 지속: sellwithboost.com 7세션, indiehackers.com 6세션, foundrlist 1, newtool.site 1.
+- 지역 여전히 국제적(Busan 6, 호치민/파리/케손시티/상하이/우루무치 각 2). 미국 도시는 소수 — 제휴 우선 판단을 계속 뒷받침.
+
+**3. Coverage (사용자 제공 zip 기준)**
+- 발견됨-미색인 **2건**: `blog/how-to-write-a-freelance-proposal.html`, `email-templates/quote-email.html` (둘 다 최종 크롤링 1970-01-01 = **한 번도 크롤링된 적 없음**). 이 2개는 07-14에 이미 직접 점검해서 robots/sitemap/canonical 문제 없음을 확인했고 콘텐츠 결함도 수정했는데도 여전히 크롤링 자체가 안 됨 — **콘텐츠 문제가 아니라 크롤 예산/도메인 신뢰도 문제로 결론.** 더 손대지 말 것.
+- 크롤링됨-미색인 4건: `late-fee-laws-freelancers-california.html`(07-10), `favicon.ico`, `how-to-handle-late-payments-as-a-freelancer.html`(07-02), `how-to-price-a-freelance-project.html`(05-30). CA 페이지는 미색인으로 잡혔는데도 GSC에 69노출 1클릭이 있으므로 Coverage 리포트 지연으로 판단.
+- 색인 요청은 금지 원칙대로 하지 않음.
+
+**4. 신규 제작: `blog/how-to-negotiate-a-freelance-contract.html`** (본문 약 2,650단어)
+- **선정 근거**: 미매칭 쿼리 클러스터 중 최대 — `how to negotiate a freelance contract` 32노출(82.5위), `starting off with freelancing contract work` 22, `how to tell if a freelance contract is fair` 2, `how to check freelance contract for hidden fees` 1. 전용 페이지 없음을 grep으로 확인. 기존 `freelance-contract-red-flags.html`은 "나쁜 계약서를 알아보는 법"(spotting)이고 협상/수정(redlining) 각도는 비어 있어 중복 아님 — 두 페이지를 상호링크로 명시적으로 역할 분리함.
+- **경쟁강도 확인**: 웹검색 결과 Bonsai/freelancermap/InvoBee/Skydo/Moxie 등이 있으나 **전부 일반론(태도·팁) 콘텐츠**. 주별 법정 수치나 실제 대체 문구를 제시한 곳은 없음 → 08-03 Opus 전략(우리만 가진 자산 × 좁은 각도)을 그대로 적용.
+- **구성**: 6개 조항별 실제 대체 문구(clause-box) — 연체료율 / 준거법·재판관할 / 중재조항 / 지급일정 / 해지·킬피 / 범위·변경명령.
+- **핵심 차별점 (중재조항)**: IL(820 ILCS 193/35(b))·NY(Gen. Bus. Law Art. 44-A)·CA(Bus. & Prof. Code §18100) 프리랜서보호법은 전부 "권리 포기 조항 무효"라고 명시하지만, **`Snazzi Reporting, Inc. v. Veritext, LLC`, 231 A.D.3d 687 (1st Dep't 2024)에서 연방중재법(FAA)이 NYC FIFA의 anti-waiver 조항을 선점한다고 판시**했고 주법 조문도 실질적으로 동일해 같은 결론이 예상됨. **Justia 판결문 원문으로 직접 확인 + Sher Tremonte/Mondaq 클라이언트 알림 2건으로 교차검증.** 즉 "포기 불가"인 권리도 평범한 중재조항 하나로 법정 밖으로 나갈 수 있다는 뜻 — 프리랜서 콘텐츠 시장에 이걸 다룬 곳이 없음. **다음에 계약/법률 콘텐츠를 팔 때 "법조문은 이렇게 말하지만 판례가 뒤집은 지점"을 찾는 이 패턴을 재사용할 것.**
+- **위젯: Contract Clause Checker** — 34개 주 select + 금액 입력 → ① 그 주에서 안전한 월 이율(+연이율 환산) ② 소액소송 한도와 입력 금액이 그 안에 들어가는지 판정 ③ 주법 보호 여부 ④ 해당 이율이 반영된 복사 가능한 조항 텍스트(copy 버튼). **데이터는 전부 기존 34개 주 페이지에서 이미 검증된 수치를 스크립트로 추출해 재사용(신규 법령 조사 아님).**
+- 이 과정에서 정리된 실용 수치: Arkansas 17% 상한→1.4%/월, Louisiana 12%→1%/월, **Kentucky는 $15,000 이하 계약 시 "19% 또는 연준할인율+4%p 중 낮은 쪽"이라 할인율이 낮으면 실효 상한이 8% 아래로 떨어짐**(기본값 0.6% 적용, 본문에서는 "현재 할인율을 먼저 확인하라"고 조건부 서술 — 할인율 수치를 단정하지 않음), Texas 18%가 정확히 천장(2% 불가), Delaware §2306은 법인/LLC 고객의 사용료 항변 자체를 봉쇄, WV §47-6-11·IA §535.2(2)는 사업목적 거래를 사용료 규제에서 면제.
+
+**5. 연동/보강**
+- `blog/index.html` 최신순 맨 앞 추가 (posts 65개 = blog 파일 65개, index.html 제외 기준 일치 확인).
+- `blog/how-to-write-a-freelance-contract.html`(429노출, 최대 계약 페이지) related 링크 추가 + dateModified 07-12→08-11.
+- `blog/freelance-contract-red-flags.html`(**노출 0 페이지 구제 목적**) 본문 링크 추가 + dateModified 05-08→08-11.
+- `blog/freelance-isnt-free-act-states-guide.html`(9.81위, 사이트 최고 순위권) **"One Clause That Can Route You Out of Court" 섹션 신규 추가**(Snazzi 판례) + 링크 + dateModified 07-24→08-11.
+- `contract-generator.html` related guides 링크 추가 + dateModified 07-14→08-11.
+- `sitemap.xml`: 신규 URL 1개 추가 + 위 3개 파일 lastmod 08-11 갱신. **`freelance-contract-red-flags.html`은 원래부터 sitemap에 lastmod 필드가 없는 페이지라 새로 추가하지 않고 기존 패턴 유지**(08-03 선례 동일). 총 URL 113개, 중복 없음.
+
+**6. 검증**: 신규 파일 (1) `html.parser` 파싱 (2) div 짝 19/19 (3) JSON-LD 2개 `json.loads()` (4) FAQPage 4항목 = 화면 `<details>` 4개 일치 (5) `node --check` (6) **jsdom 실행 8케이스**(KY/AR/LA/DE/NY/IN/TN, 기본값·변경값). 수정한 5개 파일도 파싱+div짝+JSON-LD 재검증, `blog/index.html`은 posts 배열 `node --check` 추가. `sitemap.xml`은 `ElementTree` 파싱 + 중복 없음. 전부 통과.
+- **검증 중 실제 버그 1건 발견/수정**: 위젯의 소액소송 한도 파싱이 `String(sc).replace(/[^0-9.]/g,'')` 방식이라, 금액이 두 개 적힌 주(NY "$10,000 in NYC Civil Court, $5,000 elsewhere", IN "$10,000 ($6,000 if an LLC self-represents)")에서 `100005000` 같은 값이 나왔음. `match(/\$([0-9,]+)/)`로 **첫 번째 금액만** 뽑도록 수정 후 재검증. **앞으로 문자열에서 숫자를 뽑는 위젯을 만들 때는 "그 문자열에 숫자가 두 개 이상 들어있는 케이스"를 반드시 테스트 케이스에 포함할 것.**
+
+**7. 이번에 하지 않은 것 (의도적)**: late-fee 주 시리즈 확장(08-03 판단대로 잔여 16개는 우선순위 낮음 유지), 노출 0 페이지 9개의 기계적 보강(아래 "열려있는 이슈" 참고 — Bing 데이터로 먼저 선별해야 함), 애드센스 관련 조치(결과 여부 여전히 미확인).
 
 ---
 
@@ -444,6 +487,7 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 - JS 있는 파일은 `node --check`로 문법 검증
 - 계산기 위젯은 가능하면 jsdom으로 실제 실행 검증. **단, `window.addEventListener('DOMContentLoaded', ...)` 패턴을 쓰는 페이지(대부분의 독립 툴)는 jsdom에서 이벤트가 비동기로 발생하므로, `new JSDOM()` 직후 곧바로 동기적으로 결과를 읽으면 초기 플레이스홀더 값만 보고 오탐(false negative)할 수 있음 — 반드시 `setTimeout`이나 `await`로 잠깐 기다린 뒤에 결과를 읽을 것.** (2026-07-24, `kill-fee-calculator.html` 검증 중 실제로 겪음 — 즉시 읽었더니 전부 $0으로 나와서 버그인 줄 알았으나 비동기 대기 후 재확인하니 정상이었음.)
 - `sitemap.xml`은 `xml.etree.ElementTree.parse()`로 유효성 검증 + 위 중복 체크
+- **문자열에서 숫자를 뽑아 쓰는 위젯은 "그 문자열에 숫자가 두 개 이상 들어있는 케이스"를 반드시 테스트할 것.** (2026-08-11, `how-to-negotiate-a-freelance-contract.html`의 Contract Clause Checker에서 실제로 겪음 — 소액소송 한도를 `replace(/[^0-9.]/g,'')`로 뽑았더니 New York("$10,000 in NYC Civil Court, $5,000 elsewhere")과 Indiana("$10,000 ($6,000 if an LLC self-represents)")에서 `100005000` 같은 값이 나옴. `match(/\$([0-9,]+)/)`로 첫 번째 금액만 뽑도록 수정.)
 
 ### 토큰/remote 관련
 - 세션마다 새 토큰을 받으면 기존 clone이 남아있어도 `git remote set-url origin https://canghun13:{새토큰}@github.com/canghun13/getsolotools.git`으로 갱신 후 사용할 것. (예전 토큰이 remote에 남아있으면 push 시 "Invalid username or token" 에러 발생함 — 2026-07-10에 실제로 겪음.)
@@ -461,6 +505,11 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 7. **사용자 승인 없이 먼저 진행하지 말 것.** 다만 (2026-07-14 사용자가 명시적으로 지적함) 같은 작업 축에서 이미 방향을 확정했으면 — 예: "차별화/틈새전략으로 최대한 해라"처럼 명시적으로 전권을 준 경우 — 그 이후 유사한 개별 작업(예: 18개 툴 각각에 자동저장 적용)마다 다시 확인받지 말고 계속 진행할 것. 매번 재확인은 사용자를 짜증나게 함. **새로운 종류/방향의 작업으로 넘어갈 때만** 승인을 구하면 됨.
 
 ## 현재 열려있는 이슈 (다음에 확인할 것)
+
+- **(2026-08-11 추가, 다음 세션 최우선 — 판단 기준 자체의 문제)** **GSC만 보고 페이지 가치를 판단하는 습관을 버릴 것.** GA4에서 Bing organic 25명 vs Google organic 5명(5배)이고, `blog/common-freelance-tax-mistakes.html`은 **GSC 노출이 3개월간 0인데 GA에서는 2위 트래픽 페이지(25조회/25사용자)**다. 즉 지금까지 "GSC 노출 없음 = 죽은 페이지"로 취급해온 판단이 최소 한 페이지에서 명백히 틀렸음. **사용자에게 Bing Webmaster Tools 데이터를 요청할 것**(08-03에도 같은 요청을 기록했으나 아직 미수령 — 다음 세션에 반드시 다시 요청). Bing은 ChatGPT 검색 백엔드이기도 하므로 AI 검색 유입이 이미 발생 중일 가능성이 높음.
+- **(2026-08-11 추가)** **GSC 노출 3개월간 0인 blog 9개**: `common-freelance-tax-mistakes`, `freelance-contract-red-flags`, `freelance-invoice-vs-receipt`, `freelance-work-life-balance`, `how-to-create-a-freelance-portfolio`, `how-to-get-freelance-retainer-clients`, `how-to-set-your-freelance-hourly-rate`, `how-to-write-a-freelance-proposal`, `late-fee-laws-freelancers-kentucky`. **이 목록을 근거로 기계적 보강에 들어가지 말 것** — 바로 위 항목대로 최소 1개(common-freelance-tax-mistakes)는 Bing에서 잘 돌아가고 있음이 확인됨. Bing 데이터를 받은 뒤에 "양쪽 다 0인 페이지"만 골라서 판단할 것. `freelance-contract-red-flags`는 이번 세션에 내부링크를 넣어뒀으니 다음 데이터에서 노출이 잡히는지 관찰.
+- **(2026-08-11 추가)** 이번 신규 페이지 `how-to-negotiate-a-freelance-contract.html`이 **어떤 쿼리로 잡히는지가 다음 확장 방향을 가름**: "negotiate freelance contract" 계열이면 일반 계약 조언 축, "arbitration clause / governing law / small claims" 계열이면 **조항 단위 롱테일**로 클러스터를 더 팔 수 있다는 신호(후자가 훨씬 유리 — 경쟁이 거의 없음). `invoicing-software-automatic-late-fees.html`(08-11 기준 4노출 25.25위)의 쿼리 종류도 함께 확인.
+- **(2026-08-11 확정)** 발견됨-미색인 2건(`blog/how-to-write-a-freelance-proposal.html`, `email-templates/quote-email.html`)은 **최종 크롤링이 1970-01-01, 즉 한 번도 크롤링된 적이 없음.** 07-14에 이미 robots/sitemap/canonical/콘텐츠 결함을 전부 점검·수정했는데도 그대로임 → **콘텐츠 문제가 아니라 크롤 예산/도메인 신뢰도 문제로 결론. 이 2개는 더 손대지 말 것.**
 
 - **(2026-07-24 추가, 다음 최우선 확인 대상)** 이번 세션에 신규 작성한 2개 페이지(`freelance-isnt-free-act-states-guide.html`, `freelance-kill-fee-clause.html`)는 late-fee 시리즈와 다른 새로운 키워드 축이라 GSC에 어떤 쿼리로 잡히는지 지금까지의 late-fee 패턴과 다를 수 있음 — 다음 GSC 데이터에서 "freelance isn't free act", "kill fee clause" 계열 쿼리 노출 여부부터 확인. 기존 New York/California 페이지 팩트 수정(NY주 전체 확대, CA SB988 추가)이 순위나 클릭에 영향을 주는지도 함께 관찰. 보류한 3개 클러스터(직업별 인보이스 템플릿/주별 소득세 계산기/플랫폼 수수료 계산기)는 롱테일로 좁혀서 재검토할 가치가 있다고 판단했으니, 사용자가 이어가길 원하면 그 방향으로 키워드를 다시 좁혀서 설계할 것.
 - **(2026-07-20 추가, 다음 최우선 확인 대상)** 이번 세션에 신규 작성한 5개 주(Kentucky/South Carolina/Alabama/Louisiana/Oklahoma)는 아직 GSC에 전혀 노출되지 않음 — 다음 세션에서 색인 여부부터 확인. 07-16 위젯 8개 주(NY/OH/CA/NJ 등)는 07-18 대비 클릭/순위에 유의미한 변화 없음(2~4일 간격은 여전히 판단하기엔 이름) — 계속 관찰. 07-18 신규 5개 주(TN/MO/MD/OR/NV)도 이번 세션까지 노출 0으로 아직 색인 전 단계로 추정.
