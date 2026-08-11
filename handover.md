@@ -1,6 +1,6 @@
 # GetSoloTools 인수인계 문서 (handover.md)
 
-**최종 갱신**: 2026-08-11 (일요일 주간 작업. **미매칭 쿼리 클러스터를 근거로 한 신규 페이지 1개 제작** `blog/how-to-negotiate-a-freelance-contract.html` — "클라이언트가 보낸 계약서를 협상/레드라인하는" 축을 34개 주 법령 자산과 교차. 이번 세션 최대 발견은 **GA4 Bing 유입이 Google의 5배이고, GSC 노출 0인 페이지가 GA에서는 2위 트래픽 페이지라는 사실** — 상세는 "2026-08-11 세션" 참고)
+**최종 갱신**: 2026-08-11 (2차 — **사용자 지적으로 방향 수정**. ① 판단 기준을 GSC(구글 전용)에서 **GA4**로 옮길 것 ② Bing/DuckDuckGo는 AI가 검색결과에 관여하므로 별개 채널로 다룰 것 ③ **같은 클러스터 반복 말고 신규 클러스터를 만들 것**. 이에 따라 Taxes 클러스터 신설: `blog/freelance-quarterly-tax-deadlines-penalty.html`. 상세는 "2026-08-11 세션 (2)" 참고)
 **갱신 방식이 v12까지와 다름**: 이제부터 이 문서는 새 채팅에 붙여넣는 방식이 아니라, **저장소에 직접 보관하고 계속 업데이트**하는 방식으로 운영한다. 새 세션에서는 이 파일(`handover.md`)을 clone 직후 가장 먼저 읽을 것.
 
 ---
@@ -455,6 +455,32 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 
 ---
 
+### 2026-08-11 세션 (2) — 사용자 지적에 따른 방향 수정
+
+**사용자가 명시적으로 지적한 것 (이후 세션은 이걸 기본 전제로 삼을 것)**
+1. **서치콘솔은 구글 기준일 뿐이다. 판단은 GA4로 하라.** GSC 노출/순위를 사이트 전체의 상태로 읽는 습관이 잘못됐음. GSC가 0이어도 GA에서 잘 도는 페이지가 실재함(`common-freelance-tax-mistakes.html`).
+2. **Bing/DuckDuckGo는 검색결과에 AI가 관여한다** — 구글과 같은 SEO 논리로 취급하지 말 것. GA4에서 Bing 25명 vs Google 5명(5배)인 이유가 여기 있음. 이건 자명한 전제이므로 매번 재설명하지 말 것.
+3. **매주 같은 클러스터(연체료 주 시리즈 / 계약서)만 반복하지 말고 신규 클러스터를 만들 것.**
+4. **제휴는 아직 아니다.** FreshBooks/PartnerStack **거절됨**(2026-08월 기준). 트래픽이 만들어진 뒤 재신청할 예정이며, 그 시점 판단은 사용자가 함. **에이전트가 "제휴 신청하세요"를 권고로 내놓지 말 것** — 트래픽 수준을 보면 거절이 예측 가능했고, 그 판단을 못 한 것이 지적 사유였음.
+
+**이번에 확인된 트래픽 구조 (참고용, 위 1번대로 GSC 수치는 보조 지표로만)**
+- 쿼리 노출의 78.9%가 70위 밖. 10위 이내 쿼리는 `solotools`/`getsolo` 브랜드 2개뿐. 비브랜드 10위권은 `ohio business late payment interest law commercial invoices`(12노출 10.58위) **단 1개**.
+- 페이지 20위 이내 = 노출 1,125(30%)에 클릭 15 전부 / 20위 밖 = 노출 2,678(70%)에 클릭 0.
+- **블로그 1개당 분기 기대 클릭은 0.1~0.4.** 즉 주간 신규 글 1개로는 구글 트래픽이 유의미하게 안 움직임. 이 산수를 모르고 매주 글을 추가했던 것이 이전 세션들의 오류.
+
+**신규 클러스터 신설: Taxes — `blog/freelance-quarterly-tax-deadlines-penalty.html`** (1,872단어)
+- **선정 근거(GA4 기반)**: GA에서 실제로 유입이 잡히는 축은 tax 계열임. `blog/common-freelance-tax-mistakes.html`이 **GSC 노출 0인데 GA 2위(25조회/25사용자)**이고 Bing 사용자 수와 정확히 일치. 이미 Bing/AI 쪽에서 먹히는 축을 넓히는 게 새 축을 도박하는 것보다 근거가 있음.
+- **중복 확인**: 기존 tax 파일 3개(`common-freelance-tax-mistakes` 951단어, `freelance-tax-guide-for-beginners` 2,188단어, `how-to-track-freelance-income-and-expenses`) H2를 전수 확인. **마감일 4개 날짜 / §6654 페널티 계산구조 / safe harbor 100·110% / W-2 원천징수의 연중 균등 간주 규칙은 전부 미커버**였음. `tax-estimator.html`과도 역할이 겹치지 않도록 위젯을 소득세 추정이 아닌 **safe harbor 부족분 계산기**로 설계함.
+- **1차 출처 검증**: 2026 Q3(7/1~9/30) 과소납부율 **7%** — Internal Revenue Bulletin 2026-22 / Rev. Rul. 2026-10 확인, §6654·6655에 동일 적용됨을 IRB 원문에서 확인. 2026년 중 변동(Q1 7% → Q2 6% → Q3 7%)도 기록. 마감일은 Form 1040-ES 원문으로 확인.
+- **AI 검색 대응 포맷**: H2를 자연어 질문형으로, 숫자·조문·날짜를 문장 안에 직접 박아넣음. 우리가 구글에서 유일하게 10위권에 든 쿼리가 자연어 법률 질문형(`ohio business late payment interest law commercial invoices`)이었던 것과 같은 형태.
+- **위젯**: Safe Harbor & Penalty Estimator — 전년도 총세액 + AGI 15만 초과 여부 + 기납부액 + 회차 → 목표액/회차당 금액/부족분/신고기한까지의 대략적 이자. jsdom 4케이스 검증(정상/on-track/110%/전년도 0 엣지). 본문의 "$3,000을 9/15에 놓치면 약 $122" 예시와 위젯 계산이 일치하는지도 교차 확인함.
+- **YMYL 대응**: 하단에 세무 자문 아님 + 주(州)별 규칙 상이 + 분기마다 요율 변동 고지 명시.
+- **내부링크**: `common-freelance-tax-mistakes.html`(Bing 유입원 → 신규로 연결, 트래픽 전달 목적) 본문 섹션 추가, `freelance-tax-guide-for-beginners.html`(385노출) related 추가. 둘 다 dateModified 08-11.
+
+**하지 않은 것**: 1페이지권 페이지들의 title/meta 재작성(CTR 개선안)은 제안만 하고 실행하지 않음 — 근거가 GSC 기반이었고, 실제로 클릭이 나오는 페이지를 건드리는 리스크가 있어 사용자 판단이 필요함. 다음 세션에서 GA4/Bing 데이터로 다시 검토할 것.
+
+---
+
 ## 기술 주의사항
 
 ### nav.js
@@ -505,6 +531,12 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 7. **사용자 승인 없이 먼저 진행하지 말 것.** 다만 (2026-07-14 사용자가 명시적으로 지적함) 같은 작업 축에서 이미 방향을 확정했으면 — 예: "차별화/틈새전략으로 최대한 해라"처럼 명시적으로 전권을 준 경우 — 그 이후 유사한 개별 작업(예: 18개 툴 각각에 자동저장 적용)마다 다시 확인받지 말고 계속 진행할 것. 매번 재확인은 사용자를 짜증나게 함. **새로운 종류/방향의 작업으로 넘어갈 때만** 승인을 구하면 됨.
 
 ## 현재 열려있는 이슈 (다음에 확인할 것)
+
+- **(2026-08-11 2차, 최우선 전제) 판단은 GA4로, GSC는 구글 한정 보조지표로만.** Bing/DuckDuckGo는 AI가 검색결과에 관여하는 별개 채널이며 GA4에서 Bing이 Google의 5배(25 vs 5). 이건 사용자가 자명한 전제로 못박은 사항이므로 다시 설명하거나 되묻지 말 것.
+- **(2026-08-11 2차) 제휴 신청은 권고하지 말 것.** FreshBooks/PartnerStack 거절됨. 재신청 시점은 사용자가 트래픽 보고 판단함. 에이전트는 트래픽을 만드는 데 집중.
+- **(2026-08-11 2차) 매주 같은 클러스터 반복 금지.** 연체료 주 시리즈 / 계약서 축은 당분간 확장하지 말고, GA4에서 실제 유입이 확인되는 축으로 신규 클러스터를 만들 것. 이번에 Taxes 클러스터를 신설했으므로, 다음은 그 성과를 보고 판단하거나 또 다른 축을 찾을 것.
+- **(2026-08-11 2차) 신규 tax 페이지 관찰 포인트**: `freelance-quarterly-tax-deadlines-penalty.html`은 GSC보다 **GA4에서 Bing 유입이 붙는지**를 먼저 볼 것. 붙으면 "Bing/AI에서 먹히는 포맷(자연어 질문 H2 + 숫자·조문 직접 명기)"이 재현 가능하다는 뜻이므로 그 포맷으로 클러스터를 넓힐 것. Q3 마감(9/15) 직후인 9월 하순~10월 데이터가 가장 유의미함.
+- **(2026-08-11 2차) 7% 요율은 분기마다 바뀜.** Q4 2026 요율이 발표되면 `freelance-quarterly-tax-deadlines-penalty.html` 본문·FAQ·위젯 `RATE` 상수(현재 0.07)를 함께 갱신할 것. 세 곳 모두 고쳐야 함.
 
 - **(2026-08-11 추가, 다음 세션 최우선 — 판단 기준 자체의 문제)** **GSC만 보고 페이지 가치를 판단하는 습관을 버릴 것.** GA4에서 Bing organic 25명 vs Google organic 5명(5배)이고, `blog/common-freelance-tax-mistakes.html`은 **GSC 노출이 3개월간 0인데 GA에서는 2위 트래픽 페이지(25조회/25사용자)**다. 즉 지금까지 "GSC 노출 없음 = 죽은 페이지"로 취급해온 판단이 최소 한 페이지에서 명백히 틀렸음. **사용자에게 Bing Webmaster Tools 데이터를 요청할 것**(08-03에도 같은 요청을 기록했으나 아직 미수령 — 다음 세션에 반드시 다시 요청). Bing은 ChatGPT 검색 백엔드이기도 하므로 AI 검색 유입이 이미 발생 중일 가능성이 높음.
 - **(2026-08-11 추가)** **GSC 노출 3개월간 0인 blog 9개**: `common-freelance-tax-mistakes`, `freelance-contract-red-flags`, `freelance-invoice-vs-receipt`, `freelance-work-life-balance`, `how-to-create-a-freelance-portfolio`, `how-to-get-freelance-retainer-clients`, `how-to-set-your-freelance-hourly-rate`, `how-to-write-a-freelance-proposal`, `late-fee-laws-freelancers-kentucky`. **이 목록을 근거로 기계적 보강에 들어가지 말 것** — 바로 위 항목대로 최소 1개(common-freelance-tax-mistakes)는 Bing에서 잘 돌아가고 있음이 확인됨. Bing 데이터를 받은 뒤에 "양쪽 다 0인 페이지"만 골라서 판단할 것. `freelance-contract-red-flags`는 이번 세션에 내부링크를 넣어뒀으니 다음 데이터에서 노출이 잡히는지 관찰.
