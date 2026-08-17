@@ -621,6 +621,12 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 - JS 있는 파일은 `node --check`로 문법 검증
 - 계산기 위젯은 가능하면 jsdom으로 실제 실행 검증. **단, `window.addEventListener('DOMContentLoaded', ...)` 패턴을 쓰는 페이지(대부분의 독립 툴)는 jsdom에서 이벤트가 비동기로 발생하므로, `new JSDOM()` 직후 곧바로 동기적으로 결과를 읽으면 초기 플레이스홀더 값만 보고 오탐(false negative)할 수 있음 — 반드시 `setTimeout`이나 `await`로 잠깐 기다린 뒤에 결과를 읽을 것.** (2026-07-24, `kill-fee-calculator.html` 검증 중 실제로 겪음 — 즉시 읽었더니 전부 $0으로 나와서 버그인 줄 알았으나 비동기 대기 후 재확인하니 정상이었음.)
 - `sitemap.xml`은 `xml.etree.ElementTree.parse()`로 유효성 검증 + 위 중복 체크
+- **표 가로스크롤 힌트(`.table-scroll-hint`)는 반드시 `.table-scroll` 컨테이너 *바깥*, 바로 앞 형제로 둘 것.** 컨테이너 *안*에 넣으면 표를 옆으로 밀 때 힌트도 같이 밀려나가 "Scroll sideways to see all columns" 문구가 화면 밖으로 사라진다(2026-08-17에 사용자가 스크린샷으로 지적). 기존 주(州) 페이지들은 원래 바깥에 있었는데, 08-11·08-17에 새로 만든 5개 파일에서 안쪽에 넣어 재현됨. 올바른 형태:
+  ```html
+  <p class="table-scroll-hint"><span aria-hidden="true">↔</span> Scroll sideways to see all columns</p>
+  <div class="table-scroll"><table class="compare-table">…</table></div>
+  ```
+  검증은 정규식보다 DOM으로: `h.closest('.table-scroll')`가 null이어야 하고, 힌트의 `nextElementSibling`이 `.table-scroll`이어야 한다. 스크롤 컨테이너가 인라인 스타일(`style="overflow-x:auto"`)인 페이지도 있으므로 `div[style*="overflow-x"]`도 같이 볼 것.
 - **한 파일에서 CSS/구조 결함을 발견하면 반드시 전수 스캔할 것.** 이 사이트는 페이지마다 CSS가 인라인으로 중복돼 있어 같은 결함이 여러 파일에 흩어져 있다. 2026-08-11에 `.article-body a` 누락을 2개 파일에서 고쳤는데, 08-17에 스캔해보니 **9개가 더 있었다**(GSC 3위 페이지와 클릭 나오는 CA 페이지 포함). 개별 수정으로 끝내면 같은 일이 매주 반복된다. 스캔 예시:
   스캔 시 **본문 영역은 `class="article-body"` 위치부터 `<footer>` 직전까지로 자를 것.** 정규식으로 `</div></div>`까지 매칭하면 패턴이 안 맞는 파일에서 본문을 빈 값으로 반환해 결함을 놓치고, 파일 전체를 훑으면 푸터 링크가 오탐된다(2026-08-17에 둘 다 실제로 겪음 — 9개 누락 → 48개 오탐 → 최종 13개 확정).
 - **문자열에서 숫자를 뽑아 쓰는 위젯은 "그 문자열에 숫자가 두 개 이상 들어있는 케이스"를 반드시 테스트할 것.** (2026-08-11, `how-to-negotiate-a-freelance-contract.html`의 Contract Clause Checker에서 실제로 겪음 — 소액소송 한도를 `replace(/[^0-9.]/g,'')`로 뽑았더니 New York("$10,000 in NYC Civil Court, $5,000 elsewhere")과 Indiana("$10,000 ($6,000 if an LLC self-represents)")에서 `100005000` 같은 값이 나옴. `match(/\$([0-9,]+)/)`로 첫 번째 금액만 뽑도록 수정.)
