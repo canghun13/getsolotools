@@ -1,6 +1,6 @@
 # GetSoloTools 인수인계 문서 (handover.md)
 
-**최종 갱신**: 2026-08-11 (2차 — **사용자 지적으로 방향 수정**. ① 판단 기준을 GSC(구글 전용)에서 **GA4**로 옮길 것 ② Bing/DuckDuckGo는 AI가 검색결과에 관여하므로 별개 채널로 다룰 것 ③ **같은 클러스터 반복 말고 신규 클러스터를 만들 것**. 이에 따라 Taxes 클러스터 신설: `blog/freelance-quarterly-tax-deadlines-penalty.html`. 상세는 "2026-08-11 세션 (2)" 참고)
+**최종 갱신**: 2026-08-17 (**Bing Webmaster 데이터 최초 수령 — 이번 세션 최대 소득**. 같은 콘텐츠로 Bing 평균순위 1~9위 vs Google 70~90위. 즉 우리 병목은 Google=순위, Bing=쿼리 노출량으로 완전히 다름. Bing 쿼리 형태가 전부 긴 대화체(AI 경유)임을 확인. 이에 근거해 `blog/is-a-daily-late-fee-legal.html` 신설 — 프리랜서가 아닌 **vendor/contractor/small business** 오디언스로 확장. 상세는 "2026-08-17 세션" 참고)
 **갱신 방식이 v12까지와 다름**: 이제부터 이 문서는 새 채팅에 붙여넣는 방식이 아니라, **저장소에 직접 보관하고 계속 업데이트**하는 방식으로 운영한다. 새 세션에서는 이 파일(`handover.md`)을 clone 직후 가장 먼저 읽을 것.
 
 ---
@@ -96,11 +96,11 @@
 
 ---
 
-## 사이트 구조 (2026-08-11 기준 실제 수치)
+## 사이트 구조 (2026-08-17 기준 실제 수치)
 
 - **툴**: 19개 (Invoice Generator = index.html 포함, 2026-07-24에 Kill Fee Calculator 신규 추가 — late-fee 시리즈 밖 첫 클러스터에서 처음으로 블로그 위젯이 아닌 완전한 독립 툴 페이지 제작)
 - **이메일 템플릿**: 24개 (25개 파일이나 sending-nda.html 등 포함, v12 이후 변경 없음)
-- **블로그 글**: 65개 (2026-08-11에 `blog/how-to-negotiate-a-freelance-contract.html` 추가 — "계약서 조항 협상 × 34개 주 법령" 축의 첫 페이지, 34개 주 데이터를 재사용하는 Contract Clause Checker 위젯 내장). late fee 지역 시리즈 34개 주 + 그 외 31개. 그 중 `blog/freelance-isnt-free-act-states-guide.html`, `blog/freelance-kill-fee-clause.html`은 late-fee 시리즈 밖 첫 클러스터, `blog/invoicing-software-automatic-late-fees.html`(2026-08-03)은 "상업적 의도 키워드 × 주별 법령 리서치" 교차 축의 첫 페이지. 34개 주 전부 미니 계산기 위젯 + FAQPage 스키마 + "인접 주 비교" 콘텐츠 보유.
+- **블로그 글**: 67개 (2026-08-17에 `blog/is-a-daily-late-fee-legal.html` 추가 — 일일 연체료 합법성, **freelancer가 아닌 vendor/contractor/small business 오디언스를 처음으로 명시 수용한 페이지**. Daily Late Fee Checker 위젯 내장). late fee 지역 시리즈 34개 주 + 그 외 33개. `freelance-isnt-free-act-states-guide`/`freelance-kill-fee-clause`는 late-fee 시리즈 밖 첫 클러스터, `invoicing-software-automatic-late-fees`(08-03)는 상업적 의도 축, `how-to-negotiate-a-freelance-contract`(08-11)는 계약 조항 협상 축, `freelance-quarterly-tax-deadlines-penalty`(08-11)는 Taxes 축. 34개 주 전부 미니 계산기 위젯 + FAQPage 스키마 보유.
 
 ### 툴 목록 (18개, 경로는 v12 문서와 동일 — 변경 없음)
 Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Project Profit, Budget Planner, Contract Generator, Invoice Tracker, Client Proposal, Time Tracker, Milestone Calculator, Savings Calculator, NDA Generator, Client Intake Form, Expense Report, Scope of Work — **18개로 유지, 추가 없음**
@@ -150,6 +150,10 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 | A | MAU < 500 **또는** 상업 페이지 월 50뷰 미만 **또는** 미국 비중 30% 미만 | **제휴 언급 자체 금지.** 제휴용 콘텐츠(툴 비교/리뷰형)도 만들지 말 것. 100% 트래픽 작업. |
 | B | MAU 500~2,000 **그리고** 상업 페이지 월 50뷰+ **그리고** 미국 비중 30%+ | 에이전트가 먼저 "이제 신청 시점"이라고 보고 + 프로그램 후보 제시 |
 | C | MAU 2,000+ 이면서 위 조건 충족 | 신청 권고 + 링크 삽입 작업 착수 |
+
+**2026-08-17 기준 실측 → 구간 A 유지 (셋 다 미달)**
+- MAU **67** / 상업 페이지 `invoicing-software-automatic-late-fees.html` **월 1조회** / 미국 비중 **약 18%** (도시 잡힌 44명 중 8명)
+- 2주 연속 실질 변동 없음. **미국 비중은 오히려 20%→18%로 내려감** — MAU가 늘어도 미국 비중이 안 따라오면 제휴는 계속 무의미하다는 아래 경고가 실제로 관측된 것.
 
 **2026-08-11 기준 실측 → 구간 A (셋 다 미달, 압도적으로)**
 - MAU **62**
@@ -515,6 +519,62 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 
 ---
 
+### 2026-08-17 세션 (일요일 주간 작업) — Bing 데이터 최초 수령
+
+**1. Bing Webmaster (최초 수령, 이번 세션 최대 소득)**
+
+| | Google (GSC) | Bing |
+|---|---|---|
+| 총 노출 | 4,097 (3개월) | 17 |
+| 평균 순위 | 70~90위대에 노출 78.9% 집중 | **1~9위** |
+| 병목 | **순위** (콘텐츠는 있는데 안 보임) | **쿼리 노출량** (잘 보이는데 검색이 적음) |
+
+**같은 콘텐츠인데 두 엔진의 병목이 정반대다.** 이게 이번 데이터의 핵심이고, 앞으로 모든 판단의 전제로 삼을 것. Google 순위는 도메인 신뢰도 문제라 콘텐츠로 단기 개선이 안 되지만, **Bing은 이미 1~9위이므로 "그 쿼리가 존재하기만 하면" 바로 트래픽이 된다.** 따라서 확장 방향은 Bing에서 검색될 만한 쿼리 표면을 늘리는 것.
+
+**Bing 쿼리 9개 전체 (형태가 중요)**
+- `common mistakes with freelance taxes` — 4노출 **1클릭 1위**
+- `self employed hourly rate calculator` 3위 / `freelance taxes for beginners` 9위 / `freelance taxes explained simply` 9위
+- `freelance social media manager late payment follow-up tools` — **5위**
+- `freelance client interview rate negotiation questions scope payment terms` — **2.5위**
+- `is paying for completed work a red flag when freelancing` — 9위
+- `ohio vendor late fee law - painter charging 10% late fee per day` — **4위**
+- `late fee % for colorado government contracts` — **2위**
+
+뒤 5개를 보면 **전부 긴 대화체 문장**이다. 사람이 검색창에 치는 형태가 아니라 AI 어시스턴트를 경유한 질의 형태(사용자가 지적한 "Bing/DDG는 AI가 관여한다"가 데이터로 확인됨). **따라서 콘텐츠 포맷은 자연어 질문 H2 + 숫자·조문을 문장 안에 직접 명기하는 방식을 계속 유지할 것.**
+
+**2. 결정적 발견 — 우리 독자는 프리랜서가 아닐 수 있다**
+- Bing: `ohio **vendor** late fee law - **painter** charging 10% late fee per day` (4위), `late fee % for colorado **government contracts**` (2위)
+- Google: 유일한 비브랜드 10위권이 `ohio **business** late payment interest law **commercial invoices**` (12노출 10.58위)
+
+**양쪽 엔진에서 독립적으로 같은 신호**: 우리 주별 연체료 페이지가 freelancer가 아니라 **vendor / contractor / painter / 소상공인** 쿼리로 잡히고 있다. 그런데 제목은 전부 "for **Freelancers**"다. 이 미스매치가 노출 대비 클릭이 안 나오는 이유일 가능성이 높다.
+**대응 방식(중요)**: 기존 페이지 제목을 갈아엎는 도박 대신 **신규 페이지로 그 오디언스를 받는** 방식을 택했다. 기존 주 페이지는 클릭이 나오는 유일한 자산이라 건드리면 잃을 게 크고, 다음 달 비교 기준도 사라지기 때문. 다만 Ohio 페이지 본문에는 "이 규칙은 프리랜서 전용이 아니라 상거래 인보이스 일반 규칙"이라는 문단을 추가해 해당 독자를 명시적으로 수용했다.
+
+**3. GA4 (07-20~08-16, 4주)**
+- MAU **67** (전 62), direct 33 / **bing 25** / google 5 — Bing 5배 구도 유지
+- `common-freelance-tax-mistakes.html` **27조회/27사용자** (전 25) — 여전히 GSC 노출 0인데 GA 최다 사용자 페이지. Bing 1위 쿼리와 정확히 대응됨. **GSC 사각지대가 2주 연속 재확인.**
+- `late-fee-laws-freelancers-west-virginia.html` 9조회/2사용자 **이탈률 0%** — 신규 관측
+- 08-11 신규 2개는 각 1조회 (색인 초기라 판단 보류)
+- 미국 비중: 도시 잡힌 44명 중 미국 8명 = **약 18%**
+
+**4. 제휴 판단 (규칙대로 기계적 실행) → 구간 A 유지, 제휴 언급 안 함**
+- MAU 67 (<500 미달) / 상업 페이지 `invoicing-software-automatic-late-fees.html` **월 1조회** (50 미달) / 미국 비중 18% (30% 미달). **셋 다 미달.**
+- 지난주와 실질 변동 없음. 재신청 논의는 무의미하므로 하지 않았다.
+
+**5. 신규: `blog/is-a-daily-late-fee-legal.html`** (2,138단어)
+- **선정 근거**: 위 2번의 양 엔진 동일 신호. Bing에서 이미 4위로 잡히는 쿼리에 전용 페이지가 없었다.
+- **중복 확인**: `how-to-calculate-late-fees-on-invoices.html`과 `late-payment-fee.html`에 "daily" 언급이 있으나 **전부 계산 방식(연이율÷365) 얘기이고, "하루 X% 청구가 합법인가"라는 법적 각도는 완전히 비어 있었음.** penalty/liquidated damages 법리는 Florida 주 페이지에 한 번 스쳐 지나갈 뿐.
+- **경쟁 확인**: 웹검색 결과 liquidated damages 일반론은 많으나 전부 임대차·건설 맥락. **"인보이스 일일 연체료를 연이율로 환산해 주별 상한과 교차 검증"하는 조합은 없음.**
+- **검증한 법리**: UCC §2-718(불합리하게 큰 액수는 penalty로 무효), Cal. Civ. Code §1671(b)(비소비자 계약은 유효 추정, 무효 주장하는 쪽이 입증책임 — Justia/FindLaw 조문 원문 확인), Ridgley v. Topa Thrift & Loan Ass'n(CA 대법원이 징벌적 조항 무효화), 연방 Prompt Payment Act(31 U.S.C. §3901 et seq.). **정부계약 부분은 요율을 단정하지 않고 "관할별 개별 확인" 수준으로만 서술** — Colorado 정부계약 쿼리(Bing 2위) 대응은 하되 미검증 수치는 쓰지 않음.
+- **위젯**: Daily Late Fee Checker — 일율(% 또는 정액$) → 연율 환산 → 34개 주 상한 교차 → 4단계 판정(정상/공격적/상한초과/거의 확실히 무효). jsdom 7케이스 검증(기본/정상범위/AR·TX 상한초과/LA 상한내/정액$/금액0 엣지).
+- **오디언스 확장 장치**: 제목·본문에서 freelancer로 한정하지 않고 vendor/contractor/supplier를 명시. "청구하는 쪽"과 "청구당하는 쪽" 양쪽 섹션을 둠.
+- 연동: Ohio(양 엔진 business 쿼리 페이지), how-to-calculate-late-fees, late-payment-fee(810노출 최대 페이지), blog/index, sitemap 115개.
+
+**6. 사이트 전체 결함 발견/수정 — `.article-body a` 규칙 누락 9개 파일**
+지난주 2개 파일에서 발견해 고쳤는데 **같은 결함이 9개 더 있었다**(본문 링크가 브라우저 기본 파란색+밑줄로 렌더). 포함된 페이지: `freelance-tax-guide-for-beginners`(413노출, GSC 3위 페이지), `late-fee-laws-freelancers-california`(6.46위, 클릭 1), `late-fee-laws-freelancers-texas`, `how-to-handle-late-payments-as-a-freelancer` 등. 전수 스크립트로 스캔해 일괄 수정, 재스캔 결과 잔여 0.
+**교훈**: 이 사이트는 페이지마다 CSS가 인라인 중복이라 **한 파일에서 발견한 결함은 반드시 전수 스캔할 것.** 개별 수정으로 끝내면 2주 연속 같은 일이 반복된다.
+
+---
+
 ## 기술 주의사항
 
 ### nav.js
@@ -547,6 +607,8 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 - JS 있는 파일은 `node --check`로 문법 검증
 - 계산기 위젯은 가능하면 jsdom으로 실제 실행 검증. **단, `window.addEventListener('DOMContentLoaded', ...)` 패턴을 쓰는 페이지(대부분의 독립 툴)는 jsdom에서 이벤트가 비동기로 발생하므로, `new JSDOM()` 직후 곧바로 동기적으로 결과를 읽으면 초기 플레이스홀더 값만 보고 오탐(false negative)할 수 있음 — 반드시 `setTimeout`이나 `await`로 잠깐 기다린 뒤에 결과를 읽을 것.** (2026-07-24, `kill-fee-calculator.html` 검증 중 실제로 겪음 — 즉시 읽었더니 전부 $0으로 나와서 버그인 줄 알았으나 비동기 대기 후 재확인하니 정상이었음.)
 - `sitemap.xml`은 `xml.etree.ElementTree.parse()`로 유효성 검증 + 위 중복 체크
+- **한 파일에서 CSS/구조 결함을 발견하면 반드시 전수 스캔할 것.** 이 사이트는 페이지마다 CSS가 인라인으로 중복돼 있어 같은 결함이 여러 파일에 흩어져 있다. 2026-08-11에 `.article-body a` 누락을 2개 파일에서 고쳤는데, 08-17에 스캔해보니 **9개가 더 있었다**(GSC 3위 페이지와 클릭 나오는 CA 페이지 포함). 개별 수정으로 끝내면 같은 일이 매주 반복된다. 스캔 예시:
+  `python3 -c "import re,glob; [print(f) for f in glob.glob('blog/*.html') if 'article-body' in open(f).read() and not re.search(r'\.article-body a\s*\{',open(f).read())]"`
 - **문자열에서 숫자를 뽑아 쓰는 위젯은 "그 문자열에 숫자가 두 개 이상 들어있는 케이스"를 반드시 테스트할 것.** (2026-08-11, `how-to-negotiate-a-freelance-contract.html`의 Contract Clause Checker에서 실제로 겪음 — 소액소송 한도를 `replace(/[^0-9.]/g,'')`로 뽑았더니 New York("$10,000 in NYC Civil Court, $5,000 elsewhere")과 Indiana("$10,000 ($6,000 if an LLC self-represents)")에서 `100005000` 같은 값이 나옴. `match(/\$([0-9,]+)/)`로 첫 번째 금액만 뽑도록 수정.)
 
 ### 토큰/remote 관련
@@ -565,6 +627,13 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 7. **사용자 승인 없이 먼저 진행하지 말 것.** 다만 (2026-07-14 사용자가 명시적으로 지적함) 같은 작업 축에서 이미 방향을 확정했으면 — 예: "차별화/틈새전략으로 최대한 해라"처럼 명시적으로 전권을 준 경우 — 그 이후 유사한 개별 작업(예: 18개 툴 각각에 자동저장 적용)마다 다시 확인받지 말고 계속 진행할 것. 매번 재확인은 사용자를 짜증나게 함. **새로운 종류/방향의 작업으로 넘어갈 때만** 승인을 구하면 됨.
 
 ## 현재 열려있는 이슈 (다음에 확인할 것)
+
+- **(2026-08-17, 최우선 전제) 두 엔진의 병목이 정반대다.** Google = 순위 문제(노출 78.9%가 70위 밖, 콘텐츠로 단기 개선 불가), Bing = 쿼리 노출량 문제(이미 1~9위, 쿼리만 존재하면 즉시 트래픽). **따라서 신규 콘텐츠의 목표는 "Google 순위를 올린다"가 아니라 "Bing에서 검색될 쿼리 표면을 늘린다"로 잡을 것.** Bing 쿼리는 전부 긴 대화체(AI 경유)이므로 자연어 질문 H2 + 숫자·조문 직접 명기 포맷을 유지.
+- **(2026-08-17) 우리 독자는 프리랜서가 아닐 수 있다.** Bing `ohio vendor... painter charging 10% late fee per day`(4위), `late fee % for colorado government contracts`(2위), Google `ohio business late payment interest law commercial invoices`(10.58위, 유일한 비브랜드 10위권). **양 엔진 독립 신호.** 그런데 주 페이지 제목은 전부 "for Freelancers". 이번엔 신규 페이지로 그 오디언스를 받았고, 기존 제목은 건드리지 않았다(클릭 나오는 유일한 자산이라 리스크가 큼). **다음 데이터에서 신규 페이지가 vendor/business 쿼리를 실제로 흡수하면, 그때 기존 제목 변경을 검토할 근거가 생긴다.**
+- **(2026-08-17) 미완 클러스터 2개** — 이번에 Bing 데이터로 발견했으나 시간상 착수 못 함. 둘 다 Bing 상위권이고 전용 페이지가 없다:
+  ① `freelance client interview rate negotiation questions scope payment terms`(**2.5위**) — 킥오프/디스커버리 콜에서 물어볼 질문 리스트. `client-intake-form.html`, `freelance-client-onboarding-checklist.html`과 중복 확인 필수.
+  ② `freelance social media manager late payment follow-up tools`(**5위**) — 직군별(social media manager 등) 버티컬 각도. 기존 콘텐츠에 버티컬 세분화가 전혀 없어 신규 축이 될 수 있음.
+- **(2026-08-17) 관찰 포인트**: `is-a-daily-late-fee-legal.html`이 Bing에서 며칠 만에 잡히는지 vs Google에서 몇 주 걸리는지. 두 엔진 색인 속도 차이를 처음으로 정량 비교할 수 있는 기회. 08-11 신규 2개(negotiate/quarterly-tax)도 아직 GA 각 1조회뿐이라 다음 데이터가 첫 실질 판단 시점.
 
 - **(2026-08-11 2차, 최우선 전제) 판단은 GA4로, GSC는 구글 한정 보조지표로만.** Bing/DuckDuckGo는 AI가 검색결과에 관여하는 별개 채널이며 GA4에서 Bing이 Google의 5배(25 vs 5). 이건 사용자가 자명한 전제로 못박은 사항이므로 다시 설명하거나 되묻지 말 것.
 - **(2026-08-11 3차) 제휴 판단은 에이전트가 GA4 수치로 직접 내린다. 사용자에게 떠넘기지 말 것.** 아래 "제휴 판단 규칙"을 매 세션 기계적으로 실행하고, 구간과 결론을 보고에 한 줄로 적을 것. "신청하세요"도 "사용자가 판단하세요"도 둘 다 금지 — 둘 다 판단을 안 한 것임.
