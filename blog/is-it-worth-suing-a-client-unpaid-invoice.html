@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Is It Worth Suing a Client Over an Unpaid Invoice? Run the Numbers First</title>
+  <meta name="description" content="Winning is not the hard part — collecting is. The real cost of suing a client, the three states where the law doubles your claim and pays your legal fees, and a calculator that tells you whether filing nets you anything after your own time." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-728DGKLSE6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-728DGKLSE6');
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #1a1a1a; --accent: #2d5be3; --blog: #1a9e6e; --paper: #fafaf8; --muted: #6b6b6b; --border: #e5e5e2; --warn: #c2410c; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; display: flex; flex-direction: column; }
+    .article-wrap { max-width: 720px; width: 100%; margin: 0 auto; padding: 56px 24px 80px; flex: 1; min-width: 0; }
+    .article-tag { font-size: 0.75rem; font-weight: 600; color: var(--blog); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; display: block; }
+    .article-wrap h1 { font-family: 'DM Serif Display', serif; font-size: clamp(1.5rem, 4vw, 2.3rem); line-height: 1.25; margin-bottom: 16px; }
+    .article-meta { font-size: 0.82rem; color: #aaa; margin-bottom: 40px; }
+    .article-body { font-size: 1rem; line-height: 1.8; color: var(--ink); }
+    .article-body a { color: var(--accent); }
+    .article-body h2 { font-family: 'DM Serif Display', serif; font-size: 1.4rem; margin: 40px 0 12px; }
+    .article-body h3 { font-size: 1.02rem; font-weight: 600; margin: 28px 0 8px; }
+    .article-body p { margin-bottom: 20px; }
+    .article-body ul, .article-body ol { margin: 0 0 20px 20px; }
+    .article-body li { margin-bottom: 8px; line-height: 1.7; }
+    .article-body strong { font-weight: 600; }
+    .highlight-box { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--blog); border-radius: 8px; padding: 20px 24px; margin: 28px 0; }
+    .highlight-box p { margin: 0; font-size: 0.95rem; }
+    .highlight-box p + p { margin-top: 12px; }
+    .warn-box { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--warn); border-radius: 8px; padding: 20px 24px; margin: 28px 0; }
+    .warn-box p { margin: 0; font-size: 0.95rem; }
+    .warn-box p + p { margin-top: 12px; }
+    .clause-box { background: #f4f8f6; border: 1px solid var(--border); border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-size: 0.92rem; line-height: 1.7; color: #2a2a2a; }
+    .clause-label { display: block; font-size: 0.72rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; min-width: 0; margin: 20px 0; }
+    .table-scroll-hint { display: none; font-size: 0.78rem; color: #999; margin: 0 0 8px; align-items: center; gap: 4px; }
+    @media (max-width: 700px) { .table-scroll-hint { display: flex; } }
+    .compare-table { width: 100%; min-width: 520px; border-collapse: collapse; margin: 0; font-size: 0.9rem; }
+    .compare-table th, .compare-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+    .compare-table th { font-weight: 600; color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; }
+    .checker { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--blog); border-radius: 8px; padding: 24px 28px; margin: 28px 0 40px; }
+    .checker h2 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; margin: 0 0 8px; }
+    .checker-sub { font-size: 0.9rem; color: #666; margin-bottom: 16px; }
+    .checker-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+    .checker-field label { display: block; font-size: 0.78rem; color: var(--muted); margin-bottom: 4px; font-weight: 600; }
+    .checker-field select, .checker-field input { width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.95rem; font-family: 'DM Sans', sans-serif; background: #fff; color: var(--ink); }
+    .checker-out { border-top: 1px solid var(--border); padding-top: 14px; font-size: 0.93rem; line-height: 1.7; }
+    .checker-out .row { margin-bottom: 10px; }
+    .checker-out .k { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); font-weight: 600; display: block; }
+    .checker-out .big { font-size: 1.3rem; font-weight: 600; }
+    .verdict { border-radius: 6px; padding: 12px 14px; margin-top: 12px; font-size: 0.9rem; line-height: 1.65; border: 1px solid var(--border); }
+    .v-ok { background: #f4f8f6; }
+    .v-risk { background: #fff8f2; }
+    .checker-note { font-size: 0.8rem; color: var(--muted); margin-top: 12px; line-height: 1.6; }
+    .cta-box { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 24px 28px; margin: 40px 0; }
+    .cta-box p { margin: 0 0 14px; font-size: 0.95rem; }
+    .cta-btn { display: inline-block; background: var(--accent); color: #fff; font-size: 0.875rem; font-weight: 600; padding: 10px 20px; border-radius: 6px; text-decoration: none; }
+    .article-body a.cta-btn { color: #fff; }
+    .cta-btn:hover { opacity: 0.88; }
+    details { border-bottom: 1px solid var(--border); padding: 14px 0; }
+    details summary { cursor: pointer; font-weight: 600; font-size: 0.95rem; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::after { content: '+'; color: var(--muted); font-weight: 400; font-size: 1.1rem; }
+    details[open] summary::after { content: '\2212'; }
+    details p { margin: 12px 0 0; font-size: 0.92rem; color: #444; line-height: 1.75; }
+    .back-link { display: inline-block; margin-bottom: 32px; font-size: 0.85rem; color: var(--muted); text-decoration: none; }
+    .back-link:hover { color: var(--ink); }
+    .disclaimer { font-size: 0.82rem; color: var(--muted); border-top: 1px solid var(--border); padding-top: 16px; margin-top: 36px; line-height: 1.7; }
+    footer { border-top: 1px solid var(--border); padding: 24px; text-align: center; margin-top: auto; }
+    .footer-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 10px; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.825rem; color: var(--muted); text-decoration: none; }
+    .footer-links a:hover { color: var(--ink); }
+    .footer-links .footer-blog { color: var(--blog); font-weight: 600; }
+    .footer-copy { font-size: 0.78rem; color: #aaa; }
+    @media (max-width: 700px) { .checker-row { grid-template-columns: 1fr; } }
+    @media (max-width: 500px) { .compare-table { font-size: 0.8rem; } }
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Is It Worth Suing a Client Over an Unpaid Invoice? Run the Numbers First",
+  "description": "Winning is not the hard part — collecting is. The real cost of suing a client, the three states where the law doubles your claim and pays your legal fees, and how to work out whether filing nets you anything.",
+  "url": "https://getsolotools.com/blog/is-it-worth-suing-a-client-unpaid-invoice.html",
+  "datePublished": "2026-08-24",
+  "dateModified": "2026-08-24",
+  "author": { "@type": "Organization", "name": "GetSoloTools", "url": "https://getsolotools.com" },
+  "publisher": { "@type": "Organization", "name": "GetSoloTools", "url": "https://getsolotools.com" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is it worth taking a client to small claims court over an unpaid invoice?",
+      "acceptedAnswer": { "@type": "Answer", "text": "It depends far less on whether you would win than on whether you can collect. For a straightforward unpaid invoice with a written contract, freelancers usually win. The problem is that the court does not collect the money for you. Once you have a judgment you are responsible for enforcing it, through wage garnishment, a bank levy or a property lien, and each of those steps costs more time and more filing fees. The rough rule most people arrive at is that filing is worth it when the amount is comfortably inside your state's small claims ceiling, the client is a solvent business rather than an individual with no assets, and you have the contract and invoices in writing. Below about a thousand dollars, the hours you spend usually cost more than you recover."
+    } },
+    {
+      "@type": "Question",
+      "name": "How much does it cost to sue a client for not paying?",
+      "acceptedAnswer": { "@type": "Answer", "text": "In small claims the direct costs are modest, typically a filing fee in the range of about thirty to two hundred dollars depending on the state and the amount claimed, plus a service of process fee to have the defendant formally notified, often twenty to a hundred dollars. Those are usually recoverable from the client if you win. The cost people underestimate is their own time: preparing documents, filing, appearing in person, and then enforcing the judgment. Twelve hours at a hundred dollars an hour is twelve hundred dollars of billable time, which can exceed the invoice you are chasing."
+    } },
+    {
+      "@type": "Question",
+      "name": "Do I need a lawyer to sue a client over an invoice?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Not in small claims, where the whole point is that people represent themselves, and several states do not allow lawyers there at all. Above the small claims ceiling you are in regular civil court, where a lawyer becomes realistic, and that usually only makes economic sense if your fees are recoverable. That is why the freelancer protection acts matter so much: in Illinois, New York and California, a freelancer who wins can recover attorney's fees and costs on top of damages, which is what makes a lawyer willing to take a mid-sized claim."
+    } },
+    {
+      "@type": "Question",
+      "name": "How long do I have to sue a client for an unpaid invoice?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Longer than most people assume, but it is a hard deadline. For written contracts, most states allow somewhere between four and six years from the date of the breach, which for an invoice is normally the day payment was due. California allows four years under Code of Civil Procedure section 337, Texas four years under Civil Practice and Remedies Code section 16.004, Florida five years, New York six years under CPLR section 213(2), and Illinois ten years for written contracts. Oral agreements get materially shorter periods, which is one more reason to have the engagement in writing. Filing one day late generally ends the claim regardless of its merits."
+    } },
+    {
+      "@type": "Question",
+      "name": "What should I do before filing a lawsuit against a client?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Send a formal written demand first, because it is free and it resolves a large share of disputes on its own. The demand should state the amount, the dates of the invoices, a specific deadline, and what happens next. If you are in Illinois, New York or California, name the freelancer protection act in the letter, because doubling the exposure and adding your legal fees changes the client's arithmetic immediately. In those states you can also file an administrative complaint with the state labor department at no cost, which is worth doing before you spend anything on court filings."
+    } }
+  ]
+}
+</script>
+</head>
+<body>
+  <script src="/nav.js"></script>
+  <div class="article-wrap">
+    <a href="/blog/index.html" class="back-link">← Back to Blog</a>
+    <span class="article-tag">Getting Paid</span>
+    <h1>Is It Worth Suing a Client Over an Unpaid Invoice?</h1>
+    <p class="article-meta">August 24, 2026 · 10 min read</p>
+
+    <p style="font-size:1rem;line-height:1.8;margin-bottom:20px;color:var(--ink);">There's a comment that shows up over and over in freelancer forums, and it captures the real problem better than most legal guides do: <em>"I could file a small claims but even if I win, the court is not responsible for collecting the money."</em></p>
+
+    <div class="article-body">
+      <p>That's correct, and it's the reason the usual advice — "just take them to small claims" — is incomplete. Winning is the easy half. A documented unpaid invoice with a signed contract is close to an open-and-shut case. What decides whether filing is worth doing is what you net afterwards, and that calculation has four parts most people only discover halfway through.</p>
+
+      <h2>The Four Costs</h2>
+      <p class="table-scroll-hint"><span aria-hidden="true">↔</span> Scroll sideways to see all columns</p>
+
+      <div class="table-scroll">
+        <table class="compare-table">
+          <tr><th>Cost</th><th>Typical range</th><th>Recoverable?</th></tr>
+          <tr><td>Filing fee</td><td>~$30–$200, scales with claim size</td><td>Usually yes, if you win</td></tr>
+          <tr><td>Service of process</td><td>~$20–$100</td><td>Usually yes</td></tr>
+          <tr><td><strong>Your own hours</strong></td><td><strong>Often the largest single cost</strong></td><td><strong>No</strong></td></tr>
+          <tr><td>Post-judgment enforcement</td><td>More fees, more hours, uncertain</td><td>Partly, in theory</td></tr>
+        </table>
+      </div>
+      <p>The third row is the one that flips decisions. Preparing the case, filing, appearing in person, then enforcing — twelve hours at your rate is real money. If you bill $100/hour, that's $1,200 of time. Chasing an $800 invoice through court is a loss even when you win.</p>
+      <p>Fees and service costs are usually recoverable from the client if you prevail. Your time never is.</p>
+
+      <h2>A Judgment Is Not Money</h2>
+      <p>This is the part the forum comment got right. A judgment is a court's confirmation that you're owed the money — it is not payment, and no court clerk goes and gets it for you. Enforcement is your job, and it means more filings: a wage garnishment, a bank levy (which requires knowing where they bank), a lien on property, or a debtor's examination to find out what they have.</p>
+      <div class="warn-box">
+        <p><strong>Some debtors are judgment-proof.</strong> If the client has no job, no reachable bank account and no equity, there's nothing to garnish or levy. A judgment against them is a piece of paper that stays valid for years — and may be worth something later if their situation changes — but it isn't cash now.</p>
+        <p>This is also why judgment-recovery firms typically take 33–50% of what they collect. That's the market price of the difficulty, and it's a useful benchmark: if a professional wants half, the collection risk is real.</p>
+      </div>
+      <p>The practical consequence: <strong>the solvency of the client matters more than the strength of your case.</strong> An established company with a bank account and premises is worth suing. An individual who has already stopped answering the phone is a much weaker prospect regardless of how airtight your contract is.</p>
+
+      <h2>The Three States Where the Arithmetic Changes Completely</h2>
+      <p>If your client is in Illinois, New York or California, don't run the standard calculation — the freelancer protection acts rewrite it.</p>
+      <p>Under the Illinois Freelance Worker Protection Act (820 ILCS 193), a freelancer who wins a claim for late or non-payment can recover <strong>double the underpayment plus attorney's fees and costs</strong>. Failing to provide a written contract carries a separate statutory award of the greater of $500 or the contract's value. New York's statewide Freelance Isn't Free Act (General Business Law Article 44-A) and California's Freelance Worker Protection Act (SB 988) both provide double damages, and both allow recovery of attorney's fees.</p>
+      <div class="highlight-box">
+        <p><strong>Why fee recovery is the important half.</strong> Doubling a $3,000 invoice to $6,000 is good. The bigger change is that your legal fees become the client's problem — which is what makes a lawyer willing to take a claim this size at all. Without fee-shifting, a $3,000 dispute can't support representation and you're on your own in small claims. With it, the case becomes economic for someone else to run.</p>
+        <p>It also changes the demand letter. A client weighing "pay $3,000 now" against "maybe pay $3,000 later" often waits. A client weighing it against "$6,000 plus their lawyer's bill" usually doesn't.</p>
+      </div>
+      <p>Thresholds matter: Illinois covers work worth $500+ in a 120-day period, New York $800+, California $250+. All three also let you file an administrative complaint with the state labor department at no cost — which is worth exhausting before you spend anything. Our <a href="/blog/freelance-isnt-free-act-states-guide.html">Freelance Isn't Free Act state guide</a> covers who qualifies and how to file.</p>
+
+      <h2>The Deadline You Might Already Be Past</h2>
+      <p>The statute of limitations on a written contract is generous but absolute. The clock normally starts the day payment was due.</p>
+      <p class="table-scroll-hint"><span aria-hidden="true">↔</span> Scroll sideways to see all columns</p>
+
+      <div class="table-scroll">
+        <table class="compare-table">
+          <tr><th>State</th><th>Written contract</th><th>Citation</th></tr>
+          <tr><td>California</td><td>4 years</td><td>Code Civ. Proc. §337</td></tr>
+          <tr><td>Texas</td><td>4 years</td><td>Civ. Prac. &amp; Rem. Code §16.004</td></tr>
+          <tr><td>Florida</td><td>5 years</td><td>Fla. Stat. §95.11</td></tr>
+          <tr><td>New York</td><td>6 years</td><td>CPLR §213(2)</td></tr>
+          <tr><td>Illinois</td><td>10 years</td><td>735 ILCS 5/13-206</td></tr>
+        </table>
+      </div>
+      <p>Most other states fall in the four-to-six year band for written contracts. <strong>Oral agreements get materially shorter windows</strong> — California drops to two years — which is one more argument for getting the engagement in writing. Verify your own state's period before relying on a deadline, since some states treat open accounts differently from formal contracts.</p>
+
+      <h2>Run Your Own Numbers</h2>
+      <p>This uses the small claims ceiling for the client's state, applies the statutory multiplier where one exists, and subtracts the cost of your own time.</p>
+
+      <div class="checker" id="sueCalc">
+        <h2>Should You Sue? Calculator</h2>
+        <p class="checker-sub">Covers the 34 states in our <a href="/late-payment-fee.html" style="color:var(--accent);">late fee research</a>. Estimate only — not legal advice.</p>
+        <div class="checker-row">
+          <div class="checker-field">
+            <label for="scAmount">Amount owed ($)</label>
+            <input type="number" id="scAmount" value="3000" min="0" step="100">
+          </div>
+          <div class="checker-field">
+            <label for="scState">Client's state</label>
+            <select id="scState"></select>
+          </div>
+        </div>
+        <div class="checker-row">
+          <div class="checker-field">
+            <label for="scRate">Your hourly rate ($)</label>
+            <input type="number" id="scRate" value="100" min="0" step="5">
+          </div>
+          <div class="checker-field">
+            <label for="scHours">Hours you'd realistically spend</label>
+            <select id="scHours">
+              <option value="6">6 — simple, client likely to settle</option>
+              <option value="12" selected>12 — typical contested small claim</option>
+              <option value="25">25 — plus enforcement</option>
+            </select>
+          </div>
+        </div>
+        <div class="checker-row">
+          <div class="checker-field">
+            <label for="scWritten">Written contract?</label>
+            <select id="scWritten">
+              <option value="1" selected>Yes — signed agreement</option>
+              <option value="0.5">Partly — emails only</option>
+              <option value="0.2">No — verbal</option>
+            </select>
+          </div>
+          <div class="checker-field">
+            <label for="scSolvent">Client's ability to pay</label>
+            <select id="scSolvent">
+              <option value="0.85" selected>Established business, still trading</option>
+              <option value="0.5">Small business, uncertain</option>
+              <option value="0.2">Individual or business closing down</option>
+            </select>
+          </div>
+        </div>
+        <div class="checker-out" id="scOut"></div>
+        <p class="checker-note">Collection probability is a rough planning heuristic, not a statistic. Filing fees vary by county and are not included, since they are usually recoverable if you win.</p>
+      </div>
+
+      <h2>Do These Two Things First — Both Are Free</h2>
+      <h3>1. A formal written demand</h3>
+      <p>A large share of disputes end here, because a dated letter with a deadline reads differently from a fifth polite follow-up. Keep it short and unemotional: amount, invoice dates, deadline, what happens next.</p>
+      <div class="clause-box">
+        <span class="clause-label">Structure that works</span>
+        Invoice [#] dated [date] for $[amount] remains unpaid, now [X] days past the due date under our agreement of [date]. Please remit the full balance by [date, 10–14 days out]. If payment is not received by then I will pursue recovery of the balance [plus interest at the rate provided in our agreement / under the [state] Freelance Worker Protection Act, which provides for double damages and recovery of attorney's fees]. I would prefer to resolve this directly.
+      </div>
+      <p>Our <a href="/email-templates/final-payment-demand.html">final payment demand template</a> has a fuller version, and <a href="/blog/how-to-handle-late-payments-as-a-freelancer.html">how to handle late payments</a> covers the sequence leading up to it.</p>
+
+      <h3>2. An administrative complaint, if you're in a covered state</h3>
+      <p>Illinois, New York and California all let you file with the state labor department instead of, or before, going to court. It costs nothing, requires no lawyer, and creates a record. For claims in the low thousands this is usually the better first move, since it puts pressure on the client without spending your own hours on filings.</p>
+
+      <h2>When Writing It Off Is the Right Answer</h2>
+      <p>Sometimes the arithmetic says stop, and treating that as a failure costs you more.</p>
+      <ul>
+        <li><strong>The amount is under about $1,000</strong> and you'd spend more than ten hours. Your time is worth more elsewhere.</li>
+        <li><strong>The client has genuinely collapsed.</strong> A judgment against an empty company is a formality.</li>
+        <li><strong>Nothing is in writing.</strong> Provable is not the same as true, and a verbal agreement is a much harder case.</li>
+        <li><strong>The amount exceeds the small claims ceiling</strong> and there's no fee-shifting statute — you'd need a lawyer you can't recover the cost of.</li>
+      </ul>
+      <p>A written-off invoice is a bad debt, and if you use cash-basis accounting — as most freelancers do — you generally cannot deduct income you never recognised in the first place. There's no tax consolation prize for unpaid work; the loss is simply the time. Our <a href="/blog/how-to-track-freelance-income-and-expenses.html">income and expense tracking guide</a> covers recording it properly.</p>
+
+      <div class="cta-box">
+        <p>Work out exactly what's owed, including accrued interest at your state's enforceable rate, before you send a demand or file anything.</p>
+        <a href="/late-payment-fee.html" class="cta-btn">Open Late Fee Calculator →</a>
+      </div>
+
+      <h2>The Cheapest Fix Is Upstream</h2>
+      <p>Every dispute that reaches this page traces back to the same few missing terms: no deposit, no written scope, no late fee clause, no governing-state check. The <a href="/blog/client-discovery-call-questions.html">discovery call questions</a> that surface those before you quote cost nothing, and the <a href="/contract-generator.html">contract generator</a> builds the terms in. If the client's state matters to you — and after reading this it should — <a href="/blog/how-to-negotiate-a-freelance-contract.html">how to negotiate a freelance contract</a> covers the governing law clause specifically.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <details>
+        <summary>Is it worth taking a client to small claims court over an unpaid invoice?</summary>
+        <p>It depends far less on whether you'd win than on whether you can collect. For a straightforward unpaid invoice with a written contract, freelancers usually win. The problem is that the court doesn't collect the money for you. Once you have a judgment you're responsible for enforcing it, through wage garnishment, a bank levy or a property lien, and each of those steps costs more time and more filing fees. The rough rule most people arrive at is that filing is worth it when the amount is comfortably inside your state's small claims ceiling, the client is a solvent business rather than an individual with no assets, and you have the contract and invoices in writing. Below about $1,000, the hours you spend usually cost more than you recover.</p>
+      </details>
+      <details>
+        <summary>How much does it cost to sue a client for not paying?</summary>
+        <p>In small claims the direct costs are modest — typically a filing fee of roughly $30 to $200 depending on the state and claim size, plus a service of process fee of about $20 to $100 to have the defendant formally notified. Those are usually recoverable from the client if you win. The cost people underestimate is their own time: preparing documents, filing, appearing in person, and then enforcing the judgment. Twelve hours at $100 an hour is $1,200 of billable time, which can exceed the invoice you're chasing.</p>
+      </details>
+      <details>
+        <summary>Do I need a lawyer to sue a client over an invoice?</summary>
+        <p>Not in small claims, where the whole point is that people represent themselves, and several states don't allow lawyers there at all. Above the small claims ceiling you're in regular civil court, where a lawyer becomes realistic — and that usually only makes economic sense if your fees are recoverable. That's why the freelancer protection acts matter so much: in Illinois, New York and California, a freelancer who wins can recover attorney's fees and costs on top of damages, which is what makes a lawyer willing to take a mid-sized claim.</p>
+      </details>
+      <details>
+        <summary>How long do I have to sue a client for an unpaid invoice?</summary>
+        <p>Longer than most people assume, but it's a hard deadline. For written contracts, most states allow four to six years from the date of the breach, which for an invoice is normally the day payment was due. California allows 4 years (Code Civ. Proc. §337), Texas 4 years (Civ. Prac. &amp; Rem. Code §16.004), Florida 5 years, New York 6 years (CPLR §213(2)), and Illinois 10 years for written contracts. Oral agreements get materially shorter periods, which is one more reason to have the engagement in writing. Filing one day late generally ends the claim regardless of its merits.</p>
+      </details>
+      <details>
+        <summary>What should I do before filing a lawsuit against a client?</summary>
+        <p>Send a formal written demand first, because it's free and it resolves a large share of disputes on its own. The demand should state the amount, the dates of the invoices, a specific deadline, and what happens next. If you're in Illinois, New York or California, name the freelancer protection act in the letter — doubling the exposure and adding your legal fees changes the client's arithmetic immediately. In those states you can also file an administrative complaint with the state labor department at no cost, which is worth doing before you spend anything on court filings.</p>
+      </details>
+
+      <p style="margin-top:32px;">The question isn't whether you're right. You probably are. It's whether being right nets you more than the hours it takes to prove it — and in three states, the answer changes entirely because someone else pays for those hours.</p>
+
+      <p class="disclaimer">This page is general information for US-based freelancers, not legal advice, and doesn't create an attorney-client relationship. Filing fees, small claims ceilings, procedures and limitations periods vary by state and county and change over time. Verify the current rules for your jurisdiction, and consult a licensed attorney about a specific dispute before relying on any deadline.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/">Invoice Generator</a>
+      <a href="/late-payment-fee.html">Late Fee Calculator</a>
+      <a href="/contract-generator.html">Contract Generator</a>
+      <a href="/blog/index.html" class="footer-blog">Blog</a>
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+    </div>
+    <p class="footer-copy">© 2026 GetSoloTools. Free tools for freelancers.</p>
+  </footer>
+
+  <script>
+    (function () {
+      // mult: 주 프리랜서보호법상 배수, fee: 변호사비 전가 가능 여부
+      var S = {
+        AL: { n: 'Alabama', sc: 6000, scL: '$6,000', mult: 1, fee: false },
+        AZ: { n: 'Arizona', sc: 3500, scL: '$3,500', mult: 1, fee: false },
+        AR: { n: 'Arkansas', sc: 5000, scL: '$5,000', mult: 1, fee: false },
+        CA: { n: 'California', sc: 12500, scL: '$12,500', mult: 2, fee: true, act: 'California Freelance Worker Protection Act (SB 988), $250+ threshold' },
+        CO: { n: 'Colorado', sc: 7500, scL: '$7,500', mult: 1, fee: false },
+        DE: { n: 'Delaware', sc: 25000, scL: '$25,000', mult: 1, fee: false },
+        FL: { n: 'Florida', sc: 8000, scL: '$8,000', mult: 1, fee: false },
+        GA: { n: 'Georgia', sc: 15000, scL: '$15,000', mult: 1, fee: false },
+        IL: { n: 'Illinois', sc: 10000, scL: '$10,000', mult: 2, fee: true, act: 'Illinois Freelance Worker Protection Act (820 ILCS 193), $500+ over 120 days' },
+        IN: { n: 'Indiana', sc: 10000, scL: '$10,000', mult: 1, fee: false },
+        IA: { n: 'Iowa', sc: 6500, scL: '$6,500', mult: 1, fee: false },
+        KY: { n: 'Kentucky', sc: 2500, scL: '$2,500', mult: 1, fee: false },
+        LA: { n: 'Louisiana', sc: 5000, scL: '$5,000', mult: 1, fee: false },
+        MD: { n: 'Maryland', sc: 5000, scL: '$5,000', mult: 1, fee: false },
+        MA: { n: 'Massachusetts', sc: 7000, scL: '$7,000', mult: 1, fee: false, note: 'M.G.L. c. 93A §11 can allow double or treble damages plus fees where non-payment is genuinely unfair or deceptive — a higher bar than the freelancer acts.' },
+        MI: { n: 'Michigan', sc: 7000, scL: '$7,000', mult: 1, fee: false },
+        MN: { n: 'Minnesota', sc: 15000, scL: '$15,000', mult: 1, fee: false, note: 'Minneapolis has a local freelance ordinance — check if the work was performed there.' },
+        MO: { n: 'Missouri', sc: 5000, scL: '$5,000', mult: 1, fee: false },
+        NV: { n: 'Nevada', sc: 10000, scL: '$10,000', mult: 1, fee: false },
+        NJ: { n: 'New Jersey', sc: 3000, scL: '$3,000', mult: 1, fee: false },
+        NM: { n: 'New Mexico', sc: 10000, scL: '$10,000', mult: 1, fee: false },
+        NY: { n: 'New York', sc: 10000, scL: '$10,000 in NYC Civil Court, $5,000 elsewhere', mult: 2, fee: true, act: "New York Freelance Isn't Free Act (Gen. Bus. Law Art. 44-A), $800+ threshold" },
+        NC: { n: 'North Carolina', sc: 10000, scL: '$10,000', mult: 1, fee: false },
+        OH: { n: 'Ohio', sc: 6000, scL: '$6,000', mult: 1, fee: false, note: 'Columbus has a local freelance ordinance — check if the work was performed there.' },
+        OK: { n: 'Oklahoma', sc: 10000, scL: '$10,000', mult: 1, fee: false },
+        OR: { n: 'Oregon', sc: 10000, scL: '$10,000', mult: 1, fee: false },
+        PA: { n: 'Pennsylvania', sc: 12000, scL: '$12,000', mult: 1, fee: false },
+        SC: { n: 'South Carolina', sc: 7500, scL: '$7,500', mult: 1, fee: false },
+        TN: { n: 'Tennessee', sc: 25000, scL: '$25,000', mult: 1, fee: false },
+        TX: { n: 'Texas', sc: 20000, scL: '$20,000', mult: 1, fee: false },
+        VA: { n: 'Virginia', sc: 5000, scL: '$5,000', mult: 1, fee: false },
+        WA: { n: 'Washington', sc: 10000, scL: '$10,000', mult: 1, fee: false, note: 'Seattle has a local freelance ordinance — check if the work was performed there.' },
+        WV: { n: 'West Virginia', sc: 20000, scL: '$20,000', mult: 1, fee: false },
+        WI: { n: 'Wisconsin', sc: 10000, scL: '$10,000', mult: 1, fee: false }
+      };
+
+      var amount = document.getElementById('scAmount');
+      var sel = document.getElementById('scState');
+      var rate = document.getElementById('scRate');
+      var hours = document.getElementById('scHours');
+      var written = document.getElementById('scWritten');
+      var solvent = document.getElementById('scSolvent');
+      var out = document.getElementById('scOut');
+      if (!sel || !out) { return; }
+
+      Object.keys(S).sort(function (a, b) { return S[a].n < S[b].n ? -1 : 1; }).forEach(function (k) {
+        var o = document.createElement('option');
+        o.value = k;
+        o.textContent = S[k].n;
+        sel.appendChild(o);
+      });
+      sel.value = 'IL';
+
+      function money(n) { return '$' + Math.round(n).toLocaleString(); }
+
+      function render() {
+        var a = parseFloat(amount.value) || 0;
+        var st = S[sel.value];
+        var r = parseFloat(rate.value) || 0;
+        var h = parseFloat(hours.value) || 0;
+        var w = parseFloat(written.value) || 0;
+        var sv = parseFloat(solvent.value) || 0;
+
+        var claim = a * st.mult;
+        var timeCost = r * h;
+        var winProb = Math.min(0.95, w * 0.95);
+        var expected = claim * winProb * sv;
+        var net = expected - timeCost;
+        var fits = a > 0 && a <= st.sc;
+
+        if (a <= 0) {
+          out.innerHTML = '<div class="row">Enter the amount owed to see the arithmetic.</div>';
+          return;
+        }
+
+        var html = '';
+        html += '<div class="row"><span class="k">Claim value</span><span class="big">' + money(claim) + '</span>' +
+          (st.mult > 1 ? ' — ' + money(a) + ' doubled under the ' + st.n + ' act' : ' — no statutory multiplier in ' + st.n) + '</div>';
+
+        if (st.act) {
+          html += '<div class="row"><span class="k">Statute that applies</span>' + st.act + '. Attorney\'s fees and costs recoverable if you win.</div>';
+        }
+        if (st.note) {
+          html += '<div class="row"><span class="k">Also worth checking</span>' + st.note + '</div>';
+        }
+
+        html += '<div class="row"><span class="k">Small claims ceiling (' + st.n + ')</span><strong>' + st.scL + '</strong>' +
+          (a > 0 ? (fits ? ' — your claim fits, so you can file yourself.' : ' — your claim is above it, so this is regular civil court.') : '') + '</div>';
+        html += '<div class="row"><span class="k">Cost of your own time</span><strong>' + money(timeCost) + '</strong> — ' + h + ' hours at ' + money(r) + '/hr, never recoverable</div>';
+        html += '<div class="row"><span class="k">Risk-adjusted recovery</span><strong>' + money(expected) + '</strong> after evidence strength and the client\'s ability to pay</div>';
+        html += '<div class="row"><span class="k">Net vs. writing it off</span><span class="big">' + (net >= 0 ? '+' : '−') + money(Math.abs(net)) + '</span></div>';
+
+        var cls, verdict;
+        if (net <= 0) {
+          cls = 'v-risk';
+          verdict = '<strong>The numbers say don\'t file.</strong> Your time costs more than the realistic recovery. Send a formal demand — it is free — and if that fails, write it off and put the hours into paid work.';
+        } else if (!fits && !st.fee) {
+          cls = 'v-risk';
+          verdict = '<strong>Above small claims, with no fee-shifting.</strong> ' + money(a) + ' exceeds ' + st.n + '\'s ceiling, so you would be in regular civil court paying for a lawyer you cannot recover the cost of. Consider suing for the ceiling amount and waiving the excess, which keeps it in small claims.';
+        } else if (st.fee) {
+          cls = 'v-ok';
+          verdict = '<strong>Strong position.</strong> The ' + st.n + ' act doubles the claim and shifts your legal fees to the client, which is what makes representation economic at this size. Start with a free administrative complaint to the state labor department and name the act in your demand letter before filing anything.';
+        } else {
+          cls = 'v-ok';
+          verdict = '<strong>Worth pursuing.</strong> The claim fits small claims and the expected recovery exceeds your time cost. Send a dated formal demand first — a large share settle at that step without any filing.';
+        }
+        html += '<div class="verdict ' + cls + '">' + verdict + '</div>';
+        out.innerHTML = html;
+      }
+
+      [amount, sel, rate, hours, written, solvent].forEach(function (el) {
+        el.addEventListener('input', render);
+        el.addEventListener('change', render);
+      });
+      render();
+    })();
+  </script>
+</body>
+</html>
