@@ -1,6 +1,6 @@
 # GetSoloTools 인수인계 문서 (handover.md)
 
-**최종 갱신**: 2026-08-17 (**Bing Webmaster 데이터 최초 수령 — 이번 세션 최대 소득**. 같은 콘텐츠로 Bing 평균순위 1~9위 vs Google 70~90위. 즉 병목이 Google=순위, Bing=쿼리 노출량으로 정반대. Bing 쿼리가 전부 긴 대화체(AI 경유)임을 확인. 이에 근거해 **신규 3개** 제작: `is-a-daily-late-fee-legal`(vendor/business 오디언스 확장), `client-discovery-call-questions`(Bing 2.5위), `retainer-client-not-paying`(Bing 5위). 링크색 결함 13건 수정. 상세는 "2026-08-17 세션" 참고)
+**최종 갱신**: 2026-08-24 (**외부 소스 기반 신규 발굴 세션**. GSC/Bing이 아니라 Blind·HN 등 실사용자 발화에서 병목을 특정해 `blog/is-it-worth-suing-a-client-unpaid-invoice.html` 제작. **더 중요한 것: 기존 페이지 5개에 퍼져 있던 Illinois 배상액 사실오류(triple→double) 발견/정정** — 최고순위 페이지 포함. 상세는 "2026-08-24 세션" 참고)
 **갱신 방식이 v12까지와 다름**: 이제부터 이 문서는 새 채팅에 붙여넣는 방식이 아니라, **저장소에 직접 보관하고 계속 업데이트**하는 방식으로 운영한다. 새 세션에서는 이 파일(`handover.md`)을 clone 직후 가장 먼저 읽을 것.
 
 ---
@@ -100,7 +100,7 @@
 
 - **툴**: 19개 (Invoice Generator = index.html 포함, 2026-07-24에 Kill Fee Calculator 신규 추가 — late-fee 시리즈 밖 첫 클러스터에서 처음으로 블로그 위젯이 아닌 완전한 독립 툴 페이지 제작)
 - **이메일 템플릿**: 24개 (25개 파일이나 sending-nda.html 등 포함, v12 이후 변경 없음)
-- **블로그 글**: 69개 (2026-08-17에 3개 추가: `is-a-daily-late-fee-legal`(일일 연체료 합법성, **freelancer가 아닌 vendor/contractor/small business 오디언스를 처음 명시 수용**), `client-discovery-call-questions`(견적 전 자격심사), `retainer-client-not-paying`(리테이너 미납의 구조적 차이). 셋 다 34개 주 데이터 재사용 위젯 내장). late fee 지역 시리즈 34개 주 + 그 외 35개. 34개 주 전부 미니 계산기 위젯 + FAQPage 스키마 보유.
+- **블로그 글**: 70개 (2026-08-24에 `is-it-worth-suing-a-client-unpaid-invoice` 추가 — 미수금 소송의 손익 판단, IL/NY/CA 변호사비 전가가 경제성을 뒤집는다는 축). late fee 지역 시리즈 34개 주 + 그 외 36개. 34개 주 전부 미니 계산기 위젯 + FAQPage 스키마 보유.
 
 ### 툴 목록 (18개, 경로는 v12 문서와 동일 — 변경 없음)
 Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Project Profit, Budget Planner, Contract Generator, Invoice Tracker, Client Proposal, Time Tracker, Milestone Calculator, Savings Calculator, NDA Generator, Client Intake Form, Expense Report, Scope of Work — **18개로 유지, 추가 없음**
@@ -589,6 +589,37 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 
 ---
 
+### 2026-08-24 세션 — 외부 소스 발굴 + 사실오류 정정
+
+**사용자 지시**: 키워드를 폭넓게 뽑고 경쟁강도 체크 후 강하면 롱테일로, 새 클러스터 추가, **GSC나 보유 자산 안에서만 보지 말고 구글·네이버·레딧 등 다양한 곳에서 "문서 수는 적은데 관심은 있는" 것을 찾을 것.**
+
+**1. 탐색 과정 (기각한 후보를 남겨둠 — 같은 길을 다시 파지 않도록)**
+- **국제 결제/환전 수수료** → 기각. Wise·Remitly·Payoneer가 자사 콘텐츠로 완전 장악. 제휴 미끼 영역이라 대기업 SEO 예산과 정면충돌.
+- **1099-NEC $2,000 임계값 변경(OBBBA)** → 기각. 최신 이슈라 기대했으나 Avalara·Jackson Hewitt·1800Accountant 등 CPA/세무 소프트웨어사가 이미 포화. 우리가 이길 각이 없음.
+- **판결 집행 절차(garnishment/levy/lien)** → 기각. Nolo·LegalZoom·LegalClarity·LegalAtoms·trysmallclaims가 주별로까지 커버 중.
+- **채택**: 위 3번을 조사하다 Blind·HN 실제 게시물에서 병목 발화를 발견 — *"I could file a small claims but even if I win, the court is not responsible for collecting the money."* **절차를 몰라서가 아니라 "해봤자 무슨 소용이냐"에서 막혀 있음.** 경쟁사는 전부 *절차* 가이드라 이 질문에 답하지 않는다. → 각도를 **"소송할 가치가 있는가"라는 의사결정 산수**로 잡음.
+
+**2. 신규: `blog/is-it-worth-suing-a-client-unpaid-invoice.html`** (2,163단어)
+- **중복 확인**: 기존 `how-to-handle-late-payments`는 독촉 시퀀스(937단어)이고 소액소송은 마지막에 한 줄, `retainer-client-not-paying`은 리테이너 구조, 34개 주 페이지는 한도 숫자만 제시. **"얼마 들고 얼마 남는가"는 사이트 어디에도 없었음.**
+- **핵심 차별화**: IL/NY/CA의 **변호사비 전가(fee-shifting)**가 중소 청구의 경제성을 뒤집는다는 점. 배액배상보다 이게 더 중요하다 — $3,000 분쟁은 원래 변호사를 못 붙이는데, 상대방이 내 변호사비를 물면 그 규모에서도 대리가 성립한다. 경쟁 콘텐츠 어디도 이 연결을 안 한다.
+- 소멸시효(주별 4~6년, CA §337 / TX §16.004 / FL §95.11 / NY CPLR §213(2) / IL 735 ILCS 5/13-206) — **인용 가능한 주만** 표로 제시하고 나머지는 "확인 요망"으로 처리. 34개 주 전부를 억지로 채우지 않았음.
+- 위젯: Should You Sue 계산기 — 금액·주·시급·투입시간·계약서 유무·고객 지급능력 → 배수 적용 청구액 / 소액소송 적합 / 내 시간비용 / 위험조정 회수액 / **순액**. jsdom 8케이스 검증(IL·KY 한도초과·TX 3만·순액마이너스·NY 2중표기·구두계약·금액0·MA 93A).
+- **의도적으로 "쓰고 털어라"가 정답인 조건을 명시**했다(1,000달러 미만·상대 파산·서면 없음·한도초과+전가불가). 전부 소송을 부추기면 사용자를 손해보게 만든다.
+
+**3. 사실오류 정정 — Illinois는 triple이 아니라 double damages (중요)**
+- 신규 페이지를 쓰다 우리 위젯 데이터(`triple damages`)와 handover 기록(`double damages`)이 **서로 모순**인 것을 발견 → 1차 확인 결과 **double이 정답**. Jackson Lewis / SHRM / Levin Ginsburg / Gutwein Law / Baker Sterchi 5개 소스 일치: 미지급 청구는 **미지급액의 2배 + 변호사비·비용**. (서면계약 미제공은 별개로 "500달러 또는 계약금액 중 큰 쪽"의 법정손해배상 — 이 둘을 합쳐 "triple"로 오인한 것으로 추정.)
+- **오류가 5개 파일에 퍼져 있었음**: `freelance-isnt-free-act-states-guide`(**9.81위, 사이트 최고순위 페이지** — 표·위젯데이터·meta·JSON-LD·FAQ 전부), `late-fee-laws-freelancers-illinois`(3곳), `blog/index`(2곳), `kill-fee-calculator`(1곳).
+- Massachusetts 93A의 "double or treble"는 **실제로 정확**하므로 유지.
+- **교훈(재발 방지)**: 위젯 데이터와 본문/handover가 어긋나면 그건 표기 문제가 아니라 **둘 중 하나가 틀렸다는 신호**다. 발견 즉시 1차 소스로 확인할 것. 이번엔 우연히 신규 페이지에 인용하려다 걸렸는데, 안 걸렸으면 최고순위 페이지가 계속 틀린 법률 정보를 내보내고 있었을 것.
+
+**4. 재발 방지 스캔 2종 (지난 2주 결함) — 모두 통과**
+링크색 `.article-body a` 잔여 0, 스크롤 힌트 위치 잔여 0. **단, 신규 페이지 작성 중 스크롤 힌트를 또 컨테이너 안에 넣었다가 DOM 검증에서 잡아 수정했다.** 새 페이지를 만들 때마다 반복되는 실수이므로, **표를 넣으면 반드시 `t8.js`류 DOM 검증을 돌릴 것.**
+
+**5. 제휴 판단 (규칙대로 실행) → 구간 A 유지**
+이번 세션은 신규 데이터 업로드가 없어 08-17 실측(MAU 67 / 상업 페이지 월 1조회 / 미국 비중 18%)이 최신이며, 셋 다 미달이므로 제휴 언급하지 않음.
+
+---
+
 ## 기술 주의사항
 
 ### nav.js
@@ -621,6 +652,7 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 - JS 있는 파일은 `node --check`로 문법 검증
 - 계산기 위젯은 가능하면 jsdom으로 실제 실행 검증. **단, `window.addEventListener('DOMContentLoaded', ...)` 패턴을 쓰는 페이지(대부분의 독립 툴)는 jsdom에서 이벤트가 비동기로 발생하므로, `new JSDOM()` 직후 곧바로 동기적으로 결과를 읽으면 초기 플레이스홀더 값만 보고 오탐(false negative)할 수 있음 — 반드시 `setTimeout`이나 `await`로 잠깐 기다린 뒤에 결과를 읽을 것.** (2026-07-24, `kill-fee-calculator.html` 검증 중 실제로 겪음 — 즉시 읽었더니 전부 $0으로 나와서 버그인 줄 알았으나 비동기 대기 후 재확인하니 정상이었음.)
 - `sitemap.xml`은 `xml.etree.ElementTree.parse()`로 유효성 검증 + 위 중복 체크
+- **위젯 데이터와 본문/handover 기록이 어긋나면 표기 문제가 아니라 둘 중 하나가 틀렸다는 신호다. 즉시 1차 소스로 확인할 것.** 2026-08-24에 Illinois 배상액이 위젯에는 `triple`, handover에는 `double`로 적혀 있었고 확인 결과 **double이 정답**이었다. 오류가 5개 파일에 퍼져 있었고 그중 하나가 사이트 최고순위 페이지(9.81위)였다. 신규 페이지에 인용하려다 우연히 걸렸을 뿐, 안 걸렸으면 계속 틀린 법률 정보를 내보내고 있었을 것이다. **법률 수치를 재사용할 때는 재사용 시점에 한 번 더 검증한다.**
 - **표 가로스크롤 힌트(`.table-scroll-hint`)는 반드시 `.table-scroll` 컨테이너 *바깥*, 바로 앞 형제로 둘 것.** 컨테이너 *안*에 넣으면 표를 옆으로 밀 때 힌트도 같이 밀려나가 "Scroll sideways to see all columns" 문구가 화면 밖으로 사라진다(2026-08-17에 사용자가 스크린샷으로 지적). 기존 주(州) 페이지들은 원래 바깥에 있었는데, 08-11·08-17에 새로 만든 5개 파일에서 안쪽에 넣어 재현됨. 올바른 형태:
   ```html
   <p class="table-scroll-hint"><span aria-hidden="true">↔</span> Scroll sideways to see all columns</p>
@@ -647,6 +679,10 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 7. **사용자 승인 없이 먼저 진행하지 말 것.** 다만 (2026-07-14 사용자가 명시적으로 지적함) 같은 작업 축에서 이미 방향을 확정했으면 — 예: "차별화/틈새전략으로 최대한 해라"처럼 명시적으로 전권을 준 경우 — 그 이후 유사한 개별 작업(예: 18개 툴 각각에 자동저장 적용)마다 다시 확인받지 말고 계속 진행할 것. 매번 재확인은 사용자를 짜증나게 함. **새로운 종류/방향의 작업으로 넘어갈 때만** 승인을 구하면 됨.
 
 ## 현재 열려있는 이슈 (다음에 확인할 것)
+
+- **(2026-08-24) 기각한 키워드 후보 — 다시 파지 말 것**: 국제 결제/환전(Wise·Remitly·Payoneer 장악), 1099-NEC $2,000 임계값(CPA·세무SW 포화), 판결 집행 절차(Nolo·LegalZoom·LegalClarity·LegalAtoms가 주별까지 커버). 셋 다 검색량은 크지만 우리가 이길 각이 없다.
+- **(2026-08-24) 외부 발굴이 GSC보다 나은 소스임이 확인됨.** 이번 신규 페이지의 각도는 GSC/Bing이 아니라 **Blind·HN 실사용자 게시물의 문장 하나**에서 나왔다("이겨도 법원이 돈을 받아주지 않는다"). 경쟁사가 절차만 다루고 의사결정을 안 다룬다는 공백도 그 발화 덕에 보였다. **다음에도 커뮤니티 원문에서 "막힌 지점"을 먼저 찾고, 경쟁 콘텐츠가 그 지점에 답하는지 확인하는 순서로 갈 것.**
+- **(2026-08-24) 다음 데이터에서 확인할 것**: ① 08-17 신규 3개(daily-late-fee / discovery-call / retainer)가 Bing 해당 쿼리를 흡수했는지 — "Bing 쿼리 표면 확장" 전략의 첫 검증 ② 신규 소송 판단 페이지가 절차형 쿼리로 잡히는지 의사결정형("is it worth suing", "worth taking to small claims") 쿼리로 잡히는지. 후자면 "의사결정 산수" 포맷을 다른 주제로 복제할 근거가 된다.
 
 - **(2026-08-17, 최우선 전제) 두 엔진의 병목이 정반대다.** Google = 순위 문제(노출 78.9%가 70위 밖, 콘텐츠로 단기 개선 불가), Bing = 쿼리 노출량 문제(이미 1~9위, 쿼리만 존재하면 즉시 트래픽). **따라서 신규 콘텐츠의 목표는 "Google 순위를 올린다"가 아니라 "Bing에서 검색될 쿼리 표면을 늘린다"로 잡을 것.** Bing 쿼리는 전부 긴 대화체(AI 경유)이므로 자연어 질문 H2 + 숫자·조문 직접 명기 포맷을 유지.
 - **(2026-08-17) 우리 독자는 프리랜서가 아닐 수 있다.** Bing `ohio vendor... painter charging 10% late fee per day`(4위), `late fee % for colorado government contracts`(2위), Google `ohio business late payment interest law commercial invoices`(10.58위, 유일한 비브랜드 10위권). **양 엔진 독립 신호.** 그런데 주 페이지 제목은 전부 "for Freelancers". 이번엔 신규 페이지로 그 오디언스를 받았고, 기존 제목은 건드리지 않았다(클릭 나오는 유일한 자산이라 리스크가 큼). **다음 데이터에서 신규 페이지가 vendor/business 쿼리를 실제로 흡수하면, 그때 기존 제목 변경을 검토할 근거가 생긴다.**
