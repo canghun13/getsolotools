@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic, Standard, Premium: How to Draw the Scope Lines Between Freelance Tiers</title>
+  <meta name="description" content="Most tiered pricing advice covers anchoring and Goldilocks psychology. The part that actually breaks is scope: what goes in each tier, how many revisions, and what to say when a Standard client asks for Premium work. Includes a tier builder with effective-hourly check." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-728DGKLSE6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-728DGKLSE6');
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #1a1a1a; --accent: #2d5be3; --blog: #1a9e6e; --paper: #fafaf8; --muted: #6b6b6b; --border: #e5e5e2; --warn: #c2410c; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; display: flex; flex-direction: column; }
+    .article-wrap { max-width: 720px; width: 100%; margin: 0 auto; padding: 56px 24px 80px; flex: 1; min-width: 0; }
+    .article-tag { font-size: 0.75rem; font-weight: 600; color: var(--blog); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; display: block; }
+    .article-wrap h1 { font-family: 'DM Serif Display', serif; font-size: clamp(1.5rem, 4vw, 2.3rem); line-height: 1.25; margin-bottom: 16px; }
+    .article-meta { font-size: 0.82rem; color: #aaa; margin-bottom: 40px; }
+    .article-body { font-size: 1rem; line-height: 1.8; color: var(--ink); }
+    .article-body a { color: var(--accent); }
+    .article-body h2 { font-family: 'DM Serif Display', serif; font-size: 1.4rem; margin: 40px 0 12px; }
+    .article-body h3 { font-size: 1.02rem; font-weight: 600; margin: 28px 0 8px; }
+    .article-body p { margin-bottom: 20px; }
+    .article-body ul, .article-body ol { margin: 0 0 20px 20px; }
+    .article-body li { margin-bottom: 8px; line-height: 1.7; }
+    .article-body strong { font-weight: 600; }
+    .highlight-box { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--blog); border-radius: 8px; padding: 20px 24px; margin: 28px 0; }
+    .highlight-box p { margin: 0; font-size: 0.95rem; }
+    .highlight-box p + p { margin-top: 12px; }
+    .warn-box { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--warn); border-radius: 8px; padding: 20px 24px; margin: 28px 0; }
+    .warn-box p { margin: 0; font-size: 0.95rem; }
+    .warn-box p + p { margin-top: 12px; }
+    .clause-box { background: #f4f8f6; border: 1px solid var(--border); border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-size: 0.92rem; line-height: 1.7; color: #2a2a2a; }
+    .clause-label { display: block; font-size: 0.72rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; min-width: 0; margin: 20px 0; }
+    .table-scroll-hint { display: none; font-size: 0.78rem; color: #999; margin: 0 0 8px; align-items: center; gap: 4px; }
+    @media (max-width: 700px) { .table-scroll-hint { display: flex; } }
+    .compare-table { width: 100%; min-width: 560px; border-collapse: collapse; margin: 0; font-size: 0.9rem; }
+    .compare-table th, .compare-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+    .compare-table th { font-weight: 600; color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; }
+    .checker { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--blog); border-radius: 8px; padding: 24px 28px; margin: 28px 0 40px; }
+    .checker h2 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; margin: 0 0 8px; }
+    .checker-sub { font-size: 0.9rem; color: #666; margin-bottom: 16px; }
+    .checker-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+    .checker-field label { display: block; font-size: 0.78rem; color: var(--muted); margin-bottom: 4px; font-weight: 600; }
+    .checker-field select, .checker-field input { width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.95rem; font-family: 'DM Sans', sans-serif; background: #fff; color: var(--ink); }
+    .checker-out { border-top: 1px solid var(--border); padding-top: 14px; font-size: 0.93rem; line-height: 1.7; }
+    .checker-out .row { margin-bottom: 10px; }
+    .checker-out .k { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); font-weight: 600; display: block; }
+    .tier-card { border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; margin-bottom: 10px; background: #fafaf8; }
+    .tier-card .tname { font-weight: 600; font-size: 0.95rem; }
+    .tier-card .tprice { font-size: 1.15rem; font-weight: 600; margin: 2px 0 6px; }
+    .tier-card .tline { font-size: 0.87rem; color: #444; line-height: 1.6; }
+    .verdict { border-radius: 6px; padding: 12px 14px; margin-top: 12px; font-size: 0.9rem; line-height: 1.65; border: 1px solid var(--border); }
+    .v-ok { background: #f4f8f6; }
+    .v-risk { background: #fff8f2; }
+    .checker-note { font-size: 0.8rem; color: var(--muted); margin-top: 12px; line-height: 1.6; }
+    .cta-box { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 24px 28px; margin: 40px 0; }
+    .cta-box p { margin: 0 0 14px; font-size: 0.95rem; }
+    .cta-btn { display: inline-block; background: var(--accent); color: #fff; font-size: 0.875rem; font-weight: 600; padding: 10px 20px; border-radius: 6px; text-decoration: none; }
+    .article-body a.cta-btn { color: #fff; }
+    .cta-btn:hover { opacity: 0.88; }
+    details { border-bottom: 1px solid var(--border); padding: 14px 0; }
+    details summary { cursor: pointer; font-weight: 600; font-size: 0.95rem; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::after { content: '+'; color: var(--muted); font-weight: 400; font-size: 1.1rem; }
+    details[open] summary::after { content: '\2212'; }
+    details p { margin: 12px 0 0; font-size: 0.92rem; color: #444; line-height: 1.75; }
+    .back-link { display: inline-block; margin-bottom: 32px; font-size: 0.85rem; color: var(--muted); text-decoration: none; }
+    .back-link:hover { color: var(--ink); }
+    footer { border-top: 1px solid var(--border); padding: 24px; text-align: center; margin-top: auto; }
+    .footer-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 10px; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.825rem; color: var(--muted); text-decoration: none; }
+    .footer-links a:hover { color: var(--ink); }
+    .footer-links .footer-blog { color: var(--blog); font-weight: 600; }
+    .footer-copy { font-size: 0.78rem; color: #aaa; }
+    @media (max-width: 700px) { .checker-row { grid-template-columns: 1fr; } }
+    @media (max-width: 500px) { .compare-table { font-size: 0.8rem; } }
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Basic, Standard, Premium: How to Draw the Scope Lines Between Freelance Tiers",
+  "description": "What actually goes in each tier, how many revisions each gets, the effective-hourly trap that makes Premium pay worse than Basic, and what to say when a Standard client asks for Premium work.",
+  "url": "https://getsolotools.com/blog/freelance-service-tiers-scope.html",
+  "datePublished": "2026-08-31",
+  "dateModified": "2026-08-31",
+  "author": { "@type": "Organization", "name": "GetSoloTools", "url": "https://getsolotools.com" },
+  "publisher": { "@type": "Organization", "name": "GetSoloTools", "url": "https://getsolotools.com" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What should go in a Basic, Standard and Premium freelance package?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Basic is the smallest version of the job that still works on its own — a client who buys only Basic should get a usable result, not a teaser. Standard is Basic plus the additions clients ask for most often, which is why it is normally the tier you actually want people to buy. Premium is the done-for-you version: widest scope, fastest turnaround, most revisions, and usually some form of ongoing support. The mistake to avoid is defining tiers by effort rather than by deliverable. If the only difference between Standard and Premium is that Premium takes you longer, clients cannot see the difference and will default to the cheapest option."
+    } },
+    {
+      "@type": "Question",
+      "name": "How many revisions should each tier include?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A common structure is one round at Basic, two or three at Standard, and a defined higher number at Premium — but the important part is that the number is finite at every tier, including Premium. Unlimited revisions at the top tier is the single most reliable way to make your best-paying package your worst-paying work, because the clients who buy it are the ones with the most opinions. If you want Premium to feel generous, use a longer revision window or faster turnaround on each round rather than an uncapped count."
+    } },
+    {
+      "@type": "Question",
+      "name": "How should I price three tiers relative to each other?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Set the middle tier first, because that is the one most clients choose and it should reflect the work you actually want. From there a common spacing is Basic at roughly 50 to 60 percent of Standard and Premium at roughly 175 to 200 percent of Standard. The spacing matters less than the check most people skip: divide each tier's price by the hours it honestly takes, including revisions and admin. If Premium works out to a lower hourly rate than Basic, the ladder is upside down and every sale of your best package quietly costs you money."
+    } },
+    {
+      "@type": "Question",
+      "name": "What do I say when a Standard client asks for Premium work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Treat it as a change order rather than a favour or a confrontation. Name the item, say which tier it belongs to, give the price to add it, and offer the choice: add it now at that price, or keep the current scope. This works because the tier document already said so before the project started, so you are pointing at an agreed boundary rather than inventing one under pressure. The failure mode is absorbing the first request silently, which teaches the client that tier lines are decorative and guarantees a second request."
+    } },
+    {
+      "@type": "Question",
+      "name": "Is tiered pricing better than custom quotes for freelancers?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Tiers work best for repeatable work where the deliverable is roughly the same shape every time — logo packages, website builds of a known size, monthly content, recurring maintenance. They save you scoping time and let buyers self-select without a sales call. Custom quoting stays better for genuinely bespoke projects, work where discovery changes the shape of the job, and anything priced on the value of the outcome rather than the deliverable. Many freelancers run both: tiers for the standard offering, custom quotes above the top tier."
+    } }
+  ]
+}
+</script>
+</head>
+<body>
+  <script src="/nav.js"></script>
+  <div class="article-wrap">
+    <a href="/blog/index.html" class="back-link">← Back to Blog</a>
+    <span class="article-tag">Pricing</span>
+    <h1>Basic, Standard, Premium: How to Draw the Scope Lines Between Freelance Tiers</h1>
+    <p class="article-meta">August 31, 2026 · 10 min read</p>
+
+    <div class="article-body">
+      <p>There is plenty written about <em>why</em> three tiers work — anchoring, the Goldilocks effect, the middle option winning both comparisons. That part is settled and you can read it anywhere.</p>
+      <p>What almost nobody writes about is the part that actually breaks in practice: <strong>where the scope lines go.</strong> Tiers fail not because the prices were wrong but because Standard and Premium weren't distinguishable enough for a client to see, or because the boundary between them was never written down, so every Standard client asked for Premium work and got it.</p>
+
+      <h2>The Rule: Tiers Differ by Deliverable, Not by Effort</h2>
+      <p>The most common way tiers collapse is defining them by how much work you'll do. "Premium includes more in-depth research" is invisible to a buyer — they can't verify it, can't compare it, and can't tell what they're paying extra for. Clients default to the cheapest tier whenever the difference isn't legible.</p>
+      <p>Every tier boundary should be something a client could count or check. There are four levers that do this reliably:</p>
+      <p class="table-scroll-hint"><span aria-hidden="true">↔</span> Scroll sideways to see all columns</p>
+
+      <div class="table-scroll">
+        <table class="compare-table">
+          <tr><th>Lever</th><th>Why it works</th><th>Example boundary</th></tr>
+          <tr><td><strong>Count of deliverables</strong></td><td>Countable, obvious, easy to price</td><td>1 concept / 3 concepts / 5 concepts</td></tr>
+          <tr><td><strong>Revision rounds</strong></td><td>Directly controls your downside</td><td>1 round / 3 rounds / 5 rounds</td></tr>
+          <tr><td><strong>Turnaround</strong></td><td>Real value to the client, costs you scheduling not scope</td><td>10 days / 5 days / 48 hours</td></tr>
+          <tr><td><strong>What's included after delivery</strong></td><td>Cleanly separates the top tier</td><td>None / 14 days of fixes / 30 days + source files</td></tr>
+        </table>
+      </div>
+      <p>Notice that only the first lever adds work proportionally. Turnaround and post-delivery support let you charge more without linearly increasing your hours — which is exactly what keeps the top tier profitable.</p>
+
+      <h2>What Each Tier Is Actually For</h2>
+      <h3>Basic — the smallest version that still works</h3>
+      <p>A client who buys only Basic should get something usable, not a teaser that forces an upgrade. Deliberately crippled entry tiers generate refund requests and bad reviews, and they don't convert to upgrades as often as people expect. Basic's job is to remove the "is this person any good" hesitation at low risk.</p>
+
+      <h3>Standard — the one you actually want sold</h3>
+      <p>Standard should be Basic plus the two or three things clients ask for most. If you already know what the common add-on requests are, that list <em>is</em> your Standard tier. This is the tier to design first and the one your pricing should be built around, because it's where most of the volume lands.</p>
+
+      <h3>Premium — done-for-you, with a defined ceiling</h3>
+      <p>Widest scope, fastest turnaround, most support. But <strong>"most" must still be a number.</strong> More on this below, because it's where the money leaks.</p>
+
+      <h2>The Trap: Premium That Pays Worse Than Basic</h2>
+      <div class="warn-box">
+        <p><strong>Divide every tier's price by the hours it honestly takes — including revisions and admin — before you publish it.</strong> Freelancers routinely discover that their proudest package pays a lower effective hourly rate than their cheapest one, because Premium accumulated unlimited revisions, extra calls, and open-ended support while the price only went up by 80%.</p>
+        <p>When that happens, every sale of your best tier quietly costs you money, and the better you market it the worse your year gets.</p>
+      </div>
+      <p>Two rules prevent it. First, <strong>cap revisions at every tier, Premium included.</strong> Unlimited revisions at the top is the fastest way to invert your ladder, because the clients who buy Premium tend to be the ones with the most opinions and the most stakeholders. If you want Premium to feel generous, widen the revision <em>window</em> or speed up each round rather than uncapping the count.</p>
+      <p>Second, <strong>price the top tier on turnaround and support, not just volume.</strong> Rush delivery is worth real money to a client and costs you scheduling rather than scope. Our <a href="/blog/how-to-price-a-freelance-project.html">guide to pricing a freelance project</a> covers the estimation side, and the <a href="/hourly-rate.html">hourly rate calculator</a> gives you the floor to check each tier against.</p>
+
+      <h2>Build Your Three Tiers</h2>
+      <p>Enter what you want your middle tier to be. This spaces the other two, and — more importantly — checks each one against your hourly floor.</p>
+
+      <div class="checker" id="tierCalc">
+        <h2>Tier Builder + Effective Hourly Check</h2>
+        <p class="checker-sub">Spacing follows common practice; the hourly check is the part worth acting on.</p>
+        <div class="checker-row">
+          <div class="checker-field">
+            <label for="tPrice">Standard (middle) tier price ($)</label>
+            <input type="number" id="tPrice" value="1200" min="0" step="50">
+          </div>
+          <div class="checker-field">
+            <label for="tFloor">Your hourly floor ($)</label>
+            <input type="number" id="tFloor" value="75" min="0" step="5">
+          </div>
+        </div>
+        <div class="checker-row">
+          <div class="checker-field">
+            <label for="tHours">Hours Standard honestly takes</label>
+            <input type="number" id="tHours" value="12" min="0" step="1">
+          </div>
+          <div class="checker-field">
+            <label for="tPremHours">Hours Premium honestly takes</label>
+            <input type="number" id="tPremHours" value="26" min="0" step="1">
+          </div>
+        </div>
+        <div class="checker-row">
+          <div class="checker-field">
+            <label for="tType">Service type</label>
+            <select id="tType">
+              <option value="design">Design / branding</option>
+              <option value="web" selected>Website build</option>
+              <option value="writing">Writing / content</option>
+              <option value="social">Social media / ongoing</option>
+              <option value="consult">Consulting / audit</option>
+            </select>
+          </div>
+          <div class="checker-field">
+            <label for="tSpacing">Premium price multiple</label>
+            <select id="tSpacing">
+              <option value="1.6">1.6× Standard</option>
+              <option value="1.85" selected>1.85× Standard</option>
+              <option value="2.2">2.2× Standard</option>
+            </select>
+          </div>
+        </div>
+        <div class="checker-out" id="tOut"></div>
+        <p class="checker-note">Hour estimates for Basic and Premium assume the deliverable counts shown. If your Premium involves more stakeholders than Standard, add hours before trusting the effective rate.</p>
+      </div>
+
+      <h2>Writing the Boundary So It Holds</h2>
+      <p>A tier table on your website is marketing. What stops scope drift is the same table restated as a scope of work, attached to the agreement, with exclusions written out. Our <a href="/blog/how-to-write-a-scope-of-work-for-freelance-projects.html">guide to writing a scope of work</a> covers why exclusions matter as much as deliverables — with tiers, that's doubly true, because the excluded items are literally the next tier up.</p>
+      <div class="clause-box">
+        <span class="clause-label">Tier scope wording</span>
+        This engagement is the [Standard] package as described below. Deliverables: [list, with counts]. Revisions: [N] rounds, each requested within [X] business days of delivery. Turnaround: [N] business days from receipt of all client materials. Not included in this package: [list the items that belong to the tier above]. Any item listed as not included may be added by written change order at the rates in the Package Schedule.
+      </div>
+      <p>That last sentence does most of the work. It converts an upgrade request from a negotiation into an already-priced menu item. Generate the full document with the <a href="/scope-of-work.html">scope of work generator</a>, and if you're sending tiers as options to a prospect, the <a href="/client-proposal.html">proposal generator</a> handles the presentation.</p>
+
+      <h2>When a Standard Client Asks for Premium Work</h2>
+      <p>This will happen on nearly every project, and how you handle the first request decides the rest of the engagement.</p>
+      <p>The instinct is to absorb it — it's small, you don't want friction, and the relationship feels worth more than the item. But absorbing the first request teaches the client that the tier lines are decorative, and it guarantees a second one. The alternative isn't confrontation. It's naming the item and offering the choice:</p>
+      <div class="clause-box">
+        <span class="clause-label">The response</span>
+        Happy to do that — [item] sits in the Premium package rather than Standard, so it's [$X] to add. Want me to include it, or keep the current scope and revisit after launch?
+      </div>
+      <p>Four things make this work: it says yes rather than no, it points at a boundary that already existed before the project started, it gives a specific price instead of "that'll cost extra," and it offers a face-saving exit. Most clients pick one and move on without any awkwardness at all.</p>
+      <p>If requests keep arriving despite this, the underlying issue is usually scope definition rather than the client — see <a href="/blog/how-to-negotiate-a-freelance-contract.html">the contract clauses worth redlining</a> for the change-order language that backs it up.</p>
+
+      <h2>When Tiers Are the Wrong Model</h2>
+      <p>Tiers suit repeatable work where the deliverable is roughly the same shape each time: logo packages, websites of a known size, monthly content, recurring maintenance. They save scoping time and let buyers choose without a call.</p>
+      <p>They're a poor fit when:</p>
+      <ul>
+        <li><strong>Discovery changes the shape of the job.</strong> If you can't know the deliverable until you've dug in, a tier is a guess you're contractually bound to.</li>
+        <li><strong>You're pricing on outcome value</strong> rather than deliverable count — a tier table anchors the conversation to units and away from results.</li>
+        <li><strong>The work is genuinely bespoke.</strong> Publishing tiers you constantly deviate from is worse than not publishing them.</li>
+      </ul>
+      <p>A common resolution is running both: tiers for the standard offering, and custom quoting above the top tier. Saying "projects beyond Premium are quoted individually" costs nothing and keeps the ladder honest. For retainer arrangements the same logic applies with an extra wrinkle — see <a href="/blog/how-to-get-freelance-retainer-clients.html">how to get freelance retainer clients</a>, and note that unpaid retainers behave differently from unpaid projects if it comes to that.</p>
+
+      <div class="cta-box">
+        <p>Turn your tier definitions into a scope of work you can attach to the agreement — deliverables, revisions, exclusions and change-order terms. Free, no sign-up.</p>
+        <a href="/scope-of-work.html" class="cta-btn">Open Scope of Work Generator →</a>
+      </div>
+
+      <h2>Frequently Asked Questions</h2>
+      <details>
+        <summary>What should go in a Basic, Standard and Premium freelance package?</summary>
+        <p>Basic is the smallest version of the job that still works on its own — a client who buys only Basic should get a usable result, not a teaser. Standard is Basic plus the additions clients ask for most often, which is why it's normally the tier you actually want people to buy. Premium is the done-for-you version: widest scope, fastest turnaround, most revisions, and usually some form of ongoing support. The mistake to avoid is defining tiers by effort rather than by deliverable. If the only difference between Standard and Premium is that Premium takes you longer, clients can't see the difference and will default to the cheapest option.</p>
+      </details>
+      <details>
+        <summary>How many revisions should each tier include?</summary>
+        <p>A common structure is one round at Basic, two or three at Standard, and a defined higher number at Premium — but the important part is that the number is finite at every tier, including Premium. Unlimited revisions at the top tier is the single most reliable way to make your best-paying package your worst-paying work, because the clients who buy it are the ones with the most opinions. If you want Premium to feel generous, use a longer revision window or faster turnaround on each round rather than an uncapped count.</p>
+      </details>
+      <details>
+        <summary>How should I price three tiers relative to each other?</summary>
+        <p>Set the middle tier first, because that's the one most clients choose and it should reflect the work you actually want. From there a common spacing is Basic at roughly 50–60% of Standard and Premium at roughly 175–200% of Standard. The spacing matters less than the check most people skip: divide each tier's price by the hours it honestly takes, including revisions and admin. If Premium works out to a lower hourly rate than Basic, the ladder is upside down and every sale of your best package quietly costs you money.</p>
+      </details>
+      <details>
+        <summary>What do I say when a Standard client asks for Premium work?</summary>
+        <p>Treat it as a change order rather than a favour or a confrontation. Name the item, say which tier it belongs to, give the price to add it, and offer the choice: add it now at that price, or keep the current scope. This works because the tier document already said so before the project started, so you're pointing at an agreed boundary rather than inventing one under pressure. The failure mode is absorbing the first request silently, which teaches the client that tier lines are decorative and guarantees a second request.</p>
+      </details>
+      <details>
+        <summary>Is tiered pricing better than custom quotes for freelancers?</summary>
+        <p>Tiers work best for repeatable work where the deliverable is roughly the same shape every time — logo packages, website builds of a known size, monthly content, recurring maintenance. They save you scoping time and let buyers self-select without a sales call. Custom quoting stays better for genuinely bespoke projects, work where discovery changes the shape of the job, and anything priced on the value of the outcome rather than the deliverable. Many freelancers run both: tiers for the standard offering, custom quotes above the top tier.</p>
+      </details>
+
+      <p style="margin-top:32px;">The prices are the easy part. Write down what each tier does and doesn't include, cap the revisions everywhere, and check that your best package isn't your worst-paid one — and the ladder holds on its own.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/">Invoice Generator</a>
+      <a href="/scope-of-work.html">Scope of Work</a>
+      <a href="/hourly-rate.html">Hourly Rate Calculator</a>
+      <a href="/blog/index.html" class="footer-blog">Blog</a>
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+    </div>
+    <p class="footer-copy">© 2026 GetSoloTools. Free tools for freelancers.</p>
+  </footer>
+
+  <script>
+    (function () {
+      var T = {
+        design: {
+          n: 'Design / branding',
+          basic: { d: '1 concept, final files in 2 formats', r: 1, t: '10 business days', a: 'No post-delivery support' },
+          std: { d: '3 concepts, full file set', r: 3, t: '5 business days', a: '14 days of minor fixes' },
+          prem: { d: '5 concepts + brand usage sheet', r: 5, t: '48 hours per round', a: '30 days of fixes + source files' }
+        },
+        web: {
+          n: 'Website build',
+          basic: { d: '3 pages, template-based', r: 1, t: '3 weeks', a: 'No post-launch support' },
+          std: { d: '5–7 pages, custom layout, basic SEO', r: 3, t: '2 weeks', a: '14 days of post-launch fixes' },
+          prem: { d: '10+ pages, custom features, SEO + analytics setup', r: 5, t: '1 week', a: '30 days support + handover training' }
+        },
+        writing: {
+          n: 'Writing / content',
+          basic: { d: '1 piece, 800 words', r: 1, t: '7 business days', a: 'No extras' },
+          std: { d: '3 pieces + keyword research', r: 3, t: '4 business days', a: 'Headline variants included' },
+          prem: { d: '5 pieces + research, briefs, and repurposing', r: 4, t: '48 hours per piece', a: '30 days of edits + content calendar' }
+        },
+        social: {
+          n: 'Social media / ongoing',
+          basic: { d: '8 posts/month, 1 platform', r: 1, t: 'Monthly batch', a: 'No reporting' },
+          std: { d: '16 posts/month, 2 platforms', r: 2, t: 'Bi-weekly batches', a: 'Monthly performance report' },
+          prem: { d: '24 posts/month, 3 platforms + community management', r: 3, t: 'Weekly batches', a: 'Monthly report + strategy call' }
+        },
+        consult: {
+          n: 'Consulting / audit',
+          basic: { d: 'Written audit, 1 focus area', r: 1, t: '10 business days', a: 'No call' },
+          std: { d: 'Audit across 3 areas + prioritised roadmap', r: 2, t: '5 business days', a: '60-minute walkthrough call' },
+          prem: { d: 'Full audit + roadmap + implementation plan', r: 3, t: '3 business days', a: '3 follow-up calls over 90 days' }
+        }
+      };
+
+      var price = document.getElementById('tPrice');
+      var floor = document.getElementById('tFloor');
+      var hours = document.getElementById('tHours');
+      var premHours = document.getElementById('tPremHours');
+      var spacing = document.getElementById('tSpacing');
+      var type = document.getElementById('tType');
+      var out = document.getElementById('tOut');
+      if (!out || !price) { return; }
+
+      function money(n) { return '$' + Math.round(n).toLocaleString(); }
+
+      function card(label, p, spec, hrs, fl) {
+        var eff = hrs > 0 ? p / hrs : 0;
+        var flag = (fl > 0 && eff < fl);
+        return '<div class="tier-card">' +
+          '<div class="tname">' + label + '</div>' +
+          '<div class="tprice">' + money(p) + '</div>' +
+          '<div class="tline"><strong>Deliverables:</strong> ' + spec.d + '<br>' +
+          '<strong>Revisions:</strong> ' + spec.r + ' round' + (spec.r > 1 ? 's' : '') + '<br>' +
+          '<strong>Turnaround:</strong> ' + spec.t + '<br>' +
+          '<strong>After delivery:</strong> ' + spec.a + '<br>' +
+          '<span style="color:' + (flag ? '#c2410c' : '#1a9e6e') + ';font-weight:600;">Effective rate: ' + money(eff) + '/hr' +
+          (flag ? ' — below your floor' : '') + '</span> (' + (Math.round(hrs * 10) / 10) + ' hrs)</div></div>';
+      }
+
+      function render() {
+        var p = parseFloat(price.value) || 0;
+        var fl = parseFloat(floor.value) || 0;
+        var h = parseFloat(hours.value) || 0;
+        var hPrem = parseFloat(premHours.value) || 0;
+        var mult = parseFloat(spacing.value) || 1.85;
+        var t = T[type.value];
+
+        if (p <= 0 || h <= 0 || hPrem <= 0) {
+          out.innerHTML = '<div class="row">Enter your Standard price and the hours each tier honestly takes to build the ladder.</div>';
+          return;
+        }
+
+        var pBasic = p * 0.55;
+        var pPrem = p * mult;
+        // Basic 시간만 표준에서 추정. Premium은 사용자 입력 — 역전 함정은 여기서만 드러난다.
+        var hBasic = h * 0.6;
+
+        var html = '';
+        html += card('Basic', pBasic, t.basic, hBasic, fl);
+        html += card('Standard', p, t.std, h, fl);
+        html += card('Premium', pPrem, t.prem, hPrem, fl);
+
+        var effB = pBasic / hBasic, effS = p / h, effP = pPrem / hPrem;
+        var cls, verdict;
+        if (effP < effB) {
+          cls = 'v-risk';
+          verdict = '<strong>Your ladder is upside down.</strong> Premium works out to ' + money(effP) + '/hr while Basic pays ' + money(effB) + '/hr — every sale of your best package earns you less per hour than your cheapest one. Either raise Premium above ' + money(effB * hPrem) + ', or cut scope out of it.';
+        } else if (fl > 0 && effB < fl) {
+          cls = 'v-risk';
+          verdict = '<strong>Basic is below your floor.</strong> At ' + money(effB) + '/hr it earns less than the ' + money(fl) + '/hr you need. Raise Standard (which lifts Basic with it) to at least ' + money((fl * hBasic) / 0.55) + ', or strip Basic down to fewer deliverables.';
+        } else if (fl > 0 && effP < fl) {
+          cls = 'v-risk';
+          verdict = '<strong>Premium is below your floor.</strong> ' + money(effP) + '/hr against a ' + money(fl) + '/hr floor. The usual cause is scope creeping into the top tier — cap its revisions and move volume increases into turnaround and support instead.';
+        } else {
+          cls = 'v-ok';
+          verdict = '<strong>The ladder holds.</strong> Effective rates rise from ' + money(effB) + ' to ' + money(effS) + ' to ' + money(effP) + '/hr, all at or above your floor. Now write the exclusions: for each tier, list the items that belong to the tier above, so an upgrade request is a priced menu item rather than a negotiation.';
+        }
+        html += '<div class="verdict ' + cls + '">' + verdict + '</div>';
+        out.innerHTML = html;
+      }
+
+      [price, floor, hours, premHours, spacing, type].forEach(function (el) {
+        el.addEventListener('input', render);
+        el.addEventListener('change', render);
+      });
+      render();
+    })();
+  </script>
+</body>
+</html>
