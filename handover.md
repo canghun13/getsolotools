@@ -1,6 +1,6 @@
 # GetSoloTools 인수인계 문서 (handover.md)
 
-**최종 갱신**: 2026-08-24 (**외부 소스 기반 신규 발굴 세션**. GSC/Bing이 아니라 Blind·HN 등 실사용자 발화에서 병목을 특정해 `blog/is-it-worth-suing-a-client-unpaid-invoice.html` 제작. **더 중요한 것: 기존 페이지 5개에 퍼져 있던 Illinois 배상액 사실오류(triple→double) 발견/정정** — 최고순위 페이지 포함. 상세는 "2026-08-24 세션" 참고)
+**최종 갱신**: 2026-08-31 (**Bing 5배 성장 확인 + 08-17 신규 3개는 아직 Bing 미흡수(전략 1차 검증 결과: 미확정)**. 신규 `blog/freelance-service-tiers-scope.html`(티어 범위 경계) + kill fee 페이지 보강. 상세는 "2026-08-31 세션" 참고)
 **갱신 방식이 v12까지와 다름**: 이제부터 이 문서는 새 채팅에 붙여넣는 방식이 아니라, **저장소에 직접 보관하고 계속 업데이트**하는 방식으로 운영한다. 새 세션에서는 이 파일(`handover.md`)을 clone 직후 가장 먼저 읽을 것.
 
 ---
@@ -100,7 +100,7 @@
 
 - **툴**: 19개 (Invoice Generator = index.html 포함, 2026-07-24에 Kill Fee Calculator 신규 추가 — late-fee 시리즈 밖 첫 클러스터에서 처음으로 블로그 위젯이 아닌 완전한 독립 툴 페이지 제작)
 - **이메일 템플릿**: 24개 (25개 파일이나 sending-nda.html 등 포함, v12 이후 변경 없음)
-- **블로그 글**: 70개 (2026-08-24에 `is-it-worth-suing-a-client-unpaid-invoice` 추가 — 미수금 소송의 손익 판단, IL/NY/CA 변호사비 전가가 경제성을 뒤집는다는 축). late fee 지역 시리즈 34개 주 + 그 외 36개. 34개 주 전부 미니 계산기 위젯 + FAQPage 스키마 보유.
+- **블로그 글**: 71개 (2026-08-31에 `freelance-service-tiers-scope` 추가 — Basic/Standard/Premium 티어의 범위 경계, 실효시급 역전 검증 위젯). late fee 지역 시리즈 34개 주 + 그 외 37개.
 
 ### 툴 목록 (18개, 경로는 v12 문서와 동일 — 변경 없음)
 Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Project Profit, Budget Planner, Contract Generator, Invoice Tracker, Client Proposal, Time Tracker, Milestone Calculator, Savings Calculator, NDA Generator, Client Intake Form, Expense Report, Scope of Work — **18개로 유지, 추가 없음**
@@ -620,6 +620,42 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 
 ---
 
+### 2026-08-31 세션
+
+**1. Bing이 5배 성장 — 이 채널이 유일하게 작동한다는 것이 확정**
+
+| | 08-17 | 08-24 |
+|---|---|---|
+| Bing 노출 | 17 | **84** |
+| Bing 클릭 | 1 | **9** |
+| GSC 노출(3개월) | 4,097 | 4,670 |
+| GSC 클릭(3개월) | 15 | 17 |
+
+`common mistakes with freelance taxes` 4→**33노출 7클릭 1위 CTR 21%**. GSC는 여전히 노출 78.5%가 70위 밖이고 **10위 이내 쿼리가 0개**로 오히려 악화. **Bing:Google 클릭비가 9:0이다. 판단은 전적으로 Bing/GA로 할 것.**
+
+**2. 08-17 신규 3개의 Bing 흡수 — 아직 안 됨 (솔직한 1차 검증 결과)**
+Bing 페이지 리포트에 `is-a-daily-late-fee-legal` / `client-discovery-call-questions` / `retainer-client-not-paying` **셋 다 없음**. 근거가 된 쿼리들은 여전히 **기존 페이지**에 매핑돼 있다:
+- `freelance social media manager late payment follow-up tools`(5위) → `how-to-handle-late-payments`(신규 retainer 페이지 아님)
+- `freelance client interview rate negotiation questions...`(2.5위) → `freelance-rate-negotiation-guide`(신규 discovery 페이지 아님)
+- `ohio vendor late fee law - painter charging 10% late fee per day`(4위) → `late-fee-laws-ohio`(신규 daily-fee 페이지 아님)
+
+**즉 "Bing 쿼리 표면 확장" 전략은 2주차 시점에 확인도 반증도 안 됐다.** 색인 지연인지 기존 페이지가 계속 우선되는 것인지 불명. GA에서는 `is-a-daily-late-fee-legal`이 7조회/이탈률 0%로 살아있으므로 페이지 자체는 문제없음. **다음 데이터에서도 Bing 페이지 리포트에 안 나타나면 "신규 페이지가 기존 페이지를 대체하지 못한다"는 가설을 세우고, 신규 생성 대신 기존 페이지 보강 쪽으로 무게를 옮길 것.** (이번에 kill fee를 신규가 아닌 보강으로 처리한 것도 같은 이유.)
+
+**3. GA4 (07-27~08-23)**: MAU **77**(전 67). direct 40 / **bing 21** / google 7 / **chatgpt.com/ai-assistant 1** / duckduckgo 1. AI 어시스턴트 유입이 처음으로 소스에 잡혔다. 미국 비중 12/56 = **약 21%**.
+
+**4. 제휴 판단 (규칙대로) → 구간 A 유지.** MAU 77(<500) / 상업 페이지 `invoicing-software-automatic` 월 1조회(<50) / 미국 21%(<30%). 셋 다 미달, 언급하지 않음.
+
+**5. 신규: `blog/freelance-service-tiers-scope.html`** (1,980단어)
+- **근거**: Bing `scope of work basic standard premium website freelance` **4.67위**. 기존 `how-to-write-a-scope-of-work`(1,568단어) / `scope-of-work.html` / `how-to-price-a-freelance-project` **세 파일 모두 tier·package 언급 0건** — 완전한 공백.
+- **경쟁회피 판단**: 티어드 가격은 Ignition·Wayfront·FutureFirm·FreshBooks·Fiverr 가이드로 **포화**. 정면으로 가면 진다. 그런데 **쿼리의 핵심어는 pricing이 아니라 scope of work**였다 — 가격이 아니라 티어 간 *범위 경계*를 묻고 있음. 경쟁군은 전부 가격 심리학(앵커링·골디락스·중간티어)이고 "Standard 고객이 Premium 작업을 요구할 때 어디가 경계냐"는 아무도 안 쓴다. 우리 SOW·개정캡·변경명령 자산 위에 바로 얹힘.
+- **위젯 설계에서 실제 결함을 잡았다(기록 가치 있음)**: 처음엔 Premium 시간을 표준시간×1.7 고정배수로 계산했는데, 그러면 실효시급이 **항상** 상승해서 "역전 함정" 판정이 **구조상 절대 발동 못 하는 죽은 코드**였다. 페이지의 핵심 주장을 검증하는 기능이 작동하지 않는 상태. → Premium 시간을 **사용자 입력**으로 바꿔 실제로 역전이 잡히게 수정. **위젯에 판정 분기를 넣었으면 그 분기가 실제로 도달 가능한지 반드시 테스트할 것.**
+
+**6. 보강: `blog/freelance-kill-fee-clause.html`**
+Bing에서 kill fee 관련 쿼리 4개(`kill fee for written material not used` 7.5위, `what is a kill fee for social media content` 7위, `kill fee for freelance contracts` 6위, `how to kill wires freelancers cut deposit` 5위)가 잡히는데 **5~7.5위로 사이트 내 최약 구간**(다른 Bing 쿼리는 1~3위). 원인 확인 결과 페이지에 journalism/written material 언급 1회, social media **0회** — 하위질문 미커버였다. FAQ 3→6개(스키마·화면 동기화): 출판 킬피 원형(권리 반환, 비게재 트리거), 소셜 배치 단위 과금, 착수 전 취소 미발생.
+**신규 페이지를 만들지 않고 보강을 택한 이유**: kill fee 자산이 이미 2개(블로그 1,292단어 + 툴 1,015단어)라 3번째는 자기잠식 위험. 2번 항목의 "신규가 기존을 대체 못 할 수 있다"는 관찰과도 일관.
+
+---
+
 ## 기술 주의사항
 
 ### nav.js
@@ -652,6 +688,7 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 - JS 있는 파일은 `node --check`로 문법 검증
 - 계산기 위젯은 가능하면 jsdom으로 실제 실행 검증. **단, `window.addEventListener('DOMContentLoaded', ...)` 패턴을 쓰는 페이지(대부분의 독립 툴)는 jsdom에서 이벤트가 비동기로 발생하므로, `new JSDOM()` 직후 곧바로 동기적으로 결과를 읽으면 초기 플레이스홀더 값만 보고 오탐(false negative)할 수 있음 — 반드시 `setTimeout`이나 `await`로 잠깐 기다린 뒤에 결과를 읽을 것.** (2026-07-24, `kill-fee-calculator.html` 검증 중 실제로 겪음 — 즉시 읽었더니 전부 $0으로 나와서 버그인 줄 알았으나 비동기 대기 후 재확인하니 정상이었음.)
 - `sitemap.xml`은 `xml.etree.ElementTree.parse()`로 유효성 검증 + 위 중복 체크
+- **위젯에 판정 분기(verdict/경고)를 넣었으면 그 분기가 실제로 도달 가능한지 테스트할 것.** 2026-08-31에 티어 위젯의 "실효시급 역전" 경고가 입력값 구조상 절대 발동할 수 없는 죽은 코드였다(Premium 시간을 고정배수로 계산해서 시급이 항상 상승). 페이지의 핵심 주장을 검증하는 기능이 작동하지 않는 상태였고, jsdom으로 전 분기를 강제로 밟아보고서야 발견했다. **모든 verdict 분기를 각각 한 번씩 발동시키는 테스트 케이스를 만들 것.**
 - **위젯 데이터와 본문/handover 기록이 어긋나면 표기 문제가 아니라 둘 중 하나가 틀렸다는 신호다. 즉시 1차 소스로 확인할 것.** 2026-08-24에 Illinois 배상액이 위젯에는 `triple`, handover에는 `double`로 적혀 있었고 확인 결과 **double이 정답**이었다. 오류가 5개 파일에 퍼져 있었고 그중 하나가 사이트 최고순위 페이지(9.81위)였다. 신규 페이지에 인용하려다 우연히 걸렸을 뿐, 안 걸렸으면 계속 틀린 법률 정보를 내보내고 있었을 것이다. **법률 수치를 재사용할 때는 재사용 시점에 한 번 더 검증한다.**
 - **표 가로스크롤 힌트(`.table-scroll-hint`)는 반드시 `.table-scroll` 컨테이너 *바깥*, 바로 앞 형제로 둘 것.** 컨테이너 *안*에 넣으면 표를 옆으로 밀 때 힌트도 같이 밀려나가 "Scroll sideways to see all columns" 문구가 화면 밖으로 사라진다(2026-08-17에 사용자가 스크린샷으로 지적). 기존 주(州) 페이지들은 원래 바깥에 있었는데, 08-11·08-17에 새로 만든 5개 파일에서 안쪽에 넣어 재현됨. 올바른 형태:
   ```html
@@ -679,6 +716,11 @@ Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Pr
 7. **사용자 승인 없이 먼저 진행하지 말 것.** 다만 (2026-07-14 사용자가 명시적으로 지적함) 같은 작업 축에서 이미 방향을 확정했으면 — 예: "차별화/틈새전략으로 최대한 해라"처럼 명시적으로 전권을 준 경우 — 그 이후 유사한 개별 작업(예: 18개 툴 각각에 자동저장 적용)마다 다시 확인받지 말고 계속 진행할 것. 매번 재확인은 사용자를 짜증나게 함. **새로운 종류/방향의 작업으로 넘어갈 때만** 승인을 구하면 됨.
 
 ## 현재 열려있는 이슈 (다음에 확인할 것)
+
+- **(2026-08-31, 최우선) 신규 페이지가 Bing에서 기존 페이지를 대체하지 못하고 있다.** 08-17 신규 3개가 2주 지나도 Bing 페이지 리포트에 없고, 근거 쿼리는 전부 기존 페이지에 계속 매핑돼 있다. **다음 데이터에서도 같으면 전략을 "신규 생성"에서 "기존 페이지 보강"으로 무게 이동할 것.** 판단 기준: 신규 3개 중 하나라도 Bing 페이지 리포트에 등장하면 기존 전략 유지, 0개면 보강 우선.
+- **(2026-08-31) Bing:Google 클릭비가 9:0.** GSC는 10위 이내 쿼리가 0개로 오히려 악화됐다. Google 순위 개선을 목표로 한 작업은 하지 말 것.
+- **(2026-08-31) `chatgpt.com / ai-assistant` 유입이 처음 관측됨(1명).** AI 어시스턴트가 별도 소스로 잡히기 시작했다. 다음 데이터에서 이 숫자가 늘면 AI 인용을 겨냥한 포맷(자연어 질문 H2 + 숫자·조문 직접 명기)의 가치가 커진다.
+- **(2026-08-31) 아직 미커버인 Bing 쿼리**: `yes, please include automated formulas for payment milestones`(2위, 4노출)와 `shop fabricated skid package payment milestone percentage`(4.33위) → milestone-calculator가 받고 있으나 **마일스톤 자동 계산식/산업용 분할** 각도는 콘텐츠가 없음. Florida 연체료 2개 쿼리(2위)도 기존 주 페이지가 받는 중.
 
 - **(2026-08-24) 기각한 키워드 후보 — 다시 파지 말 것**: 국제 결제/환전(Wise·Remitly·Payoneer 장악), 1099-NEC $2,000 임계값(CPA·세무SW 포화), 판결 집행 절차(Nolo·LegalZoom·LegalClarity·LegalAtoms가 주별까지 커버). 셋 다 검색량은 크지만 우리가 이길 각이 없다.
 - **(2026-08-24) 외부 발굴이 GSC보다 나은 소스임이 확인됨.** 이번 신규 페이지의 각도는 GSC/Bing이 아니라 **Blind·HN 실사용자 게시물의 문장 하나**에서 나왔다("이겨도 법원이 돈을 받아주지 않는다"). 경쟁사가 절차만 다루고 의사결정을 안 다룬다는 공백도 그 발화 덕에 보였다. **다음에도 커뮤니티 원문에서 "막힌 지점"을 먼저 찾고, 경쟁 콘텐츠가 그 지점에 답하는지 확인하는 순서로 갈 것.**
