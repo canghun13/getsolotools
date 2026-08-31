@@ -1,6 +1,6 @@
 # GetSoloTools 인수인계 문서 (handover.md)
 
-**최종 갱신**: 2026-08-31 (**Bing 5배 성장 확인 + 08-17 신규 3개는 아직 Bing 미흡수(전략 1차 검증 결과: 미확정)**. 신규 `blog/freelance-service-tiers-scope.html`(티어 범위 경계) + kill fee 페이지 보강. 상세는 "2026-08-31 세션" 참고)
+**최종 갱신**: 2026-08-31 (2차 — **사전 등록한 판단 규칙이 발동해 전략을 "신규 생성"에서 "기존 보강"으로 전환**. 신규 페이지가 3주 연속 Bing 리포트에 0개인 반면, 지난주 kill fee 보강은 순위·쿼리 모두 개선. 이번 주는 신규 없이 보강 3건. 상세는 "2026-08-31 세션 (2)" 참고)
 **갱신 방식이 v12까지와 다름**: 이제부터 이 문서는 새 채팅에 붙여넣는 방식이 아니라, **저장소에 직접 보관하고 계속 업데이트**하는 방식으로 운영한다. 새 세션에서는 이 파일(`handover.md`)을 clone 직후 가장 먼저 읽을 것.
 
 ---
@@ -656,6 +656,40 @@ Bing에서 kill fee 관련 쿼리 4개(`kill fee for written material not used` 
 
 ---
 
+### 2026-08-31 세션 (2) — 사전 등록 규칙 발동, 보강으로 전환
+
+**1. 판단 규칙이 실제로 작동했다 (이 방식을 계속 쓸 것)**
+지난주 handover에 **미리** 써둔 기준: *"신규 3개 중 하나라도 Bing 페이지 리포트에 등장하면 기존 전략 유지, 0개면 보강 우선."*
+결과: **3주 연속 0개.** Bing 페이지 리포트 20개 항목 중 신규 6개(`is-a-daily-late-fee-legal`, `client-discovery-call-questions`, `retainer-client-not-paying`, `is-it-worth-suing`, `freelance-service-tiers-scope`, `quarterly-tax-deadlines`) 전부 없음. 근거 쿼리는 여전히 기존 페이지에 매핑:
+- `scope of work basic standard premium website freelance`(4.67위) → `how-to-write-a-scope-of-work` (신규 tiers 페이지 아님)
+- `ohio vendor... 10% late fee per day`(4위) → `late-fee-laws-ohio` (3주째)
+- `freelance social media manager late payment...`(5위) → `how-to-handle-late-payments` (3주째)
+
+**반대 증거도 나왔다**: 지난주 kill fee **보강**은 효과가 있었다. 페이지 순위 **6.0 → 5.57**, 노출 6→7, 그리고 새 쿼리 `what is the typical percentage for a kill fee?`가 **3위**로 유입. 즉 **같은 노력이면 보강이 신규보다 회수가 빠르다**는 증거가 처음 나왔다. → 이번 주는 신규 0건, 보강만 수행.
+
+**주의**: 이건 "신규를 영원히 하지 말라"가 아니다. GSC에서는 신규 페이지가 정상 색인되고 **순위도 좋다**(`is-it-worth-suing` 5.5위, `retainer-client-not-paying` 6.8위, `quarterly-tax` 6.0위, `is-a-daily-late-fee-legal` 10.0위). 문제는 그 쿼리들의 Google 검색량이 거의 0이라는 것. **신규는 자산으로 남되, 주간 우선순위는 보강에 둔다.**
+
+**2. 데이터**
+- **Bing 노출 84 → 130, 클릭 9 → 10.** 3주 연속 성장. `common mistakes with freelance taxes` 33→48노출 8클릭 1위 유지.
+- **GSC는 여전히 정체**: 3개월 노출 5,440 / 클릭 17. **10위 이내 쿼리 0개**(2주 연속). 클릭 17개 중 **11개가 34개 주 시리즈**(NY 3, OH/MI/WI/CA/NJ/TX/PA/IL 각 1). **주 시리즈가 Google 유일한 클릭 엔진임이 확인됨.**
+- **GA4 (08-03~08-30)**: MAU **69**(전 77, 감소). direct 37 / bing 15 / google 3 / **chatgpt.com/ai-assistant 1**(2주 연속) / kittylaunch.com 신규 레퍼럴 4.
+- **제휴 → 구간 A 유지**: MAU 69(<500) / 상업 페이지 `invoicing-software-automatic` 월 1조회(<50) / 미국 비중 미달. 언급 안 함.
+
+**3. 보강 1 (핵심): `hourly-rate.html`** — Bing 최대 미충족 클러스터
+- **근거**: Bing에서 시급 관련 쿼리가 **8개**로 최다, 페이지는 2.4위 2클릭(사이트 2위 클릭원). 그런데 쿼리 형태가 전부 **"현재 급여 → 프리랜서 시급 환산"**이었다: `calculate houlr rate to go self employed`, `how much to charge as self employed for a rate of $50 normally`, `self employed hourly rate calculation worksheet`, `to be ok what rate should you charge be self employed`, `self employed contractor hourly rate for 45 worked` 등.
+- **공백 확인**: `hourly-rate.html`(1,748단어)과 `blog/how-to-set-your-freelance-hourly-rate.html`(1,146단어) **둘 다 "목표 소득 → 시급"** 구조이고 `salary`·`W-2`·`PTO` 언급 **0회**. 출발점이 다르다.
+- **경쟁회피**: Plutio·Rize·WorkCalcs·Valuefy·salarytohour 등 계산기 사이트가 "salary to hourly"를 포화 점유. 전부 **배수만 제시**(1.3x/1.5x/2x/25~50%)하고 그 배수가 **어디서 나오는지, 언제 틀리는지**는 없다. → 4개 항목 스택으로 분해하고 **각 항목이 빠지는 조건**(배우자 보험이면 최대 항목 소멸, 매치 없던 직장이면 대체할 것 없음)을 명시. 그리고 utilization이 혼자서 나머지 전부보다 크다는 점(0.65로 나누면 +54%)을 수치로 제시.
+- **경쟁군 전원이 놓친 지점**: SE세는 순 자영소득의 **92.35%**에 부과되고(IRC §1402(a)(12)) 그 **절반이 AGI 산정 시 공제**된다(§164(f)). 따라서 청구율에 7.65%를 단순 가산하면 과대계상이다. 사회보장 부분은 연간 임금기준액에서 멈추고 메디케어는 계속됨도 명시. **연도별 임금기준액 수치는 검증하지 않았으므로 일부러 숫자를 쓰지 않았다** — 다음에 쓰려면 SSA 1차 확인 필요.
+- FAQ 8→11개(스키마·화면 동기화).
+
+**4. 보강 2·3**
+- `blog/how-to-set-your-freelance-hourly-rate.html`: 급여 환산 문단 추가 + hourly-rate로 링크, dateModified 04-28→08-31(4개월 방치 페이지였음).
+- `blog/late-fee-laws-freelancers-florida.html`: Bing Florida 쿼리 4개 중 2개가 government/business 각도(`state of florida business laws charge government late fees...`, `how much can you chsrgr in florida for late payment from a business`)인데 페이지에 government/prompt payment 언급 **0회**. 정부기관은 prompt payment 법령이 우선 적용된다는 섹션 + 일일 연체료는 별개 문제라는 안내 추가(요율은 미검증이므로 단정하지 않고 "해당 법령 확인" 수준으로만 서술).
+
+**5. 회귀 스캔**: 링크색 결함 **2건 검출·수정**(이번에 링크를 넣은 두 페이지 — 3주 연속 같은 패턴으로 걸리고 있다. **본문 링크를 추가하면 그 파일에 `.article-body a` 규칙이 있는지 먼저 확인할 것**). 스크롤 힌트 0건, 신규 표 overflow 컨테이너 OK.
+
+---
+
 ## 기술 주의사항
 
 ### nav.js
@@ -696,6 +730,7 @@ Bing에서 kill fee 관련 쿼리 4개(`kill fee for written material not used` 
   <div class="table-scroll"><table class="compare-table">…</table></div>
   ```
   검증은 정규식보다 DOM으로: `h.closest('.table-scroll')`가 null이어야 하고, 힌트의 `nextElementSibling`이 `.table-scroll`이어야 한다. 스크롤 컨테이너가 인라인 스타일(`style="overflow-x:auto"`)인 페이지도 있으므로 `div[style*="overflow-x"]`도 같이 볼 것.
+- **본문에 내부 링크를 추가할 때는 그 파일에 `.article-body a` 규칙이 있는지 먼저 확인할 것.** 3주 연속으로 "링크를 새로 넣은 파일"이 링크색 스캔에 걸렸다. 링크 삽입과 규칙 확인을 한 세트로 처리하면 사후 스캔에 의존하지 않아도 된다.
 - **한 파일에서 CSS/구조 결함을 발견하면 반드시 전수 스캔할 것.** 이 사이트는 페이지마다 CSS가 인라인으로 중복돼 있어 같은 결함이 여러 파일에 흩어져 있다. 2026-08-11에 `.article-body a` 누락을 2개 파일에서 고쳤는데, 08-17에 스캔해보니 **9개가 더 있었다**(GSC 3위 페이지와 클릭 나오는 CA 페이지 포함). 개별 수정으로 끝내면 같은 일이 매주 반복된다. 스캔 예시:
   스캔 시 **본문 영역은 `class="article-body"` 위치부터 `<footer>` 직전까지로 자를 것.** 정규식으로 `</div></div>`까지 매칭하면 패턴이 안 맞는 파일에서 본문을 빈 값으로 반환해 결함을 놓치고, 파일 전체를 훑으면 푸터 링크가 오탐된다(2026-08-17에 둘 다 실제로 겪음 — 9개 누락 → 48개 오탐 → 최종 13개 확정).
 - **문자열에서 숫자를 뽑아 쓰는 위젯은 "그 문자열에 숫자가 두 개 이상 들어있는 케이스"를 반드시 테스트할 것.** (2026-08-11, `how-to-negotiate-a-freelance-contract.html`의 Contract Clause Checker에서 실제로 겪음 — 소액소송 한도를 `replace(/[^0-9.]/g,'')`로 뽑았더니 New York("$10,000 in NYC Civil Court, $5,000 elsewhere")과 Indiana("$10,000 ($6,000 if an LLC self-represents)")에서 `100005000` 같은 값이 나옴. `match(/\$([0-9,]+)/)`로 첫 번째 금액만 뽑도록 수정.)
@@ -716,6 +751,11 @@ Bing에서 kill fee 관련 쿼리 4개(`kill fee for written material not used` 
 7. **사용자 승인 없이 먼저 진행하지 말 것.** 다만 (2026-07-14 사용자가 명시적으로 지적함) 같은 작업 축에서 이미 방향을 확정했으면 — 예: "차별화/틈새전략으로 최대한 해라"처럼 명시적으로 전권을 준 경우 — 그 이후 유사한 개별 작업(예: 18개 툴 각각에 자동저장 적용)마다 다시 확인받지 말고 계속 진행할 것. 매번 재확인은 사용자를 짜증나게 함. **새로운 종류/방향의 작업으로 넘어갈 때만** 승인을 구하면 됨.
 
 ## 현재 열려있는 이슈 (다음에 확인할 것)
+
+- **(2026-08-31 2차, 최우선) 주간 우선순위는 "신규 생성"이 아니라 "기존 보강"이다.** 3주 연속 신규 페이지가 Bing 리포트에 0개이고, 보강은 1주 만에 순위가 움직였다(kill fee 6.0→5.57 + 신규 쿼리 유입). **다음 세션 첫 작업: 이번 보강 3건(hourly-rate / 시급블로그 / Florida)이 해당 Bing 쿼리에서 순위를 올렸는지 확인.** 올랐으면 보강 우선을 굳히고, 안 올랐으면 "Bing은 페이지 단위 관성이 강해서 무엇을 해도 느리다"는 가설로 넘어갈 것.
+- **(2026-08-31 2차) Google 클릭의 65%(17개 중 11개)가 34개 주 시리즈에서 나온다.** 그런데 08-03 이후 주 시리즈는 "우선순위 낮음"으로 방치 중이다. **잔여 16개 주 확장을 재검토할 가치가 생겼다** — 다만 신규 생성이 Bing에서 안 먹힌다는 위 관찰과 충돌하므로, Google 전용 자산으로 보고 판단할 것.
+- **(2026-08-31 2차) MAU가 77 → 69로 처음 감소했다.** Bing 노출·클릭은 늘었는데 GA MAU는 줄었다. 한 주 변동일 수 있으나 2주 연속 감소하면 direct 40→37 하락분과 함께 원인을 봐야 한다.
+- **(2026-08-31 2차) 미커버 Bing 쿼리 잔여**: 마일스톤 분할 3개(`if i have a project that starts at 9/8 for 149k split across 17 weeks what is the monthly breakdwon` 3위 포함) → milestone-calculator가 받는 중이나 **기간 분할 계산식** 콘텐츠 없음. Michigan 2개(`handwritten contracts` 각도).
 
 - **(2026-08-31, 최우선) 신규 페이지가 Bing에서 기존 페이지를 대체하지 못하고 있다.** 08-17 신규 3개가 2주 지나도 Bing 페이지 리포트에 없고, 근거 쿼리는 전부 기존 페이지에 계속 매핑돼 있다. **다음 데이터에서도 같으면 전략을 "신규 생성"에서 "기존 페이지 보강"으로 무게 이동할 것.** 판단 기준: 신규 3개 중 하나라도 Bing 페이지 리포트에 등장하면 기존 전략 유지, 0개면 보강 우선.
 - **(2026-08-31) Bing:Google 클릭비가 9:0.** GSC는 10위 이내 쿼리가 0개로 오히려 악화됐다. Google 순위 개선을 목표로 한 작업은 하지 말 것.
