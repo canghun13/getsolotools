@@ -1,6 +1,6 @@
 # GetSoloTools 인수인계 문서 (handover.md)
 
-**최종 갱신**: 2026-08-31 (2차 — **사전 등록한 판단 규칙이 발동해 전략을 "신규 생성"에서 "기존 보강"으로 전환**. 신규 페이지가 3주 연속 Bing 리포트에 0개인 반면, 지난주 kill fee 보강은 순위·쿼리 모두 개선. 이번 주는 신규 없이 보강 3건. 상세는 "2026-08-31 세션 (2)" 참고)
+**최종 갱신**: 2026-09-07 (**지난주 "보강>신규" 결론이 1주 만에 뒤집혔다** — 신규 페이지가 처음으로 Bing 리포트 진입(2개)하고 GSC 첫 클릭도 발생한 반면, 보강 3건은 순위가 모두 악화. 신규는 3~4주 지연 후 흡수된다는 것이 결론. 신규 `blog/milestone-payment-schedule-long-projects.html`. 상세는 "2026-09-07 세션" 참고)
 **갱신 방식이 v12까지와 다름**: 이제부터 이 문서는 새 채팅에 붙여넣는 방식이 아니라, **저장소에 직접 보관하고 계속 업데이트**하는 방식으로 운영한다. 새 세션에서는 이 파일(`handover.md`)을 clone 직후 가장 먼저 읽을 것.
 
 ---
@@ -100,7 +100,7 @@
 
 - **툴**: 19개 (Invoice Generator = index.html 포함, 2026-07-24에 Kill Fee Calculator 신규 추가 — late-fee 시리즈 밖 첫 클러스터에서 처음으로 블로그 위젯이 아닌 완전한 독립 툴 페이지 제작)
 - **이메일 템플릿**: 24개 (25개 파일이나 sending-nda.html 등 포함, v12 이후 변경 없음)
-- **블로그 글**: 71개 (2026-08-31에 `freelance-service-tiers-scope` 추가 — Basic/Standard/Premium 티어의 범위 경계, 실효시급 역전 검증 위젯). late fee 지역 시리즈 34개 주 + 그 외 37개.
+- **블로그 글**: 72개 (2026-09-07에 `milestone-payment-schedule-long-projects` 추가 — 장기 프로젝트 마일스톤 개수와 최대 노출 산수, 일정표 자동생성 위젯). late fee 지역 시리즈 34개 주 + 그 외 38개.
 
 ### 툴 목록 (18개, 경로는 v12 문서와 동일 — 변경 없음)
 Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Project Profit, Budget Planner, Contract Generator, Invoice Tracker, Client Proposal, Time Tracker, Milestone Calculator, Savings Calculator, NDA Generator, Client Intake Form, Expense Report, Scope of Work — **18개로 유지, 추가 없음**
@@ -690,6 +690,42 @@ Bing에서 kill fee 관련 쿼리 4개(`kill fee for written material not used` 
 
 ---
 
+### 2026-09-07 세션 — 지난주 결론을 뒤집음
+
+**1. 가장 중요한 것: 1주 데이터로 전략을 바꾼 것이 성급했다**
+
+지난주 나는 "신규가 3주 연속 Bing 리포트에 0개, 보강은 1주 만에 순위 개선 → 보강 우선"이라고 결론냈다. **이번 주에 정반대 결과가 나왔다.**
+
+| | 지난주 결론의 근거 | 이번 주 실제 |
+|---|---|---|
+| 신규 Bing 진입 | 3주 연속 0개 | **2개 진입** — `client-discovery-call-questions` **2위**, `is-a-daily-late-fee-legal` 7위 |
+| 신규 GSC 클릭 | 0 | **`retainer-client-not-paying` 첫 클릭** (12노출 7.0위 1클릭) |
+| 보강 효과 | kill fee 6.0→5.57 개선 | **전부 악화**: hourly-rate 2.4→**2.83**, florida 3.0→**3.4**, kill fee 5.57→**5.78** |
+
+**결론: 신규 페이지는 3~4주 지연 후 흡수된다.** 08-17 제작분이 09-07에 진입했으니 정확히 3주다. 지난주 kill fee 보강의 개선(6.0→5.57)은 노이즈였고 1주 뒤 되돌아갔다.
+
+**교훈(다음 세션이 반드시 지킬 것)**: **1주 데이터로 전략을 뒤집지 말 것.** 사전 규칙을 정해두는 것 자체는 좋았지만(그래야 자기합리화를 막는다), **관측 기간을 최소 3주로 잡았어야 했다.** 신규 페이지의 성패는 제작 후 **4주 시점**에 판정할 것. 그 전 데이터는 색인 지연과 구분이 안 된다.
+
+**2. 데이터**
+- **Bing 노출 130 → 179, 클릭 10 → 12.** 4주 연속 성장. `common mistakes with freelance taxes` 48→65노출 10클릭 1위.
+- **GSC 클릭 17 → 20.** 3개월 노출 6,133. 여전히 노출 76%가 70위 밖. 클릭 20개 중 **13개가 34개 주 시리즈**(NY 5, OH/MI/WI/TX/CA/PA/NJ/IL 각 1). 주 시리즈 우위 지속.
+- **GA4 (08-10~09-06)**: MAU 69 → **75** (회복). direct 43 / bing 13 / **google 7**(3→7 증가) / chatgpt.com/ai-assistant 1 / duckduckgo 1 / **cn.bing.com 1**(신규) / twelve.tools 디렉터리 1.
+- **제휴 → 구간 A 유지**: MAU 75(<500) / 상업 페이지 월 1조회 미만(<50) / 미국 비중 미달(도시 상위가 Busan·Singapore·Tianjin). 언급 안 함.
+
+**3. 신규: `blog/milestone-payment-schedule-long-projects.html`** (1,754단어)
+- **근거**: Bing 마일스톤 쿼리가 **6개로 최다 미충족**. `if i have a project that starts at 9/8 for 149k split across 17 weeks what is the monthly breakdwon`(3위), `shop fabricated skid package payment milestone percentage`(4.33위), `payment milestone calculation example`(5위), `consulting project milestone payment schedule percentage deliverables`(7위), `3d visualization freelance payment terms milestone 2 months project`(3위), `yes, please include automated formulas for payment milestones`(2위).
+- **중복 확인**: 마일스톤 전용 블로그 **없었음**. `milestone-calculator.html`은 953단어 도구 페이지, `freelance-payment-terms-guide`에 25-30% 3분할 H2 하나뿐. 두 파일 모두 **exposure·duration 언급 0회**.
+- **경쟁회피**: Skydo·fynk·Freelancers Union·selfemployed.com·delivvo·Toggle·Workstamped·MaxPerformance100·Landolio·Billerbear가 "30/30/40 개념 + 계약 문구"로 **포화**. 그런데 **실제 쿼리는 개념이 아니라 산수**를 묻는다(149k를 17주에, 계산 예시, 자동 수식, 산업용 fabrication까지). → **프로젝트 길이에서 마일스톤 개수를 도출**하고 **최대 노출(delivered-but-unpaid의 최댓값)**을 계산하는 축으로 우회. 경쟁군 어디도 이 수치를 계산하지 않는다. 우리 house style(경쟁사는 rule of thumb, 우리는 그게 언제 깨지는지 산수로)과 일치.
+- 위젯: 총액·기간·보증금·회차 → 주차별 일정표 자동 생성 + 최대 노출 + **표준 30/30/40 대비 얼마나 안전/위험한지** 비교.
+- 비프리랜서 맥락(retainage, 자재비 선투입)도 짧게 다뤄 fabrication/consulting 쿼리 수용.
+
+**4. 지난주 기록한 "죽은 분기" 원칙이 실제로 작동했다**
+verdict 5개 분기를 각각 발동시키는 테스트를 돌린 결과 **`over-engineered` 분기가 도달 불가**였다(조건 `interval < 2`인데 선택지 조합상 최소 2.1). 임계값 2.5로 수정 후 5개 분기 전부 도달 확인. **이 테스트 방식을 계속 쓸 것** — 지난주에 원칙만 적어두지 않았으면 또 죽은 코드를 배포했을 것이다.
+
+**5. 스크롤 힌트를 4주 연속 컨테이너 안에 넣었다.** 매번 DOM 검증에서 잡히긴 하지만, 새 페이지를 쓸 때마다 반복된다. **표를 넣을 때 힌트를 `<div class="table-scroll">` 앞에 쓰는 것을 손에 익힐 것.**
+
+---
+
 ## 기술 주의사항
 
 ### nav.js
@@ -751,6 +787,11 @@ Bing에서 kill fee 관련 쿼리 4개(`kill fee for written material not used` 
 7. **사용자 승인 없이 먼저 진행하지 말 것.** 다만 (2026-07-14 사용자가 명시적으로 지적함) 같은 작업 축에서 이미 방향을 확정했으면 — 예: "차별화/틈새전략으로 최대한 해라"처럼 명시적으로 전권을 준 경우 — 그 이후 유사한 개별 작업(예: 18개 툴 각각에 자동저장 적용)마다 다시 확인받지 말고 계속 진행할 것. 매번 재확인은 사용자를 짜증나게 함. **새로운 종류/방향의 작업으로 넘어갈 때만** 승인을 구하면 됨.
 
 ## 현재 열려있는 이슈 (다음에 확인할 것)
+
+- **(2026-09-07, 최우선) 전략 판정은 최소 3~4주 관측 후에 할 것.** 지난주 1주 데이터로 "보강>신규"라 결론냈다가 이번 주에 뒤집혔다. 신규 페이지는 제작 후 **3~4주**에 Bing/GSC에 나타난다(08-17 제작분이 09-07 진입). **신규 페이지의 성패는 4주 시점에 판정한다.** 사전 규칙을 정하는 습관은 유지하되 관측 기간을 길게 잡을 것.
+- **(2026-09-07) 보강은 효과가 불확실하다.** 08-31 보강 3건이 모두 순위 악화(hourly-rate 2.4→2.83, florida 3.0→3.4, kill fee 5.57→5.78). 노출은 늘었으므로 순위 하락이 노출 증가에 따른 자연 희석일 수 있다. **다음 주에 이 3건이 회복되는지 볼 것** — 회복되면 보강도 3~4주 지연이 있다는 뜻이고, 계속 악화하면 보강 자체를 재고할 것.
+- **(2026-09-07) 미커버 Bing 쿼리**: `web design scope exclusions domain hosting copywriting seo photography`(2위) — 범위 제외 항목 목록. `client asks how many hours fixed fee project how to respond`(3위) — 고정가에서 시간 질문 대응. `missouri late payment calculator`(8.5위, 4노출) — Missouri 주 페이지가 **8.5위로 주 시리즈 중 최약**, 확인 필요. `south carolina late fees invoices business contract interest rate statute`(6위).
+- **(2026-09-07) Google organic이 3 → 7로 늘었다.** 아직 작지만 처음으로 방향이 바뀌었다. 주 시리즈가 Google 클릭의 65%를 계속 만들고 있으므로, 잔여 16개 주 확장 재검토 건은 여전히 열려 있다.
 
 - **(2026-08-31 2차, 최우선) 주간 우선순위는 "신규 생성"이 아니라 "기존 보강"이다.** 3주 연속 신규 페이지가 Bing 리포트에 0개이고, 보강은 1주 만에 순위가 움직였다(kill fee 6.0→5.57 + 신규 쿼리 유입). **다음 세션 첫 작업: 이번 보강 3건(hourly-rate / 시급블로그 / Florida)이 해당 Bing 쿼리에서 순위를 올렸는지 확인.** 올랐으면 보강 우선을 굳히고, 안 올랐으면 "Bing은 페이지 단위 관성이 강해서 무엇을 해도 느리다"는 가설로 넘어갈 것.
 - **(2026-08-31 2차) Google 클릭의 65%(17개 중 11개)가 34개 주 시리즈에서 나온다.** 그런데 08-03 이후 주 시리즈는 "우선순위 낮음"으로 방치 중이다. **잔여 16개 주 확장을 재검토할 가치가 생겼다** — 다만 신규 생성이 Bing에서 안 먹힌다는 위 관찰과 충돌하므로, Google 전용 자산으로 보고 판단할 것.
