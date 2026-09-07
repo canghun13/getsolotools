@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How Many Payment Milestones for a Long Project? The Exposure Math</title>
+  <meta name="description" content="Everyone gives you 30/30/40. Nobody tells you what to do with a 17-week project. How to pick milestone count and spacing from your project length, with the peak-exposure calculation that shows what a schedule actually costs you if the client stops paying." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-728DGKLSE6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-728DGKLSE6');
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #1a1a1a; --accent: #2d5be3; --blog: #1a9e6e; --paper: #fafaf8; --muted: #6b6b6b; --border: #e5e5e2; --warn: #c2410c; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; display: flex; flex-direction: column; }
+    .article-wrap { max-width: 720px; width: 100%; margin: 0 auto; padding: 56px 24px 80px; flex: 1; min-width: 0; }
+    .article-tag { font-size: 0.75rem; font-weight: 600; color: var(--blog); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; display: block; }
+    .article-wrap h1 { font-family: 'DM Serif Display', serif; font-size: clamp(1.5rem, 4vw, 2.3rem); line-height: 1.25; margin-bottom: 16px; }
+    .article-meta { font-size: 0.82rem; color: #aaa; margin-bottom: 40px; }
+    .article-body { font-size: 1rem; line-height: 1.8; color: var(--ink); }
+    .article-body a { color: var(--accent); }
+    .article-body h2 { font-family: 'DM Serif Display', serif; font-size: 1.4rem; margin: 40px 0 12px; }
+    .article-body h3 { font-size: 1.02rem; font-weight: 600; margin: 28px 0 8px; }
+    .article-body p { margin-bottom: 20px; }
+    .article-body ul, .article-body ol { margin: 0 0 20px 20px; }
+    .article-body li { margin-bottom: 8px; line-height: 1.7; }
+    .article-body strong { font-weight: 600; }
+    .highlight-box { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--blog); border-radius: 8px; padding: 20px 24px; margin: 28px 0; }
+    .highlight-box p { margin: 0; font-size: 0.95rem; }
+    .highlight-box p + p { margin-top: 12px; }
+    .warn-box { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--warn); border-radius: 8px; padding: 20px 24px; margin: 28px 0; }
+    .warn-box p { margin: 0; font-size: 0.95rem; }
+    .warn-box p + p { margin-top: 12px; }
+    .clause-box { background: #f4f8f6; border: 1px solid var(--border); border-radius: 8px; padding: 18px 22px; margin: 18px 0; font-size: 0.92rem; line-height: 1.7; color: #2a2a2a; }
+    .clause-label { display: block; font-size: 0.72rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; min-width: 0; margin: 20px 0; }
+    .table-scroll-hint { display: none; font-size: 0.78rem; color: #999; margin: 0 0 8px; align-items: center; gap: 4px; }
+    @media (max-width: 700px) { .table-scroll-hint { display: flex; } }
+    .compare-table { width: 100%; min-width: 540px; border-collapse: collapse; margin: 0; font-size: 0.9rem; }
+    .compare-table th, .compare-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+    .compare-table th { font-weight: 600; color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; }
+    .checker { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--blog); border-radius: 8px; padding: 24px 28px; margin: 28px 0 40px; }
+    .checker h2 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; margin: 0 0 8px; }
+    .checker-sub { font-size: 0.9rem; color: #666; margin-bottom: 16px; }
+    .checker-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+    .checker-field label { display: block; font-size: 0.78rem; color: var(--muted); margin-bottom: 4px; font-weight: 600; }
+    .checker-field select, .checker-field input { width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.95rem; font-family: 'DM Sans', sans-serif; background: #fff; color: var(--ink); }
+    .checker-out { border-top: 1px solid var(--border); padding-top: 14px; font-size: 0.93rem; line-height: 1.7; }
+    .checker-out .row { margin-bottom: 10px; }
+    .checker-out .k { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); font-weight: 600; display: block; }
+    .checker-out .big { font-size: 1.3rem; font-weight: 600; }
+    .sched { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin-top: 6px; }
+    .sched th, .sched td { text-align: left; padding: 7px 9px; border-bottom: 1px solid var(--border); }
+    .sched th { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.03em; color: var(--muted); font-weight: 600; }
+    .verdict { border-radius: 6px; padding: 12px 14px; margin-top: 12px; font-size: 0.9rem; line-height: 1.65; border: 1px solid var(--border); }
+    .v-ok { background: #f4f8f6; }
+    .v-risk { background: #fff8f2; }
+    .checker-note { font-size: 0.8rem; color: var(--muted); margin-top: 12px; line-height: 1.6; }
+    .cta-box { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 24px 28px; margin: 40px 0; }
+    .cta-box p { margin: 0 0 14px; font-size: 0.95rem; }
+    .cta-btn { display: inline-block; background: var(--accent); color: #fff; font-size: 0.875rem; font-weight: 600; padding: 10px 20px; border-radius: 6px; text-decoration: none; }
+    .article-body a.cta-btn { color: #fff; }
+    .cta-btn:hover { opacity: 0.88; }
+    details { border-bottom: 1px solid var(--border); padding: 14px 0; }
+    details summary { cursor: pointer; font-weight: 600; font-size: 0.95rem; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::after { content: '+'; color: var(--muted); font-weight: 400; font-size: 1.1rem; }
+    details[open] summary::after { content: '\2212'; }
+    details p { margin: 12px 0 0; font-size: 0.92rem; color: #444; line-height: 1.75; }
+    .back-link { display: inline-block; margin-bottom: 32px; font-size: 0.85rem; color: var(--muted); text-decoration: none; }
+    .back-link:hover { color: var(--ink); }
+    footer { border-top: 1px solid var(--border); padding: 24px; text-align: center; margin-top: auto; }
+    .footer-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 10px; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.825rem; color: var(--muted); text-decoration: none; }
+    .footer-links a:hover { color: var(--ink); }
+    .footer-links .footer-blog { color: var(--blog); font-weight: 600; }
+    .footer-copy { font-size: 0.78rem; color: #aaa; }
+    @media (max-width: 700px) { .checker-row { grid-template-columns: 1fr; } }
+    @media (max-width: 500px) { .compare-table { font-size: 0.8rem; } .sched { font-size: 0.8rem; } }
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How Many Payment Milestones for a Long Project? The Exposure Math",
+  "description": "How to pick milestone count and spacing from project length, and the peak-exposure calculation that shows what a payment schedule actually costs you if the client stops paying.",
+  "url": "https://getsolotools.com/blog/milestone-payment-schedule-long-projects.html",
+  "datePublished": "2026-09-07",
+  "dateModified": "2026-09-07",
+  "author": { "@type": "Organization", "name": "GetSoloTools", "url": "https://getsolotools.com" },
+  "publisher": { "@type": "Organization", "name": "GetSoloTools", "url": "https://getsolotools.com" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many payment milestones should a long project have?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Pick the count from how long the project runs rather than from a default. A useful rule is one payment point roughly every three to four weeks: three milestones for a project under eight weeks, four to five for eight to sixteen weeks, and six or more beyond that. The reason is not tidiness. Each additional milestone reduces the largest amount of delivered but unpaid work you are ever carrying, which is the number that determines what you actually lose if the client stops paying. Going from three milestones to six on a seventeen week project typically halves that exposure without changing the total fee at all."
+    } },
+    {
+      "@type": "Question",
+      "name": "How do I split a project fee across a fixed number of weeks?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Take the deposit off the top first, then divide the remaining balance across the payment points that follow. For a 149,000 dollar project running seventeen weeks with a 25 percent deposit, the deposit is 37,250 dollars and the remaining 111,750 dollars splits across the later milestones: four further payments of 27,937 dollars each at roughly weeks four, eight, twelve and seventeen, or five payments of 22,350 dollars at shorter intervals. Do not simply divide the total by the number of weeks and bill monthly, because that decouples payment from delivery and leaves you invoicing for time rather than for accepted work."
+    } },
+    {
+      "@type": "Question",
+      "name": "What is peak exposure on a milestone schedule?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Peak exposure is the largest gap between work you have delivered and money you have received at any single point in the project. It is the practical measure of what a payment schedule is worth, because it is what you stand to lose if the client stops paying at the worst possible moment. A schedule with a small deposit and a large final payment can look reasonable while carrying very high peak exposure. Two schedules with identical total fees and identical deposits can differ enormously on this number, which is why the count and spacing of the middle milestones matters more than most freelancers assume."
+    } },
+    {
+      "@type": "Question",
+      "name": "Should milestones be tied to dates or to deliverables?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Tie them to deliverables, and use dates only as a secondary backstop. Calendar based milestones break as soon as the timeline shifts, which it usually does, and they often shift for reasons on the client's side such as late feedback or delayed materials. A deliverable trigger keeps payment attached to work actually handed over. The one refinement worth adding is a deemed acceptance clause, so that if the client does not respond within a set number of business days the milestone counts as approved and payment falls due, which prevents an indefinite wait for sign off."
+    } },
+    {
+      "@type": "Question",
+      "name": "What happens if a client misses a milestone payment mid-project?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Stop before starting the next stage, and make sure your contract says you may. A suspension clause stating that work on the following milestone does not begin until the preceding invoice is settled turns a difficult conversation into the agreement operating as written. Without it, a client can stay one milestone behind for the entire project and you have no natural stopping point. This is exactly the situation that milestone count is meant to limit: on a schedule with more, smaller payments, one missed payment stops the project while the unpaid amount is still small."
+    } }
+  ]
+}
+</script>
+</head>
+<body>
+  <script src="/nav.js"></script>
+  <div class="article-wrap">
+    <a href="/blog/index.html" class="back-link">← Back to Blog</a>
+    <span class="article-tag">Getting Paid</span>
+    <h1>How Many Payment Milestones for a Long Project?</h1>
+    <p class="article-meta">September 7, 2026 · 9 min read</p>
+
+    <div class="article-body">
+      <p>Every guide to milestone payments gives you the same answer: 30% upfront, 30% at the midpoint, 40% on delivery. That's fine for a four-week project. It's the wrong shape for a four-month one, and nobody says so.</p>
+      <p>If you have a $149,000 project running seventeen weeks, or a two-month visualization job, or a consulting engagement with six deliverables, the useful question isn't what the standard split is. It's <strong>how many payment points you need, and what a given schedule costs you if the client stops paying halfway through.</strong> That second number is calculable, and it's the one that should decide the schedule.</p>
+
+      <h2>The Number That Matters: Peak Exposure</h2>
+      <p>Peak exposure is the largest gap between <em>work you've delivered</em> and <em>money you've received</em> at any single point in the project. It's what you actually stand to lose.</p>
+      <p>Take a $60,000 project on the standard 30/30/40 split. You collect $18,000 upfront, then work for weeks. Just before the midpoint payment lands you've delivered roughly half the work — $30,000 worth — against $18,000 received. Exposure: $12,000. Then it grows again through the back half, and just before final delivery you've delivered everything — $60,000 — against $36,000 received. <strong>Peak exposure: $24,000</strong>, or 40% of the fee.</p>
+      <p>Now the same $60,000 with five milestones — 25% deposit then four payments of $11,250. Your delivered-versus-paid gap never exceeds about 15% of the fee. Same total, same deposit ratio, <strong>peak exposure cut by more than half</strong>, purely from spacing.</p>
+      <div class="highlight-box">
+        <p>This is why "how many milestones" isn't a matter of taste. Each extra payment point buys down the maximum you're carrying, at no cost to the client, who pays the same total on roughly the same timeline. It's the cheapest risk reduction available in a freelance contract.</p>
+      </div>
+
+      <h2>Milestone Count by Project Length</h2>
+      <p>The workable heuristic is <strong>one payment point roughly every three to four weeks</strong>. Below that you're generating admin for its own sake; above it, exposure climbs faster than most people realise.</p>
+      <p class="table-scroll-hint"><span aria-hidden="true">↔</span> Scroll sideways to see all columns</p>
+
+      <div class="table-scroll">
+        <table class="compare-table">
+          <tr><th>Project length</th><th>Payment points</th><th>Typical shape</th></tr>
+          <tr><td>Under 2 weeks</td><td>1–2</td><td>100% upfront, or 50/50</td></tr>
+          <tr><td>2–8 weeks</td><td>3</td><td>30 / 30 / 40 — the standard actually fits here</td></tr>
+          <tr><td>8–16 weeks</td><td>4–5</td><td>25% deposit, then equal stages</td></tr>
+          <tr><td><strong>16+ weeks</strong></td><td><strong>6+</strong></td><td>20–25% deposit, then every 3 weeks</td></tr>
+        </table>
+      </div>
+      <p>Two adjustments to that grid. If the client is new and unproven, move up a row — more, smaller payments. If a single deliverable genuinely dominates the project (one big build with little to show until it's done), you may not be able to attach payments to intermediate deliverables, in which case the deposit has to carry more weight instead.</p>
+
+      <h2>Work Out Your Schedule and Exposure</h2>
+      <p>Enter the total and the duration. This lays out the dated schedule and shows what each option leaves you carrying at the worst point.</p>
+
+      <div class="checker" id="msCalc">
+        <h2>Milestone Schedule + Peak Exposure</h2>
+        <p class="checker-sub">Assumes work is delivered at a steady rate across the project. Estimate only.</p>
+        <div class="checker-row">
+          <div class="checker-field">
+            <label for="msTotal">Project total ($)</label>
+            <input type="number" id="msTotal" value="149000" min="0" step="1000">
+          </div>
+          <div class="checker-field">
+            <label for="msWeeks">Duration (weeks)</label>
+            <input type="number" id="msWeeks" value="17" min="1" step="1">
+          </div>
+        </div>
+        <div class="checker-row">
+          <div class="checker-field">
+            <label for="msDeposit">Deposit</label>
+            <select id="msDeposit">
+              <option value="0">None</option>
+              <option value="0.2">20%</option>
+              <option value="0.25" selected>25%</option>
+              <option value="0.3">30%</option>
+              <option value="0.5">50%</option>
+            </select>
+          </div>
+          <div class="checker-field">
+            <label for="msCount">Payment points after deposit</label>
+            <select id="msCount">
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5" selected>5</option>
+              <option value="6">6</option>
+              <option value="8">8</option>
+            </select>
+          </div>
+        </div>
+        <div class="checker-out" id="msOut"></div>
+        <p class="checker-note">Peak exposure assumes even delivery and payment on the milestone date. Real projects front-load or back-load effort, so treat it as a comparison between schedules rather than a forecast.</p>
+      </div>
+
+      <h2>Don't Divide the Total by the Number of Months</h2>
+      <div class="warn-box">
+        <p>A common request on long engagements is to just split the fee into equal monthly payments. It looks like a milestone schedule and behaves like something much worse.</p>
+        <p><strong>Monthly billing decouples payment from delivery.</strong> You're now invoicing for elapsed time rather than accepted work, which means a client who is unhappy with progress has nothing concrete to approve — and you have nothing concrete to point at when they delay. It also removes your natural stopping point, because there's no deliverable boundary to pause at.</p>
+      </div>
+      <p>If a client's finance process genuinely requires monthly invoicing — which happens, especially with larger companies — the fix is to keep the deliverable triggers and align the milestone dates to their billing cycle, rather than replacing triggers with dates. The payment is still "on approval of X," it just happens to fall near month end.</p>
+
+      <h2>Deliverable Triggers, With One Backstop</h2>
+      <p>Date-based milestones break the first time the timeline shifts, and timelines usually shift for reasons on the client's side: late feedback, delayed materials, an approver on holiday. A deliverable trigger keeps payment attached to work actually handed over.</p>
+      <p>The failure mode of deliverable triggers is the opposite one — the client simply doesn't respond, so the deliverable is never "approved" and the payment never falls due. A deemed-acceptance clause closes that:</p>
+      <div class="clause-box">
+        <span class="clause-label">Milestone wording</span>
+        Payment of [$X] is due on delivery of [deliverable]. The Client has [5] business days from delivery to provide consolidated written feedback. If no feedback is received within that period, the milestone is deemed accepted and the payment becomes due. Work on the following milestone begins once the preceding invoice is settled.
+      </div>
+      <p>That last sentence is the one that does the work. Without it, a client can stay one milestone behind for the entire project. With it, the project stops while the unpaid amount is still one milestone's worth — which is exactly what the count was chosen to limit. The same suspension logic applies to ongoing work, though the mechanics differ; see <a href="/blog/retainer-client-not-paying.html">what to do when a retainer client stops paying</a>.</p>
+
+      <h2>Non-Freelance Contexts: Same Math, Different Names</h2>
+      <p>Progress payments in fabrication, construction and engineering run on the same arithmetic under different labels — schedule of values, progress billing, retainage. Two differences worth knowing if you're crossing into that territory:</p>
+      <ul>
+        <li><strong>Retainage.</strong> Many industrial and construction contracts hold back a percentage (often 5–10%) of each progress payment until final acceptance. That withheld amount is pure additional exposure, and it needs adding on top of the peak figure above.</li>
+        <li><strong>Materials versus labour.</strong> Where a milestone covers materials you've purchased, the exposure includes your outlay, not just your time. Front-load those payments rather than spreading them evenly.</li>
+      </ul>
+      <p>If your client is a government agency, note that the payment timing may be set by a prompt payment statute rather than your schedule — see <a href="/blog/is-a-daily-late-fee-legal.html">the note on government contracts</a>.</p>
+
+      <div class="cta-box">
+        <p>Turn the schedule into something you can send. The milestone calculator splits the fee across named deliverables and dates, ready to paste into a proposal.</p>
+        <a href="/milestone-calculator.html" class="cta-btn">Open Milestone Calculator →</a>
+      </div>
+
+      <h2>What to Do Before the Schedule Matters</h2>
+      <p>A milestone schedule limits damage; it doesn't prevent it. The upstream decisions do more: what deposit you require, whether the scope is written down, and which state's law governs if it goes wrong. <a href="/blog/freelance-payment-terms-guide.html">Freelance payment terms explained</a> covers deposits and net terms, <a href="/blog/client-discovery-call-questions.html">the discovery call questions</a> cover surfacing the client's payment process before you quote, and the <a href="/contract-generator.html">contract generator</a> builds the schedule and suspension clause into an agreement.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <details>
+        <summary>How many payment milestones should a long project have?</summary>
+        <p>Pick the count from how long the project runs rather than from a default. A useful rule is one payment point roughly every three to four weeks: three milestones for a project under eight weeks, four to five for eight to sixteen weeks, and six or more beyond that. The reason isn't tidiness. Each additional milestone reduces the largest amount of delivered-but-unpaid work you're ever carrying, which is the number that determines what you actually lose if the client stops paying. Going from three milestones to six on a seventeen-week project typically halves that exposure without changing the total fee at all.</p>
+      </details>
+      <details>
+        <summary>How do I split a project fee across a fixed number of weeks?</summary>
+        <p>Take the deposit off the top first, then divide the remaining balance across the payment points that follow. For a $149,000 project running seventeen weeks with a 25% deposit, the deposit is $37,250 and the remaining $111,750 splits across the later milestones: four further payments of $27,937 each at roughly weeks 4, 8, 12 and 17, or five payments of $22,350 at shorter intervals. Don't simply divide the total by the number of weeks and bill monthly, because that decouples payment from delivery and leaves you invoicing for time rather than for accepted work.</p>
+      </details>
+      <details>
+        <summary>What is peak exposure on a milestone schedule?</summary>
+        <p>Peak exposure is the largest gap between work you've delivered and money you've received at any single point in the project. It's the practical measure of what a payment schedule is worth, because it's what you stand to lose if the client stops paying at the worst possible moment. A schedule with a small deposit and a large final payment can look reasonable while carrying very high peak exposure. Two schedules with identical total fees and identical deposits can differ enormously on this number, which is why the count and spacing of the middle milestones matters more than most freelancers assume.</p>
+      </details>
+      <details>
+        <summary>Should milestones be tied to dates or to deliverables?</summary>
+        <p>Tie them to deliverables, and use dates only as a secondary backstop. Calendar-based milestones break as soon as the timeline shifts, which it usually does — and often for reasons on the client's side, such as late feedback or delayed materials. A deliverable trigger keeps payment attached to work actually handed over. The one refinement worth adding is a deemed-acceptance clause, so that if the client doesn't respond within a set number of business days the milestone counts as approved and payment falls due, which prevents an indefinite wait for sign-off.</p>
+      </details>
+      <details>
+        <summary>What happens if a client misses a milestone payment mid-project?</summary>
+        <p>Stop before starting the next stage, and make sure your contract says you may. A suspension clause stating that work on the following milestone doesn't begin until the preceding invoice is settled turns a difficult conversation into the agreement operating as written. Without it, a client can stay one milestone behind for the entire project and you have no natural stopping point. This is exactly the situation that milestone count is meant to limit: on a schedule with more, smaller payments, one missed payment stops the project while the unpaid amount is still small.</p>
+      </details>
+
+      <p style="margin-top:32px;">Pick the count from the calendar, not from a template. Then check what the schedule leaves you carrying at the worst moment — if that number is bigger than you'd be willing to write off, add a milestone. It costs the client nothing.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/">Invoice Generator</a>
+      <a href="/milestone-calculator.html">Milestone Calculator</a>
+      <a href="/contract-generator.html">Contract Generator</a>
+      <a href="/blog/index.html" class="footer-blog">Blog</a>
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+    </div>
+    <p class="footer-copy">© 2026 GetSoloTools. Free tools for freelancers.</p>
+  </footer>
+
+  <script>
+    (function () {
+      var total = document.getElementById('msTotal');
+      var weeks = document.getElementById('msWeeks');
+      var dep = document.getElementById('msDeposit');
+      var count = document.getElementById('msCount');
+      var out = document.getElementById('msOut');
+      if (!out || !total) { return; }
+
+      function money(n) { return '$' + Math.round(n).toLocaleString(); }
+
+      // 균등 인도 가정에서 최대 노출 계산: 각 마일스톤 직전 시점의 (인도액 - 수령액) 최댓값
+      function peakExposure(t, w, depAmt, pts) {
+        var received = depAmt;
+        var per = (t - depAmt) / pts;
+        var peak = 0;
+        for (var i = 1; i <= pts; i++) {
+          var wk = (w / pts) * i;
+          var delivered = t * (wk / w);
+          var gap = delivered - received;   // 지급 직전
+          if (gap > peak) { peak = gap; }
+          received += per;
+        }
+        return peak;
+      }
+
+      function render() {
+        var t = parseFloat(total.value) || 0;
+        var w = parseFloat(weeks.value) || 0;
+        var d = parseFloat(dep.value) || 0;
+        var n = parseInt(count.value, 10) || 1;
+
+        if (t <= 0 || w <= 0) {
+          out.innerHTML = '<div class="row">Enter a project total and duration to build the schedule.</div>';
+          return;
+        }
+
+        var depAmt = t * d;
+        var per = (t - depAmt) / n;
+
+        var rows = '<table class="sched"><tr><th>Payment</th><th>Week</th><th>Amount</th></tr>';
+        if (depAmt > 0) {
+          rows += '<tr><td>Deposit</td><td>Before start</td><td><strong>' + money(depAmt) + '</strong></td></tr>';
+        }
+        for (var i = 1; i <= n; i++) {
+          var wk = Math.round((w / n) * i);
+          rows += '<tr><td>Milestone ' + i + '</td><td>Week ' + wk + '</td><td><strong>' + money(per) + '</strong></td></tr>';
+        }
+        rows += '</table>';
+
+        var peak = peakExposure(t, w, depAmt, n);
+        var peakPct = (peak / t) * 100;
+        var interval = w / n;
+
+        // 비교군: 표준 3분할(30/30/40)의 최대 노출
+        var std = peakExposure(t, w, t * 0.3, 2);
+
+        var html = '';
+        html += '<div class="row"><span class="k">Schedule</span>' + rows + '</div>';
+        html += '<div class="row"><span class="k">Payment interval</span><strong>every ' + (Math.round(interval * 10) / 10) + ' weeks</strong></div>';
+        html += '<div class="row"><span class="k">Peak exposure</span><span class="big">' + money(peak) + '</span> — ' + peakPct.toFixed(0) + '% of the fee, the most delivered-but-unpaid work you carry at any point</div>';
+        if (Math.abs(peak - std) > 1) {
+          html += '<div class="row"><span class="k">Versus standard 30/30/40</span>' +
+            (peak < std
+              ? 'That structure would leave you carrying ' + money(std) + '. This schedule is <strong>' + money(std - peak) + ' safer</strong>.'
+              : 'That structure would leave you carrying ' + money(std) + '. This schedule is <strong>' + money(peak - std) + ' riskier</strong>.') + '</div>';
+        }
+
+        var cls, verdict;
+        if (interval > 5) {
+          cls = 'v-risk';
+          verdict = '<strong>Payments are too far apart.</strong> ' + (Math.round(interval * 10) / 10) + ' weeks between payments on a ' + w + '-week project leaves you carrying ' + peakPct.toFixed(0) + '% of the fee at the worst point. Add payment points until the interval is 3–4 weeks — it costs the client nothing.';
+        } else if (peakPct > 30) {
+          cls = 'v-risk';
+          verdict = '<strong>Exposure is high for the length.</strong> Carrying ' + peakPct.toFixed(0) + '% of the fee means a client who stops paying mid-project costs you ' + money(peak) + '. Either raise the deposit or add a payment point.';
+        } else if (interval < 2.5 && n > 3) {
+          cls = 'v-ok';
+          verdict = '<strong>Well protected, possibly over-engineered.</strong> Peak exposure is only ' + peakPct.toFixed(0) + '%, but payments every ' + (Math.round(interval * 10) / 10) + ' weeks means ' + n + ' invoices and ' + n + ' approval cycles. If the client is established, one fewer milestone would cost you little.';
+        } else {
+          cls = 'v-ok';
+          verdict = '<strong>Reasonable shape.</strong> Payments every ' + (Math.round(interval * 10) / 10) + ' weeks, peak exposure ' + peakPct.toFixed(0) + '% of the fee. Tie each payment to a named deliverable rather than the week number, and add the suspension clause below.';
+        }
+        html += '<div class="verdict ' + cls + '">' + verdict + '</div>';
+        out.innerHTML = html;
+      }
+
+      [total, weeks, dep, count].forEach(function (el) {
+        el.addEventListener('input', render);
+        el.addEventListener('change', render);
+      });
+      render();
+    })();
+  </script>
+</body>
+</html>
