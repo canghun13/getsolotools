@@ -1,6 +1,6 @@
 # GetSoloTools 인수인계 문서 (handover.md)
 
-**최종 갱신**: 2026-09-07 (**지난주 "보강>신규" 결론이 1주 만에 뒤집혔다** — 신규 페이지가 처음으로 Bing 리포트 진입(2개)하고 GSC 첫 클릭도 발생한 반면, 보강 3건은 순위가 모두 악화. 신규는 3~4주 지연 후 흡수된다는 것이 결론. 신규 `blog/milestone-payment-schedule-long-projects.html`. 상세는 "2026-09-07 세션" 참고)
+**최종 갱신**: 2026-09-14 (**보강 3건 전부 회복 — 지난주 "노출 희석" 가설이 맞았다**. 그리고 **1099-NEC 임계값이 $600으로 낡아 있던 사실오류를 3곳에서 발견/정정**(Bing 1위·11클릭 페이지 포함). 세금가이드 보강(Bing 48노출 7위 0클릭 = 미실현 가치 최대) + kill fee FAQ 6→10. 상세는 "2026-09-14 세션" 참고)
 **갱신 방식이 v12까지와 다름**: 이제부터 이 문서는 새 채팅에 붙여넣는 방식이 아니라, **저장소에 직접 보관하고 계속 업데이트**하는 방식으로 운영한다. 새 세션에서는 이 파일(`handover.md`)을 clone 직후 가장 먼저 읽을 것.
 
 ---
@@ -726,6 +726,44 @@ verdict 5개 분기를 각각 발동시키는 테스트를 돌린 결과 **`over
 
 ---
 
+### 2026-09-14 세션
+
+**1. 지난주 가설 확인: 보강도 3~4주 지연이 있다**
+
+| 페이지 | 08-31 | 09-07 | 09-14 |
+|---|---|---|---|
+| hourly-rate | 2.4위 | 2.83위 (악화) | **2.59위 / 노출 12→17** |
+| florida | 3.0위 | 3.4위 (악화) | **3.33위 / 노출 5→6** |
+| kill fee | 5.57위 | 5.78위 (악화) | **5.46위** |
+
+**3건 전부 회복했다.** 09-07의 악화는 노출 증가에 따른 자연 희석이었고, 지난주에 세운 그 가설이 맞았다. **보강도 신규와 같이 3~4주 관측이 필요하다.** `freelance-tax-guide-for-beginners`는 36→48노출로 크게 늘었다.
+- 신규 `milestone-payment-schedule-long-projects`는 제작 1주라 3~4주 룰대로 **판정 보류**. 09-28~10-05 데이터에서 볼 것.
+- 신규 중 Bing 유지: `client-discovery-call-questions` 2위, `is-a-daily-late-fee-legal` 7위. GSC에서 `retainer-client-not-paying` 15노출 7.1위 1클릭 유지.
+
+**2. 사실오류 정정 — 1099-NEC 임계값이 $600으로 낡아 있었다 (중요)**
+OBBBA(Public Law 119-21 §70433)로 **2026-01-01 지급분부터 $600 → $2,000**, 그리고 **클라이언트별** 판정이다. 우리 페이지 3곳이 아직 $600이라고 서술했다:
+- `blog/common-freelance-tax-mistakes.html` — **Bing 1위, 11클릭, 사이트 최대 클릭원 페이지**
+- `blog/freelance-tax-guide-for-beginners.html` — FAQ 스키마 + 화면 2곳
+OnPay / TurboTax / Monaco CPA / Tax47 / Ourtaxpartner 등 다수 출처 교차검증 후 정정. **핵심 구분을 본문에 명시했다: $2,000은 "지급자가 서식을 보낼 의무", $400은 "내가 SE세를 낼 의무"다.** 임계값이 올라가 서식 없이 들어오는 소득이 늘어나므로 "1099 안 받았으니 세금 없다"는 오해 위험이 커진다 — 이게 2026년 가장 오해되는 변경이라 콘텐츠 가치도 높다.
+**교훈**: 이번에도 보강 작업 중 우연히 걸렸다. Illinois triple/double(08-24)에 이어 두 번째 사실오류다. **세법·법령 수치는 연도가 바뀌거나 법 개정이 있으면 낡는다. 세금 페이지를 건드릴 때는 임계값·요율·한도를 그 자리에서 재검증할 것.**
+
+**3. 보강 1: `blog/freelance-tax-guide-for-beginners.html`**
+- **근거**: Bing **48노출 7.0위 0클릭** — 미실현 가치 최대 지점. tax 클러스터가 Bing 클릭 13개 중 **11개**를 만드는 유일한 엔진인데 이 페이지만 순위가 낮아 클릭이 0이다. (Google에서는 514노출 75위로 헤드키워드 정체 구간.)
+- **title 불일치 발견**: H1은 "Freelance Tax Preparation Guide **for Beginners**", slug도 `freelance-tax-guide-for-beginners`인데 **`<title>`에만 "for Beginners"가 없었다.** Bing 최상위 쿼리가 `freelance taxes for beginners`(29노출 7.14위)와 `freelance taxes explained simply`(15노출 7.73위)이므로 직접 대응하도록 title을 "Freelance Taxes for Beginners, Explained Simply: ..."로 변경. **양 엔진 클릭이 0이라 변경 리스크가 없었다** — 클릭이 나는 페이지의 title은 계속 건드리지 말 것.
+- "explained simply" 의도 대응으로 **평문 요약 박스**(5문장) 신설, FAQ 6→8.
+
+**4. 보강 2: `blog/freelance-kill-fee-clause.html`** — Bing kill fee 쿼리가 **9개로 확대**(이전 4개). 신규 하위질문 4개가 미커버였음: `kill fee benchmarks 25 50 75 100 creator contract industry standard`(4.5위), `contract kill fee 50% remaining contract value interpretation`(7위), `are kill fees enforceable without a milestone definition`(4위), `freelance event services cancellation fee kill fee contract percentage cancellation notice`(6위). FAQ 6→10. 특히 **"잔여 계약금액의 50%"는 총액의 50%와 전혀 다른 불리한 조건**(80% 진행 시점에 1,000달러 vs 8,000달러 인도)이라는 해석 함정을 명시 — 경쟁 콘텐츠에 없는 지점.
+
+**5. 신규를 만들지 않은 판단** — `freelance designer revision pricing models...`(4위) 등 개정 가격 쿼리가 보였으나, `how-to-write-a-scope-of-work`에 이미 개정 횟수 기준과 "$X per round or $X/hour" 요율 안내가 있고 `freelance-service-tiers-scope`에도 티어별 개정 캡이 있다. 쿼리는 1노출뿐이고 자기잠식 위험이 크므로 **의도적으로 만들지 않았다.**
+
+**6. 데이터**
+- **Bing 노출 179 → 249, 클릭 12 → 13.** 5주 연속 성장. `common mistakes with freelance taxes` 65→**79노출 11클릭 1위**.
+- **GSC 클릭 20 → 25.** 3개월 노출 6,398. 클릭 25개 중 **15개가 34개 주 시리즈**. `late-fee-laws-freelancers-arizona`·`delaware`가 신규로 클릭 발생.
+- **GA4 (08-17~09-13)**: MAU 75 → **78**. **google organic 12 / bing 9 — Google이 처음으로 Bing을 추월했다**(direct 46). 지난주 7/13에서 역전.
+- **제휴 → 구간 A 유지**: MAU 78(<500) / 상업 페이지 조회 0(<50) / 미국 비중 미달. 언급 안 함.
+
+---
+
 ## 기술 주의사항
 
 ### nav.js
@@ -787,6 +825,12 @@ verdict 5개 분기를 각각 발동시키는 테스트를 돌린 결과 **`over
 7. **사용자 승인 없이 먼저 진행하지 말 것.** 다만 (2026-07-14 사용자가 명시적으로 지적함) 같은 작업 축에서 이미 방향을 확정했으면 — 예: "차별화/틈새전략으로 최대한 해라"처럼 명시적으로 전권을 준 경우 — 그 이후 유사한 개별 작업(예: 18개 툴 각각에 자동저장 적용)마다 다시 확인받지 말고 계속 진행할 것. 매번 재확인은 사용자를 짜증나게 함. **새로운 종류/방향의 작업으로 넘어갈 때만** 승인을 구하면 됨.
 
 ## 현재 열려있는 이슈 (다음에 확인할 것)
+
+- **(2026-09-14, 최우선) 세금/법령 수치는 그 자리에서 재검증할 것.** 08-24 Illinois triple/double, 09-14 1099-NEC $600→$2,000 — **두 번 연속 보강 작업 중 우연히 사실오류를 발견했다.** 둘 다 우연히 안 걸렸으면 계속 틀린 정보를 내보내고 있었을 것이다. 세금 페이지를 건드릴 때는 임계값·요율·한도·연도를 반드시 1차 확인. **아직 검증 안 한 수치**: 세금 가이드의 SEP-IRA $72,000 / Solo 401(k) $24,500·$80,000·$83,250 / QBI phase-out $201,750·$403,500 등 2026 숫자들. 다음에 그 페이지를 만지면 이것들부터 확인할 것.
+- **(2026-09-14) 판정 대기 중**: `milestone-payment-schedule-long-projects`(09-07 제작) — 09-28~10-05 데이터에서 Bing/GSC 진입 여부 확인. 그리고 이번 보강 3건(tax guide title 변경 / kill fee FAQ / mistakes 정정)은 **10-05 전후**에 판정할 것. 1주 데이터로 판단하지 말 것(09-07에 그래서 틀렸다).
+- **(2026-09-14) tax guide title 변경 효과가 이번 주 최대 관전 포인트.** Bing 48노출 7위 0클릭 → title에 "for Beginners, Explained Simply" 반영. 순위가 3위권으로 오르면 클릭이 발생하고, 그러면 **"H1·slug와 title 불일치"를 다른 페이지에서도 점검할 가치가 생긴다.** 전 페이지 title vs H1 대조 스캔을 돌려볼 것.
+- **(2026-09-14) Google이 Bing을 추월했다**(GA organic 12 vs 9). 5주 연속 Bing 우위가 깨졌다. 주 시리즈가 GSC 클릭의 60%를 만들고 있으므로, **잔여 16개 주 확장 재검토**는 이제 더 근거가 생겼다. 다음 세션에서 우선순위를 다시 볼 것.
+- **(2026-09-14) 미커버 Bing 쿼리**: `missouri late payment calculator`(4노출 **8.5위** — 주 시리즈 중 최약, 3주 연속 8.5위 고정), `web design scope exclusions domain hosting copywriting seo photography`(2위), `client asks how many hours fixed fee project how to respond`(3위), `event production freelancer payment terms net 30 av industry`(3위).
 
 - **(2026-09-07, 최우선) 전략 판정은 최소 3~4주 관측 후에 할 것.** 지난주 1주 데이터로 "보강>신규"라 결론냈다가 이번 주에 뒤집혔다. 신규 페이지는 제작 후 **3~4주**에 Bing/GSC에 나타난다(08-17 제작분이 09-07 진입). **신규 페이지의 성패는 4주 시점에 판정한다.** 사전 규칙을 정하는 습관은 유지하되 관측 기간을 길게 잡을 것.
 - **(2026-09-07) 보강은 효과가 불확실하다.** 08-31 보강 3건이 모두 순위 악화(hourly-rate 2.4→2.83, florida 3.0→3.4, kill fee 5.57→5.78). 노출은 늘었으므로 순위 하락이 노출 증가에 따른 자연 희석일 수 있다. **다음 주에 이 3건이 회복되는지 볼 것** — 회복되면 보강도 3~4주 지연이 있다는 뜻이고, 계속 악화하면 보강 자체를 재고할 것.
