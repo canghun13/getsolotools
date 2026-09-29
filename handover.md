@@ -1,6 +1,6 @@
 # GetSoloTools 인수인계 문서 (handover.md)
 
-**최종 갱신**: 2026-09-22 (**주 시리즈 확장 재개 34→36(Connecticut·Utah)** — GSC 클릭의 69%가 주 시리즈이고 이번 주 주 페이지가 Bing에서도 첫 클릭. 36개 주 위젯 5개·허브 표·"34" 텍스트 전부 일관 갱신. `sending-scope-of-work` 템플릿 B2B 보강(Bing 2→20노출). 상세는 "2026-09-22 세션" 참고)
+**최종 갱신**: 2026-09-28 (**주 시리즈 36→38(Kansas·Mississippi)** + 신규 주 페이지 제목에 "& Small Businesses" B2B 테스트 시작. California Bing 롱테일 보강, invoice-vs-receipt 계좌이체 영수증 보강, CA/DE "최고 소액소송 한도" 사실오류 정정. **git push 방식 변경** — 기술 주의사항 "토큰/remote 관련" 참고. 상세는 "2026-09-28 세션")
 **갱신 방식이 v12까지와 다름**: 이제부터 이 문서는 새 채팅에 붙여넣는 방식이 아니라, **저장소에 직접 보관하고 계속 업데이트**하는 방식으로 운영한다. 새 세션에서는 이 파일(`handover.md`)을 clone 직후 가장 먼저 읽을 것.
 
 ---
@@ -100,7 +100,7 @@
 
 - **툴**: 19개 (Invoice Generator = index.html 포함, 2026-07-24에 Kill Fee Calculator 신규 추가 — late-fee 시리즈 밖 첫 클러스터에서 처음으로 블로그 위젯이 아닌 완전한 독립 툴 페이지 제작)
 - **이메일 템플릿**: 24개 (25개 파일이나 sending-nda.html 등 포함, v12 이후 변경 없음)
-- **블로그 글**: 74개 (2026-09-22에 주 시리즈 2개 추가 — `late-fee-laws-freelancers-connecticut`, `late-fee-laws-freelancers-utah`). **late fee 지역 시리즈 36개 주** + 그 외 38개. 36개 주 데이터를 쓰는 위젯 5개가 전부 36개로 동기화돼 있음.
+- **블로그 글**: 76개 (2026-09-28에 주 시리즈 2개 추가 — `late-fee-laws-freelancers-kansas`, `late-fee-laws-freelancers-mississippi`). **late fee 지역 시리즈 38개 주** + 그 외 38개. 38개 주 데이터를 쓰는 위젯 5개가 전부 38개로 동기화돼 있음.
 
 ### 툴 목록 (18개, 경로는 v12 문서와 동일 — 변경 없음)
 Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Project Profit, Budget Planner, Contract Generator, Invoice Tracker, Client Proposal, Time Tracker, Milestone Calculator, Savings Calculator, NDA Generator, Client Intake Form, Expense Report, Scope of Work — **18개로 유지, 추가 없음**
@@ -856,6 +856,45 @@ OnPay / TurboTax / Monaco CPA / Tax47 / Ourtaxpartner 등 다수 출처 교차�
 
 ### 토큰/remote 관련
 - 세션마다 새 토큰을 받으면 기존 clone이 남아있어도 `git remote set-url origin https://canghun13:{새토큰}@github.com/canghun13/getsolotools.git`으로 갱신 후 사용할 것. (예전 토큰이 remote에 남아있으면 push 시 "Invalid username or token" 에러 발생함 — 2026-07-10에 실제로 겪음.)
+- **(2026-09-28) 세션 중 환경이 재시작되면 토큰 URL push가 git proxy에서 403("not in this session's authorized repository set")으로 막힐 수 있다.** 이때는 `add_repo`(owner canghun13, repo getsolotools, access push)로 저장소를 세션에 붙이고, `git remote set-url origin https://github.com/canghun13/getsolotools.git`(토큰 없는 URL)로 바꾸면 프록시가 자격증명을 주입해 push된다. 기존 `/home/claude/repo` 작업본은 그대로 쓰면 되고 새로 clone할 필요 없음.
+
+---
+
+### 2026-09-28 세션 — 주 시리즈 38개 + B2B 제목 테스트
+
+**1. 데이터 (전주 대비)**
+- **GSC 클릭 26 → 33** (3개월, 노출 6,948). 클릭 33개 중 **21개가 주 시리즈**(NY 4, CA 4, NJ·TX·DE 각 2, GA·MI·WI·IN·AZ·PA·IL 각 1). 일별로 **09-22~25 나흘에 8클릭** — 처음으로 가속 구간. 모바일 평균 19.25위 vs 데스크톱 57위.
+- 비주(非州) GSC 클릭: `kill-fee-calculator` 3(96노출 20.8위), `sending-nda` 2(122노출 8.9위 — 단 쿼리 단위로는 nda 쿼리 전부 67~96위, 07-20 교훈대로 페이지 평균 착시), `retainer-client-not-paying` 2(29노출 7.2위), `receipt.html` 2.
+- **Bing 노출 349 → 414, 클릭 18 → 19** (7주 연속 성장). `common-freelance-tax-mistakes` 106노출 14클릭 1.01위. `freelance-tax-guide-for-beginners` 75노출 **6.39위**(6.79→6.39, 여전히 0클릭). `sending-scope-of-work` 20→**35노출 1.97위** 0클릭. `deadline-extension-request` Bing 첫 등장(3노출 4.33위).
+- **GA4 (08-31~09-27)**: MAU 74 → **82**. **google organic 22**(14→22) / bing 7 / direct 45 / ecosia 2 / chatgpt 1 / qwant 1. 페이지: Invoice Generator 27, **Kill Fee Calculator 10조회/6명**(급증), tax mistakes 9, CA 6, NY 4, **Connecticut 2명(도시 Hartford 2)**, Utah 1 — **CT·UT는 제작 1주 만에 GA 유입 발생**(GSC coverage에선 아직 "발견됨-미색인" → Bing 경유 추정).
+- **제휴 → 구간 A 유지**: MAU 82(<500) / 상업 페이지 월 조회 1 미만 / 미국 비중 미달(도시 상위 Shanghai·Singapore). 언급 안 함.
+- Coverage: 발견됨-미색인 4건(proposal 블로그 + **CT·UT·milestone-long-projects** — 신규 3개는 정상 지연), 크롤링됨-미색인 4건(favicon, how-to-handle-late-payments, project-management-tips, contract-generator). 색인 요청 안 함.
+
+**2. 판단: CT·UT 판정(10-13~20)을 기다리지 않고 주 시리즈 확장 계속**
+- 4주 룰은 "전략을 뒤집을 때" 쓰는 것이지, 이미 양 엔진에서 검증된 클러스터(주 시리즈 = GSC 클릭 64%, Google organic 14→22)의 확장을 멈추는 근거가 아니라고 판단. 사용자 지시 "공격적 확장전략 바꾸지마"와도 일치. CT가 1주 만에 GA 유입(Hartford)을 낸 것도 근거.
+- 다음 후보 순서대로 **Kansas(2.95M) + Mississippi(2.94M)** 제작. 남은 순서: **Idaho(2.0M) → Nebraska(1.99M) → ...**
+
+**3. 신규 2개 — 제목 B2B 테스트 시작**
+- 두 페이지 모두 title/H1을 **"... for Freelancers & Small Businesses"**로 설정(기존 36개는 그대로). B2B 독자 신호 3건(08-17, 09-22)에 대한 첫 실험. **10-26 전후**에 KS/MS가 기존 주 페이지 대비 vendor/business 쿼리를 더 받는지 비교할 것.
+- **Kansas**: K.S.A. 16-201 무약정 시 연 10%(만기 후) / 16-207 서면 상한 연 15%, 단 **"business or agricultural transaction" 제외** → B2B 인보이스는 상한 밖일 가능성이 높으나 보수적으로 **1.25%/월(=15%)** 권고. **소액소송 $4,000 → $10,000 (L. 2024 ch. 22, 2024-07-01 시행, K.S.A. 61-2703)** — 다수 2차 출처가 아직 $4,000. 변호사 원칙적 불가(상대가 변호사면 예외, Nolo). 소멸시효 서면 5년(60-511)·구두 3년(60-512). 이웃 비교: MO/OK/CO/IA (값은 기존 검증값 재사용).
+- **Mississippi**: § 75-17-1(1) 법정이율 연 8% — **"notes, accounts and contracts"로 계정(인보이스)을 명문 포함**. (2) 계약 상한 = max(연 10%, 할인율+5) → **1.5%/월은 부적합**, 위젯 권고 **0.8%/월**. § 75-17-27 연체료 = max($5, 4%), 서면 약정 + **15일 초과 연체 후 회차당 1회**. **차별화 포인트 § 11-53-81**: 오픈 어카운트에서 **정확한 금액 + 항목별 명세서를 담은 서면 독촉 후 30일 미지급 → 승소 시 변호사비 회수**(피고 승소 시 피고도 회수). Justice Court $3,500(courts.ms.gov). 소멸시효 3년(§ 15-1-29, 일반 § 15-1-49 — **§ 15-1-49는 이번 세션 원문 미확인**, 다음에 MS 건드리면 확인).
+- 7단계 체크리스트 전부 수행: 위젯 5개(옵션 38 확인, KS $9k 적합/$12k 초과, MS $3k 적합/$4k 초과, MS § 11-53-81 note 노출), "36 states" 10곳 + "36-state" 1곳 → 38, 허브 표 행·카드 2개, blog/index, sitemap.
+- **미확인으로 뺀 것**: Kansas 소액소송 연간 건수 제한(20건설), 수수료 금액($35/$55은 Nolo 기준이나 2024 개정 후 미검증 → "clerk 확인"으로 처리).
+
+**4. 사실오류 정정 (3번째 연속 — 이번엔 "최고 한도" 표현)**
+- **California 페이지가 "$12,500 소액소송 한도는 미국 최고"라고 3곳에서 서술** — 틀림(DE·TN $25,000, UT·TX·WV $20,000). "이웃 주 중 최고"로 정정, 본문 1곳은 법인 $6,250 병기로 교체. **CA는 GSC 4클릭·Bing 클릭이 나는 페이지라 오류 노출이 컸다.**
+- Delaware "highest in the nation" → **"tied with Tennessee"** (페이지 3곳 + 허브 카드 + blog/index desc). 열린 이슈 해소.
+- **교훈**: "최고/최저/유일" 같은 최상급 표현은 우리 38개 주 데이터로 즉시 반증 가능하다. 주 페이지를 만들거나 고칠 때 최상급 표현은 위젯 데이터(S 객체)와 대조할 것.
+
+**5. 보강 2건**
+- `late-fee-laws-freelancers-california.html`: Bing 롱테일 6개(`5% per day`, `10% per month`, `can i charge a late fee for being a 1099`, `cap or limit on late fee on invoices`, `finance fee after due date`, `daily interest`)에 직답하는 H2 "Can You Charge 5% a Day, 10% a Month, or Daily Interest in California?" 신설 — Civil Code § 1671(b)(비소비자 계약 합리성 추정)·(d), **§ 3289(b) 무약정 시 연 10%**, 1099 계약자도 사업자. FAQ 3→6. **title은 클릭 나는 페이지라 안 건드림.**
+- `freelance-invoice-vs-receipt.html`: Bing `should you send a receipt ... when you receive the money transfer`(2변형 3~4위) 대응 H2 신설(계좌이체·ACH·wire·Zelle은 자동 확인이 없다 → 금액·입금일·인보이스 번호·잔액). **FAQ 0 → 3 + FAQPage 스키마 신설**, `.article-body a` 규칙 추가. payment-received 템플릿·receipt 툴로 내부링크.
+
+**6. 이번 주 하지 않은 것 (의도적)**
+- `kill-fee-calculator` GA 급증(10조회)·GSC 3클릭 — 09-14 kill-fee-clause 보강이 10-05 판정 대기 중이고, 계산기 페이지를 같은 쿼리로 보강하면 자기잠식. **10-05 판정 때 둘을 같이 볼 것.**
+- `sending-scope-of-work` Bing 35노출 0클릭 — 09-22 보강 1주차. 판정 보류.
+- `Project Status Update Email Template` 9조회는 1명 반복 방문 → 신호 아님.
+- tax guide title 변경(09-14) 6.79→6.39위, 아직 0클릭 — 10-05 판정.
 
 ---
 
@@ -871,10 +910,16 @@ OnPay / TurboTax / Monaco CPA / Tax47 / Ourtaxpartner 등 다수 출처 교차�
 
 ## 현재 열려있는 이슈 (다음에 확인할 것)
 
+- **(2026-09-28, 최우선) 10-05 판정 묶음**: ① tax guide title 변경(09-14, Bing 6.39위 0클릭) ② kill-fee-clause FAQ 보강(09-14) + kill-fee-calculator GA 급증을 같이 보고 계산기 보강 여부 결정 ③ milestone-long-projects(09-07) Bing/GSC 진입 여부.
+- **(2026-09-28) B2B 제목 테스트**: KS·MS만 "for Freelancers & Small Businesses". **10-26 전후**에 두 페이지의 쿼리에 vendor/business/contractor 계열이 기존 주 페이지보다 많은지 비교. 효과 있으면 신규 주부터 계속 적용, 기존 36개 제목은 여전히 건드리지 말 것(클릭 자산).
+- **(2026-09-28) 주 시리즈 다음 후보**: Idaho(2.0M) → Nebraska(1.99M) → 그 외. 7단계 체크리스트 + **최상급 표현("highest in the nation") 위젯 데이터 대조**를 8번째 단계로 추가할 것.
+- **(2026-09-28) 미검증 잔여**: Mississippi 서면계약 소멸시효 § 15-1-49(3년) 원문, Kansas 소액소송 수수료·연간 건수 제한.
+- **(2026-09-28) 크롤링됨-미색인 4건 중 `how-to-handle-late-payments-as-a-freelancer`**(최종 크롤 07-02)가 Bing에서는 2노출 5위. Google 미색인이 3개월째. 콘텐츠 결함 점검 가치 있음(색인 요청은 금지).
+
 - **(2026-09-22, 최우선) 주 시리즈 확장을 계속할지 CT·UT로 판정할 것.** 09-22 제작이므로 **10-13~10-20 데이터**에서 GSC/Bing 진입과 클릭을 볼 것(3~4주 룰). 진입하면 다음 후보 순서: **Kansas(2.95M) → Mississippi(2.94M) → Idaho(2.0M) → Nebraska(1.99M)**. 추가할 때는 위 "2026-09-22 세션" 5번의 7단계 체크리스트를 그대로 따를 것.
 - **(2026-09-22) "비프리랜서 B2B 독자" 신호가 3번째다.** 08-17(vendor·painter·정부계약), 09-22(OEM 공급사·공급망 임원·양계 설비). 주 페이지 제목이 전부 "for Freelancers"인 것과의 미스매치는 여전하다. **CT·UT 판정 시점에 주 페이지 클릭이 계속 늘면, 신규 주 페이지부터 제목을 "for Freelancers & Small Businesses"로 테스트해볼 가치가 있다.** 기존 페이지 제목은 클릭이 나고 있으므로 건드리지 말 것.
 - **(2026-09-22) 이메일 템플릿 페이지들의 복사 함수 점검 필요.** `sending-scope-of-work`에서 `copyTemplate()`이 첫 템플릿에 하드코딩된 것을 발견했다. 다른 `email-templates/*.html`도 같은 구조일 것이므로, **템플릿을 추가하는 순간 같은 버그가 생긴다.** 추가 작업 전에 해당 파일의 복사 함수부터 확인할 것.
-- **(2026-09-22) Delaware 페이지의 "highest in the nation" 표현이 부정확하다.** Delaware $25,000은 **Tennessee와 동률**(우리 위젯 데이터 기준)이고, Utah도 2030년에 $25,000이 된다. 사실오류는 아니지만 "tied for highest"가 정확하다. 다음에 Delaware를 건드리면 고칠 것.
+- **(2026-09-22, 2026-09-28 해소)** ~~Delaware 페이지의 "highest in the nation" 표현이 부정확하다.~~ Delaware $25,000은 **Tennessee와 동률**(우리 위젯 데이터 기준)이고, Utah도 2030년에 $25,000이 된다. 사실오류는 아니지만 "tied for highest"가 정확하다. 다음에 Delaware를 건드리면 고칠 것.
 
 - **(2026-09-14, 최우선) 세금/법령 수치는 그 자리에서 재검증할 것.** 08-24 Illinois triple/double, 09-14 1099-NEC $600→$2,000 — **두 번 연속 보강 작업 중 우연히 사실오류를 발견했다.** 둘 다 우연히 안 걸렸으면 계속 틀린 정보를 내보내고 있었을 것이다. 세금 페이지를 건드릴 때는 임계값·요율·한도·연도를 반드시 1차 확인. **아직 검증 안 한 수치**: 세금 가이드의 SEP-IRA $72,000 / Solo 401(k) $24,500·$80,000·$83,250 / QBI phase-out $201,750·$403,500 등 2026 숫자들. 다음에 그 페이지를 만지면 이것들부터 확인할 것.
 - **(2026-09-14) 판정 대기 중**: `milestone-payment-schedule-long-projects`(09-07 제작) — 09-28~10-05 데이터에서 Bing/GSC 진입 여부 확인. 그리고 이번 보강 3건(tax guide title 변경 / kill fee FAQ / mistakes 정정)은 **10-05 전후**에 판정할 것. 1주 데이터로 판단하지 말 것(09-07에 그래서 틀렸다).
