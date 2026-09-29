@@ -34,6 +34,7 @@
     .article-body ul { margin: 0 0 20px 20px; }
     .article-body ul li { margin-bottom: 8px; line-height: 1.7; }
     .article-body strong { font-weight: 600; }
+    .article-body a { color: var(--accent); }
     .compare-table { width: 100%; min-width: 420px; border-collapse: collapse; font-size: 0.9rem; }
     .compare-table th { background: var(--ink); color: #fff; padding: 10px 14px; text-align: left; font-weight: 600; }
     .compare-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
@@ -63,7 +64,7 @@
   "description": "Invoice vs receipt — freelancers confuse these all the time. Here's exactly what each one is, when to send it, and why both matter for your business.",
   "url": "https://getsolotools.com/blog/freelance-invoice-vs-receipt.html",
   "datePublished": "2026-05-01",
-  "dateModified": "2026-05-01",
+  "dateModified": "2026-09-28",
   "author": {
     "@type": "Organization",
     "name": "GetSoloTools",
@@ -76,6 +77,38 @@
   }
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Should I send a receipt to a freelance client after they pay by bank transfer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Card payments through platforms like Stripe or PayPal usually send an automatic confirmation, but bank transfers, ACH, wires and Zelle often do not. A receipt showing the amount, the date it cleared, the invoice number it pays and the remaining balance closes the invoice on both sides and prevents duplicate payments."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is an invoice the same as a receipt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. An invoice requests payment and is sent before the client pays. A receipt confirms payment and is sent after the money arrives. Many businesses need both: the invoice to process the payment and the receipt to reconcile it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a receipt if the client already has the invoice?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The invoice only shows what was owed. Without a receipt or payment confirmation, neither side has a record that it was paid, when, or whether anything is still outstanding, which matters for deposits, partial payments and tax-time reconciliation."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
   <script src="/nav.js"></script>
@@ -83,7 +116,7 @@
     <a href="/blog/index.html" class="back-link">← Back to Blog</a>
     <span class="article-tag">Invoicing</span>
     <h1>Freelance Invoice vs Receipt: What's the Difference?</h1>
-    <p class="article-meta">May 1, 2026 · 5 min read</p>
+    <p class="article-meta">May 1, 2026 · Updated Sep 28, 2026 · 6 min read</p>
 
     <div class="article-body">
       <p>Invoices and receipts are both financial documents — but they serve completely different purposes and get sent at different times. Mixing them up can create confusion with clients, mess up your records, and even cause issues at tax time.</p>
@@ -138,6 +171,17 @@
       </ul>
       <p>If a client pays via PayPal, Stripe, or a similar platform, the platform often sends a payment confirmation automatically — that functions as a receipt. But issuing your own keeps your records clean and looks more professional.</p>
 
+      <h2>Should You Send a Receipt When a Client Pays by Bank Transfer?</h2>
+      <p><strong>Yes — send one the day the money lands.</strong> A card payment through Stripe or PayPal generates a confirmation automatically. A bank transfer, ACH, wire or Zelle payment usually doesn't: your client sees money leave their account, but nothing tells them it arrived or which invoice it settled. That gap is where "did you get our payment?" emails and double-payments come from.</p>
+      <p>A receipt for a transfer doesn't need to be elaborate. It should show:</p>
+      <ul>
+        <li><strong>The amount received</strong> and the <strong>date it cleared</strong> in your account</li>
+        <li><strong>The invoice number it pays</strong> (INV-014) — this is the part your client's bookkeeper actually needs</li>
+        <li><strong>The payment method</strong> (ACH, wire, check) and any reference number from the transfer</li>
+        <li><strong>The remaining balance</strong>, even if it's $0.00 — "paid in full" is what closes the invoice on both sides</li>
+      </ul>
+      <p>If the transfer arrived short — a wire fee deducted, or a partial payment — say so on the receipt and show what's still open. That's far easier to sort out the week it happens than at year-end. A short confirmation email with the receipt attached is enough; the <a href="/email-templates/payment-received.html">payment received email template</a> has wording you can copy, and the <a href="/receipt.html">free receipt generator</a> produces the PDF.</p>
+
       <h2>When to Send Each One</h2>
       <h3>Send an invoice when:</h3>
       <ul>
@@ -177,6 +221,22 @@
       <h2>Record-Keeping for Taxes</h2>
       <p>Both invoices and receipts serve important functions at tax time. Invoices document your gross income — every invoice you issue represents revenue you need to report, whether or not it's been paid. Receipts confirm which invoices were actually paid and when, which helps you reconcile your income records with your bank statements.</p>
       <p>Keep all invoices and receipts — issued and received — for at least three to seven years, depending on your jurisdiction. In the US, the IRS generally has three years to audit a return, but six years if income was significantly underreported. For any business where record disputes are a possibility, maintaining thorough documentation is worth the small effort it requires.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <div style="border-top:1px solid #e5e5e2;">
+        <details style="border-bottom:1px solid #e5e5e2;padding:1rem 0;">
+          <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">Should I send a receipt to a freelance client after they pay by bank transfer? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
+          <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Yes. Card payments through platforms like Stripe or PayPal usually send an automatic confirmation, but bank transfers, ACH, wires and Zelle often do not. A receipt showing the amount, the date it cleared, the invoice number it pays and the remaining balance closes the invoice on both sides and prevents duplicate payments.</p>
+        </details>
+        <details style="border-bottom:1px solid #e5e5e2;padding:1rem 0;">
+          <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">Is an invoice the same as a receipt? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
+          <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">No. An invoice requests payment and is sent before the client pays. A receipt confirms payment and is sent after the money arrives. Many businesses need both: the invoice to process the payment and the receipt to reconcile it.</p>
+        </details>
+        <details style="border-bottom:1px solid #e5e5e2;padding:1rem 0;">
+          <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">Do I need a receipt if the client already has the invoice? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
+          <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">The invoice only shows what was owed. Without a receipt or payment confirmation, neither side has a record that it was paid, when, or whether anything is still outstanding, which matters for deposits, partial payments and tax-time reconciliation.</p>
+        </details>
+      </div>
     
 
   <div style="background:#f0f4ff;border:1px solid #d0dcf8;border-radius:10px;padding:24px 28px;margin:40px 0 0;">
