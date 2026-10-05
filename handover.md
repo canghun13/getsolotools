@@ -1,6 +1,6 @@
 # GetSoloTools 인수인계 문서 (handover.md)
 
-**최종 갱신**: 2026-09-28 (**주 시리즈 36→38(Kansas·Mississippi)** + 신규 주 페이지 제목에 "& Small Businesses" B2B 테스트 시작. California Bing 롱테일 보강, invoice-vs-receipt 계좌이체 영수증 보강, CA/DE "최고 소액소송 한도" 사실오류 정정. **git push 방식 변경** — 기술 주의사항 "토큰/remote 관련" 참고. 상세는 "2026-09-28 세션")
+**최종 갱신**: 2026-10-05 (**신규 클러스터 조각: 정액 연체료+이자 병과 가이드**(Bing TX/AL/AZ 쿼리 3건), **주 시리즈 38→40(Idaho·Nebraska)**, declining-project 역제안 템플릿, tax guide 메타 재작성 + SEP 비율 사실오류 정정, Texas "18% 여유" 표현 정정. 10-05 판정 묶음 결과 포함. 상세는 "2026-10-05 세션")
 **갱신 방식이 v12까지와 다름**: 이제부터 이 문서는 새 채팅에 붙여넣는 방식이 아니라, **저장소에 직접 보관하고 계속 업데이트**하는 방식으로 운영한다. 새 세션에서는 이 파일(`handover.md`)을 clone 직후 가장 먼저 읽을 것.
 
 ---
@@ -100,7 +100,7 @@
 
 - **툴**: 19개 (Invoice Generator = index.html 포함, 2026-07-24에 Kill Fee Calculator 신규 추가 — late-fee 시리즈 밖 첫 클러스터에서 처음으로 블로그 위젯이 아닌 완전한 독립 툴 페이지 제작)
 - **이메일 템플릿**: 24개 (25개 파일이나 sending-nda.html 등 포함, v12 이후 변경 없음)
-- **블로그 글**: 76개 (2026-09-28에 주 시리즈 2개 추가 — `late-fee-laws-freelancers-kansas`, `late-fee-laws-freelancers-mississippi`). **late fee 지역 시리즈 38개 주** + 그 외 38개. 38개 주 데이터를 쓰는 위젯 5개가 전부 38개로 동기화돼 있음.
+- **블로그 글**: 79개 (2026-10-05에 주 시리즈 2개 `late-fee-laws-freelancers-idaho`·`nebraska` + `flat-late-fee-and-interest` 추가). **late fee 지역 시리즈 40개 주** + 그 외 39개. 40개 주 데이터를 쓰는 위젯 5개가 전부 40개로 동기화돼 있음.
 
 ### 툴 목록 (18개, 경로는 v12 문서와 동일 — 변경 없음)
 Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Project Profit, Budget Planner, Contract Generator, Invoice Tracker, Client Proposal, Time Tracker, Milestone Calculator, Savings Calculator, NDA Generator, Client Intake Form, Expense Report, Scope of Work — **18개로 유지, 추가 없음**
@@ -898,6 +898,48 @@ OnPay / TurboTax / Monaco CPA / Tax47 / Ourtaxpartner 등 다수 출처 교차�
 
 ---
 
+### 2026-10-05 세션 — 판정 묶음 + 정액 연체료 신규 + 주 40개
+
+**0. 토큰 없이 진행됨.** 사용자가 토큰 문자열을 안 붙였지만, 09-28에 `add_repo`로 세션에 저장소를 붙여둔 덕에 프록시가 자격증명을 주입해 pull/push 모두 됐다. 다음 세션에 토큰이 없어도 먼저 `git pull`을 시도해볼 것.
+
+**1. 데이터 (전주 대비)**
+- **GA4 (09-07~10-04)**: MAU 82 → **97**. **bing organic 7 → 22**, google 19(22→19), direct 47. `common-freelance-tax-mistakes` 9 → **24조회/23명**(Bing 1위 클릭이 그대로 GA에 찍힘). Kill Fee Calculator 10조회 유지. **KS·MS 각 1명 — 제작 1주 만에 GA 유입**(CT·UT와 같은 패턴).
+- **Bing 노출 414 → 약 450, 클릭 19 → 25**. `common mistakes with freelance taxes` 121노출 **20클릭** 1위. 8주 연속 성장.
+- **GSC 클릭 33 → 34** (3개월, 노출 7,160). 주 시리즈 21/34. `retainer-client-not-paying` 3클릭(36노출 7위), `kill-fee-calculator` 3클릭(129노출 17위), CA 3클릭(119노출 6.7위).
+- **제휴 → 구간 A 유지**: MAU 97(<500) / 상업 페이지 월 조회 1 미만 / 미국 비중 미달(도시 상위 New York 4 = Shanghai 4 = Singapore 4). 언급 안 함.
+- Coverage: 09-28과 동일(발견됨-미색인: proposal·CT·UT·milestone-long / 크롤링됨-미색인 4건). 단 **milestone-long-projects는 GSC 성과에 9노출 10위로 이미 등장** — coverage 리포트가 늦는 것.
+
+**2. 10-05 판정 묶음 결과**
+- **tax guide title 변경(09-14)**: Bing 노출 48 → 63 → 75 → **97**, 순위 7.0 → 6.79 → 6.39 → **6.15**. `freelance taxes explained simply` 15 → 35노출, 7.73 → 5.74위. **노출·순위는 확실히 효과 있음. 클릭은 4주째 0** → 남은 레버는 스니펫이라 **meta description을 "explained simply" 약속 + 숫자(25–30%, 분기 4개 날짜, 2026 1099 변경)로 재작성**. 클릭 나는 페이지가 아니라 리스크 없음. **11-02 전후 클릭 발생 여부로 재판정.**
+- **kill-fee-clause FAQ 보강(09-14)**: Bing 5.46 → 5.26 → **5.29위 정체**, 24노출. 효과 미미. GSC는 kill-fee-calculator가 129노출 17위 3클릭으로 클러스터의 실제 클릭원. **판정: 블로그 추가 보강 중단.** 계산기 페이지는 클릭이 나고 있어 건드리지 않음.
+- **milestone-long-projects(09-07, 4주)**: GSC 9노출 10위로 진입. Bing 미진입. **판정: 진입 성공(Google 먼저)**, 클릭은 다음 4주에 볼 것.
+- **CT·UT(09-22) 중간 관찰**: 둘 다 GA 2명씩 유입 지속, GSC 성과엔 아직 없음. 10-13~20 판정 유지.
+
+**3. 신규: `blog/flat-late-fee-and-interest.html`** — 이번 주 최대 미충족 신호
+- **근거**: Bing 독립 쿼리 4개가 같은 질문: `texas allows for 1.5% per month can i also add a fixed late fee and can it repeat every month`(3위), `texas allows ... with a repetable flat fee`(4위), `if alabama allows 1.5% per month late fee ... why can a utility or medical office charge a flat fee of $10`(10위), `proposed 5% flat late fee is also an unenforceable penalty ... dobson bay club ii v. la sonrisa de siena (ariz. 2017)`(3위 — 사용자가 판례명을 직접 검색).
+- **중복 확인**: "정액+이자 병과"를 다루는 페이지 없음. `is-a-daily-late-fee-legal`에 한 문장, `how-to-calculate-late-fees`에 "월 정액" 선택지 소개만 있음.
+- **경쟁 회피 장치**: 경쟁 콘텐츠는 "둘 다 가능/계약에 쓰라" 수준. 우리는 **"각 요금이 다른 손실을 보상해야 한다"는 법리 축** + 판례 2건으로 차별화: ① **Dobson Bay(Ariz. 2017)** — 지연이자는 인정, 5% 정액은 **이자와 중복되고 지연 기간과 무관**해서 무효(Restatement § 356) ② **Garcia v. Texas Cable Partners(Tex. App. 2003)** — 잔액과 무관한 $5 정액 연체료는 **비용 추정이지 이자가 아님** → 텍사스 18% 상한 계산에 안 들어감. 여기에 **반복 정액은 시간 따라 커지므로 이자처럼 취급될 위험**(Mississippi § 75-17-27 "회차당 1회" 명문 예시) 연결.
+- **체커 위젯**: 금액·정액·반복 여부·월 이율·연체 개월·상한 → 총액, **시간 비례 요금의 연환산율**(1회 정액은 비용 회수로 보고 제외, 반복 정액은 포함), 신호 3개(정액 > 송장 5% / 매월 반복 / 상한 초과) → 0개 ok, 1개 mid, 2개+ risk. **8개 케이스로 세 분기 전부 도달 확인**, 부동소수점(1.5×12=18.000…04) 오판 방지용 허용오차 추가 — 기본값이 "상한 초과"로 잘못 뜨는 버그를 사전에 막음.
+- 내부 링크: Texas·is-a-daily·how-to-calculate에서 연결.
+
+**4. 주 시리즈 38 → 40: Idaho · Nebraska** (B2B 제목 테스트 계속 — "for Freelancers & Small Businesses")
+- **Idaho**: § 28-22-104 **기본이율 12%**(인접주 최고) — 단 **오픈 어카운트는 마지막 항목 후 3개월부터**. 서면 약정 이율 **일반 상한 없음**. **2026 HB 649(30% 또는 prime+10 상한안)는 03-25 위원회 재회부 후 미성립** — 본문에 명시(신선도 신호). **§ 12-120(3): 서비스 계약·상거래 소송 승소자에게 변호사비 지급(쌍방향)**, § 12-120(1): $35,000 이하 + 소송 10일 전 서면 독촉. 소액 $5,000(§ 1-2301), 변호사 불가. 소멸시효 서면 5년(§ 5-216)·구두 4년(§ 5-217). 위젯 m 1.5, cap null.
+- **Nebraska**: § 45-102 **기본이율 6%**(낮음 → 계약서 이율이 핵심이라는 각도). § 45-101.03 일반 상한 16%, § 45-101.04 예외(법인·파트너십·신탁 대출, 사업목적, $25,000 초과, 오픈 크레딧 계정). 보수적 **1.25%/월** 권고. **소액 $7,500(2025-07-01부터, § 25-2802; 2024-07~2025-06은 $6,000)**, 변호사 불가, **주 2건·연 10건 제한**(§ 25-2803). 카운티법원 $70,000(2025-07~2030-06). 위젯 m 1.25, cap 16.
+- 7단계 체크리스트 + 최상급 표현 점검 수행: 위젯 5개 옵션 40 확인·경계값(ID $4,500 적합/$6,000 초과, NE $7,000/$8,000), "38 states" → 40(12곳), 허브 표·카드, blog/index, sitemap.
+- **미확인으로 뺀 것**: Nebraska § 25-1801(4,000달러 이하 청구 변호사비 — 금액 산식이 출처마다 불명확해 본문 미기재), Nebraska 소멸시효 조문 번호(5년/4년은 기재, 조문 번호는 미기재).
+
+**5. 보강 3건**
+- `email-templates/declining-project.html`: Bing `professional email template declining project with counteroffer deadline scope rate`(**1위**), `how to reply declining freelance project concerns deadline scope rate`(5위). **역제안 변형 템플릿**(범위 축소/기한 연장/요금 인상 3안) + "두 개 고정, 하나만 움직인다" 섹션 + FAQ 1개 추가, **FAQPage 스키마 신설**(원래 없었음). 변형은 `.variant`(복사 버튼 없음)라 **복사 함수 하드코딩 함정에 안 걸림** — 확인함.
+- `blog/freelance-tax-guide-for-beginners.html`: 위 2번 meta 재작성 + **사실오류 정정: SEP-IRA·Solo 401(k) 고용주 기여를 "순 SE 소득의 25%"라고 써 있었음 → 자영업자는 실질 약 20%**(25%는 SE세 공제 후 '보수' 기준). **09-14에 미검증으로 남긴 2026 수치는 전부 확인 완료**: 401(k) $24,500, catch-up $8,000, 60–63세 $11,250(→ $83,250), 415(c) $72,000(IRS IR-2025-111), QBI $201,750/$403,500, 상한 $276,750/$553,500(Rev. Proc. 2025-32).
+- `blog/late-fee-laws-freelancers-texas.html`: "1.5%면 **well within** legal limits"가 틀린 뉘앙스(18% = 상한 그 자체) → "at the line"으로 정정, "2%도 enforceable할 수 있다" 완화, 정액 병과 단락 + 신규 페이지 링크. `how-to-calculate-late-fees-on-invoices`: "월 정액 $25/$50" 소개에 **$50/월 × $500 송장 = 연 120%** 주의 문장 추가.
+
+**6. 하지 않은 것 (의도적)**
+- `sending-scope-of-work` Bing 37노출 2.19위 0클릭(09-22 보강 2주차) — 10-13 이후 판정.
+- 다중 통화 계좌 안내 이메일 쿼리 1건, `freelancer anti-retaliation double damages`(3위, FIFA 가이드가 이미 수용) — 신규 불필요.
+- Project Status Update 템플릿 9조회는 여전히 1명 반복 방문.
+
+---
+
 ## 다음 세션 시작할 때 체크리스트
 
 1. 사용자가 새 토큰 주면 → clone 또는 `remote set-url` + `git pull origin main`
@@ -910,10 +952,13 @@ OnPay / TurboTax / Monaco CPA / Tax47 / Ourtaxpartner 등 다수 출처 교차�
 
 ## 현재 열려있는 이슈 (다음에 확인할 것)
 
+- **(2026-10-05, 최우선) 10-13~20 판정**: CT·UT(09-22) 4주 판정, `sending-scope-of-work` 보강(09-22) 판정. **10-26 전후**: KS·MS(09-28) 판정 + B2B 제목 테스트 1차 비교(KS·MS·ID·NE 4개 vs 기존 주 페이지의 vendor/business 쿼리 비율). **11-02 전후**: ID·NE·flat-fee(10-05) 판정 + tax guide meta 재작성 효과(Bing 클릭 발생 여부).
+- **(2026-10-05) 주 시리즈 다음 후보**: 남은 10개 중 인구순 — **New Hampshire(1.4M) → Maine(1.4M) → Rhode Island(1.1M) → Montana(1.1M)** → Hawaii·South Dakota·North Dakota·Alaska·Vermont·Wyoming. 8단계 체크리스트(7단계 + 최상급 표현 대조) 유지.
+- **(2026-10-05) 정액 연체료 페이지가 받을 후속 쿼리 관찰**: 판례명(Dobson Bay, Garcia) 검색이 이미 Bing에 있음 → 이 페이지가 판례명 쿼리를 받으면 "판례 1건 = 의사결정 질문 1개" 포맷으로 확장할 근거(예: 소멸시효 중단, 부분 지급 수락 시 'paid in full' 수표 문제).
 - **(2026-09-28, 최우선) 10-05 판정 묶음**: ① tax guide title 변경(09-14, Bing 6.39위 0클릭) ② kill-fee-clause FAQ 보강(09-14) + kill-fee-calculator GA 급증을 같이 보고 계산기 보강 여부 결정 ③ milestone-long-projects(09-07) Bing/GSC 진입 여부.
 - **(2026-09-28) B2B 제목 테스트**: KS·MS만 "for Freelancers & Small Businesses". **10-26 전후**에 두 페이지의 쿼리에 vendor/business/contractor 계열이 기존 주 페이지보다 많은지 비교. 효과 있으면 신규 주부터 계속 적용, 기존 36개 제목은 여전히 건드리지 말 것(클릭 자산).
 - **(2026-09-28) 주 시리즈 다음 후보**: Idaho(2.0M) → Nebraska(1.99M) → 그 외. 7단계 체크리스트 + **최상급 표현("highest in the nation") 위젯 데이터 대조**를 8번째 단계로 추가할 것.
-- **(2026-09-28) 미검증 잔여**: Mississippi 서면계약 소멸시효 § 15-1-49(3년) 원문, Kansas 소액소송 수수료·연간 건수 제한.
+- **(2026-09-28) 미검증 잔여**: Mississippi 서면계약 소멸시효 § 15-1-49(3년) 원문, Kansas 소액소송 수수료·연간 건수 제한. (2026-10-05 추가) Nebraska § 25-1801 변호사비 산식.
 - **(2026-09-28) 크롤링됨-미색인 4건 중 `how-to-handle-late-payments-as-a-freelancer`**(최종 크롤 07-02)가 Bing에서는 2노출 5위. Google 미색인이 3개월째. 콘텐츠 결함 점검 가치 있음(색인 요청은 금지).
 
 - **(2026-09-22, 최우선) 주 시리즈 확장을 계속할지 CT·UT로 판정할 것.** 09-22 제작이므로 **10-13~10-20 데이터**에서 GSC/Bing 진입과 클릭을 볼 것(3~4주 룰). 진입하면 다음 후보 순서: **Kansas(2.95M) → Mississippi(2.94M) → Idaho(2.0M) → Nebraska(1.99M)**. 추가할 때는 위 "2026-09-22 세션" 5번의 7단계 체크리스트를 그대로 따를 것.
@@ -921,7 +966,7 @@ OnPay / TurboTax / Monaco CPA / Tax47 / Ourtaxpartner 등 다수 출처 교차�
 - **(2026-09-22) 이메일 템플릿 페이지들의 복사 함수 점검 필요.** `sending-scope-of-work`에서 `copyTemplate()`이 첫 템플릿에 하드코딩된 것을 발견했다. 다른 `email-templates/*.html`도 같은 구조일 것이므로, **템플릿을 추가하는 순간 같은 버그가 생긴다.** 추가 작업 전에 해당 파일의 복사 함수부터 확인할 것.
 - **(2026-09-22, 2026-09-28 해소)** ~~Delaware 페이지의 "highest in the nation" 표현이 부정확하다.~~ Delaware $25,000은 **Tennessee와 동률**(우리 위젯 데이터 기준)이고, Utah도 2030년에 $25,000이 된다. 사실오류는 아니지만 "tied for highest"가 정확하다. 다음에 Delaware를 건드리면 고칠 것.
 
-- **(2026-09-14, 최우선) 세금/법령 수치는 그 자리에서 재검증할 것.** 08-24 Illinois triple/double, 09-14 1099-NEC $600→$2,000 — **두 번 연속 보강 작업 중 우연히 사실오류를 발견했다.** 둘 다 우연히 안 걸렸으면 계속 틀린 정보를 내보내고 있었을 것이다. 세금 페이지를 건드릴 때는 임계값·요율·한도·연도를 반드시 1차 확인. **아직 검증 안 한 수치**: 세금 가이드의 SEP-IRA $72,000 / Solo 401(k) $24,500·$80,000·$83,250 / QBI phase-out $201,750·$403,500 등 2026 숫자들. 다음에 그 페이지를 만지면 이것들부터 확인할 것.
+- **(2026-09-14, 최우선) 세금/법령 수치는 그 자리에서 재검증할 것.** 08-24 Illinois triple/double, 09-14 1099-NEC $600→$2,000 — **두 번 연속 보강 작업 중 우연히 사실오류를 발견했다.** 둘 다 우연히 안 걸렸으면 계속 틀린 정보를 내보내고 있었을 것이다. 세금 페이지를 건드릴 때는 임계값·요율·한도·연도를 반드시 1차 확인. ~~아직 검증 안 한 수치: 세금 가이드 2026 숫자들~~ → **2026-10-05 전부 검증 완료**, 대신 SEP/Solo 401(k) '25%' 비율 오류를 발견·정정.
 - **(2026-09-14) 판정 대기 중**: `milestone-payment-schedule-long-projects`(09-07 제작) — 09-28~10-05 데이터에서 Bing/GSC 진입 여부 확인. 그리고 이번 보강 3건(tax guide title 변경 / kill fee FAQ / mistakes 정정)은 **10-05 전후**에 판정할 것. 1주 데이터로 판단하지 말 것(09-07에 그래서 틀렸다).
 - **(2026-09-14) tax guide title 변경 효과가 이번 주 최대 관전 포인트.** Bing 48노출 7위 0클릭 → title에 "for Beginners, Explained Simply" 반영. 순위가 3위권으로 오르면 클릭이 발생하고, 그러면 **"H1·slug와 title 불일치"를 다른 페이지에서도 점검할 가치가 생긴다.** 전 페이지 title vs H1 대조 스캔을 돌려볼 것.
 - **(2026-09-14) Google이 Bing을 추월했다**(GA organic 12 vs 9). 5주 연속 Bing 우위가 깨졌다. 주 시리즈가 GSC 클릭의 60%를 만들고 있으므로, **잔여 16개 주 확장 재검토**는 이제 더 근거가 생겼다. 다음 세션에서 우선순위를 다시 볼 것.
