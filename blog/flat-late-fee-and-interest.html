@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flat Late Fee + Interest on the Same Invoice: Legal? Can It Repeat Monthly?</title>
+  <meta name="description" content="Can you charge a flat late fee and 1.5% monthly interest on the same invoice, and can the flat fee repeat every month? What courts struck down (Dobson Bay) and upheld (Texas cable fee), plus a checker." />
+  <link rel="canonical" href="https://getsolotools.com/blog/flat-late-fee-and-interest.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-728DGKLSE6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-728DGKLSE6');
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #1a1a1a; --accent: #2d5be3; --blog: #1a9e6e; --paper: #fafaf8; --muted: #6b6b6b; --border: #e5e5e2; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; display: flex; flex-direction: column; }
+    .article-wrap { max-width: 720px; width: 100%; margin: 0 auto; padding: 56px 24px 80px; flex: 1; min-width: 0; }
+    .article-tag { font-size: 0.75rem; font-weight: 600; color: var(--blog); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; display: block; }
+    .article-wrap h1 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem, 4vw, 2.4rem); line-height: 1.2; margin-bottom: 16px; }
+    .article-meta { font-size: 0.82rem; color: #aaa; margin-bottom: 40px; }
+    .article-body { font-size: 1rem; line-height: 1.8; color: var(--ink); }
+    .article-body a { color: var(--accent); }
+    .article-body h2 { font-family: 'DM Serif Display', serif; font-size: 1.4rem; margin: 40px 0 12px; }
+    .article-body p { margin-bottom: 20px; }
+    .article-body ul { margin: 0 0 20px 20px; }
+    .article-body ul li { margin-bottom: 8px; line-height: 1.7; }
+    .article-body strong { font-weight: 600; }
+    .highlight-box { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--blog); border-radius: 8px; padding: 20px 24px; margin: 28px 0; }
+    .highlight-box p { margin: 0; font-size: 0.95rem; }
+    .highlight-box p + p { margin-top: 12px; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; min-width: 0; margin: 20px 0; }
+    .table-scroll-hint { display: none; font-size: 0.78rem; color: #999; margin: 0 0 8px; align-items: center; gap: 4px; }
+    @media (max-width: 700px) { .table-scroll-hint { display: flex; } }
+    .compare-table { width: 100%; min-width: 600px; border-collapse: collapse; margin: 0; font-size: 0.9rem; }
+    .compare-table th, .compare-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+    .compare-table th { font-weight: 600; color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; }
+    .compare-table tr.this-state td { font-weight: 600; background: #f4f8f6; }
+    .cta-box { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 8px; padding: 24px 28px; margin: 40px 0; }
+    .cta-box p { margin: 0 0 14px; font-size: 0.95rem; }
+    .cta-btn { display: inline-block; background: var(--accent); color: #fff; font-size: 0.875rem; font-weight: 600; padding: 10px 20px; border-radius: 6px; text-decoration: none; }
+    .article-body a.cta-btn { color: #fff; }
+    .cta-btn:hover { opacity: 0.88; }
+    .back-link { display: inline-block; margin-bottom: 32px; font-size: 0.85rem; color: var(--muted); text-decoration: none; }
+    .back-link:hover { color: var(--ink); }
+    footer { border-top: 1px solid var(--border); padding: 24px; text-align: center; margin-top: auto; }
+    .footer-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 10px; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.825rem; color: var(--muted); text-decoration: none; }
+    .footer-links a:hover { color: var(--ink); }
+    .footer-links .footer-blog { color: var(--blog); font-weight: 600; }
+    .footer-copy { font-size: 0.78rem; color: #aaa; }
+    .mini-calc { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--blog); border-radius: 8px; padding: 24px 28px; margin: 28px 0 40px; }
+    .mini-calc h2 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; margin: 0 0 8px; }
+    .mini-calc-sub { font-size: 0.9rem; color: #666; margin-bottom: 16px; }
+    .mini-calc-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+    .mini-calc-field label { display: block; font-size: 0.78rem; color: var(--muted); margin-bottom: 4px; font-weight: 600; }
+    .mini-calc-field input { width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.95rem; font-family: 'DM Sans', sans-serif; }
+    .mini-calc-result { font-size: 1rem; padding-top: 12px; border-top: 1px solid var(--border); }
+    @media (max-width: 500px) { .mini-calc-row { grid-template-columns: 1fr; } .compare-table { font-size: 0.8rem; } }
+  </style>
+  <style>
+    .checker { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--blog); border-radius: 8px; padding: 24px 28px; margin: 28px 0 40px; }
+    .checker h2 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; margin: 0 0 8px; }
+    .checker-sub { font-size: 0.9rem; color: #666; margin-bottom: 16px; }
+    .checker-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+    .checker-field { min-width: 0; }
+    .checker-field label { display: block; font-size: 0.78rem; color: var(--muted); margin-bottom: 4px; font-weight: 600; }
+    .checker-field select, .checker-field input { width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.95rem; font-family: 'DM Sans', sans-serif; background: #fff; color: var(--ink); }
+    .checker-out { border-top: 1px solid var(--border); padding-top: 14px; font-size: 0.93rem; line-height: 1.7; }
+    .checker-out .row { margin-bottom: 10px; }
+    .checker-out .k { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); font-weight: 600; display: block; }
+    .checker-out .big { font-size: 1.3rem; font-weight: 600; }
+    .verdict { border-radius: 6px; padding: 12px 14px; margin-top: 12px; font-size: 0.9rem; line-height: 1.65; border: 1px solid var(--border); }
+    .v-ok { background: #f4f8f6; }
+    .v-mid { background: #fffbea; }
+    .v-risk { background: #fff8f2; }
+    .checker-note { font-size: 0.8rem; color: var(--muted); margin-top: 12px; line-height: 1.6; }
+    @media (max-width: 700px) { .checker-row { grid-template-columns: 1fr; } .checker { padding: 20px 18px; } }
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Can You Charge a Flat Late Fee and Interest on the Same Invoice?",
+  "description": "Charging a flat late fee and monthly interest together is usually fine if each compensates a different loss. Where it fails: a flat fee that duplicates interest, or one that repeats every month.",
+  "url": "https://getsolotools.com/blog/flat-late-fee-and-interest.html",
+  "datePublished": "2026-10-05",
+  "dateModified": "2026-10-05",
+  "author": {
+    "@type": "Organization",
+    "name": "GetSoloTools",
+    "url": "https://getsolotools.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "GetSoloTools",
+    "url": "https://getsolotools.com"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I charge both a flat late fee and interest on an overdue invoice?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually yes, if both are in the contract and each compensates a different loss. Interest compensates you for waiting for the money; a modest flat fee compensates the administrative cost of chasing the payment. Courts have upheld default interest while striking a flat fee that duplicated it: in Dobson Bay Club II v. La Sonrisa de Siena (Ariz. 2017) the Arizona Supreme Court enforced default interest but held a 5% late fee unenforceable because it covered the same loss and had nothing to do with how long the payment was late."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a flat late fee repeat every month the invoice stays unpaid?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is the riskiest part of the structure. A one-time fee per missed payment reads as cost recovery. The same flat fee charged again every month on the same unpaid balance grows with time, which is what interest does, so in a state with a rate ceiling it can be counted toward that ceiling. Mississippi's statute, for example, allows a late charge only once per installment. If you want the charge to grow with time, let the interest do it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Texas allows 1.5% a month. Can I add a flat late fee on top?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Texas treats 18% a year as the ceiling for these commercial charges, and 1.5% a month is exactly 18%, so there is no room left if a flat fee is counted as interest. A Texas appeals court held that a flat $5 administrative late fee, charged the same to every customer regardless of the balance, was not interest because it was a cost estimate rather than compensation for the use of money (Garcia v. Texas Cable Partners, 2003). A small, fixed, cost-based fee is the defensible version; a fee that scales with the balance or repeats on the same debt is the one that can push you over 18%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why can a utility or doctor's office charge a flat $10 late fee when my state allows 1.5% a month?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They are different legal categories. A percentage charged over time is interest and is measured against interest-rate rules. A flat fee that does not depend on the balance or the length of delay is usually treated as reimbursement for the cost of handling a late account. Utilities and medical offices also operate under their own regulations and consumer rules. For a business-to-business invoice, the same logic lets you charge a modest flat fee alongside interest, as long as both are in the contract."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a 5% flat late fee legal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on what else you charge and how large the invoice is. On a small invoice a 5% one-time fee may be a reasonable estimate of the cost of chasing it. But a 5% fee was struck down in Dobson Bay because the contract already charged default interest for the same delay and the fee did not change with how late the payment was. If you charge 5% flat, don't stack a high monthly rate on the same balance, and don't repeat the 5% every month."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <script src="/nav.js"></script>
+  <div class="article-wrap">
+    <a href="/blog/index.html" class="back-link">← Back to Blog</a>
+    <span class="article-tag">Getting Paid</span>
+    <h1>Can You Charge a Flat Late Fee and Interest on the Same Invoice?</h1>
+    <p class="article-meta">October 5, 2026 · 8 min read</p>
+
+    <div class="article-body">
+      <p>Most freelancers pick one: a percentage that accrues each month, or a flat fee when a payment is late. Plenty of contracts use both — "$35 late fee plus 1.5% per month" — and the questions that follow are always the same. Is that double-dipping? Can the flat fee repeat every month? Does it count against my state's interest cap? The answer turns on one idea courts keep coming back to: <strong>each charge has to compensate a different loss.</strong></p>
+
+      <div class="checker" id="ffCalc">
+        <h2>Flat Fee + Interest Checker</h2>
+        <p class="checker-sub">See what a combined late fee structure actually charges, and which parts courts tend to question. Informational only — not legal advice.</p>
+        <div class="checker-row">
+          <div class="checker-field">
+            <label for="ffAmount">Invoice amount ($)</label>
+            <input type="number" id="ffAmount" value="2000" min="0" step="1">
+          </div>
+          <div class="checker-field">
+            <label for="ffFlat">Flat late fee ($)</label>
+            <input type="number" id="ffFlat" value="35" min="0" step="1">
+          </div>
+          <div class="checker-field">
+            <label for="ffRepeat">Flat fee is charged</label>
+            <select id="ffRepeat">
+              <option value="once">Once per late invoice</option>
+              <option value="monthly">Again every month unpaid</option>
+            </select>
+          </div>
+        </div>
+        <div class="checker-row">
+          <div class="checker-field">
+            <label for="ffRate">Interest (% per month)</label>
+            <input type="number" id="ffRate" value="1.5" min="0" step="0.05">
+          </div>
+          <div class="checker-field">
+            <label for="ffMonths">Months overdue</label>
+            <input type="number" id="ffMonths" value="3" min="1" step="1">
+          </div>
+          <div class="checker-field">
+            <label for="ffCap">Rate ceiling to test (%/yr, 0 = none)</label>
+            <input type="number" id="ffCap" value="18" min="0" step="0.5">
+          </div>
+        </div>
+        <div class="checker-out" id="ffOut"></div>
+        <p class="checker-note">The ceiling field defaults to 18%, the Texas commercial line. Use 16 for Nebraska's general cap, 10 for Mississippi's contract ceiling, or 0 if your state has no cap on written commercial rates — see our <a href="/late-payment-fee.html">40-state late fee research</a>.</p>
+      </div>
+      <script>
+      (function () {
+        function $(id) { return document.getElementById(id); }
+        function money(n) { return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+        function pct(n) { return (Math.round(n * 10) / 10).toString() + '%'; }
+        function render() {
+          var a = parseFloat($('ffAmount').value) || 0;
+          var flat = parseFloat($('ffFlat').value) || 0;
+          var monthly = $('ffRepeat').value === 'monthly';
+          var r = parseFloat($('ffRate').value) || 0;
+          var m = Math.max(1, Math.round(parseFloat($('ffMonths').value) || 1));
+          var cap = parseFloat($('ffCap').value) || 0;
+          var out = $('ffOut');
+          if (a <= 0) { out.innerHTML = '<div class="row">Enter the invoice amount to see the numbers.</div>'; return; }
+
+          var interest = a * (r / 100) * m;
+          var flatTotal = monthly ? flat * m : flat;
+          var total = interest + flatTotal;
+          var interestLike = interest + (monthly ? flatTotal : 0);
+          var effAnnual = (interestLike / a) / (m / 12) * 100;
+          var flatShare = flat / a * 100;
+
+          var signals = [];
+          if (flatShare > 5) signals.push('<strong>The flat fee is ' + pct(flatShare) + ' of the invoice.</strong> That is above the 5% fee the Arizona Supreme Court refused to enforce in <em>Dobson Bay</em>, where default interest already covered the delay. Size the flat fee to what chasing a payment actually costs you.');
+          if (monthly && flat > 0) signals.push('<strong>The flat fee repeats every month on the same balance.</strong> A charge that grows with time does what interest does, so it is likely to be counted as interest. Charge it once per late invoice and let the percentage handle time.');
+          if (cap > 0 && effAnnual > cap + 1e-6) signals.push('<strong>The time-based charges run ' + pct(effAnnual) + ' a year</strong>, above the ' + pct(cap) + ' ceiling you are testing against. ' + (monthly ? 'Counting the repeating flat fee as interest is what pushes it over.' : 'Lower the monthly rate.'));
+
+          var html = '';
+          html += '<div class="row"><span class="k">Total late charges after ' + m + ' month' + (m > 1 ? 's' : '') + '</span><span class="big">' + money(total) + '</span> on a ' + money(a) + ' invoice</div>';
+          html += '<div class="row"><span class="k">Breakdown</span>' + money(interest) + ' interest at ' + r + '%/month + ' + money(flatTotal) + ' in flat fees' + (monthly ? ' (' + money(flat) + ' × ' + m + ')' : ' (charged once)') + '</div>';
+          html += '<div class="row"><span class="k">Time-based charges as an annual rate</span><strong>' + pct(effAnnual) + ' a year</strong> — ' + (monthly ? 'interest plus the repeating flat fee' : 'interest only; a one-time flat fee is treated as cost recovery') + '</div>';
+
+          var cls, verdict;
+          if (signals.length === 0) {
+            cls = 'v-ok';
+            verdict = '<strong>Defensible structure.</strong> A one-time flat fee covers the cost of chasing the payment and the interest covers the time you waited — two different losses, which is what courts look for. Put both in the contract before the work starts and on every invoice.';
+          } else if (signals.length === 1) {
+            cls = 'v-mid';
+            verdict = '<strong>One part needs attention.</strong> ' + signals[0];
+          } else {
+            cls = 'v-risk';
+            verdict = '<strong>High risk of being treated as a penalty or as excess interest.</strong><br>' + signals.join('<br>');
+          }
+          html += '<div class="verdict ' + cls + '">' + verdict + '</div>';
+          out.innerHTML = html;
+        }
+        ['ffAmount', 'ffFlat', 'ffRepeat', 'ffRate', 'ffMonths', 'ffCap'].forEach(function (id) {
+          $(id).addEventListener('input', render);
+          $(id).addEventListener('change', render);
+        });
+        render();
+      })();
+      </script>
+
+      <h2>Two Charges, Two Different Losses</h2>
+      <p>When a client pays late, you lose two separate things:</p>
+      <ul>
+        <li><strong>The use of the money for the time it was late.</strong> That is what interest compensates, which is why it is expressed as a rate over time and grows the longer the invoice sits.</li>
+        <li><strong>The time you spend chasing it</strong> — reminders, a second invoice, a phone call, sometimes a call to the bookkeeper. That cost is roughly the same whether the payment is ten days late or ninety, which is why a fixed fee fits it.</li>
+      </ul>
+      <p>As long as each charge maps to its own loss, charging both is generally fine when the contract says so. A Florida collections attorney puts it plainly for that state: a 5% late charge can be collected <a href="https://www.kirschenbaumesq.com/article/late-charges-and-interest-on-whats-owed-to-you-march-11-2015" rel="noopener">in addition to 18% interest</a> when the contract provides for both. Trouble starts when the two charges stop being distinct.</p>
+
+      <h2>When the Flat Fee Gets Struck: The Dobson Bay Case</h2>
+      <p>The clearest example is <strong><em>Dobson Bay Club II DD, LLC v. La Sonrisa de Siena, LLC</em></strong>, decided by the Arizona Supreme Court in 2017. A borrower missed a balloon payment on a $28.6 million commercial loan. The contract charged default interest <em>and</em> a 5% late fee on the balance. The court:</p>
+      <ul>
+        <li><strong>Enforced the default interest</strong>, because it compensated the lender for losing the use of the money.</li>
+        <li><strong>Refused to enforce the 5% late fee</strong>, because it duplicated what the interest already covered and had no connection to how long the payment was late.</li>
+      </ul>
+      <p>The test it applied — whether the fee was a reasonable forecast of the actual loss (Restatement (Second) of Contracts § 356) — is the same liquidated-damages test most states use. The lesson for a freelance invoice: a flat fee that's a large percentage of the balance, sitting next to a monthly rate on the same balance, is the version most exposed. A flat fee sized to your real admin cost is not.</p>
+
+      <h2>When a Flat Fee Is Not Interest: The Texas Cable Case</h2>
+      <p>This matters most in states with a rate ceiling. In <strong><em>Garcia v. Texas Cable Partners</em></strong> (Tex. App. 2003), a customer argued that a cable company's $5 late fee was usurious interest. The court disagreed: the fee was the same for every customer, had no relationship to how much they owed, and was described as an advance estimate of the company's costs from late payments. Because it wasn't compensation for the use or forbearance of money, it wasn't interest.</p>
+      <div class="highlight-box">
+        <p><strong>So for Texas:</strong> 1.5% a month is exactly the 18% commercial line. A small, fixed, cost-based flat fee on top is the defensible add-on. A fee that scales with the invoice (a percentage) or repeats on the same unpaid balance every month starts behaving like interest — and in Texas there is no room left above 1.5% for it. See the <a href="/blog/late-fee-laws-freelancers-texas.html">Texas late fee guide</a>.</p>
+      </div>
+
+      <h2>Can the Flat Fee Repeat Every Month?</h2>
+      <p>This is the question behind most "flat fee plus interest" searches, and it is where structures get into trouble. A <strong>one-time fee per missed payment</strong> looks like cost recovery. The <strong>same fee charged again every month</strong> on the same unpaid invoice grows with time — which is the defining feature of interest. In a state with a ceiling, that makes it likely to be added to your rate when a court checks it.</p>
+      <p>Some states write the one-time rule down. Mississippi's late-charge statute allows the charge "only one (1) time on a specific installment" (Miss. Code § 75-17-27) — see the <a href="/blog/late-fee-laws-freelancers-mississippi.html">Mississippi guide</a>. Even where the law is silent, the safest drafting is: <strong>flat fee once, percentage monthly.</strong> If you want the late charge to keep growing, let the interest rate do it. On a retainer, a new flat fee for each <em>new</em> invoice that is paid late is a different thing — each one is a separate missed payment.</p>
+
+      <h2>A Clause That Keeps the Two Separate</h2>
+      <div class="highlight-box">
+        <p>"If an invoice is not paid within 15 days of its due date, a one-time late fee of $[amount] applies to cover the cost of collection. In addition, unpaid balances accrue interest at [rate]% per month from the due date until paid, not to exceed the maximum rate permitted by law."</p>
+      </div>
+      <ul>
+        <li><strong>Size the flat fee to your real cost</strong> — an hour or two of your time chasing payment, not a percentage of the invoice.</li>
+        <li><strong>Say "one-time"</strong> so nobody reads it as monthly.</li>
+        <li><strong>Keep the rate inside your state's ceiling</strong> — 1.5% a month is common, but it's already at the line in Texas and over it in Mississippi.</li>
+        <li><strong>The savings clause</strong> ("not to exceed the maximum rate permitted by law") isn't a cure-all, but it shows intent to stay within the limit.</li>
+        <li><strong>Put both on every invoice,</strong> not only in the original contract.</li>
+      </ul>
+      <p>Fees stated per day are a separate problem — see <a href="/blog/is-a-daily-late-fee-legal.html">is a daily late fee legal</a>. To work out what a client owes under either structure, the <a href="/late-payment-fee.html">late fee calculator</a> handles interest, a flat fee, or both, and <a href="/blog/how-to-calculate-late-fees-on-invoices.html">how to calculate late fees on invoices</a> walks through the arithmetic.</p>
+
+      <div class="cta-box">
+        <p>Calculate the exact amount a client owes with interest, a flat fee, or both — and download it as a PDF invoice.</p>
+        <a href="/late-payment-fee.html" class="cta-btn">Open the Late Fee Calculator →</a>
+      </div>
+
+      <h2>Frequently Asked Questions</h2>
+      <div style="border-top:1px solid #e5e5e2;">
+        <details style="border-bottom:1px solid #e5e5e2;padding:1rem 0;">
+          <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">Can I charge both a flat late fee and interest on an overdue invoice? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
+          <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Usually yes, if both are in the contract and each compensates a different loss. Interest compensates you for waiting for the money; a modest flat fee compensates the administrative cost of chasing the payment. Courts have upheld default interest while striking a flat fee that duplicated it: in Dobson Bay Club II v. La Sonrisa de Siena (Ariz. 2017) the Arizona Supreme Court enforced default interest but held a 5% late fee unenforceable because it covered the same loss and had nothing to do with how long the payment was late.</p>
+        </details>
+        <details style="border-bottom:1px solid #e5e5e2;padding:1rem 0;">
+          <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">Can a flat late fee repeat every month the invoice stays unpaid? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
+          <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">It is the riskiest part of the structure. A one-time fee per missed payment reads as cost recovery. The same flat fee charged again every month on the same unpaid balance grows with time, which is what interest does, so in a state with a rate ceiling it can be counted toward that ceiling. Mississippi's statute, for example, allows a late charge only once per installment. If you want the charge to grow with time, let the interest do it.</p>
+        </details>
+        <details style="border-bottom:1px solid #e5e5e2;padding:1rem 0;">
+          <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">Texas allows 1.5% a month. Can I add a flat late fee on top? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
+          <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Texas treats 18% a year as the ceiling for these commercial charges, and 1.5% a month is exactly 18%, so there is no room left if a flat fee is counted as interest. A Texas appeals court held that a flat $5 administrative late fee, charged the same to every customer regardless of the balance, was not interest because it was a cost estimate rather than compensation for the use of money (Garcia v. Texas Cable Partners, 2003). A small, fixed, cost-based fee is the defensible version; a fee that scales with the balance or repeats on the same debt is the one that can push you over 18%.</p>
+        </details>
+        <details style="border-bottom:1px solid #e5e5e2;padding:1rem 0;">
+          <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">Why can a utility or doctor's office charge a flat $10 late fee when my state allows 1.5% a month? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
+          <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">They are different legal categories. A percentage charged over time is interest and is measured against interest-rate rules. A flat fee that does not depend on the balance or the length of delay is usually treated as reimbursement for the cost of handling a late account. Utilities and medical offices also operate under their own regulations and consumer rules. For a business-to-business invoice, the same logic lets you charge a modest flat fee alongside interest, as long as both are in the contract.</p>
+        </details>
+        <details style="border-bottom:1px solid #e5e5e2;padding:1rem 0;">
+          <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">Is a 5% flat late fee legal? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
+          <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">It depends on what else you charge and how large the invoice is. On a small invoice a 5% one-time fee may be a reasonable estimate of the cost of chasing it. But a 5% fee was struck down in Dobson Bay because the contract already charged default interest for the same delay and the fee did not change with how late the payment was. If you charge 5% flat, don't stack a high monthly rate on the same balance, and don't repeat the 5% every month.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/blog/index.html" class="footer-blog">Blog</a>
+    </div>
+    <p class="footer-copy">© 2026 GetSoloTools. Free tools for freelancers.</p>
+  </footer>
+</body>
+</html>
