@@ -1,6 +1,6 @@
 # GetSoloTools 인수인계 문서 (handover.md)
 
-**최종 갱신**: 2026-10-05 (**신규 클러스터 조각: 정액 연체료+이자 병과 가이드**(Bing TX/AL/AZ 쿼리 3건), **주 시리즈 38→40(Idaho·Nebraska)**, declining-project 역제안 템플릿, tax guide 메타 재작성 + SEP 비율 사실오류 정정, Texas "18% 여유" 표현 정정. 10-05 판정 묶음 결과 포함. 상세는 "2026-10-05 세션")
+**최종 갱신**: 2026-10-12 (**중대 사실오류 정정: NJ 페이지가 존재하지 않는 'Freelance Worker Protection Act'를 서술하고 있었음 + NJ 소액소송 $3,000→$5,000 사이트 전역 오류** + Illinois triple 잔존 3곳, VA 조문, MO 판결이자. Virginia·Missouri Bing 롱테일 보강, **주 시리즈 40→42(New Hampshire·Maine)**. **구형 주 페이지 감사(audit) 대기열 신설** — 열린 이슈 최상단 참고)
 **갱신 방식이 v12까지와 다름**: 이제부터 이 문서는 새 채팅에 붙여넣는 방식이 아니라, **저장소에 직접 보관하고 계속 업데이트**하는 방식으로 운영한다. 새 세션에서는 이 파일(`handover.md`)을 clone 직후 가장 먼저 읽을 것.
 
 ---
@@ -100,7 +100,7 @@
 
 - **툴**: 19개 (Invoice Generator = index.html 포함, 2026-07-24에 Kill Fee Calculator 신규 추가 — late-fee 시리즈 밖 첫 클러스터에서 처음으로 블로그 위젯이 아닌 완전한 독립 툴 페이지 제작)
 - **이메일 템플릿**: 24개 (25개 파일이나 sending-nda.html 등 포함, v12 이후 변경 없음)
-- **블로그 글**: 79개 (2026-10-05에 주 시리즈 2개 `late-fee-laws-freelancers-idaho`·`nebraska` + `flat-late-fee-and-interest` 추가). **late fee 지역 시리즈 40개 주** + 그 외 39개. 40개 주 데이터를 쓰는 위젯 5개가 전부 40개로 동기화돼 있음.
+- **블로그 글**: 81개 (2026-10-12에 주 시리즈 2개 `late-fee-laws-freelancers-new-hampshire`·`maine` 추가). **late fee 지역 시리즈 42개 주** + 그 외 39개. 42개 주 데이터를 쓰는 위젯 5개가 전부 42개로 동기화돼 있음. 남은 미작성 8개: Rhode Island, Montana, Hawaii, South Dakota, North Dakota, Alaska, Vermont, Wyoming.
 
 ### 툴 목록 (18개, 경로는 v12 문서와 동일 — 변경 없음)
 Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Project Profit, Budget Planner, Contract Generator, Invoice Tracker, Client Proposal, Time Tracker, Milestone Calculator, Savings Calculator, NDA Generator, Client Intake Form, Expense Report, Scope of Work — **18개로 유지, 추가 없음**
@@ -940,6 +940,41 @@ OnPay / TurboTax / Monaco CPA / Tax47 / Ourtaxpartner 등 다수 출처 교차�
 
 ---
 
+### 2026-10-12 세션 — 구형 주 페이지에서 중대 사실오류 발견
+
+**1. 데이터 (전주 대비)**
+- **GA4 (09-14~10-11)**: MAU 97 → **104**. **bing 28 / google 17**(Bing 우위 재확대), direct 48, chatgpt 2. tax mistakes **30조회/29명**(9주 연속 성장). Kill Fee Calculator 11조회. **flat-fee(10-05)·ID·NE·KS·MS 각 1명 — 신규 페이지가 1주 안에 GA 유입을 내는 패턴이 6주째 반복.**
+- **Bing 노출 ~450 → 550, 클릭 25 → 27.** `common mistakes with freelance taxes` 128노출 21클릭. **kill-fee-clause 첫 Bing 클릭**(`how much do designers charge for kill fees` 1위). tax guide 97 → 109노출, 6.06위, 여전히 0클릭(meta 재작성 1주차 — 11-02 판정 유지).
+- **GSC 클릭 34 → 37** (노출 7,365). 주 시리즈 24/37(65%). NY 6, CA 4, kill-fee-calculator 4(165노출 15.8위), retainer 3, DE 3. `declining-project` GSC 첫 등장(8노출), `flat-late-fee` 1노출 10위.
+- **Coverage**: 발견됨-미색인이 **5건으로 증가**(proposal + CT·UT·**KS·MS**). ID·NE·flat-fee는 아직 목록에도 없음. 크롤링됨-미색인 4건 동일. **Google 신규 주 페이지 색인이 3주 넘게 밀리는 중** — 다만 Bing/GA 유입은 1주 안에 붙으므로 확장 중단 사유는 아님(사용자 전략 유지).
+- **제휴 → 구간 A 유지**: MAU 104(<500) / 상업 페이지 월 조회 1 미만 / 미국 비중 미달(도시 1위 Singapore 6). 언급 안 함.
+
+**2. 가장 중요한 것: 7월 이전 구형 주 페이지에 사실오류가 아직 묻혀 있다**
+Bing NJ/PA 쿼리(`pennsylvania's 1.5% per month ... does nj have a similar statute`)를 확인하려고 NJ 페이지를 열었다가 발견:
+- **`late-fee-laws-freelancers-new-jersey.html`이 "New Jersey Freelance Worker Protection Act(2023 시행)"를 서술 — $250 문턱, 30일 지급, 2배 배상, 민사벌금까지 구체적으로. 이 법은 존재하지 않는다.** A1526(2018–19)은 **2020-01 포켓 거부권**, 이후 미제정(basil.so 2026 정리, legiscan 확인). NJ는 GSC 2클릭 나는 페이지였다. → 해당 3개 섹션 전면 재작성("왜 NJ엔 없는가 + 계약서가 유일한 보호" 각도), **본문에 '이 페이지의 이전 버전도 틀렸다'고 명시**(신뢰 회복), FAQ 2개 추가. **title은 유지**(클릭 자산).
+- 같은 오류가 퍼진 곳: 허브 표("Yes — FWPA") + 허브 카드, `blog/index` desc, `how-to-write-a-freelance-contract`(주별 목록), `michigan` 비교 문장 — 전부 정정. **허브 표 수정 중 replace-all 실수로 Illinois 행까지 "No"로 바뀌었다가 즉시 복구**(같은 문자열이 두 행에 있었음). 이때 **California 행이 "Contract-dependent"(=보호법 없음)로 틀려 있던 것도 발견** → "Yes — SB 988", 기본이율 "10% (Civ. Code § 3289)"로 정정.
+- **NJ 소액소송 $3,000 → $5,000**(njcourts.gov 공식 FAQ 2곳 확인). **위젯 4개 + 본문 9개 파일**(negotiate 표·FAQ, discovery FAQ 2곳, CT·DE·PA·NY 비교문, NJ 본문)에 퍼져 있었음. "KY $2,500·NJ $3,000"이라던 최저 한도 예시는 "KY $2,500·AZ/MS $3,500"으로 교체.
+- **Illinois triple damages 잔존**: 08-19에 "5개 파일 정정" 기록했지만 **IL 페이지 본문 3곳 + MO 페이지 + FIFA 가이드 "double or triple"이 남아 있었다.** 전부 double로 정정(Jackson Lewis 재확인: 미지급액의 2배 + 변호사비).
+- **Missouri**: 판결 이자를 "prime + 5%, 약 12–13%"로 서술 → **RSMo 408.040.2: 비불법행위(계약) 판결은 9% 또는 9% 초과 계약이율**(prime 아님, 불법행위는 Fed Funds 목표금리+5%). 정정.
+- **Virginia**: 60일 자동이자 조문을 "§ 6.2-302(C)"로 3곳 표기 → **§ 6.2-301(C)**가 맞음(lis.virginia.gov 원문). 위젯 포함 정정.
+- **교훈(이번 주 최대)**: 08-19 정정 때 "5개 파일" 목록을 grep 1회로 만들고 끝냈다. **사실오류를 정정할 때는 그 사실의 모든 변형 표현(triple/treble/3×, $3,000/3,000 dollars/"3,000")을 전수 grep할 것.** 그리고 7월 이전에 쓴 주 페이지 24개는 1차 출처 검증 없이 쓴 문장이 남아 있을 가능성이 높다 → 아래 감사 대기열.
+
+**3. 보강 2건 (Bing 롱테일)**
+- **Virginia** — 쿼리 3개(`what is the legal max interest late fee ... virginia on a past due invoice`, `in virginia what can a service company charge for a late fee`, `in the commonwealth of virginia can interest be charged on a late fee`), Bing 5노출 7.4위 신규. **Va. Code § 6.2-400**: 대출자·**판매자**의 late charge = 계약 명시 + **지급분의 5% 이하** + **7일 유예**, 초과분 무효 → "버지니아 최대 연체료" 직답 섹션 신설. "late fee에 이자 붙여도 되나"는 조문이 없어 **"잔액에만 이자, late fee는 1회"를 실무 원칙으로 제시**(조문 없음을 명시). 권장 범위 "1.5–2%/월" → "1–1.5%/월 + 별도 5% 1회". FAQ +2, 정액+이자 페이지로 내부링크.
+- **Missouri** — `legal late fee in the state of missouri for invoice that was due upon receipt`(7위), `missouri late payment calculator` 4노출 8.5위 6주째 고정. **RSMo 408.020 원문 확인: 서면계약은 만기부터 9%, 서면계약 없는 account는 만기 + 지급 요구(demand) 후부터 9%** → "due upon receipt" 섹션(조항 있음/서면계약만/둘 다 없음 3분기) + FAQ 1. 권장 범위도 1–1.5%로.
+
+**4. 주 시리즈 40 → 42: New Hampshire · Maine** (B2B 제목 테스트 계속)
+- **New Hampshire**: RSA 336:1 I **사업 거래 기본 10%**(서면 합의 시 다른 이율, **단리 외 요금(복리 등)도 서면으로 허용** — 드문 조항), 소비자 신용 제외. 판결·판결전 이자 = 26주 T-bill + 2%p(336:1 II). **소멸시효 3년(RSA 508:4)** — 대부분 주보다 짧음을 핵심 경고로. 소액 **$10,000**(RSA 503:1, 공식 법원 페이지 확인), District Division 민사 $25,000. 위젯 m 1.5, cap null.
+- **Maine**: **기본 법정이율이 인보이스에 자동으로 붙지 않음** — 14 M.R.S. § 1602-B: 판결전 이자 = 1년 T-bill + 3%, **notice of claim 송달 시점부터(없으면 소 제기일부터)**, **소액소송에선 계약 이율이 없으면 판결전 이자 자체가 불가**. 계약 이율이 있으면 그 이율. § 1602-C 판결후 = 계약이율과 T-bill+6% 중 큰 쪽. **소액 $6,000 → $10,000 (P.L. 2025 c.261, 2026-01-01 시행)** — 대부분 2차 출처가 아직 $6,000. B2B 일반 상한 없음, 소비자는 Maine Consumer Credit Code(9-A). 소멸시효 6년. 위젯 m 1.5, cap null.
+- 8단계 체크리스트 수행: 위젯 5개 옵션 42 확인, 경계값(ME $9,000/$11,000, NJ $4,500/$6,000), "40 states" → 42(12곳), 허브 표·카드, blog/index, sitemap.
+- **이번 세션 미확인으로 뺀 것**: Maine 소멸시효 조문 번호(6년만 기재), Maine 소액 변호사 규칙, NH 26주 T-bill 연도별 실제 이율.
+
+**5. 하지 않은 것**
+- kill fee 신규 쿼리(`whats a fair cancellation fee for a project that has been started?` 2위, Reedsy 표지 디자이너) — 10-05에 블로그 보강 중단 판정. 클릭이 붙기 시작했으니(첫 클릭) **11월 판정까지 유지.**
+- `freelanceisnt free act washington state`(2위) — WA는 시애틀 조례만 있음(FIFA 가이드·WA 페이지가 이미 다룸).
+
+---
+
 ## 다음 세션 시작할 때 체크리스트
 
 1. 사용자가 새 토큰 주면 → clone 또는 `remote set-url` + `git pull origin main`
@@ -952,8 +987,11 @@ OnPay / TurboTax / Monaco CPA / Tax47 / Ourtaxpartner 등 다수 출처 교차�
 
 ## 현재 열려있는 이슈 (다음에 확인할 것)
 
+- **(2026-10-12, 최우선) 구형 주 페이지 사실 감사(audit) — 매주 클릭 순으로 4~5개씩.** 7월 이전에 1차 출처 없이 쓴 주 페이지에서 이번 주에만 오류 5종이 나왔다(NJ 가공 법률, NJ 소액 한도, IL triple 잔존, MO 판결이자, VA 조문). 각 페이지에서 **① 프리랜서 보호법 존재 여부 ② 소액소송 한도 ③ 기본이율·상한 ④ 소멸시효 ⑤ 판결이자 ⑥ 조문 번호**를 1차 출처로 대조. **대기열(GSC 클릭 순)**: NY(6클릭) → CA(4) → DE(3) → TX(2) → GA·MI·WI·IN·AZ·PA → 나머지. **완료**: NJ·IL·MO·VA(10-12, 단 IL·MO·VA는 지적된 항목만 — 전체 6항목 감사는 아직), KS·MS·ID·NE·NH·ME·CT·UT(작성 시 검증). 위젯 데이터(S 객체)도 같은 항목이므로 함께 맞출 것.
+- **(2026-10-12) 사실오류 정정 시 변형 표현 전수 grep 규칙**: 숫자는 `$3,000`/`3,000 dollars`/`3000`, 표현은 `triple`/`treble`/`3×`/`three times`까지. 그리고 **문자열 일괄 replace는 count를 assert로 확인** — 허브 표에서 같은 셀 문자열이 IL·NJ 두 행에 있어 IL까지 바뀌는 사고가 있었다.
+- **(2026-10-12) 주 시리즈 다음 후보**: Rhode Island(1.1M) → Montana(1.1M) → Hawaii(1.4M) → 그 외(SD·ND·AK·VT·WY).
 - **(2026-10-05, 최우선) 10-13~20 판정**: CT·UT(09-22) 4주 판정, `sending-scope-of-work` 보강(09-22) 판정. **10-26 전후**: KS·MS(09-28) 판정 + B2B 제목 테스트 1차 비교(KS·MS·ID·NE 4개 vs 기존 주 페이지의 vendor/business 쿼리 비율). **11-02 전후**: ID·NE·flat-fee(10-05) 판정 + tax guide meta 재작성 효과(Bing 클릭 발생 여부).
-- **(2026-10-05) 주 시리즈 다음 후보**: 남은 10개 중 인구순 — **New Hampshire(1.4M) → Maine(1.4M) → Rhode Island(1.1M) → Montana(1.1M)** → Hawaii·South Dakota·North Dakota·Alaska·Vermont·Wyoming. 8단계 체크리스트(7단계 + 최상급 표현 대조) 유지.
+- **(2026-10-05, 10-12 진행)** ~~주 시리즈 다음 후보 NH·ME~~ → 10-12 완료. 8단계 체크리스트(7단계 + 최상급 표현 대조) 유지.
 - **(2026-10-05) 정액 연체료 페이지가 받을 후속 쿼리 관찰**: 판례명(Dobson Bay, Garcia) 검색이 이미 Bing에 있음 → 이 페이지가 판례명 쿼리를 받으면 "판례 1건 = 의사결정 질문 1개" 포맷으로 확장할 근거(예: 소멸시효 중단, 부분 지급 수락 시 'paid in full' 수표 문제).
 - **(2026-09-28, 최우선) 10-05 판정 묶음**: ① tax guide title 변경(09-14, Bing 6.39위 0클릭) ② kill-fee-clause FAQ 보강(09-14) + kill-fee-calculator GA 급증을 같이 보고 계산기 보강 여부 결정 ③ milestone-long-projects(09-07) Bing/GSC 진입 여부.
 - **(2026-09-28) B2B 제목 테스트**: KS·MS만 "for Freelancers & Small Businesses". **10-26 전후**에 두 페이지의 쿼리에 vendor/business/contractor 계열이 기존 주 페이지보다 많은지 비교. 효과 있으면 신규 주부터 계속 적용, 기존 36개 제목은 여전히 건드리지 말 것(클릭 자산).
