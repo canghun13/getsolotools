@@ -30,6 +30,7 @@
     .article-body p { margin-bottom: 20px; }
     .article-body ul { margin: 0 0 20px 20px; }
     .article-body ul li { margin-bottom: 8px; line-height: 1.7; }
+    .article-body a { color: var(--accent); }
     .article-body strong { font-weight: 600; }
     .highlight-box { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--blog); border-radius: 8px; padding: 20px 24px; margin: 28px 0; }
     .highlight-box p { margin: 0; font-size: 0.95rem; }
@@ -62,7 +63,7 @@
   "description": "Free Virginia late fee calculator, plus what VA freelancers need to know about the 6% legal interest rate, automatic interest on open invoices after 60 days, and the $5,000 small claims limit.",
   "url": "https://getsolotools.com/blog/late-fee-laws-freelancers-virginia.html",
   "datePublished": "2026-07-16",
-  "dateModified": "2026-07-18",
+  "dateModified": "2026-10-12",
   "author": {
     "@type": "Organization",
     "name": "GetSoloTools",
@@ -93,7 +94,7 @@
       "name": "What late fee rate is enforceable in Virginia?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Virginia's legal rate is 6% annually (Va. Code § 6.2-301), and this applies automatically to open-account invoices unpaid more than 60 days even without a contract clause (Va. Code § 6.2-302(C)). Most freelancers charge more — 1.5% per month (18% annually) — by stating that rate clearly in their contract and invoices."
+        "text": "Virginia's legal rate is 6% annually (Va. Code § 6.2-301), and this applies automatically to open-account invoices unpaid more than 60 days even without a contract clause (Va. Code § 6.2-301(C)). Most freelancers charge more — 1.5% per month (18% annually) — by stating that rate clearly in their contract and invoices."
       }
     },
     {
@@ -103,8 +104,7 @@
         "@type": "Answer",
         "text": "Yes, in a limited way. If you invoice a client on an open account and they don't pay within 60 days, Virginia law lets you charge the 6% legal rate starting on day 61 — even if your contract never mentioned interest. Writing your own higher rate in the contract still gets you more."
       }
-    }
-  ,
+    },
     {
       "@type": "Question",
       "name": "How does Virginia's small claims limit compare to nearby states?",
@@ -112,8 +112,24 @@
         "@type": "Answer",
         "text": "Virginia and Maryland share an identical setup — both cap small claims at $5,000 and both default to 6% annual interest. North Carolina and Tennessee, Virginia's other neighbors, allow considerably larger claims at $10,000 and $25,000 respectively."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the maximum late fee a business can charge in Virginia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Virginia Code § 6.2-400 limits a late charge to 5% of the late payment, requires it to be specified in the contract, and treats a payment made within 7 calendar days after the due date as on time. Any charge above 5% is void as to the excess. The statute was written for lenders and sellers, and it is the safest ceiling to use for a service invoice. Interest on the unpaid balance is a separate charge."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can interest be charged on a late fee in Virginia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Virginia's statutes do not address it directly. The safer practice is to charge interest only on the unpaid invoice balance and keep the late fee a one-time charge. Interest on a late fee makes the fee grow every month, which runs against the one-time, 5%-capped structure of Va. Code § 6.2-400 and is the kind of compounding a court is likely to treat as a penalty."
+      }
     }
-]
+  ]
 }
 </script>
 </head>
@@ -123,7 +139,7 @@
     <a href="/blog/index.html" class="back-link">← Back to Blog</a>
     <span class="article-tag">Getting Paid</span>
     <h1>Late Fee Laws for Freelancers in Virginia</h1>
-    <p class="article-meta">July 16, 2026 · Updated Jul 18, 2026 · 7 min read</p>
+    <p class="article-meta">July 16, 2026 · Updated Oct 12, 2026 · 7 min read</p>
 
     <div class="article-body">
       <p>Virginia has a quiet but useful protection most freelancers don't know about: if your invoice goes unpaid for more than 60 days and you never wrote a specific interest rate into your contract, Virginia law lets you charge interest automatically anyway. Here's what Virginia freelancers need to know about late fees, from the Code of Virginia's interest provisions to collecting through small claims court.</p>
@@ -166,7 +182,7 @@
       </script>
 
       <h2>Virginia's 6% Legal Interest Rate — and an Automatic 60-Day Trigger</h2>
-<p>Virginia's legal interest rate is <strong>6% per year</strong> (Va. Code § 6.2-301), and this is the rate courts apply to judgments and to contracts that don't specify their own rate (Va. Code § 6.2-302). What's less well known: under Va. Code § 6.2-302(C), if you sell goods or provide services on an open account — meaning there's no separate written credit agreement — and the client doesn't pay in full within <strong>60 days</strong> of your invoice or billing statement, you're entitled to collect interest at the legal rate (6%) starting the day after that 60-day window closes. You don't need a late fee clause in your contract for this baseline protection to apply.</p>
+<p>Virginia's legal interest rate is <strong>6% per year</strong> (Va. Code § 6.2-301), and this is the rate courts apply to judgments and to contracts that don't specify their own rate (Va. Code §§ 6.2-301, 6.2-302). What's less well known: under Va. Code § 6.2-301(C), if you sell goods or provide services on an open account — meaning there's no separate written credit agreement — and the client doesn't pay in full within <strong>60 days</strong> of your invoice or billing statement, you're entitled to collect interest at the legal rate (6%) starting the day after that 60-day window closes. You don't need a late fee clause in your contract for this baseline protection to apply.</p>
      <p>That's a helpful floor, but most Virginia freelancers still write the nationwide standard of <strong>1.5% per month (18% annually)</strong> into their contracts, since it's both higher and enforceable as long as it's disclosed in writing before work begins.</p>
 
       <h2>Why Writing Your Own Rate Still Matters</h2>
@@ -174,11 +190,26 @@
        <p><strong>Don't rely on the 60-day default alone:</strong> 6% annually is roughly a third of what most freelancers charge under a standard late fee clause. The automatic trigger is a useful backstop if you forgot to specify a rate on a particular project, but a written clause stating 1.5% per month gets you three times the compensation for the same overdue balance — and starts accruing sooner than 60 days if you set a shorter grace period.</p>
      </div>
 
+      <h2>What's the Maximum Late Fee in Virginia? The 5% Late-Charge Rule</h2>
+      <p>Virginia is one of the few states with a statute that sets a number for a <em>late charge</em> — the flat or percentage fee for paying late, as distinct from interest. Under <strong>Va. Code § 6.2-400</strong>, a lender or <strong>seller</strong> may impose a late charge on any payment due on a debt, "whether installment or single maturity," if:</p>
+      <ul>
+        <li>the charge is <strong>specified in the contract</strong> with the debtor;</li>
+        <li>it does <strong>not exceed 5% of the payment</strong> that's late; and</li>
+        <li>the payment is <strong>more than 7 calendar days late</strong> — a payment made within seven days after the due date counts as on time.</li>
+      </ul>
+      <p>Any charge above the limit is <strong>void as to the excess</strong>; the rest of the debt stays enforceable. The statute was written with lending and seller financing in mind, and whether it reaches every freelance service invoice hasn't been tested — but it's the clearest number Virginia law gives for a late charge, so it's the safe ceiling to design around. On a $3,000 invoice, that's a one-time late charge of no more than $150, charged no earlier than day 8.</p>
+      <div class="highlight-box">
+        <p><strong>A Virginia clause that stays inside every limit:</strong> "Payments received more than 7 days after the due date incur a one-time late charge of 5% of the overdue amount. Unpaid balances also accrue interest at [1–1.5]% per month from the due date." The late charge and the interest are separate — see <a href="/blog/flat-late-fee-and-interest.html">can you charge a flat late fee and interest on the same invoice</a> for why that matters.</p>
+      </div>
+
+      <h2>Can You Charge Interest on a Late Fee in Virginia?</h2>
+      <p>Virginia's statutes don't address interest on a late charge directly, so the safest answer is <strong>charge interest on the unpaid invoice balance, not on the late fee.</strong> Interest on a late fee is a fee on top of a fee: it makes the late charge grow every month, which is exactly what the one-time, capped structure of § 6.2-400 is designed to prevent, and it's the kind of compounding a court is most likely to read as a penalty. If a client disputes the bill, you want every line to trace back to either the invoice amount, the agreed rate, or the one-time charge — nothing that grows on itself.</p>
+
       <h2>Setting Up Enforceable Late Fees in Virginia</h2>
 <ul>
        <li><strong>Specify your own rate in writing.</strong> "Invoices unpaid after 15 days accrue interest at 1.5% per month" both beats the 60-day/6% default and starts the clock earlier.</li>
        <li><strong>Reference the rate on every invoice</strong> so it's visible without digging through the contract.</li>
-       <li><strong>Keep it reasonable.</strong> 1.5–2% per month is standard and well within what Virginia courts expect.</li>
+       <li><strong>Keep the rate reasonable and separate from any flat charge.</strong> 1–1.5% per month on the unpaid balance is the common range; a one-time late charge, if you use one, stays at or under 5% of the payment (§ 6.2-400).</li>
        <li><strong>Document your invoice dates.</strong> If you ever need to rely on the 60-day automatic rule, you'll need to show exactly when the invoice or billing statement was sent.</li>
      </ul>
 
@@ -206,7 +237,7 @@
         </details>
         <details style="border-bottom:1px solid #e5e5e2;padding:1rem 0;">
           <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">What late fee rate is enforceable in Virginia? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
-          <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Virginia's legal rate is 6% annually (Va. Code § 6.2-301), and this applies automatically to open-account invoices unpaid more than 60 days even without a contract clause (Va. Code § 6.2-302(C)). Most freelancers charge more — 1.5% per month (18% annually) — by stating that rate clearly in their contract and invoices.</p>
+          <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Virginia's legal rate is 6% annually (Va. Code § 6.2-301), and this applies automatically to open-account invoices unpaid more than 60 days even without a contract clause (Va. Code § 6.2-301(C)). Most freelancers charge more — 1.5% per month (18% annually) — by stating that rate clearly in their contract and invoices.</p>
         </details>
         <details style="border-bottom:1px solid #e5e5e2;padding:1rem 0;">
           <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">Does Virginia charge interest on late invoices automatically, even without a contract clause? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
@@ -215,6 +246,14 @@
         <details style="border-bottom:1px solid #e5e5e2;padding:1rem 0;">
           <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">How does Virginia's small claims limit compare to nearby states? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
           <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Virginia and Maryland share an identical setup — both cap small claims at $5,000 and both default to 6% annual interest. North Carolina and Tennessee, Virginia's other neighbors, allow considerably larger claims at $10,000 and $25,000 respectively.</p>
+        </details>
+        <details style="border-bottom:1px solid #e5e5e2;padding:1rem 0;">
+          <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">What is the maximum late fee a business can charge in Virginia? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
+          <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Virginia Code § 6.2-400 limits a late charge to 5% of the late payment, requires it to be specified in the contract, and treats a payment made within 7 calendar days after the due date as on time. Any charge above 5% is void as to the excess. The statute was written for lenders and sellers, and it is the safest ceiling to use for a service invoice. Interest on the unpaid balance is a separate charge.</p>
+        </details>
+        <details style="border-bottom:1px solid #e5e5e2;padding:1rem 0;">
+          <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">Can interest be charged on a late fee in Virginia? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
+          <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Virginia's statutes do not address it directly. The safer practice is to charge interest only on the unpaid invoice balance and keep the late fee a one-time charge. Interest on a late fee makes the fee grow every month, which runs against the one-time, 5%-capped structure of Va. Code § 6.2-400 and is the kind of compounding a court is likely to treat as a penalty.</p>
         </details>
       </div>
     </div>
