@@ -942,6 +942,9 @@ OnPay / TurboTax / Monaco CPA / Tax47 / Ourtaxpartner 등 다수 출처 교차�
 
 ### 2026-10-12 세션 — 구형 주 페이지에서 중대 사실오류 발견
 
+**0. (같은 날 사용자 지적) NJ 페이지 CTA 버튼 텍스트가 안 보였다** — 이번에 `.article-body a { color: var(--accent); }`를 추가하면서 `.cta-btn`(흰 글씨)보다 명시도가 높아져 **파란 버튼 위 파란 글씨**가 됐다. 07-14에 기록한 "`.cta-btn` 텍스트 안 보임" 함정의 재발. 사이트 전수 스캔 결과 **22개 블로그 파일**이 같은 상태(링크색 규칙 有, `a.cta-btn` 예외 無) → 전부 `.article-body a.cta-btn { color: #fff; text-decoration: none; }` 추가. 함께 **CSS 문법 오류(`.footer-copy {...} }` 여분 괄호) 3개 파일** 발견·제거(다음 규칙이 통째로 무시될 수 있는 오류). jsdom 계산 스타일로 129개 전 페이지 검사: 글자색=배경색 요소 0, CSS 파싱 오류 0.
+**규칙: `.article-body a` 링크색 규칙을 넣을 때는 반드시 `.article-body a.cta-btn { color: #fff; }`를 같이 넣을 것. 검증 스크립트에 "solid 버튼 계산 색이 흰색인지" 항목을 고정으로 넣을 것.**
+
 **1. 데이터 (전주 대비)**
 - **GA4 (09-14~10-11)**: MAU 97 → **104**. **bing 28 / google 17**(Bing 우위 재확대), direct 48, chatgpt 2. tax mistakes **30조회/29명**(9주 연속 성장). Kill Fee Calculator 11조회. **flat-fee(10-05)·ID·NE·KS·MS 각 1명 — 신규 페이지가 1주 안에 GA 유입을 내는 패턴이 6주째 반복.**
 - **Bing 노출 ~450 → 550, 클릭 25 → 27.** `common mistakes with freelance taxes` 128노출 21클릭. **kill-fee-clause 첫 Bing 클릭**(`how much do designers charge for kill fees` 1위). tax guide 97 → 109노출, 6.06위, 여전히 0클릭(meta 재작성 1주차 — 11-02 판정 유지).
