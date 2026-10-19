@@ -1,6 +1,6 @@
 # GetSoloTools 인수인계 문서 (handover.md)
 
-**최종 갱신**: 2026-10-12 (**중대 사실오류 정정: NJ 페이지가 존재하지 않는 'Freelance Worker Protection Act'를 서술하고 있었음 + NJ 소액소송 $3,000→$5,000 사이트 전역 오류** + Illinois triple 잔존 3곳, VA 조문, MO 판결이자. Virginia·Missouri Bing 롱테일 보강, **주 시리즈 40→42(New Hampshire·Maine)**. **구형 주 페이지 감사(audit) 대기열 신설** — 열린 이슈 최상단 참고)
+**최종 갱신**: 2026-10-19 (**구형 주 페이지 감사 1차 NY·CA·DE·TX 완료** — DE 오류 3종·TX 비교 오류 정정, NY CPLR 9%·TX §38.001 변호사비 등 누락된 핵심 법리 보강. **주 시리즈 42→44(Rhode Island·Montana)**. CT·UT 4주 판정: Google 미크롤·Bing/GA만 유입. 상세는 "2026-10-19 세션")
 **갱신 방식이 v12까지와 다름**: 이제부터 이 문서는 새 채팅에 붙여넣는 방식이 아니라, **저장소에 직접 보관하고 계속 업데이트**하는 방식으로 운영한다. 새 세션에서는 이 파일(`handover.md`)을 clone 직후 가장 먼저 읽을 것.
 
 ---
@@ -100,7 +100,7 @@
 
 - **툴**: 19개 (Invoice Generator = index.html 포함, 2026-07-24에 Kill Fee Calculator 신규 추가 — late-fee 시리즈 밖 첫 클러스터에서 처음으로 블로그 위젯이 아닌 완전한 독립 툴 페이지 제작)
 - **이메일 템플릿**: 24개 (25개 파일이나 sending-nda.html 등 포함, v12 이후 변경 없음)
-- **블로그 글**: 81개 (2026-10-12에 주 시리즈 2개 `late-fee-laws-freelancers-new-hampshire`·`maine` 추가). **late fee 지역 시리즈 42개 주** + 그 외 39개. 42개 주 데이터를 쓰는 위젯 5개가 전부 42개로 동기화돼 있음. 남은 미작성 8개: Rhode Island, Montana, Hawaii, South Dakota, North Dakota, Alaska, Vermont, Wyoming.
+- **블로그 글**: 83개 (2026-10-19에 주 시리즈 2개 `late-fee-laws-freelancers-rhode-island`·`montana` 추가). **late fee 지역 시리즈 44개 주** + 그 외 39개. 44개 주 데이터를 쓰는 위젯 5개가 전부 44개로 동기화돼 있음. 남은 미작성 6개: Hawaii, South Dakota, North Dakota, Alaska, Vermont, Wyoming.
 
 ### 툴 목록 (18개, 경로는 v12 문서와 동일 — 변경 없음)
 Invoice Generator(`/`), Receipt, Quote, Hourly Rate, Tax Estimator, Late Fee, Project Profit, Budget Planner, Contract Generator, Invoice Tracker, Client Proposal, Time Tracker, Milestone Calculator, Savings Calculator, NDA Generator, Client Intake Form, Expense Report, Scope of Work — **18개로 유지, 추가 없음**
@@ -978,6 +978,37 @@ Bing NJ/PA 쿼리(`pennsylvania's 1.5% per month ... does nj have a similar stat
 
 ---
 
+### 2026-10-19 세션 — 감사 1차(NY·CA·DE·TX) + RI·MT
+
+**1. 데이터 (전주 대비)**
+- **GA4 (09-21~10-18)**: MAU 104 → **107**. **bing 32 / google 20**, direct 49. tax mistakes **38조회/33명**(10주 연속 성장). **9월 이후 신규 주 페이지 8개 중 7개가 GA 각 2명**(CT·UT·KS·ID·ME·NE·NH; MS 1명) — 페이지당 월 2명 수준으로 수렴.
+- **Bing 노출 550 → 638, 클릭 27 → 32** (10주 연속 성장). `common mistakes with freelance taxes` 150노출 **26클릭**. tax guide 132노출 6.08위, **여전히 0클릭**(meta 재작성 2주차).
+- **GSC 클릭 37 → 38**(노출 7,561). 주 시리즈 23/38. CA 노출 133 → **204**(Bing 롱테일 보강 후 Google 노출도 증가), kill-fee-calculator 207노출 4클릭.
+- **Coverage — 발견됨-미색인 7건**: proposal + CT·UT·KS·MS·**ID·NE**. 9월 이후 Google은 신규 주 페이지를 **단 하나도 크롤하지 않았다**(전부 최종 크롤 1970-01-01). NH·ME·RI·MT도 같은 대기열로 갈 것.
+- **제휴 → 구간 A 유지**: MAU 107(<500) / 상업 페이지 월 조회 1 미만 / 미국 비중 미달(도시 1위 Singapore 8). 언급 안 함.
+
+**2. CT·UT 4주 판정 (09-22 제작)**
+- **Google: 실패(미크롤).** 4주가 지나도 발견됨-미색인 상태. 사이트 수준 크롤 예산/신뢰 문제로 판단 — 07-14에 proposal 블로그에서 이미 본 패턴.
+- **Bing/GA: 성공(소규모).** 두 페이지 모두 GA 월 2명 유지.
+- **결론**: 신규 주 페이지는 **"Bing에서 월 2명씩 쌓는 자산"**이지 Google 클릭원이 아니다. 사용자 지시(공격적 확장 유지)대로 확장은 계속했지만, **남은 6개 주(HI·SD·ND·AK·VT·WY)는 인구가 작아 기대값이 더 낮다.** 다음 확장 판단 때 이 수치를 근거로 볼 것.
+
+**3. 구형 주 페이지 감사 1차 — NY·CA·DE·TX (GSC 클릭 상위 4개)**
+- **Delaware(3클릭)**: ① "$25,000 small claims, **highest in the U.S.**" 단독 최상급 표현 **6곳** → "Tennessee와 공동". ② "할인율 **3.75%** → 약 **8.75%**"라는 **근거 없는 현재 수치** → 공식만 남기고 예시("할인율 4%면 9%")로 대체(허브 표 행 포함). ③ "**법인은 JP 법원에서 반드시 변호사 대리**" → **틀림**: 법원 Form 50(artificial entity 대리 증명서)으로 임원·직원이 출석 가능(courts.delaware.gov). ④ §2306 대상에 LLC 포함은 **원문 확인으로 맞음**(corporation, LP, statutory/business trust, LLC). 판결후 이자 "법정/계약 중 낮은 쪽"도 원문 확인으로 맞음. ⑤ 비교표 NJ "~8-30%" → "6%".
+- **Texas(2클릭)**: FAQ "Tennessee($25,000)·**Georgia($15,000)**처럼 더 높은 주" → **Georgia는 더 낮음**. "Delaware·Tennessee만 더 높고 UT·WV가 동률"로 정정. **누락 법리 2개 보강**: ① **Tex. Civ. Prac. & Rem. Code § 38.001** — 용역·계약 청구 승소 시 **계약 조항 없이도 변호사비 회수**(2021 개정으로 LLC 등 "organization" 포함), §38.002 청구 제시 후 30일 미지급 + 변호사 선임 요건 ② **Finance Code § 302.002** — 무약정 시 **만기 30일째부터 연 6%**. 기존 "fee-shifting 조항이 있으면 일부 경우"라는 서술은 사실상 틀린 축소였다. FAQ 2% 표현도 본문과 일치시킴.
+- **New York(5클릭)**: "16% 민사 고리대가 consumer loan에 적용" → 대출용이며 **법인은 항변 불가**, **형사 고리대 25%(Penal Law §190.40)는 모두에게 적용**으로 정정. "2%/월(24%)도 standard" 권고 삭제(25% 바로 아래). **누락 법리 보강**: **CPLR 5001/5004 — 계약 위반 시 만기부터 연 9% 이자가 당연 인정**(조항 불필요), 2021 개정으로 개인 대상 소비자채무만 2%. Bing `laws regarding late fees for professional services in new york`(1위) 대응. "FIFA 6년 시효" → CPLR 213 계약 시효 6년으로 근거 교체. 위젯: 일일연체료 체커의 NY cap null → **25**.
+- **California(4클릭)**: SB 988 수치(250달러/120일, 4년 보관, 최대 2배, 변호사비) LCW로 재확인 — **맞음**. 보강: **Civil Code § 1717 — 변호사비 조항은 쌍방향**(고객 승소 시 고객이 받음). "1.5–2%/월 표준" → "1.5%".
+- **감사 대기열 갱신**: 완료 NY·CA·DE·TX(전체 6항목), NJ(10-12). **다음: GA·MI·WI·IN·AZ·PA** → 나머지 구형 페이지.
+
+**4. 주 시리즈 42 → 44: Rhode Island · Montana** (B2B 제목 테스트 계속)
+- **Rhode Island**: **R.I. Gen. Laws § 9-21-10 — 손해배상 판결 시 법원 서기가 청구 발생일부터 연 12%를 자동 가산**(계약에 이율이 있으면 계약 이율), 판결후 12%. **§ 6-26-2 고리대 상한 = max(21%, T-bill 연동 대체율), 일반 B2B 면제 없음** → 1.5%/월 OK, 2%/월 불가, 1%/월 미만으로 쓰면 오히려 손해. 소액 **$5,000**(§ 10-16-1, **2021-07-03 $2,500→$5,000**). 시효 10년. 위젯 m 1.5, cap 21.
+- **Montana**: **MCA § 31-1-106 — 만기 후 연 10%**(서면 증서·account stated). **§ 31-1-107 — 서면 합의 상한 = max(15%, prime+6)**, 대출 조문이라 인보이스 적용은 미정 → **1.25%/월** 권고. 소액 **$7,000**(§ 25-35-502 원문). 시효 서면 8년·구두/account 5년(§ 27-2-202 원문). 위젯 m 1.25, cap 15.
+- 8단계 체크리스트 수행: 위젯 5개 옵션 44, 경계값(RI $4,500/$6,000, MT $6,500/$8,000), "42 states" → 44(12곳), 허브 표·카드, blog/index, sitemap. **최상급 점검**: RI 초안의 "two most generous"·"almost no other state does"를 발견해 완화(NY도 9% 당연 인정, Idaho도 12%).
+
+**5. 지난주 사용자 질문("사이트 접어야 하나")에 대한 답 — 결정 대기**
+내 답: **접지(삭제) 말고, 2027-01 말을 결정 시점으로 두고** ① Google 오가닉 월 100명+ ② GSC 월 클릭 100+ ③ 수익 경로 1개 이상 작동 — 미달이면 유지보수 모드(정정·깨짐만). **사용자가 아직 동의/거절하지 않았으므로 확정된 규칙이 아니다.** 사용자가 "그렇게 하자"고 하면 이 항목을 열린 이슈 최상단으로 올릴 것.
+
+---
+
 ## 다음 세션 시작할 때 체크리스트
 
 1. 사용자가 새 토큰 주면 → clone 또는 `remote set-url` + `git pull origin main`
@@ -990,9 +1021,9 @@ Bing NJ/PA 쿼리(`pennsylvania's 1.5% per month ... does nj have a similar stat
 
 ## 현재 열려있는 이슈 (다음에 확인할 것)
 
-- **(2026-10-12, 최우선) 구형 주 페이지 사실 감사(audit) — 매주 클릭 순으로 4~5개씩.** 7월 이전에 1차 출처 없이 쓴 주 페이지에서 이번 주에만 오류 5종이 나왔다(NJ 가공 법률, NJ 소액 한도, IL triple 잔존, MO 판결이자, VA 조문). 각 페이지에서 **① 프리랜서 보호법 존재 여부 ② 소액소송 한도 ③ 기본이율·상한 ④ 소멸시효 ⑤ 판결이자 ⑥ 조문 번호**를 1차 출처로 대조. **대기열(GSC 클릭 순)**: NY(6클릭) → CA(4) → DE(3) → TX(2) → GA·MI·WI·IN·AZ·PA → 나머지. **완료**: NJ·IL·MO·VA(10-12, 단 IL·MO·VA는 지적된 항목만 — 전체 6항목 감사는 아직), KS·MS·ID·NE·NH·ME·CT·UT(작성 시 검증). 위젯 데이터(S 객체)도 같은 항목이므로 함께 맞출 것.
+- **(2026-10-12, 최우선) 구형 주 페이지 사실 감사(audit) — 매주 클릭 순으로 4~5개씩.** 7월 이전에 1차 출처 없이 쓴 주 페이지에서 이번 주에만 오류 5종이 나왔다(NJ 가공 법률, NJ 소액 한도, IL triple 잔존, MO 판결이자, VA 조문). 각 페이지에서 **① 프리랜서 보호법 존재 여부 ② 소액소송 한도 ③ 기본이율·상한 ④ 소멸시효 ⑤ 판결이자 ⑥ 조문 번호**를 1차 출처로 대조. **대기열(GSC 클릭 순)**: ~~NY → CA → DE → TX~~(10-19 완료) → **GA·MI·WI·IN·AZ·PA** → 나머지. **완료**: NY·CA·DE·TX(10-19, 6항목 전체), NJ·IL·MO·VA(10-12, 단 IL·MO·VA는 지적된 항목만), KS·MS·ID·NE·NH·ME·RI·MT·CT·UT(작성 시 검증). **10-19 감사에서 오류 외에 '빠진 핵심 법리'(TX §38.001 변호사비, NY CPLR 9%)가 더 큰 가치였다 — 감사 때 '이 주에서 프리랜서에게 가장 유리한 조문이 페이지에 있는가'도 같이 볼 것.** 위젯 데이터(S 객체)도 같은 항목이므로 함께 맞출 것.
 - **(2026-10-12) 사실오류 정정 시 변형 표현 전수 grep 규칙**: 숫자는 `$3,000`/`3,000 dollars`/`3000`, 표현은 `triple`/`treble`/`3×`/`three times`까지. 그리고 **문자열 일괄 replace는 count를 assert로 확인** — 허브 표에서 같은 셀 문자열이 IL·NJ 두 행에 있어 IL까지 바뀌는 사고가 있었다.
-- **(2026-10-12) 주 시리즈 다음 후보**: Rhode Island(1.1M) → Montana(1.1M) → Hawaii(1.4M) → 그 외(SD·ND·AK·VT·WY).
+- **(2026-10-19) 주 시리즈 다음 후보**: Hawaii(1.4M) → South Dakota·North Dakota·Alaska·Vermont·Wyoming(전부 1M 미만). **신규 주 페이지는 Google 미크롤·Bing/GA 월 2명 수준**이므로(10-19 CT·UT 판정), 감사 대기열보다 우선하지 말 것.
 - **(2026-10-05, 최우선) 10-13~20 판정**: CT·UT(09-22) 4주 판정, `sending-scope-of-work` 보강(09-22) 판정. **10-26 전후**: KS·MS(09-28) 판정 + B2B 제목 테스트 1차 비교(KS·MS·ID·NE 4개 vs 기존 주 페이지의 vendor/business 쿼리 비율). **11-02 전후**: ID·NE·flat-fee(10-05) 판정 + tax guide meta 재작성 효과(Bing 클릭 발생 여부).
 - **(2026-10-05, 10-12 진행)** ~~주 시리즈 다음 후보 NH·ME~~ → 10-12 완료. 8단계 체크리스트(7단계 + 최상급 표현 대조) 유지.
 - **(2026-10-05) 정액 연체료 페이지가 받을 후속 쿼리 관찰**: 판례명(Dobson Bay, Garcia) 검색이 이미 Bing에 있음 → 이 페이지가 판례명 쿼리를 받으면 "판례 1건 = 의사결정 질문 1개" 포맷으로 확장할 근거(예: 소멸시효 중단, 부분 지급 수락 시 'paid in full' 수표 문제).
