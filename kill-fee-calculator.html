@@ -133,7 +133,7 @@
   "operatingSystem": "Web",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
   "provider": { "@type": "Organization", "name": "GetSoloTools", "url": "https://getsolotools.com" },
-  "dateModified": "2026-08-24",
+  "dateModified": "2026-10-26",
   "keywords": "kill fee calculator, cancellation fee calculator, freelance kill fee, project cancellation fee"
 }
 </script>
@@ -145,22 +145,58 @@
     {
       "@type": "Question",
       "name": "What is a kill fee?",
-      "acceptedAnswer": { "@type": "Answer", "text": "A kill fee is a payment a client owes a freelancer if they cancel a project after work has started. It's usually a percentage of the total project value, scaled to how much work was completed before cancellation." }
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A kill fee is a payment a client owes a freelancer if they cancel a project after work has started. It's usually a percentage of the total project value, scaled to how much work was completed before cancellation."
+      }
     },
     {
       "@type": "Question",
       "name": "How is a kill fee calculated?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Multiply the total project value by a percentage tied to the project stage at cancellation — commonly 25% for early-stage work, 50% for mid-project cancellations, and 75-100% if canceled near or after completion. This calculator does that math automatically and also generates contract clause language you can use." }
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply the total project value by a percentage tied to the project stage at cancellation — commonly 25% for early-stage work, 50% for mid-project cancellations, and 75-100% if canceled near or after completion. This calculator does that math automatically and also generates contract clause language you can use."
+      }
     },
     {
       "@type": "Question",
       "name": "Is a kill fee the same as a deposit?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No. A non-refundable deposit (typically 25-50% upfront) secures your time before work begins and is kept regardless of what happens later. A kill fee compensates you for work already completed once the project is underway. Many freelancers use both together." }
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. A non-refundable deposit (typically 25-50% upfront) secures your time before work begins and is kept regardless of what happens later. A kill fee compensates you for work already completed once the project is underway. Many freelancers use both together."
+      }
     },
     {
       "@type": "Question",
       "name": "Can I legally collect a kill fee if a client refuses to pay?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes, as long as the kill fee is written into a signed contract with a specific trigger, percentage, and payment timeline. Most freelance kill fee disputes are small enough to resolve in small claims court without a lawyer." }
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, as long as the kill fee is written into a signed contract with a specific trigger, percentage, and payment timeline. Most freelance kill fee disputes are small enough to resolve in small claims court without a lawyer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is 50% a standard kill fee?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is the most common single figure, especially for a cancellation partway through a project, but it is a midpoint rather than a rule. Magazines typically offer writers 25% or 50% of the contracted fee, and the Graphic Artists Guild reports kill fees ranging from 20% to 100% depending on how far the work had progressed. A stage-based clause, such as 25% before concepts, 50% during revisions and 100% after final delivery, is fairer and easier to defend than a flat 50%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What kill fee can I charge if the client says the work isn't good enough?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That is a rejection fee rather than a cancellation fee. The Graphic Artists Guild distinguishes a cancellation fee, paid when the work meets the brief but the client drops it, from a rejection fee, paid when the client says the work does not meet the brief. Rejection fees are usually lower. Put both percentages in your contract and tie rejection to the approved scope and the revision rounds included, so the client cannot convert a cancellation into a rejection to pay less."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a typical kill fee for graphic design or illustration?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Commonly 25% to 30% if the project is cancelled at the concept or sketch stage and about 50% once concepts are approved and revisions are underway, rising toward 100% if final artwork has been delivered. The Graphic Artists Guild reports a range of 20% to 100% depending on the stage of completion."
+      }
     }
   ]
 }
@@ -299,8 +335,23 @@
       <tr><td>Web / software development</td><td>20–25%</td><td>40–50%</td></tr>
       <tr><td>Consulting / strategy</td><td>25%</td><td>50–75%</td></tr>
       <tr><td>Photography / video</td><td>25–50%</td><td>75%</td></tr>
+      <tr><td>Illustration / artwork for hire</td><td>20–33% at sketch stage</td><td>50% at finals; up to 100% if finished</td></tr>
+      <tr><td>Events / live production</td><td>Tiered by date: 0% beyond 60 days, ~50% inside 30</td><td>Up to 100% inside 7 days</td></tr>
     </table></div>
     <p>Consulting and photography tend to sit at the higher end because a large share of the value — advice given, or a shoot day already booked — is delivered very early, unlike a multi-week design or dev project where value accumulates gradually.</p>
+
+    <p>The Graphic Artists Guild, whose handbook is the reference most illustrators and designers price from, reports that kill fees have ranged <strong>from 20% to 100% of the agreed fee, depending on the stage of completion</strong> — the same stage logic the calculator above uses. For live events and booked shoots, the clock matters more than the stage: a date that gets cancelled a week out usually can't be resold, which is why those contracts tier the fee by how close to the date the cancellation lands.</p>
+
+    <h2>Is 50% a Standard Kill Fee?</h2>
+    <p>It's the most common single number, but it's a midpoint, not a rule. In magazine and newspaper writing, where the term comes from, publications typically offer <strong>25% or 50%</strong> of the contracted fee when they decide not to run a piece. In design and illustration, 50% is the usual figure once concepts are approved and revisions are underway. A flat 50% from day one over-charges a client who cancels after a kickoff call and under-charges one who cancels after final files — which is why a stage-based clause holds up better if it's ever challenged. If you only want one number, 50% for a mid-project cancellation is defensible across most fields.</p>
+
+    <h2>Cancellation Fee vs. Rejection Fee: What If the Client Says the Work Isn't Good?</h2>
+    <p>"Kill fee" covers two different situations, and the Graphic Artists Guild's contract glossary separates them:</p>
+    <ul>
+      <li><strong>Cancellation fee</strong> — the work meets the brief, but the client drops it for reasons outside your control (budget cut, campaign cancelled, article killed). This is the higher number, because you delivered what was asked.</li>
+      <li><strong>Rejection fee</strong> — the client says the work doesn't meet the brief. This is usually lower, because in principle the reason sits on your side.</li>
+    </ul>
+    <p>If your contract only says "kill fee," a client who says "the writing isn't good enough" will argue for the lower number — or for nothing. Write both into the agreement with separate percentages, and tie "doesn't meet the brief" to something checkable: the approved scope, the number of revision rounds included, and a deadline to raise objections. The <a href="/blog/freelance-kill-fee-clause.html" style="color:var(--accent);">kill fee clause guide</a> has contract language you can adapt, and a clear <a href="/scope-of-work.html" style="color:var(--accent);">scope of work</a> is what makes a rejection claim hard to sustain.</p>
 
     <h2>How to Bring Up a Kill Fee Without Scaring Off a Client</h2>
     <p>The kill fee clause is one of the parts of a contract that makes new freelancers nervous to include — it can feel like assuming the worst about a client before you've even started. In practice, most clients don't blink at it, because they've seen it before or understand the logic once it's explained. A few things that help:</p>
@@ -340,6 +391,18 @@
       <details style="border-bottom:1px solid var(--border);padding:1rem 0;">
         <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:var(--ink);list-style:none;display:flex;justify-content:space-between;align-items:center;">Can I legally collect a kill fee if a client refuses to pay? <span style="color:var(--accent);font-size:1.2rem;">+</span></summary>
         <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Yes, as long as the kill fee is written into a signed contract with a specific trigger, percentage, and payment timeline. Most freelance kill fee disputes are small enough to resolve in small claims court without a lawyer.</p>
+      </details>
+      <details style="border-bottom:1px solid var(--border);padding:1rem 0;">
+        <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:var(--ink);list-style:none;display:flex;justify-content:space-between;align-items:center;">Is 50% a standard kill fee? <span style="color:var(--accent);font-size:1.2rem;">+</span></summary>
+        <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">It is the most common single figure, especially for a cancellation partway through a project, but it is a midpoint rather than a rule. Magazines typically offer writers 25% or 50% of the contracted fee, and the Graphic Artists Guild reports kill fees ranging from 20% to 100% depending on how far the work had progressed. A stage-based clause, such as 25% before concepts, 50% during revisions and 100% after final delivery, is fairer and easier to defend than a flat 50%.</p>
+      </details>
+      <details style="border-bottom:1px solid var(--border);padding:1rem 0;">
+        <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:var(--ink);list-style:none;display:flex;justify-content:space-between;align-items:center;">What kill fee can I charge if the client says the work isn't good enough? <span style="color:var(--accent);font-size:1.2rem;">+</span></summary>
+        <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">That is a rejection fee rather than a cancellation fee. The Graphic Artists Guild distinguishes a cancellation fee, paid when the work meets the brief but the client drops it, from a rejection fee, paid when the client says the work does not meet the brief. Rejection fees are usually lower. Put both percentages in your contract and tie rejection to the approved scope and the revision rounds included, so the client cannot convert a cancellation into a rejection to pay less.</p>
+      </details>
+      <details style="border-bottom:1px solid var(--border);padding:1rem 0;">
+        <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:var(--ink);list-style:none;display:flex;justify-content:space-between;align-items:center;">What is a typical kill fee for graphic design or illustration? <span style="color:var(--accent);font-size:1.2rem;">+</span></summary>
+        <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Commonly 25% to 30% if the project is cancelled at the concept or sketch stage and about 50% once concepts are approved and revisions are underway, rising toward 100% if final artwork has been delivered. The Graphic Artists Guild reports a range of 20% to 100% depending on the stage of completion.</p>
       </details>
     </div>
   </div>
