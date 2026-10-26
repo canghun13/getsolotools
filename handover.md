@@ -1,6 +1,6 @@
 # GetSoloTools 인수인계 문서 (handover.md)
 
-**최종 갱신**: 2026-10-19 (**구형 주 페이지 감사 1차 NY·CA·DE·TX 완료** — DE 오류 3종·TX 비교 오류 정정, NY CPLR 9%·TX §38.001 변호사비 등 누락된 핵심 법리 보강. **주 시리즈 42→44(Rhode Island·Montana)**. CT·UT 4주 판정: Google 미크롤·Bing/GA만 유입. 상세는 "2026-10-19 세션")
+**최종 갱신**: 2026-10-26 (**감사 2차 GA·MI·WI·IN·AZ·PA 완료** — 6개 전부에서 오류 발견(IN 시효·LLC 규칙, WI 수수료, PA 필라델피아 조례 과장, 허브의 '필라델피아 2020 프리랜서 조례' 허위). **kill fee가 GSC 최대 클릭원으로 부상** → 계산기 보강. 신규 주 추가 없음. 상세는 "2026-10-26 세션")
 **갱신 방식이 v12까지와 다름**: 이제부터 이 문서는 새 채팅에 붙여넣는 방식이 아니라, **저장소에 직접 보관하고 계속 업데이트**하는 방식으로 운영한다. 새 세션에서는 이 파일(`handover.md`)을 clone 직후 가장 먼저 읽을 것.
 
 ---
@@ -1009,6 +1009,35 @@ Bing NJ/PA 쿼리(`pennsylvania's 1.5% per month ... does nj have a similar stat
 
 ---
 
+### 2026-10-26 세션 — 감사 2차 + kill fee 계산기 보강
+
+**1. 데이터 (전주 대비)**
+- **GSC 클릭 38 → 42**(노출 7,838). **`kill-fee-calculator` 6클릭 / 270노출 / 14.6위 → GSC 최대 클릭 페이지가 됐다**(4 → 6). CA 294노출(204→294, 2주 연속 증가), NY 5, retainer 4. `how-to-find-freelance-clients` 첫 클릭 2. 주 시리즈 23/42.
+- **Bing 노출 638 → 711, 클릭 32 → 34.** `common mistakes` 161노출 27클릭. tax guide 148노출 6.07위, **3주째 0클릭**(meta 재작성 3주차).
+- **Bing kill fee 쿼리가 업종별로 분화**: `how much percentage is a kill fee for graphic design`(1.5위), `what is a standard 50 percent kill fee?`(5), `standard kill fee for artwork for hire`(4.5), `what to charge for a kill fee for photos`(2), `whats a standard kill fee to cancel an event`(2), `project cancellation fee calculation`(1), `what is a reasonable kill fee when the writing work is not good`(3.5, 반복).
+- **GA4 (09-28~10-25)**: MAU 107 → **103**(소폭 감소), bing 30 / google 18 / direct 49, cn.bing 3. tax mistakes 39조회. **도시 1위 Singapore 12**(증가) — 미국 비중 여전히 낮음. NJ 페이지 8조회/1명(사용자 본인 확인으로 추정).
+- **Coverage**: 발견됨-미색인 **9건**(proposal + CT·UT·KS·MS·ID·NE·**ME·NH**). RI·MT도 곧 합류 예상. 크롤링됨-미색인은 `how-to-get-freelance-retainer-clients`(09-05 크롤)로 바뀜.
+- **제휴 → 구간 A 유지**: MAU 103 / 상업 페이지 월 조회 1 미만 / 미국 비중 미달. 언급 안 함.
+
+**2. kill fee 계산기 보강 (`kill-fee-calculator.html`, title 유지)**
+- 판단: 10-05에 블로그(clause) 보강은 중단했지만, **계산기는 GSC 최대 클릭원**이고 Bing 업종별 쿼리가 계산기/clause로 흩어져 들어온다. 신규 "업종별 kill fee" 페이지는 계산기에 이미 업종 표가 있어 **자기잠식** → 만들지 않고 계산기를 보강.
+- 경쟁 확인: kill fee 일반 정의 페이지는 포화(freelancefigures, whatshouldicharge, teamzlab 등 "October 2026" 날짜 박힌 AI형 글 다수). 차별화는 **1차 출처 인용**: **Graphic Artists Guild 계약 용어집 — kill fee 범위 20~100%(완성 단계에 따라)** + **cancellation fee vs rejection fee 구분**(작업이 브리프 충족 vs 미충족). AMWA: 잡지 25% 또는 50%.
+- 추가: 표에 **일러스트/아트워크 포 하이어**, **이벤트/라이브 제작(날짜 구간형)** 행 / H2 "Is 50% a Standard Kill Fee?" / H2 "Cancellation Fee vs. Rejection Fee: What If the Client Says the Work Isn't Good?"(Bing 'writing work is not good' 반복 쿼리 직답) / FAQ +3(4→7).
+
+**3. 구형 주 페이지 감사 2차 — GA·MI·WI·IN·AZ·PA: 6개 전부 오류 또는 누락**
+- **Georgia**: "18% 초과도 상거래면 허용" → **틀림**. **O.C.G.A. § 7-4-16(상업 계정 = 용역 포함)**: 30일 이상 연체분에 **월 1.5%까지** — 인보이스 전용 조문인데 페이지에 없었음 → 섹션 신설, 위젯 일일연체료 GA cap null → **18**, 허브 행 갱신. 시효 FAQ 추가(서면 6년 § 9-3-24, 오픈 어카운트 4년 § 9-3-25).
+- **Michigan**: "소비자 대출 상한일 뿐 B2B 무관" → MCL 438.31 대출 서면 상한 7%, **법인·LP는 25%까지(438.61), 형사 고리대 25%(438.41)**(Michigan DIFS 상한표 확인). "1.5–2% 안전, 3% 이상 주의" → 1.5% 권고. "Unique 6-Year SOL" 제목에서 Unique 삭제(최상급 성격). 위젯 MI cap → 25.
+- **Wisconsin**: 소액 접수료 **"$22, 전국 최저 수준" → 틀림, $94.50**(Washington County 서기 페이지). 존재 불명확한 "§ 138.05(3) 1%/월" 인용 → Wisconsin Consumer Act 일반 서술로 교체.
+- **Indiana**: ① 기본 8% 조문 **§24-4.6-1-101 → -102**(101은 판결이자). ② **서면계약 시효 "10년, 전국 최장급" → 지급 목적 서면계약은 6년(IC 34-11-2-9)**. ③ **"LLC는 $6,000 초과 시 변호사 필수" → 2025-01-01 Small Claims Rule 8(C) 개정으로 $10,000까지 비변호사 직원 대리 가능**(Indiana 법원 소액 매뉴얼 2026). ④ "2021 통합" → "2021-07-01부터 $8,000→$10,000". 위젯 IN 표시값 정정.
+- **Arizona**: 판결이자 "10% 또는 계약이율" → **계약이율, 없으면 10%와 prime+1% 중 낮은 쪽, 판결 시 고정**(A.R.S. § 44-1201(B)). 위젯 AZ note(Justice Court $10,000) 추가.
+- **Pennsylvania**: "필라델피아 임금체불 조례가 **일부 프리랜서까지 확대 적용**" → **확인 불가·사실상 틀림**. 조례는 고용주-피고용인 구조이고, Temple Law LPPP(2024-01)가 "기존 임금체불 조례는 프리랜서를 보호하지 못한다"며 프리랜서 조례를 **제안**하는 단계. → "오분류(실질 피고용인)일 때만 적용"으로 전면 재작성. **허브 카드의 "필라델피아가 2020년 Freelance Worker Protections Ordinance 통과" → 허위**, 허브 표 "Philadelphia ordinance only" → "No (proposals only)". blog/index desc도 정정. 강제중재 "$35,000" → 카운티별 상한(최대 $50,000).
+- **교훈**: 감사한 10개 구형 페이지 중 **10개 모두에서** 오류 또는 핵심 누락이 나왔다. 07월 이전 페이지는 "존재하지 않는 법"(NJ FWPA, 필라델피아 프리랜서 조례)과 "낡은 수치"(NJ $3,000, IN $6,000 규칙, WI 수수료)를 동시에 품고 있다고 가정할 것.
+
+**4. 신규 주 추가 안 함 (의도적)**
+남은 6개(HI·SD·ND·AK·VT·WY)는 인구 1M 안팎이고 신규 주 페이지는 Google 미크롤·Bing 월 2명 수준(10-19 판정). 감사 대기열의 구형 페이지들이 실제 클릭을 받고 있어 오류 정정의 기대값이 더 크다고 판단. **확장 전략은 유지** — 감사가 끝나면 남은 6개를 순서대로 진행.
+
+---
+
 ## 다음 세션 시작할 때 체크리스트
 
 1. 사용자가 새 토큰 주면 → clone 또는 `remote set-url` + `git pull origin main`
@@ -1021,7 +1050,7 @@ Bing NJ/PA 쿼리(`pennsylvania's 1.5% per month ... does nj have a similar stat
 
 ## 현재 열려있는 이슈 (다음에 확인할 것)
 
-- **(2026-10-12, 최우선) 구형 주 페이지 사실 감사(audit) — 매주 클릭 순으로 4~5개씩.** 7월 이전에 1차 출처 없이 쓴 주 페이지에서 이번 주에만 오류 5종이 나왔다(NJ 가공 법률, NJ 소액 한도, IL triple 잔존, MO 판결이자, VA 조문). 각 페이지에서 **① 프리랜서 보호법 존재 여부 ② 소액소송 한도 ③ 기본이율·상한 ④ 소멸시효 ⑤ 판결이자 ⑥ 조문 번호**를 1차 출처로 대조. **대기열(GSC 클릭 순)**: ~~NY → CA → DE → TX~~(10-19 완료) → **GA·MI·WI·IN·AZ·PA** → 나머지. **완료**: NY·CA·DE·TX(10-19, 6항목 전체), NJ·IL·MO·VA(10-12, 단 IL·MO·VA는 지적된 항목만), KS·MS·ID·NE·NH·ME·RI·MT·CT·UT(작성 시 검증). **10-19 감사에서 오류 외에 '빠진 핵심 법리'(TX §38.001 변호사비, NY CPLR 9%)가 더 큰 가치였다 — 감사 때 '이 주에서 프리랜서에게 가장 유리한 조문이 페이지에 있는가'도 같이 볼 것.** 위젯 데이터(S 객체)도 같은 항목이므로 함께 맞출 것.
+- **(2026-10-12, 최우선) 구형 주 페이지 사실 감사(audit) — 매주 클릭 순으로 4~5개씩.** 7월 이전에 1차 출처 없이 쓴 주 페이지에서 이번 주에만 오류 5종이 나왔다(NJ 가공 법률, NJ 소액 한도, IL triple 잔존, MO 판결이자, VA 조문). 각 페이지에서 **① 프리랜서 보호법 존재 여부 ② 소액소송 한도 ③ 기본이율·상한 ④ 소멸시효 ⑤ 판결이자 ⑥ 조문 번호**를 1차 출처로 대조. **대기열(GSC 클릭 순)**: ~~NY → CA → DE → TX~~(10-19) → ~~GA·MI·WI·IN·AZ·PA~~(10-26) → **다음: OH·MA·CO·FL·WA·KY·MN(MN 위젯의 'Minneapolis city ordinance covers freelancers' 문구 존재 여부 우선 확인)·OR·SC·IA** → 나머지(TN·MO·MD·NV·NM·OK·AL·LA·AR·NC·WV·VA·IL 전체 항목). **완료**: NY·CA·DE·TX(10-19, 6항목 전체), NJ·IL·MO·VA(10-12, 단 IL·MO·VA는 지적된 항목만), KS·MS·ID·NE·NH·ME·RI·MT·CT·UT(작성 시 검증). **10-19 감사에서 오류 외에 '빠진 핵심 법리'(TX §38.001 변호사비, NY CPLR 9%)가 더 큰 가치였다 — 감사 때 '이 주에서 프리랜서에게 가장 유리한 조문이 페이지에 있는가'도 같이 볼 것.** 위젯 데이터(S 객체)도 같은 항목이므로 함께 맞출 것.
 - **(2026-10-12) 사실오류 정정 시 변형 표현 전수 grep 규칙**: 숫자는 `$3,000`/`3,000 dollars`/`3000`, 표현은 `triple`/`treble`/`3×`/`three times`까지. 그리고 **문자열 일괄 replace는 count를 assert로 확인** — 허브 표에서 같은 셀 문자열이 IL·NJ 두 행에 있어 IL까지 바뀌는 사고가 있었다.
 - **(2026-10-19) 주 시리즈 다음 후보**: Hawaii(1.4M) → South Dakota·North Dakota·Alaska·Vermont·Wyoming(전부 1M 미만). **신규 주 페이지는 Google 미크롤·Bing/GA 월 2명 수준**이므로(10-19 CT·UT 판정), 감사 대기열보다 우선하지 말 것.
 - **(2026-10-05, 최우선) 10-13~20 판정**: CT·UT(09-22) 4주 판정, `sending-scope-of-work` 보강(09-22) 판정. **10-26 전후**: KS·MS(09-28) 판정 + B2B 제목 테스트 1차 비교(KS·MS·ID·NE 4개 vs 기존 주 페이지의 vendor/business 쿼리 비율). **11-02 전후**: ID·NE·flat-fee(10-05) 판정 + tax guide meta 재작성 효과(Bing 클릭 발생 여부).
