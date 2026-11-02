@@ -1036,6 +1036,32 @@ Bing NJ/PA 쿼리(`pennsylvania's 1.5% per month ... does nj have a similar stat
 **4. 신규 주 추가 안 함 (의도적)**
 남은 6개(HI·SD·ND·AK·VT·WY)는 인구 1M 안팎이고 신규 주 페이지는 Google 미크롤·Bing 월 2명 수준(10-19 판정). 감사 대기열의 구형 페이지들이 실제 클릭을 받고 있어 오류 정정의 기대값이 더 크다고 판단. **확장 전략은 유지** — 감사가 끝나면 남은 6개를 순서대로 진행.
 
+### 2026-11-02 세션 — 감사 3차(FL·OH·MN) + 미수채권 매각 신규
+
+**1. 데이터 (전주 대비)**
+- **GSC 3개월 클릭 42 → 42, 노출 7,838 → 7,809(정체).** 클릭 상위: CA 6(377노출, 6.63위) · `kill-fee-calculator` 6(323노출, **14.6 → 12.34위**, 10-26 보강 후 개선) · NY 6 · retainer 4 · DE 3. 주 페이지 클릭 23/42(11개 페이지). **Ohio 273노출 8.82위 0클릭**(→ 이번 감사로 제목 약속 부합하는 내용 확충).
+- **Bing 페이지 노출 711 → 775, 클릭 34 → 38.** `common mistakes` 176노출 29클릭. **tax guide 168노출 첫 클릭 1**(10-05 meta 재작성 4주차 — 약한 긍정, `freelance taxes for beginners` 83노출 6.8위). FL 16노출 5.4위.
+- **Bing FL 쿼리**: `florida contract law late fee 5%`, `can you charge a monthly late fee on invoices in florida?`, `appropriate late fee small invoices past due florida`, `by law can i charge 25 in florida for a late fee for bookkeeping` → FL 페이지에 직답 H2/FAQ로 반영.
+- **GA4 (10-05~11-01)**: MAU 103 → **95**(2주 연속 감소), google organic 20 / bing 20 / direct 49, cn.bing 4, chatgpt 1. tax mistakes 27조회. Singapore 13(1위 유지).
+- **Coverage**: 발견됨-미색인 **11건**(proposal + CT·UT·KS·MS·ID·NE·ME·NH·**RI·MT**) — 09-22 이후 신규 주 페이지는 **전부 Google 미크롤**. 크롤링됨-미색인 **8건**(retainer-clients, favicon, price-a-project, nda, handle-late-payments, contract-red-flags, project-management-tips, contract-generator). 구형 페이지가 빠지는 추세 → 품질 신호 문제 가능성, 감사 우선 유지 근거.
+- **제휴 → 구간 A 유지**(MAU 95). 언급 안 함.
+
+**2. 신규: `blog/sell-overdue-invoice-collection-agency-factoring.html`**
+- 각도: "미수 인보이스를 팔 수 있나 — 팩토링 vs 추심대행 vs 채권매각 vs 소액소송 순수령액 비교 계산기". suing/retainer 페이지의 '포기 직전' 단계 다음 질문. 일반 팩토링 페이지(금융사 장악)와 경쟁하지 않고 **'이미 연체된 소액 프리랜서 채권'** 롱테일로 좁힘.
+- 계산기(svAmount/svDays/svClient/svDocs/svSC/svHours): 스팟 팩토링(30일 이내만), 추심 수수료(35/30/20%, 180일 초과 +10), 채권매각(강/약 서류 0.60/0.45), 소액소송. 판정 4종 전부 도달 테스트 완료. FAQ 5.
+- 양도 시 잃는 것(NE·KS 소액법원 양수채권 금지, IN 변호사 필수) + 먼저 쓸 무료 지렛대(TX §38.001, ID §12-120, MS §11-53-81, NY 9%, RI 12%).
+- 내부링크: suing(write-off 섹션), retainer(When to Stop Waiting). blog/index·sitemap 추가.
+- **판정 시점: 11-23~11-30** (3~4주 룰). Google은 신규 미크롤 상태라 Bing/GA 기준으로 볼 것.
+
+**3. 구형 주 페이지 감사 3차 — FL·OH·MN: 3개 전부 중대 오류**
+- **Florida**: "상업 연체료 상한 없음 / 월 3% 이상부터 문제" → **틀림. Fla. Stat. § 687.03이 대출·채권추심 유예·'other obligation'에 연 18% 단리 상한**(§ 687.071: 25% 초과 형사). 1.5%/월은 '상한선'이고 월복리 시 19.6%로 초과. 5%·$25 정액 연체료 별도 가능(Kirschenbaum) H2 신설. 법정이율 **분기 변동(§ 55.03): 2026-10-01부터 7.87%** — 허브의 "8% (as of 2024)"도 틀림(2024는 9.09~9.50%). **County Court $30,000 → $50,000(2023-01-01~)**, § 57.105(7) 변호사비 상호성. FAQ +2(5% 연체료, 월 연체료). 위젯 FL daily cap null → **18**.
+- **Ohio**: "Columbus 등 도시 조례 없음" → **틀림. Columbus Freelance Worker Protections(2023-05-31~, 4개월 $250 이상, 서면계약·30일 지급·보복금지, Chapter 377 신고, 배액배상 없음)**. 정부 이자 "~3–5%" → **ORC 126.30 + 5703.47 = 2026년 7%**(카운티 등 지방정부는 126.30 대상 아님). "월 2%까지 문제없음" → 근거 없음, 1.5% 권장. **핵심 누락 법리: Minster Farmers v. Meyer (2008-Ohio-1259) — 인보이스에만 적힌 이율은 '서면계약' 아님, 양측 동의 문서 필요.** ORC 1343.01 8% 상한은 일시불·사업대출 면제((B)(5)–(6)) 설명으로 교체. Municipal Court "간이 절차" → 정규 민사. FAQ +2.
+- **Minnesota**: **Minneapolis 프리랜서 조례(2021-01-01~, 연 $600 또는 7일 $200, 서면계약·30일·배액 liquidated damages·$250 과태료)** 섹션 신설. **검증 불가 판례 인용(American Druggists v. Thompson Lumber, 349 N.W.2d 569) 삭제.** "1.5% 일반적" → **MN은 § 334.01 8% 상한이 실제 위험한 주 — 보수 권장 8%/년(0.66%/월) + 정액 연체료**로 전환. 미니계산기 기본값 1.5 → 0.66, 위젯 MN m 1.5 → **0.66**(negotiate·discovery·retainer). 판결이자 "6% §334.01" → **§ 549.09: $50,000 이하 연동(법원행정처 연 1회 고시), 초과 10%**. "tied for one of the highest" → "one of the higher (TX $20k, TN·DE $25k 위)".
+- **연쇄 정정**: 허브 표/카드(FL·OH·MN — 보호법 열 "Columbus/Minneapolis ordinance only"), negotiate 비교표 MN 행, Iowa("Twin Cities $15,000 특례" 허위 → MN 주 전역 $15,000), West Virginia(Ohio 행 "8%/10% 서면" → 7%/8% 면제, 시효 varies → 6년, "4~8배" 비율 정정), Alabama(FL 8% → 7.87% 분기 변동).
+- **교훈 누적**: 감사 13개 중 **13개 모두** 오류/누락. 이번에 새 유형 2개: **① 실재하지 않거나 확인 안 되는 판례 인용(MN)** ② **반대로 실재하는 도시 조례를 '없다'고 단정(OH)**. 감사 시 "도시 조례 존재 여부"와 "판례 인용 실재 여부"를 항목에 추가할 것.
+
+**4. 신규 주 추가 안 함** — 10-26 판단 유지(감사 기대값 > 남은 6개 소형 주). 확장 전략은 유지.
+
 ---
 
 ## 다음 세션 시작할 때 체크리스트
@@ -1050,7 +1076,10 @@ Bing NJ/PA 쿼리(`pennsylvania's 1.5% per month ... does nj have a similar stat
 
 ## 현재 열려있는 이슈 (다음에 확인할 것)
 
-- **(2026-10-12, 최우선) 구형 주 페이지 사실 감사(audit) — 매주 클릭 순으로 4~5개씩.** 7월 이전에 1차 출처 없이 쓴 주 페이지에서 이번 주에만 오류 5종이 나왔다(NJ 가공 법률, NJ 소액 한도, IL triple 잔존, MO 판결이자, VA 조문). 각 페이지에서 **① 프리랜서 보호법 존재 여부 ② 소액소송 한도 ③ 기본이율·상한 ④ 소멸시효 ⑤ 판결이자 ⑥ 조문 번호**를 1차 출처로 대조. **대기열(GSC 클릭 순)**: ~~NY → CA → DE → TX~~(10-19) → ~~GA·MI·WI·IN·AZ·PA~~(10-26) → **다음: OH·MA·CO·FL·WA·KY·MN(MN 위젯의 'Minneapolis city ordinance covers freelancers' 문구 존재 여부 우선 확인)·OR·SC·IA** → 나머지(TN·MO·MD·NV·NM·OK·AL·LA·AR·NC·WV·VA·IL 전체 항목). **완료**: NY·CA·DE·TX(10-19, 6항목 전체), NJ·IL·MO·VA(10-12, 단 IL·MO·VA는 지적된 항목만), KS·MS·ID·NE·NH·ME·RI·MT·CT·UT(작성 시 검증). **10-19 감사에서 오류 외에 '빠진 핵심 법리'(TX §38.001 변호사비, NY CPLR 9%)가 더 큰 가치였다 — 감사 때 '이 주에서 프리랜서에게 가장 유리한 조문이 페이지에 있는가'도 같이 볼 것.** 위젯 데이터(S 객체)도 같은 항목이므로 함께 맞출 것.
+- **(2026-11-02) 판정 대기**: ① `sell-overdue-invoice-collection-agency-factoring`(11-02) → 11-23~30에 Bing/GA 진입 확인 ② FL·OH·MN 감사 정정분 → Ohio(GSC 273노출 8.8위 0클릭)가 클릭을 받기 시작하는지 ③ tax guide Bing 첫 클릭이 지속되는지(지속되면 meta 재작성 방식을 다른 Bing 0클릭 페이지 — `freelance-rate-negotiation-guide` 32노출 4.4위, `sending-scope-of-work` 41노출 2.3위 — 에 적용).
+- **(2026-11-02) 분기 갱신 항목 추가**: **Florida 법정이율(§ 55.03)이 분기마다 바뀜** — 현재 7.87%(2026-10-01). 2027-01-01 고시 후 FL 페이지 본문, 허브 표·카드, Alabama 비교표 3곳 갱신. **Ohio 2027년 법정이율**(ORC 5703.47, 매년 10월 고시)도 1월에 OH 페이지·허브·WV 비교표·negotiate 위젯 갱신.
+- **(2026-11-02) 사이트 존속 체크포인트 제안(10-13) 사용자 미응답**: 2027-01 기준 Google organic 월 100 / GSC 월 100클릭 / 수익 경로 1개 — 사용자 동의 전까지 전략 변경 없이 진행.
+- **(2026-10-12, 최우선) 구형 주 페이지 사실 감사(audit) — 매주 클릭 순으로 4~5개씩.** 7월 이전에 1차 출처 없이 쓴 주 페이지에서 이번 주에만 오류 5종이 나왔다(NJ 가공 법률, NJ 소액 한도, IL triple 잔존, MO 판결이자, VA 조문). 각 페이지에서 **① 프리랜서 보호법 존재 여부 ② 소액소송 한도 ③ 기본이율·상한 ④ 소멸시효 ⑤ 판결이자 ⑥ 조문 번호**를 1차 출처로 대조. **대기열(GSC 클릭 순)**: ~~NY → CA → DE → TX~~(10-19) → ~~GA·MI·WI·IN·AZ·PA~~(10-26) → ~~OH·FL·MN~~(11-02) → **다음: MA·CO·WA·KY·OR·SC·IA**(IA는 11-02에 MN 비교 문장만 정정) → 나머지(TN·MO·MD·NV·NM·OK·AL·LA·AR·NC·WV·VA·IL 전체 항목). **완료**: OH·FL·MN(11-02, 6항목 + 도시 조례 + 판례 실재), GA·MI·WI·IN·AZ·PA(10-26), NY·CA·DE·TX(10-19, 6항목 전체), NJ·IL·MO·VA(10-12, 단 IL·MO·VA는 지적된 항목만), KS·MS·ID·NE·NH·ME·RI·MT·CT·UT(작성 시 검증). **10-19 감사에서 오류 외에 '빠진 핵심 법리'(TX §38.001 변호사비, NY CPLR 9%)가 더 큰 가치였다 — 감사 때 '이 주에서 프리랜서에게 가장 유리한 조문이 페이지에 있는가'도 같이 볼 것.** 위젯 데이터(S 객체)도 같은 항목이므로 함께 맞출 것.
 - **(2026-10-12) 사실오류 정정 시 변형 표현 전수 grep 규칙**: 숫자는 `$3,000`/`3,000 dollars`/`3000`, 표현은 `triple`/`treble`/`3×`/`three times`까지. 그리고 **문자열 일괄 replace는 count를 assert로 확인** — 허브 표에서 같은 셀 문자열이 IL·NJ 두 행에 있어 IL까지 바뀌는 사고가 있었다.
 - **(2026-10-19) 주 시리즈 다음 후보**: Hawaii(1.4M) → South Dakota·North Dakota·Alaska·Vermont·Wyoming(전부 1M 미만). **신규 주 페이지는 Google 미크롤·Bing/GA 월 2명 수준**이므로(10-19 CT·UT 판정), 감사 대기열보다 우선하지 말 것.
 - **(2026-10-05, 최우선) 10-13~20 판정**: CT·UT(09-22) 4주 판정, `sending-scope-of-work` 보강(09-22) 판정. **10-26 전후**: KS·MS(09-28) 판정 + B2B 제목 테스트 1차 비교(KS·MS·ID·NE 4개 vs 기존 주 페이지의 vendor/business 쿼리 비율). **11-02 전후**: ID·NE·flat-fee(10-05) 판정 + tax guide meta 재작성 효과(Bing 클릭 발생 여부).
