@@ -195,11 +195,11 @@ Best,
 
   <script>
     function copyTemplate() {
-      var subject = document.querySelector('.subject-line').innerText.replace('Subject:', '').trim();
+      var subject = document.querySelector('.subject-line').innerText.replace(/^\s*subject:\s*/i, '').trim();
       var body = document.getElementById('templateContent').innerText.trim();
       var full = 'Subject: ' + subject + '\n\n' + body;
       navigator.clipboard.writeText(full).then(function() {
-        var btn = document.querySelector('.copy-btn');
+        var btn = document.getElementById('templateContent').closest('.template-box').querySelector('.copy-btn');
         btn.textContent = 'Copied!';
         setTimeout(function() { btn.textContent = 'Copy'; }, 2000);
       });

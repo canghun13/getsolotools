@@ -67,7 +67,7 @@
     "description": "A professional email template for declining a freelance project — politely, clearly, and without burning bridges.",
     "url": "https://getsolotools.com/email-templates/declining-project.html",
     "datePublished": "2026-06-29",
-    "dateModified": "2026-10-05",
+    "dateModified": "2026-11-16",
     "author": { "@type": "Organization", "name": "GetSoloTools", "url": "https://getsolotools.com" },
     "publisher": { "@type": "Organization", "name": "GetSoloTools", "url": "https://getsolotools.com" }
   }
@@ -116,10 +116,18 @@
         "@type": "Answer",
         "text": "Say clearly that you can't take the project as proposed, name the one thing that doesn't work (scope, deadline or rate), and offer up to three alternatives that each hold two of those fixed and move the third: a smaller scope by the same date, the full scope by a later date, or the full scope by the original date at a higher fee. Put a number and a date on each, and make it clear that declining all of them is fine."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I decline a freelancer or agency that has pitched for my project?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Reply promptly, thank them for the specific work in the proposal, say you've chosen another provider with a brief reason if you can give one, and only offer to keep them in mind if you genuinely might hire them later."
+      }
     }
   ]
 }
-  </script>
+</script>
 </head>
 <body>
   <script src="/nav.js"></script>
@@ -224,6 +232,31 @@ Best,
       <p>Three rules keep a counteroffer from turning into a negotiation you lose: give <strong>no more than three options</strong>, put a <strong>number and a date</strong> on each, and say plainly that <strong>"none of these" is an acceptable answer</strong>. If the client comes back pushing on rate, the <a href="/blog/freelance-rate-negotiation-guide.html" style="color:var(--accent);">freelance rate negotiation guide</a> covers how to hold your number, and <a href="/blog/how-to-price-a-freelance-project.html" style="color:var(--accent);">how to price a freelance project</a> shows how to work out what a smaller scope should cost.</p>
     </div>
     <div class="section">
+      <h2>Declining From the Other Side: Turning Down a Freelancer's or Agency's Pitch</h2>
+      <p>If you're the client and a freelancer or agency has pitched for your project, a clear, prompt no is a courtesy — they've usually spent hours on the proposal. Say no, give a short reason if you can, and leave the door open only if you mean it.</p>
+    </div>
+
+    <div class="template-box">
+      <div class="template-header">
+        <strong>Client declining a freelancer's or agency's proposal</strong>
+        <button class="copy-btn" onclick="copyTpl(this)">Copy</button>
+      </div>
+      <div class="subject-line"><span>Subject:</span> Your Proposal for [Project Name]</div>
+      <div class="template-body">Hi [Name],
+
+Thank you for the time you put into your proposal for [project name], and for [the call / the samples you shared].
+
+We've decided to go with another [freelancer / agency] for this project — [brief reason, e.g. their timeline fit our launch date more closely / they had more experience in our industry].
+
+We were impressed by [something specific], and I'd like to keep your details for [future projects / the next phase]. Thanks again, and best of luck with your current work.
+
+Best regards,
+[Your Name]
+[Company]</div>
+    </div>
+
+
+    <div class="section">
       <h2>Frequently Asked Questions</h2>
       <div class="faq-wrap">      <div class="faq-item">
         <h3>Will turning down work hurt my reputation?</h3>
@@ -251,6 +284,10 @@ Best,
       <h2>Related Tools</h2>
       <div class="related-links">
         <a href="/client-proposal.html">Client Proposal Generator</a>
+      <div class="faq-item">
+        <h3>How do I decline a freelancer or agency that has pitched for my project?</h3>
+        <p>Reply promptly, thank them for the specific work in the proposal, say you've chosen another provider with a brief reason if you can give one, and only offer to keep them in mind if you genuinely might hire them later.</p>
+      </div>
       </div>
     </div>
     <div class="related" style="margin-top:24px;">
@@ -272,11 +309,24 @@ Best,
     <p class="footer-copy">&copy; 2026 GetSoloTools. Free tools for freelancers.</p>
   </footer>
   <script>
+    function copyTpl(btn) {
+      var box = btn.closest('.template-box');
+      var subject = box.querySelector('.subject-line').innerText.replace(/^\s*subject:\s*/i, '').trim();
+      var body = box.querySelector('.template-body').innerText.trim();
+      var full = 'Subject: ' + subject + '\n\n' + body;
+      var done = function () {
+        btn.textContent = 'Copied!';
+        setTimeout(function () { btn.textContent = 'Copy'; }, 2000);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(full).then(done, done);
+      } else { done(); }
+    }
     function copyTemplate() {
-      var subject = document.querySelector('.subject-line').innerText.replace('Subject:', '').trim();
+      var subject = document.querySelector('.subject-line').innerText.replace(/^\s*subject:\s*/i, '').trim();
       var body = document.getElementById('templateContent').innerText.trim();
       navigator.clipboard.writeText('Subject: ' + subject + '\n\n' + body).then(function() {
-        var btn = document.querySelector('.copy-btn');
+        var btn = document.getElementById('templateContent').closest('.template-box').querySelector('.copy-btn');
         btn.textContent = 'Copied!';
         setTimeout(function() { btn.textContent = 'Copy'; }, 2000);
       });
