@@ -69,7 +69,7 @@
   "description": "Free Tennessee late fee calculator, plus what TN freelancers need to know about the 10% default rate, the formula rate for written contracts, and the $25,000 small claims limit — one of the highest in the country.",
   "url": "https://getsolotools.com/blog/late-fee-laws-freelancers-tennessee.html",
   "datePublished": "2026-07-18",
-  "dateModified": "2026-07-18",
+  "dateModified": "2026-11-23",
   "author": { "@type": "Organization", "name": "GetSoloTools", "url": "https://getsolotools.com" },
   "publisher": { "@type": "Organization", "name": "GetSoloTools", "url": "https://getsolotools.com" }
 }
@@ -82,12 +82,12 @@
     {
       "@type": "Question",
       "name": "Is there a free Tennessee late fee calculator?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes — use the quick calculator above for an instant estimate at the standard 1.5% monthly rate, or GetSoloTools' full late fee calculator for grace periods, flat fees, compounding, and a downloadable PDF." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — use the quick calculator above for an instant estimate at 0.9% per month (under Tennessee's formula rate), or GetSoloTools' full late fee calculator for grace periods, flat fees, compounding, and a downloadable PDF." }
     },
     {
       "@type": "Question",
       "name": "What late fee rate is enforceable in Tennessee?",
-      "acceptedAnswer": { "@type": "Answer", "text": "If your written contract states a rate, Tennessee applies the formula rate tied to the prime lending rate (Tenn. Code § 47-14-103(2)) as the ceiling for that reference method, but most freelancers simply write a flat rate like 1.5% per month (18% annually) directly into the contract, which courts treat as the agreed rate. If nothing is specified in writing, the default is 10% per year (Tenn. Code § 47-14-103(3))." }
+      "acceptedAnswer": { "@type": "Answer", "text": "A written contract is capped at Tennessee's applicable formula rate — 4 points above the average prime rate, published weekly (Tenn. Code § 47-14-102, -103). In October 2026 that was 11.00% a year, so the common 1.5% per month (18%) is over the line; about 0.9% per month is safe. Without a written contract the maximum is 10% a year." }
     },
     {
       "@type": "Question",
@@ -104,14 +104,14 @@
     <a href="/blog/index.html" class="back-link">← Back to Blog</a>
     <span class="article-tag">Getting Paid</span>
     <h1>Late Fee Laws for Freelancers in Tennessee</h1>
-    <p class="article-meta">July 18, 2026 · 7 min read</p>
+    <p class="article-meta">July 18, 2026 · Updated Nov 23, 2026 · 7 min read</p>
 
     <div class="article-body">
       <p>Tennessee freelancers have an underrated advantage most don't realize until they need it: the state's small claims court can hear disputes up to $25,000 — tied for the highest limit in the entire country. Here's what Tennessee freelancers need to know about late fees, from the default interest rate to collecting through General Sessions Court.</p>
 
       <div class="mini-calc" id="miniCalc">
         <h2>Tennessee Late Fee Calculator</h2>
-        <p class="mini-calc-sub">Quick estimate at the standard 1.5%/month rate. For grace periods, flat fees, and a PDF invoice, use the <a href="/late-payment-fee.html" style="color:var(--accent);">full late fee calculator</a>.</p>
+        <p class="mini-calc-sub">Quick estimate at 0.9%/month — under Tennessee's 11% formula rate (Oct 2026). For grace periods, flat fees, and a PDF invoice, use the <a href="/late-payment-fee.html" style="color:var(--accent);">full late fee calculator</a>.</p>
         <div class="mini-calc-row">
           <div class="mini-calc-field">
             <label for="mcTNAmount">Invoice amount ($)</label>
@@ -123,7 +123,7 @@
           </div>
           <div class="mini-calc-field">
             <label for="mcTNRate">Monthly rate (%)</label>
-            <input type="number" id="mcTNRate" value="1.5" min="0" step="0.1">
+            <input type="number" id="mcTNRate" value="0.9" min="0" step="0.1">
           </div>
         </div>
         <div class="mini-calc-result" id="mcTNResult">Late fee: <strong>$0.00</strong> · Total owed: <strong>$0.00</strong></div>
@@ -147,7 +147,8 @@
       </script>
 
       <h2>Tennessee's Default Rate: 10% — But Written Contracts Can Set Their Own</h2>
-      <p>Under Tennessee's maximum-rate statute (Tenn. Code § 47-14-103), a written contract that references the "formula rate" — a variable rate tied to the average prime lending rate, published monthly by the state — can use that method as its ceiling. In practice, almost no freelance contract does this. Instead, most Tennessee freelancers simply write a flat late fee rate directly into their contract and invoices, such as <strong>1.5% per month (18% annually)</strong>, which courts enforce as the agreed rate as long as it isn't unconscionable. If a contract is silent on interest entirely, Tennessee defaults to <strong>10% per year</strong> (§ 47-14-103(3)) — already higher than the flat default in several neighboring states.</p>
+      <p>Tennessee caps interest by statute, and the ceiling for a written contract is lower than most freelancers assume. Under Tenn. Code § 47-14-103, a written contract signed by the party to be charged is limited to the <strong>applicable formula rate</strong> — 4 percentage points above the average prime rate, capped at 24% (§ 47-14-102). The Department of Financial Institutions publishes it weekly; in October 2026 it was <strong>11.00% a year</strong> (prime 7.00% + 4). So the common 1.5% per month (18% a year) is <em>over</em> Tennessee's ceiling for a written contract. A safe written rate is about <strong>0.9% per month</strong> (10.8% a year) — check the current formula rate before you set it. For transactions not covered by a written contract, the maximum is 10% a year (§ 47-14-103(3)).</p>
+      <p>Non-consumer parties with a reasonable connection to another state can agree in writing which state's interest law governs (§ 47-14-119), which is one way multi-state business contracts end up outside Tennessee's formula rate. A modest one-time late charge for collection costs is a separate question from interest, but keep it proportionate.</p>
 
       <h2>How Tennessee Compares to Nearby States</h2>
       <p>Tennessee borders eight other states, and its combination of a relatively high default rate and an unusually generous small claims limit stands out regionally:</p>
@@ -162,9 +163,9 @@
 
       <h2>Setting Up Enforceable Late Fees in Tennessee</h2>
       <ul>
-        <li><strong>Put your rate in writing.</strong> "Invoices unpaid after 15 days accrue interest at 1.5% per month" is enforceable and clearer than relying on the 10% statutory default.</li>
+        <li>Put your rate in writing — and keep it under the formula rate. "Invoices unpaid after 15 days accrue interest at 0.9% per month" stays under the 11% formula rate published in October 2026.</li>
         <li><strong>Reference the rate on every invoice</strong>, not just the original contract, so it's visible when the client is deciding whether to pay on time.</li>
-        <li><strong>Keep it reasonable.</strong> 1.5–2% per month is standard nationally and well within what Tennessee courts expect from a genuine estimate of damages rather than a punitive penalty.</li>
+        <li>Don't copy the national 1.5% default. It's above Tennessee's written-contract ceiling; check the weekly formula rate from the Department of Financial Institutions.</li>
         <li><strong>Track invoice dates carefully.</strong> Written contract claims must be filed within <strong>6 years</strong> under Tenn. Code § 28-3-109(a)(3), so keep dated records for as long as a balance remains open.</li>
       </ul>
 
@@ -173,9 +174,9 @@
       </div>
 
       <h2>Collecting in Tennessee</h2>
-      <p>Tennessee's General Sessions Court — the state's version of small claims court — handles civil money disputes up to $25,000 (Tenn. Code § 16-15-501), with no attorney required, though attorneys are permitted on either side. Four counties (Anderson, Davidson, Hamilton, and Knox) cap General Sessions claims at $15,000 instead, so check your county before filing.</p>
+      <p>Tennessee's General Sessions Court — the state's version of small claims court — handles civil money disputes up to $25,000 (Tenn. Code § 16-15-501), with no attorney required, though attorneys are permitted on either side. The $25,000 limit applies in every county.</p>
       <ul>
-        <li>Tennessee General Sessions Court: up to $25,000 in most counties ($15,000 in Anderson, Davidson, Hamilton, and Knox) — attorneys allowed but not required</li>
+        <li>Tennessee General Sessions Court: up to $25,000 in all counties — attorneys allowed but not required</li>
         <li>Written contract statute of limitations: 6 years (Tenn. Code § 28-3-109(a)(3))</li>
         <li>Post-judgment interest: accrues at the published formula rate under Tenn. Code § 47-14-121</li>
       </ul>
@@ -185,17 +186,17 @@
         <a href="/late-payment-fee.html" class="cta-btn">Calculate Late Fees →</a>
       </div>
 
-      <p>Tennessee gives freelancers two real advantages most don't use: a 10% default rate that beats several neighboring states, and a $25,000 small claims ceiling that keeps most invoice disputes out of expensive formal litigation. Write your own rate into every contract, invoice consistently, and lean on General Sessions Court when a client won't pay.</p>
+      <p>Tennessee gives freelancers two real advantages most don't use: a 10% default rate that beats several neighboring states, and a $25,000 small claims ceiling that keeps most invoice disputes out of expensive formal litigation. Write a rate under the formula rate into every contract, invoice consistently, and lean on General Sessions Court when a client won't pay.</p>
 
       <h2>Frequently Asked Questions</h2>
       <div style="border-top:1px solid #e5e5e2;">
         <details style="border-bottom:1px solid #e5e5e2;padding:1rem 0;">
           <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">Is there a free Tennessee late fee calculator? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
-          <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Yes — use the quick calculator above for an instant estimate at the standard 1.5% monthly rate, or GetSoloTools' full late fee calculator for grace periods, flat fees, compounding, and a downloadable PDF.</p>
+          <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">Yes — use the quick calculator above for an instant estimate at 0.9% per month (under Tennessee's formula rate), or GetSoloTools' full late fee calculator for grace periods, flat fees, compounding, and a downloadable PDF.</p>
         </details>
         <details style="border-bottom:1px solid #e5e5e2;padding:1rem 0;">
           <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">What late fee rate is enforceable in Tennessee? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
-          <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">If your written contract states a rate, Tennessee applies the formula rate tied to the prime lending rate (Tenn. Code § 47-14-103(2)) as the ceiling for that reference method, but most freelancers simply write a flat rate like 1.5% per month (18% annually) directly into the contract, which courts treat as the agreed rate. If nothing is specified in writing, the default is 10% per year (Tenn. Code § 47-14-103(3)).</p>
+          <p style="margin:0.75rem 0 0;font-size:0.95rem;line-height:1.75;color:#444;">A written contract is capped at Tennessee's applicable formula rate — 4 points above the average prime rate, published weekly (Tenn. Code § 47-14-102, -103). In October 2026 that was 11.00% a year, so the common 1.5% per month (18%) is over the line; about 0.9% per month is safe. Without a written contract the maximum is 10% a year.</p>
         </details>
         <details style="border-bottom:1px solid #e5e5e2;padding:1rem 0;">
           <summary style="font-weight:600;font-size:1rem;cursor:pointer;color:#1a1a1a;list-style:none;display:flex;justify-content:space-between;align-items:center;">How does Tennessee's small claims limit compare to nearby states? <span style="color:#2d5be3;font-size:1.2rem;">+</span></summary>
